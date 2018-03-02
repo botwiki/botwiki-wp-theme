@@ -1,0 +1,59 @@
+ul.btn-list{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2em;
+
+  li{
+    display: inline;
+  }
+}
+
+a.btn{
+  font-family: "Oswald ", sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+
+  @media (max-width: $site-width-small){
+    padding: 8px 10px;
+  }
+  
+  color: $color-primary !important;
+  border-radius: 5px;
+  background-color: #fafafa;
+  font-size: 0.9em;
+  box-shadow: 2px 2px $color-primary + #555;
+
+  &:hover{
+    box-shadow: 1px 1px 0 $color-primary + #222;
+    color: $color-primary;
+    text-decoration: none;
+    background-color: #fafafa - #111;
+  }
+
+  &,
+  &:hover{
+    transition: background-color 0.2s;
+    text-decoration: none;
+  }
+
+  &, &-link{
+    white-space: nowrap;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    @media (max-width: $site-width-small){
+      padding: 8px 10px;
+      margin-bottom: 1em;
+    }
+
+
+  }
+
+  &-link{
+    text-decoration: underline;
+  }
+}
+
+.note{
+  a.btn{
+    margin-bottom: 0;
+  }
+}

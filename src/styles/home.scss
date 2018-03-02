@@ -1,0 +1,31 @@
+/* Home page styles */
+
+body.home article,
+div#menu-wrapper{
+  z-index: 200;
+  h1{
+    font-size: 9rem;
+    font-weight: bold;
+    margin: 2rem 0;    
+  }
+  h2{
+    font-family: $body-font-family;
+    text-transform: lowercase;
+    margin-top: 3rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;    
+  }
+  main{
+    min-height: 70vh;
+  }
+  a, a:hover{
+    color: $link-color-alternate;
+    text-decoration: none;      
+  }
+}
+
+.hover-box{
+  &:hover{
+    background-color: $background-alternate;
+  }
+}

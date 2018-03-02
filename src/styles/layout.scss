@@ -1,0 +1,246 @@
+body{
+  &.menu-open{
+    overflow: hidden;
+  }
+
+  &.admin-bar{
+      
+    .navbar-brand{
+      top: 42px !important;
+      @media(max-width: $site-width-small){
+        top: 62px;
+      }     
+    }
+
+    #menu-icon{
+      top: 42px !important;
+      @media(max-width: $site-width-small){
+        top: 62px;
+      }     
+    }
+
+  }
+
+  & > .container{
+    // padding: 60px 15px 0;
+  }
+
+  .container{
+    width: 100% !important;
+    max-width: $max-content-width !important;
+  }
+
+}
+
+img{
+  max-width: 100%;
+
+  .card &{
+    height: 280px;
+    object-fit: cover;
+  }
+}
+
+.site-width{
+  max-width: $site-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Site navigation */
+
+
+nav{
+  pointer-events: none;
+  font-family: 'Anton';
+  min-height: 5em;
+  #menu-toggle{
+    display: none;
+
+    &:checked + #menu-wrapper{
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+      transition: transform 0.3s, opacity 0.1s;
+
+      li{
+        transform: none;
+        opacity: 1;
+      }
+
+    }
+  }
+  
+  .navbar-brand{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    font-size: 2em;
+    @media(max-width: $site-width-small){
+      top: 5px;
+      left: 5px;
+      font-size: 2.5em;
+    }     
+  }
+
+  #menu-icon{
+    z-index: 300;
+    font-size: 1.7em;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+    pointer-events: all;
+    @media(max-width: $site-width-small){
+      font-size: 2.5em;
+    }
+
+    body.menu-open &{
+      font-size: 4rem;
+      @media(max-width: $site-width-small){
+        font-size: 7rem;
+      }
+
+    }
+  }
+
+  li > a{
+    display: inline !important;
+    font-size: 2em;
+    padding: 0 5px !important;
+    line-height: 1.5em;
+    color: $color-primary;
+    &:hover{
+      color: $background-primary;
+      background-color: $color-primary;
+    }
+  }
+}
+
+#menu-wrapper{
+  position: absolute;
+  max-height: 100%;
+  padding-bottom: 2em;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 60px;
+  background-color: $background-primary;
+  opacity: 0;  
+  pointer-events: none;
+  transform: translateY(-5%);
+  transition: transform 0.5s, opacity 0.1s;
+  min-height: 100vh;
+
+  li{
+    text-transform: uppercase;
+    transform: translateY(-55%);
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.3s;  
+  }
+
+  @for $i from 0 to 10 {
+    li:nth-child(#{$i+1}) {
+      transition-delay: #{$i*0.05}s;
+    }
+  }
+
+  .row{
+    align-self: flex-start;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+ul.navbar-nav{  
+  &, li.menu-item{
+    display: block;
+  }
+}
+
+/* Site thumbnail */
+
+.thumbnail-wrapper{
+  text-align: center;
+}
+
+/* Site footer */
+
+.footer{
+  .footer-callout{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .footer-logo{
+    &-do{
+      height: 1.15em;
+      vertical-align: sub;
+    }
+  }
+}
+
+// .footer{
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 60px;
+//   line-height: 60px;
+//   background-color: #f5f5f5;  
+// }
+
+
+
+/* Fluid video embeds, via css-tricks.com. */
+
+video {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.video-background{
+  background-color: #000;
+  height: 315px;
+  margin: 2em 0;
+}
+
+.video-wrapper {
+  position: relative;
+  margin: 3em auto;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 315px;
+  max-width: 600px;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    height: 315px;
+  }
+}
+
+
+/* Notes */
+
+.note{
+  background-color: $background-alternate;
+  font-weight: bold;
+  margin-bottom: 4rem;
+  padding: 1em 1em 0.5em;  
+}
+
+
+/* Pagination */
+
+.pagination{
+  a, span{
+    padding: 5px !important;
+  }
+}

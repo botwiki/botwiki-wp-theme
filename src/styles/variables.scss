@@ -1,0 +1,24 @@
+/* Site dimensions */
+
+$max-content-width: 1024px;
+$site-width: 1500px;
+$site-width-medium: 900px;
+$site-width-small: 860px;
+$footer-height: 130px;
+
+/* Fonts */
+
+$body-font-family: 'Open Sans', sans-serif;
+$title-font-family: 'Anton', sans-serif;
+
+/* Colors */
+
+$color-primary: #4d4350;
+$background-primary: #fff;
+$background-alternate: #f3f3f3;
+
+$link-color: #4A89DC;
+$link-color-hover: $link-color + #111;
+
+$link-color-alternate: $color-primary;
+$link-color-alternate-hover: $link-color-alternate + #333;
