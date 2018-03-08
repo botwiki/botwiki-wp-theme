@@ -98,7 +98,7 @@
               <div class="col-sm-12 col-md-4">
                 <ul class="footer-list">
                   <li class="list-header">Support us</li>
-                  <li><a href="<?php echo site_url(); ?>/about/support">Support page</a></li>
+                  <li><a href="<?php echo site_url(); ?>/about/support-us">Support us</a></li>
                   <li><a href="https://www.patreon.com/botwiki">Patreon</a></li>
                   <li><a href="https://www.paypal.me/botwiki">PayPal</a></li>
                   <!-- <li><a href="<?php //echo site_url(); ?>/merch">Botwiki Store</a></li> -->
