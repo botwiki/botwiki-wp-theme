@@ -208,10 +208,12 @@ class BotsPostType {
     <table class="w-100">
       <tr>
         <td class="w-33 w-m-100">
-          <label for="bot_author_url">Bot's URL</label>
+          <label for="bot_author_url">Bot's URL(s) (One per line)</label>
         </td>
         <td class="w-77 w-m-100">
-          <input type="text" class="w-100" name="bot_url" value="<?php echo $bot_meta['bot_url'][0]; ?>">
+          <textarea class="w-100" name="bot_url" rows="5"><?php echo $bot_meta['bot_url'][0]; ?></textarea>
+
+
         </td>
       </tr>
       <tr>

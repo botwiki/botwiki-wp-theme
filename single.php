@@ -16,11 +16,9 @@
 	    $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 		?>
 			<div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-				<a href="<?php echo ($post_type == 'bot' ? get_post_meta( $post_id, 'bot_url', true ) : get_permalink() ); ?>" title="<?php the_title(); ?>">
-					<?php
-						the_post_thumbnail('post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ]);
-					?>
-				</a>
+				<?php
+					the_post_thumbnail('post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ]);
+				?>
 			</div>
 		<?php } ?>
 		<!-- /post thumbnail -->
@@ -35,11 +33,21 @@
 
 
 	        <?php
-	        if ($post_type == 'bot'){ 
+	        if ($post_type == 'bot'){ ?>
+	        	<ul class="btn-list">
+						<?php
+
+						foreach (explode('\n', $post_meta['bot_url'][0]) as $url) {
+			        $domain = str_replace('www.', '', parse_url($url)['host']);
+
+							?>
+	            <li>
+	              <a class="btn" href="<?php echo $url; ?>">View on <?php echo $domain; ?></a>
+	            </li>
+						<?php }
 	          $bot_languages = wp_get_post_terms($post_id, 'programing_language');
 
 	          if ( array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){ ?>
-	        	<ul class="btn-list">	          
 	            <li>
 	              <a class="btn view-source" href="<?php echo $post_meta['bot_source_url'][0]; ?>">View source</a>
 	            </li>
@@ -62,9 +70,9 @@
 	                  </li>
 	                <?php }
 	              } ?>
+							<?php } ?>
 	              </ul>
-							<?php }
-	          }
+	          <?php }
 	        ?>
 	      
 
