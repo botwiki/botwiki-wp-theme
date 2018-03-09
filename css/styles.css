@@ -552,7 +552,7 @@ a.btn {
   a.btn-link {
     text-decoration: underline; }
 
-.note a.btn {
+.note a.btn, .card a.btn {
   margin-bottom: 0; }
 
 .cursor-pointer {

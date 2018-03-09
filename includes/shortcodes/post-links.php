@@ -174,6 +174,9 @@ class Post_Links {
                            '        <a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">Browse</a>' .
                            '      </div>' .
                            '    </div>';
+        if ( count($post_ids) === 1 ){
+          $link_list_html .= '<div class="card d-none d-sm-block" style="visibility: hidden;"></div>';
+        }
       }
 
       $link_list_html .= '</div><div>&nbsp;</div>';
