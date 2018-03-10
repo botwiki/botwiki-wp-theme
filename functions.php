@@ -103,9 +103,15 @@ function botwiki_site_nav(){
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts(){
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-    wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.js', array( 'jquery' ));
+
+    $js_file_path = get_template_directory() . '/libs/bootstrap/bootstrap.min.js';
+
+    wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.js', array( 'jquery' ), filemtime( $js_file_path ));
     wp_enqueue_script( 'bootstrap-js' );
-    wp_register_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ), '1.0.0' );
+
+    $js_file_path = get_template_directory() . '/js/scripts.min.js';
+
+    wp_register_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ), filemtime( $js_file_path ) );
     wp_enqueue_script( 'scripts' );
   }
 }
@@ -131,11 +137,14 @@ function load_highlight_js(){
 }
 
 function load_styles(){
-  $css_file_path = get_stylesheet_directory() . '/css/styles.min.css';
+  $css_file_path = get_stylesheet_directory() . '/libs/bootstrap/bootstrap.min.css';
 
   wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.css', array(), filemtime( $css_file_path ), 'all' );
   wp_enqueue_style( 'bootstrap-styles' );
-  wp_register_style( 'styles', get_template_directory_uri() . '/css/styles.min.css', array(), '1.0', 'all' );
+
+  $css_file_path = get_stylesheet_directory() . '/css/styles.min.css';
+
+  wp_register_style( 'styles', get_template_directory_uri() . '/css/styles.min.css', array(), filemtime( $css_file_path ), 'all' );
   wp_enqueue_style( 'styles' );
 }
 
