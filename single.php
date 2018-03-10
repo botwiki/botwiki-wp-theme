@@ -37,9 +37,13 @@
 	        	<ul class="btn-list">
 						<?php
 
-						foreach (explode('\n', $post_meta['bot_url'][0]) as $url) {
-			        $domain = str_replace('www.', '', parse_url($url)['host']);
+						$bot_urls = preg_split('/\n|\r\n?/', $post_meta['bot_url'][0]);
 
+						foreach ($bot_urls as $url) {
+							$info = parse_url($url);
+							$host = $info['host'];
+							$host_names = explode(".", $host);
+							$domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
 							?>
 	            <li>
 	              <a class="btn" href="<?php echo $url; ?>">View on <?php echo $domain; ?></a>
