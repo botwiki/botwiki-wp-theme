@@ -158,11 +158,11 @@
             mkdir( ABSPATH . 'temp/' , 0777, true);
           }
 
-          if ( !file_exists( $image_path ) ) {
-            touch( $image_path );
-          }
+          // if ( !file_exists( $image_path ) ) {
+          //   touch( $image_path );
+          // }
 
-          $ifp = fopen( $image_path, 'w' ); 
+          $ifp = fopen( $image_path, 'w+' ); 
           fwrite( $ifp, base64_decode( $screenshot_data_json->screenshot->data ) );
           fclose( $ifp ); 
 
