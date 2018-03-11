@@ -104,8 +104,6 @@
 
       $screenshotable_url = str_replace( array( "\n", "\r" ), '', $screenshotable_url );
 
-      error_log( 'making a screenshot from ' . $screenshotable_url . ' ...' );
-
       $bot_tags = array();
 
       foreach ($_POST['bot-tags'] as $bot_tag) {
@@ -174,6 +172,11 @@
           } catch (Exception $e) { /* NOOP */ }
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
+
+
+          global $wpdb;
+          $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
+          $wpdb->query($query);
 
         } catch (Exception $e) {
           /* NOOP */
