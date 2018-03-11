@@ -62,7 +62,7 @@
 	                    <a class="btn glitch-remix" href="https://gomix.com/#!/import/<?php echo str_replace('https://github.com/', 'github/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
 	                  </li>
 	                  <li>
-	                    <a href="<?php echo get_site_url(); ?>/tutorials/hosting-bots-glitch">What is Glitch?</a>
+	                    <a href="<?php echo get_site_url(); ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
 	                  </li>
 	                <?php }
 	                if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'glitch.com/edit/#!/') > -1){ ?>
@@ -70,7 +70,7 @@
 	                    <a class="btn glitch-remix" href="<?php echo str_replace('edit/#!/', 'edit/#!/remix/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
 	                  </li>
 	                  <li>
-	                    <a href="<?php echo get_site_url(); ?>/tutorials/hosting-bots-glitch">What is Glitch?</a>
+	                    <a href="<?php echo get_site_url(); ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
 	                  </li>
 	                <?php }
 	              } ?>

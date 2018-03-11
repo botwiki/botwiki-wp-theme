@@ -11,6 +11,7 @@ require_once 'vendor/autoload.php';
 External Modules/Files
 \*------------------------------------*/
 
+require 'includes/helpers.php';
 require 'includes/navbar.php';
 require 'includes/background-image-dominant-color.php';
 require 'includes/header-links.php';

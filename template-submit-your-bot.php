@@ -1,10 +1,13 @@
 <?php
+  use ColorThief\ColorThief;
+
   /* Template Name: Submit Your Bot Page Template */
   get_header();
   $post_id = get_the_ID();
 
   if ( !empty( $_POST ) ){
     if (
+      ( isset( $_POST['bot-name'] ) && !empty( $_POST['bot-name'] ) ) &&
       ( isset( $_POST['bot-description'] ) && !empty( $_POST['bot-description'] ) ) &&
       ( isset( $_POST['bot-networks'] ) && !empty( $_POST['bot-networks'] ) ) &&
       ( isset( $_POST['bot-urls'] ) && !empty( $_POST['bot-urls'] ) ) &&
@@ -12,6 +15,168 @@
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
 
+      // error_log( print_r( $_POST, true ) );
+
+      function add_post_thumbnail( $post_id, $image_path, $description ){
+        $upload_dir = wp_upload_dir();
+        $image_data = file_get_contents($image_path);
+        $filename = basename($image_path);
+        if(wp_mkdir_p($upload_dir['path']))     $file = $upload_dir['path'] . '/' . $filename;
+        else                                    $file = $upload_dir['basedir'] . '/' . $filename;
+        file_put_contents($file, $image_data);
+
+        $wp_filetype = wp_check_filetype($filename, null );
+        $attachment = array(
+          'post_mime_type' => $wp_filetype['type'],
+          'post_title' => $description,
+          'post_content' => '',
+          'post_status' => 'inherit'
+        );
+        $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+        $res1 = wp_update_attachment_metadata( $attach_id, $attach_data );
+        $res2 = set_post_thumbnail( $post_id, $attach_id );
+      }
+
+
+      $bot_authors = array();
+
+      foreach ($_POST['author-names'] as $index => $author_name) {
+        if (!empty( $_POST['author-names'][$index] )){
+          array_push($bot_authors, trim( $author_name ) . 
+                    ( array_key_exists( $index, $_POST['author-urls']  ) && !empty( $_POST['author-urls'][$index] )
+                    ? ', ' . trim( $_POST['author-urls'][$index] ) : '' ) );
+        }
+      }
+
+      $bot_author_info = implode( "\n", $bot_authors );
+      $bot_description = trim($_POST['bot-description'] );
+      $bot_urls = trim( $_POST['bot-urls'] );
+
+      $post_content = '';
+
+      global $helpers;
+
+      $main_bot_url = str_replace( array( "\n", "\r" ), '', explode("\n", $bot_urls )[0] );      
+
+      if ( count( $_POST['bot-networks'] ) == 1 ){
+
+        $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
+                      . get_term( $_POST['bot-networks'][0], 'network' )->name
+                      . " bot that\n\n"
+                      . $bot_description . "</p>";
+      }
+      else{
+
+        function get_network_name( $network_term_id ){
+          return get_term( $network_term_id, 'network' )->name;
+        }
+
+        $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a bot for '
+                      . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks']) )
+                      . " that\n\n"
+                      . $bot_description . "</p>";        
+      }
+
+
+      $bot_meta = array();
+      $bot_meta['bot_url'] = implode( "\n", explode("\n", $bot_urls ) );
+      $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
+
+      $screenshotable_url = false;
+
+      foreach ( explode("\n", $bot_urls ) as $bot_url) {
+        if ( strpos( $bot_url, 'twitter.com/') ){
+          $screenshotable_url = $bot_url;
+        }
+      }
+
+      if ( $screenshotable_url === false ){
+        foreach ( explode("\n", $bot_urls ) as $bot_url) {
+          if ( strpos( $bot_url, 'tumblr.com/') ){
+            $screenshotable_url = $bot_url;
+          }
+        }      
+      }
+
+      $screenshotable_url = str_replace( array( "\n", "\r" ), '', $screenshotable_url );
+
+      error_log( 'making a screenshot from ' . $screenshotable_url . ' ...' );
+
+      $bot_tags = array();
+
+      foreach ($_POST['bot-tags'] as $bot_tag) {
+        array_push( $bot_tags, intval( $bot_tag ) );
+      }
+
+      if ( isset( $_POST['bot-source-url'] ) && !empty( $_POST['bot-source-url'] ) ){
+        array_push( $bot_tags, 'opensource' );
+      }
+
+
+      $post_data = array(
+        'post_author' => ( is_user_logged_in() ? get_current_user_id() : 2 ),
+        'post_content' => $post_content,
+        'post_title' => $_POST['bot-name'],
+        'post_excerpt' => $_POST['bot-tagline'],
+        'post_status' => 'draft',
+        'post_type' => 'bot',
+        'post_category' => '',
+        'tax_input' => array(
+          'post_tag' => $bot_tags
+        ),
+        'meta_input' => $bot_meta
+      );
+
+      $new_post_id = wp_insert_post($post_data);
+
+      update_post_meta($new_post_id, 'bot_author_info', $bot_author_info);
+
+      foreach ($bot_meta as $key => $value) {
+        update_post_meta( $new_post_id, $key, $value );
+      }
+
+      foreach ($_POST['bot-networks'] as $network) {
+        wp_set_object_terms( $new_post_id, intval( $network ), 'network' );
+      }
+
+      foreach ($_POST['bot-source-language'] as $language) {
+        wp_set_object_terms( $new_post_id, intval( $language ), 'programing_language' );
+      }
+
+      if ( $screenshotable_url !== false ){
+        $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
+
+        try {
+          // TODO: Proper error handling.
+          $screenshot_data_json = json_decode( $screenshot_data );
+  
+          $image_path = ABSPATH . 'temp/' . str_replace( '@', '', $_POST['bot-name'] ) . '.png';
+
+          if ( !file_exists(  ABSPATH . 'temp/' ) ) {
+            mkdir( ABSPATH . 'temp/' , 0777, true);
+          }
+
+          if ( !file_exists( $image_path ) ) {
+            touch( $image_path );
+          }
+
+          $ifp = fopen( $image_path, 'w' ); 
+          fwrite( $ifp, base64_decode( $screenshot_data_json->screenshot->data ) );
+          fclose( $ifp ); 
+
+          try {
+            $dominant_color = ColorThief::getColor($image_path);
+            update_post_meta($new_post_id, 'dominant_color', json_encode($dominant_color));
+          } catch (Exception $e) { /* NOOP */ }
+
+          add_post_thumbnail( $new_post_id, $image_path, $bot_description );
+
+        } catch (Exception $e) {
+          /* NOOP */
+        }
+      }
     ?>
       <main role="main" class="container-fluid m-0 p-0">
         <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
@@ -68,33 +233,42 @@
       <div class="container">
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
           <h1><?php the_title(); ?></h1>
-<!-- 
-          <ul class="btn-list">
-            <li>
-              <button class="btn" id="test" href="#">Test</button>
-            </li>
-            <li>
-              <a class="btn" href="#">Button</a>
-            </li>
-            <li>
-              <a class="btn" href="#">Button</a>
-            </li>
-          </ul>
- -->
+
+          <?php if (is_user_logged_in()) {?>
+            <ul class="btn-list">
+              <li>
+                <button class="btn" id="test" href="#">Test</button>
+              </li>
+  <!-- 
+              <li>
+                <a class="btn" href="#">Button</a>
+              </li>
+              <li>
+                <a class="btn" href="#">Button</a>
+              </li>
+   -->
+            </ul>
+
+          <?php } ?>
+
           <?php echo get_post_field('post_content', $post_id) ?>
-          <form method="post" class="mt-5">
+          <form id="submit-bot-form" method="post" class="mt-5">
             <div class="author-fields form-row">
               <div class="form-group col-md-6">
                 <label for="author-1-name">Author's name</label>
-                <input type="text" class="form-control" id="author-1-name" name="author-1-name" placeholder="Author">
+                <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
               </div>
               <div class="form-group col-md-6">
                 <label for="author-1-url">Author's URL</label>
-                <input type="url" class="form-control" id="author-1-url" name="author-1-url" placeholder="https://twitter.com/author">
+                <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
               </div>
             </div>
             <div class="form-group">
               <button id="add-author-fields" class="btn">Add more authors</button>
+            </div>
+            <div class="form-group">
+              <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
+              <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot">
             </div>
             <div class="form-group">
               <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
@@ -125,13 +299,11 @@
               <textarea required class="form-control" id="bot-urls" name="bot-urls" rows="3" placeholder="https://twitter.com/mycoolbot&#x0a;https://mycoolbot.tumblr.com"></textarea>
               <small id="bot-urls-help" class="form-text text-muted">Links to your bot, one on each line, please.</small>
             </div>
-
             <div class="form-group">
               <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
               <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff.">
               <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
             </div>
-
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
               <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
@@ -180,7 +352,7 @@
 
 
 
-            <button type="submit" class="btn mt-4">Okay, looks good</button>
+            <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
           </form>
         </article>
       </div>
