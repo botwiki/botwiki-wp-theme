@@ -15,6 +15,8 @@
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
 
+      wp_mail( 'stefan@botwiki.org', 'New bot submission', print_r( $_POST, true ) );      
+
       // error_log( print_r( $_POST, true ) );
 
       function add_post_thumbnail( $post_id, $image_path, $description ){
