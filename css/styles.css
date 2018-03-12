@@ -524,13 +524,14 @@ ul.btn-list {
 .btn {
   font-family: "Oswald ", sans-serif;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 14px;
   color: #4d4350 !important;
   border-radius: 5px;
   background-color: #fafafa;
   font-size: 0.9em;
   -webkit-box-shadow: 2px 2px #a298a5;
           box-shadow: 2px 2px #a298a5; }
-  @media (max-width: 860px) {
+  @media (min-width: 860px) {
     .btn {
       padding: 8px 10px; } }
   .btn:hover {
@@ -550,7 +551,6 @@ ul.btn-list {
     margin-bottom: 0.5em; }
     @media (max-width: 860px) {
       .btn, .btn-link {
-        padding: 8px 10px;
         margin-bottom: 1em; } }
   .btn-link {
     text-decoration: underline; }

@@ -12,7 +12,9 @@ ul.btn-list{
   font-family: "Oswald ", sans-serif;
   border: 1px solid rgba(0, 0, 0, 0.5);
 
-  @media (max-width: $site-width-small){
+  padding: 14px;
+
+  @media (min-width: $site-width-small){
     padding: 8px 10px;
   }
   
@@ -40,11 +42,8 @@ ul.btn-list{
     margin-right: 0.5em;
     margin-bottom: 0.5em;
     @media (max-width: $site-width-small){
-      padding: 8px 10px;
       margin-bottom: 1em;
     }
-
-
   }
 
   &-link{
