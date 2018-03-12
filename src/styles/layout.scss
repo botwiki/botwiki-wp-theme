@@ -167,6 +167,12 @@ ul.navbar-nav{
 
 .thumbnail-wrapper{
   text-align: center;
+  img{
+    @media(max-width: $site-width-small){
+      height: 35vh;
+      object-fit: cover;    
+    }
+  }
 }
 
 /* Site footer */

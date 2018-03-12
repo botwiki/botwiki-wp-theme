@@ -179,6 +179,11 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 /* Site thumbnail */
 .thumbnail-wrapper {
   text-align: center; }
+  @media (max-width: 860px) {
+    .thumbnail-wrapper img {
+      height: 35vh;
+      -o-object-fit: cover;
+         object-fit: cover; } }
 
 /* Site footer */
 .footer .footer-callout {
