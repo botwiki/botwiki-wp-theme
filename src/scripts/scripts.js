@@ -2,6 +2,7 @@
 
 $ = jQuery.noConflict(true);
 
+import {search} from "./search.js";
 import {menu_toggle} from "./menu-toggle.js";
 import {back_to_top} from "./back-to-top.js";
 import {bot_submission} from "./submit-your-bot.js";
@@ -16,6 +17,7 @@ import {lazyLoaderFn} from "./lazy-load-images.js";
 
 
 $(function() {
+  search.init();
   menu_toggle.init();
   back_to_top.init();
   bot_submission.init();

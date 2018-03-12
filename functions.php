@@ -12,6 +12,7 @@ External Modules/Files
 \*------------------------------------*/
 
 require 'includes/helpers.php';
+require 'includes/search-filters.php';
 require 'includes/navbar.php';
 require 'includes/background-image-dominant-color.php';
 require 'includes/header-links.php';
