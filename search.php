@@ -28,7 +28,6 @@
           <div class="text-left mt-3">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" role="button">Search</button>
           </div>
-
         </div>
       </form>
 
