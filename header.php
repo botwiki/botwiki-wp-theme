@@ -34,13 +34,19 @@
           );
         }
 
-        $page_title .= '#' . implode( ' #', $page_tags );
+        $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
       }
       elseif ( is_author() ) {
         $author = get_queried_object();
         $page_title = $author->nickname;
         $page_thumbnail = get_avatar_url( $author->ID );
-
+      }
+      elseif ( is_tag() ) {
+        global $wp_query;
+        $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
+  
+        $page_title = "Posts tagged #" . implode( ' #', $tags );
+        $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_search() ) {
         $page_title = 'Searching Botwiki for "' . $_GET['s'] . '"...';
