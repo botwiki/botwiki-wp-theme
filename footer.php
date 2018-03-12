@@ -28,7 +28,7 @@
             <?php
             global $wp;
             global $page_title;
-            $page_title = urlencode( str_replace( ' | ' . get_bloginfo('name'), ' on ' . get_bloginfo('name'), $page_title ) );
+            $page_title = urlencode( str_replace( ' | ' . get_bloginfo('name'), '', $page_title ) );
             ?>
             <ul class="sharing-is-caring">
               <li>
