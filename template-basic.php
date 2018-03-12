@@ -2,6 +2,9 @@
   /* Template Name: Basic Page Template */
   get_header();
   $post_id = get_the_ID();
+  $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
+  $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+  $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">

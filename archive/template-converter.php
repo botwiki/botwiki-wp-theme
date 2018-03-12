@@ -1,5 +1,4 @@
 <?php
-/* Template Name: Converter */ 
 use ColorThief\ColorThief;
 $Parsedown = new Parsedown();
 
