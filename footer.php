@@ -25,30 +25,34 @@
         <div class="container-fluid background-alternate p-5">
           <div class="container share-prompt">
             <h3>Share this <?php echo (is_front_page() ? 'site' : 'page' );?></h3>
-            <?php global $wp; ?>
+            <?php
+            global $wp;
+            global $page_title;
+            $page_title = urlencode( str_replace( ' | ' . get_bloginfo('name'), ' on ' . get_bloginfo('name'), $page_title ) );
+            ?>
             <ul class="sharing-is-caring">
               <li>
-              <a href="https://twitter.com/intent/tweet?source=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;text=Cataloging the world of creative bots, clumsy AI, and machine ethics.%20<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;via=botwikidotorg" target="_blank" title="Tweet"><img alt="Tweet" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/twitter.svg"></a>
+              <a href="https://twitter.com/intent/tweet?source=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;text=<?php echo $page_title; ?>%20<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;via=botwikidotorg" target="_blank" title="Tweet"><img alt="Tweet" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/twitter.svg"></a>
               </li>
               <li>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>" target="_blank" title="Share on Facebook"><img alt="Share on Facebook" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/facebook.svg"></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>" target="_blank" title="Share on Facebook"><img alt="Share on Facebook" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/facebook.svg"></a>
               </li>
               <li>
-              <a href="https://plus.google.com/share?url=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/google-plus.svg"></a>
+              <a href="https://plus.google.com/share?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/google-plus.svg"></a>
               </li>
               <li>
-              <a href="https://pinterest.com/pin/create/button/?url=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;description=Cataloging the world of creative bots, clumsy AI, and machine ethics." target="_blank" title="Pin on Pinterest"><img alt="Pin on Pinterest" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pinterest.svg"></a>
+              <a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;description=<?php echo $page_title; ?>" target="_blank" title="Pin on Pinterest"><img alt="Pin on Pinterest" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pinterest.svg"></a>
               </li>
               <li>
-              <a href="https://www.reddit.com/submit?url=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;title=Cataloging the world of creative bots, clumsy AI, and machine ethics." target="_blank" title="Post on Reddit"><img alt="Post on Reddit" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/reddit.svg"></a>
+              <a href="https://www.reddit.com/submit?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;title=<?php echo $page_title; ?>" target="_blank" title="Post on Reddit"><img alt="Post on Reddit" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/reddit.svg"></a>
               </li>
               <li>
-              <a href="mailto:?subject=Cataloging the world of creative bots, clumsy AI, and machine ethics.&amp;body=Botwiki is a collection of useful, friendly, and artistic online bots, and resources for making them.:%20<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>" target="_blank" title="Send an email"><img alt="Send an email" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/email.svg"></a>
+              <a href="mailto:?subject=<?php echo $page_title; ?>&amp;body=Botwiki is a collection of useful, friendly, and artistic online bots, and resources for making them.:%20<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>" target="_blank" title="Send an email"><img alt="Send an email" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/email.svg"></a>
               </li><li>
-              <a href="https://getpocket.com/save?url=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;title=Cataloging the world of creative bots, clumsy AI, and machine ethics." target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pocket.svg"></a>
+              <a href="https://getpocket.com/save?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;title=<?php echo $page_title; ?>" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pocket.svg"></a>
               </li>
               <li>
-              <a href="https://pinboard.in/popup_login/?url=<?php echo home_url(add_query_arg( array(), $wp->request) ); ?>&amp;title=Cataloging the world of creative bots, clumsy AI, and machine ethics.&amp;description=Botwiki is a collection of useful, friendly, and artistic online bots, and resources for making them." target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pinboard.svg"></a>
+              <a href="https://pinboard.in/popup_login/?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;title=<?php echo $page_title; ?>&amp;description=Botwiki is a collection of useful, friendly, and artistic online bots, and resources for making them." target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pinboard.svg"></a>
               </li>
             </ul>
             <p class="ssbg-attribution">Sharing buttons by <a href="https://simplesharingbuttons.com/">simplesharingbuttons.com</a>.</p>

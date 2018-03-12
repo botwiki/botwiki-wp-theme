@@ -3,6 +3,7 @@
 	<head>
     <?php
       global $wp;
+      global $page_title;
       $page_url = home_url( $wp->request );
       $page_thumbnail = get_the_post_thumbnail_url();
 
