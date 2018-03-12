@@ -7,20 +7,20 @@
 	// var_dump(get_userdata( $author_id ));
 	echo "</code></pre>";
 
-$nickname = get_the_author_meta('nickname', $author_id);
-$description = get_the_author_meta('description', $author_id);
+	$nickname = get_the_author_meta('nickname', $author_id);
+	$description = get_the_author_meta('description', $author_id);
 
-$first_name = get_the_author_meta('nickname', $author_id);
-$last_name = get_the_author_meta('last_name', $author_id);
-$full_name = '';
+	$first_name = get_the_author_meta('nickname', $author_id);
+	$last_name = get_the_author_meta('last_name', $author_id);
+	$full_name = '';
 
-if( empty($first_name)){
-    $full_name = $last_name;
-} elseif( empty( $last_name )){
-    $full_name = $first_name;
-} else {
-    $full_name = "{$first_name} {$last_name}";
-}
+	if( empty($first_name)){
+	    $full_name = $last_name;
+	} elseif( empty( $last_name )){
+	    $full_name = $first_name;
+	} else {
+	    $full_name = "{$first_name} {$last_name}";
+	}
 
 ?>
 	<main role="main" class="container">
