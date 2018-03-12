@@ -1,3 +1,4 @@
+<?php global $helpers; ?>
       <div class="bottom-page-links">
         <ul>
           <li>
@@ -89,7 +90,7 @@
                 <ul class="footer-list">
                   <li class="list-header">Contact</li>
                   <li><a class="h-card" rel="me" href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
-                  <li><a class="u-email" rel="me" href="mailto:stefan@botwiki.org?cc=v@veronicabelmont.com">Email us</a></li>
+                  <li><a class="u-email" rel="me" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Email us</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/feedback">Give feedback</a></li>
                   <li><a href="<?php echo site_url(); ?>/submit-your-bot">Submit a bot</a></li>
                   <li><a href="https://botmakers.org/">Join Botmakers</a></li>

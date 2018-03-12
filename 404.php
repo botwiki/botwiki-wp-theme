@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+  get_header();
+  global $helpers;
+?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
       <article id="post-404">
@@ -14,7 +17,7 @@
                 <a href="<?php echo home_url(); ?>/bots">Look at some cool bots?</a>
               </li>
               <li>
-                <a href="mailto:stefan@botwiki.org">Send us an email?</a>
+                <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email?</a>
               </li>
               <li>
                 <a href="https://twitter.com/botwikidotorg">Complain about this in public?</a>

@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+  get_header();
+  global $helpers;
+?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
 			<h1><?php echo sprintf( __( '%s Search Results for ', 'botwiki' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
@@ -23,7 +26,7 @@
           <a href="https://twitter.com/botwikidotorg">Find us on Twitter</a>
         </li>
         <li>
-          <a href="mailto:stefan@botwiki.org">Send us an email</a>
+          <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
         </li>
       </ul>
 		</div>

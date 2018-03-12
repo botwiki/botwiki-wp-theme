@@ -1,5 +1,6 @@
 <?php
   use ColorThief\ColorThief;
+  global $helpers;
 
   /* Template Name: Submit Your Bot Page Template */
   get_header();
@@ -15,7 +16,7 @@
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
 
-      wp_mail( 'stefan@botwiki.org', 'New bot submission', print_r( $_POST, true ) );      
+      wp_mail( get_the_author_meta('user_email', 1), 'New bot submission', print_r( $_POST, true ) );      
 
       // error_log( print_r( $_POST, true ) );
 
@@ -296,7 +297,7 @@
               </select>
 
               <small id="bot-networks-help" class="form-text text-muted">List all networks where your bot posts. Missing something?
-              <a href="mailto:stefan@botwiki.org" target="_blank">Let us know.</a>
+              <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>" target="_blank">Let us know.</a>
               </small>
             </div>
             <div class="form-group">
