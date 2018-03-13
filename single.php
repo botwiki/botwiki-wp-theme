@@ -138,9 +138,16 @@
 						<?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?>
 					</p>
 					<!-- /post details -->
-				<?php } elseif ($post_type == 'post') { ?>
+				<?php } elseif ($post_type == 'post') {
+					$post_date = get_the_time('F j, Y');
+					$post_date_full = $post_date . ' ' . get_the_time('g:i a');
+					$m = new \Moment\Moment($post_date);
+					$post_date_ago = $m->fromNow()->getRelative();
+				?>
+
+					<p><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+						by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a> in <?php the_category(', '); ?></em></p>
 					<p><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
-					<p><?php _e( 'Categorised in: ', 'botwiki' ); the_category(', '); // Separated by commas ?></p>
 				<?php } ?>
 
 
@@ -148,14 +155,8 @@
 				if ( get_post_type() == 'post' ) { ?>
 					<!-- post details -->
 					<?php
-						$post_date = get_the_time('F j, Y');
-						$post_date_full = $post_date . ' ' . get_the_time('g:i a');
-						$m = new \Moment\Moment($post_date);
-						$post_date_ago = $m->fromNow()->getRelative();
 					?>
 
-					<p><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-						by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em></p>
 					<!-- /post details -->
 				<?php } ?>
 
