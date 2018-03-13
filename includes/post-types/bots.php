@@ -207,26 +207,28 @@ class BotsPostType {
     wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
     <table class="w-100">
       <tr>
-        <td class="w-33 w-m-100">
+        <td class="w-100">
           <label for="bot_author_url">Bot's URL(s) (One per line)</label>
         </td>
-        <td class="w-77 w-m-100">
+      </tr>
+      <tr>      
+        <td class="w-100">
           <textarea class="w-100" name="bot_url" rows="5"><?php echo $bot_meta['bot_url'][0]; ?></textarea>
-
-
         </td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td>
           <p>If this bot's code is opensource, select the programing language(s) in the sidebar and provide a link to the source code below.</p>
           <p>Be sure to also add the <code>opensource</code> tag.</p>
         </td>
       </tr>
       <tr>
-        <td class="w-33 w-m-100">
+        <td class="w-100">
           <label for="bot_source_url">Source code URL</label>
         </td>
-        <td class="w-77 w-m-100">
+      </tr>
+      <tr>
+        <td class="w-100">
           <input type="text" class="w-100" name="bot_source_url" value="<?php echo $bot_meta['bot_source_url'][0]; ?>">
         </td>
       </tr>

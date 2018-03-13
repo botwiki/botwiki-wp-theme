@@ -230,6 +230,10 @@ video {
 .pagination a, .pagination span {
   padding: 5px !important; }
 
+@media (max-width: 860px) {
+  .d-xs-block {
+    display: block; } }
+
 body {
   font-family: "Open Sans", sans-serif !important;
   color: #4d4350; }

@@ -250,3 +250,9 @@ video {
     padding: 5px !important;
   }
 }
+
+.d-xs-block{
+  @media(max-width: $site-width-small){
+    display: block;
+  }
+}
