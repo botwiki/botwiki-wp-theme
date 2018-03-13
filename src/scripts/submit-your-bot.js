@@ -2,7 +2,8 @@
 
 var bot_submission = {
   init: function(){
-    var $body = $('body');
+    var $body = $('body'),
+        $form_submit_button = $('#bot-form-submit');
     if ($body.hasClass('page-template-template-submit-your-bot')){
 
       $('#test').click(function(ev){
@@ -30,7 +31,7 @@ var bot_submission = {
         $('#bot-source-language').trigger('change');
 
         $('html, body').animate({
-            scrollTop: $('#bot-form-submit').offset().top - 500
+            scrollTop: $form_submit_button.offset().top - 500
         }, 450);
 
 
@@ -45,7 +46,10 @@ var bot_submission = {
 
 
       $('#submit-bot-form').submit(function(){
-        $('#bot-form-submit').attr('disabled', 'disabled').html('Please wait...');
+        $form_submit_button.attr('disabled', 'disabled').html('Please wait...');
+        setTimeout(function(){
+          $form_submit_button.html('Still working...');
+        }, 3500);
       });
 
       $('#add-author-fields').click(function(ev){
@@ -53,7 +57,7 @@ var bot_submission = {
 
         var new_id = $('.author-fields').length + 1;
 
-        $(this).before(`<div class="author-fields form-row"><div class="form-group col-md-6"><label for="author-${new_id}-name">Author's name</label><input type="text" class="form-control" id="author-${new_id}-name" name="author-${new_id}-name" placeholder="Author"></div><div class="form-group col-md-6"><label for="author-${new_id}-url">Author's URL</label><input type="url" class="form-control" id="author-${new_id}-url" name="author-${new_id}-url" placeholder="https://twitter.com/author"></div></div>`);
+        $(this).before('<div class="author-fields form-row"><div class="form-group col-md-6"><label for="author-${new_id}-name">Author\'s name</label><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><label for="author-2-url">Author\'s URL</label><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>');
 
         return false;
       });

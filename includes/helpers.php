@@ -20,6 +20,24 @@ class BW_Helpers {
     return implode( ',', $admin_emails );
 	}
 
+  function get_twitter_username_from_url( $url ){
+    // error_log( $url );
+
+    if ( strpos( $url, 'twitter.com/') === -1 ){
+      return false;
+    }
+    else{
+      $regex  = '#https?://twitter\.com/(?:\#!/)?(\w+)';
+
+      error_log( print_r( preg_match($regex, $url, $match), true ) );
+
+      if (preg_match($regex, $url, $match)) {
+        error_log( print_r( $match, true ) );
+
+        return $match;
+      }
+    }
+  }
 }
 
 

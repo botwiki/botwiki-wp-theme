@@ -63,11 +63,34 @@
 
       $main_bot_url = str_replace( array( "\n", "\r" ), '', explode("\n", $bot_urls )[0] );      
 
+
+      $created_by_html_array = array();
+
+      foreach ($bot_authors as $bot_author) {
+        $bot_author_info = explode(',', $bot_author);
+
+
+
+        if ( count( $bot_author_info ) === 2 ){
+          array_push( $created_by_html_array, '<a href="' . $bot_author_info[1] . '">' . $bot_author_info[0] . '</a>');
+
+          // error_log("###############\n");
+          // error_log( print_r( $helpers->get_twitter_username_from_url( $bot_author_info[1] ), true ) );
+          // error_log("###############\n");
+        }
+        else{
+          array_push( $created_by_html_array, $bot_author_info[0]);          
+        }
+      }
+
+
+
+
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
                       . get_term( $_POST['bot-networks'][0], 'network' )->name
-                      . " bot that\n\n"
+                      . " bot created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";
       }
       else{
@@ -78,7 +101,7 @@
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a bot for '
                       . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks']) )
-                      . " that\n\n"
+                      . " created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";        
       }
 
@@ -240,7 +263,7 @@
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
           <h1><?php the_title(); ?></h1>
 
-          <?php if (is_user_logged_in()) {?>
+          <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
             <ul class="btn-list">
               <li>
                 <button class="btn" id="test" href="#">Test</button>
