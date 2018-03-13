@@ -134,7 +134,8 @@
 
 						?>
 
-
+					</p>
+					<p class="post-tags mt-5 mb-5">
 						<?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?>
 					</p>
 					<!-- /post details -->
@@ -145,9 +146,9 @@
 					$post_date_ago = $m->fromNow()->getRelative();
 				?>
 
-					<p><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+					<p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
 						by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a> in <?php the_category(', '); ?></em></p>
-					<p><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
+					<p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
 				<?php } ?>
 
 

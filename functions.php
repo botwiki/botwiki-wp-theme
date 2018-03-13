@@ -154,6 +154,8 @@ function load_styles(){
 function load_admin_js_styles(){
   $js_file_path = get_template_directory() . '/admin-js/scripts.min.css';
 
+  error_log("##########################\n");
+
   wp_register_script( 'admin-js', get_template_directory_uri() . '/admin-js/scripts.min.js', array( 'jquery' ), filemtime( $js_file_path ));
   wp_enqueue_script( 'admin-js' );
 
