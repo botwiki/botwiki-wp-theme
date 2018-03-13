@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
-	<main role="main">
+  <main role="main" class="container-fluid m-0 p-0">
 		<!-- section -->
-		<section>
+    <div class="container">
+
 
 			<h1><?php _e( 'Latest Posts', 'botwiki' ); ?></h1>
 
@@ -10,10 +11,7 @@
 
 			<?php get_template_part('pagination'); ?>
 
-		</section>
+		</div>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
