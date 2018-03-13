@@ -151,7 +151,13 @@ function load_styles(){
   wp_enqueue_style( 'styles' );
 }
 
-function load_admin_styles(){
+function load_admin_js_styles(){
+  $js_file_path = get_template_directory() . '/admin-js/scripts.min.css';
+
+  wp_register_script( 'admin-js', get_template_directory_uri() . '/admin-js/scripts.min.js', array( 'jquery' ), filemtime( $js_file_path ));
+  wp_enqueue_script( 'admin-js' );
+
+
   $css_file_path = get_stylesheet_directory() . '/admin-css/styles.min.css';
   wp_register_style( 'admin-styles', get_template_directory_uri() . '/admin-css/styles.min.css', array(), filemtime( $css_file_path ), 'all' );
   wp_enqueue_style( 'admin-styles' );
@@ -320,7 +326,7 @@ add_action( 'init', 'html5blank_header_scripts' );
 add_action( 'wp_enqueue_scripts', 'load_styles' );
 add_action( 'wp_enqueue_scripts', 'load_twitter_js' );
 add_action( 'wp_enqueue_scripts', 'load_highlight_js' );
-add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+add_action( 'admin_enqueue_scripts', 'load_admin_js_styles' );
 add_action( 'init', 'register_site_menu' );
 add_action( 'widgets_init', 'my_remove_recent_comments_style' );
 add_action( 'init', 'botwiki_site_pagination' );

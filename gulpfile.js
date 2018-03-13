@@ -70,6 +70,28 @@ gulp.task('admin-styles', function() {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('admin-scripts', function() {
+  return browserify({ debug: true })
+  .transform("babelify", {presets: ["es2015"]})
+  .on('error', swallow_error)
+  .require("./src/admin-scripts/scripts.js", { entry: true })
+  .on('error',swallow_error)
+  .bundle()
+  .on('error',swallow_error)
+  .pipe(source('scripts.js'))
+  .on('error', swallow_error)
+  .pipe(gulp.dest('./admin-js'))
+  .on('error',swallow_error)
+  .pipe(streamify(uglify()))
+  .on('error',swallow_error)
+  .pipe(rename({suffix: '.min'}))
+  .on('error',swallow_error)
+  .pipe(gulp.dest('./admin-js'))
+  .on('error',swallow_error)
+  .pipe(reload({stream:true}))
+  .on('error', swallow_error);
+});
+
 gulp.task('scripts', function() {
   return browserify({ debug: true })
   .transform("babelify", {presets: ["es2015"]})
@@ -103,16 +125,17 @@ gulp.task('jslint', function(){
 });
 
 gulp.task('clean', function() {
-  return gulp.src(['css', 'js', 'admin-css'], {read: false})
+  return gulp.src(['css', 'js', 'admin-css', 'admin-js'], {read: false})
     .pipe(clean());
 });
 
 gulp.task('watch', function() {
   gulp.watch('src/admin-styles/**/*.*', ['admin-styles']);
   gulp.watch('src/styles/**/*.*', ['styles']);
+  gulp.watch('src/admin-scripts/**/*.*', ['jslint', 'admin-scripts']);
   gulp.watch('src/scripts/**/*.*', ['jslint', 'scripts']);
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'admin-styles', 'jslint', 'scripts', 'browser-sync', 'watch');
+    gulp.start('styles', 'admin-styles', 'jslint', 'admin-scripts', 'scripts', 'browser-sync', 'watch');
 });
