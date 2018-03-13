@@ -21,22 +21,17 @@ class BW_Helpers {
 	}
 
   function get_twitter_username_from_url( $url ){
-    // error_log( $url );
-
-    if ( strpos( $url, 'twitter.com/') === -1 ){
-      return false;
-    }
-    else{
+    if ( strpos( $url, 'twitter.com/') != -1 ){
       $regex  = '#https?://twitter\.com/(?:\#!/)?(\w+)';
 
       error_log( print_r( preg_match($regex, $url, $match), true ) );
 
-      if (preg_match($regex, $url, $match)) {
+      if (preg_match("/https*:\/\/twitter.com\/(#!\/)?([^\/]*)/", $url, $match) ){
         error_log( print_r( $match, true ) );
-
-        return $match;
+        return $match[2];
       }
     }
+    return false;
   }
 }
 

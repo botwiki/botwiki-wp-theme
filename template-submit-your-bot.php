@@ -65,6 +65,7 @@
 
 
       $created_by_html_array = array();
+      $author_tags = array();
 
       foreach ($bot_authors as $bot_author) {
         $bot_author_info = explode(',', $bot_author);
@@ -74,9 +75,11 @@
         if ( count( $bot_author_info ) === 2 ){
           array_push( $created_by_html_array, '<a href="' . $bot_author_info[1] . '">' . $bot_author_info[0] . '</a>');
 
-          // error_log("###############\n");
-          // error_log( print_r( $helpers->get_twitter_username_from_url( $bot_author_info[1] ), true ) );
-          // error_log("###############\n");
+          $twitter_username = $helpers->get_twitter_username_from_url( $bot_author_info[1] );
+
+          if ( $twitter_username ){
+            array_push( $author_tags , $twitter_username );
+          }
         }
         else{
           array_push( $created_by_html_array, $bot_author_info[0]);          
@@ -132,6 +135,10 @@
 
       foreach ($_POST['bot-tags'] as $bot_tag) {
         array_push( $bot_tags, intval( $bot_tag ) );
+      }
+
+      if ( count( $author_tags ) > 0 ){
+        $bot_tags = array_merge( $bot_tags, $author_tags );
       }
 
       if ( isset( $_POST['bot-source-url'] ) && !empty( $_POST['bot-source-url'] ) ){
