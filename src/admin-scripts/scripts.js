@@ -1,12 +1,9 @@
 "use strict";
 
-$ = jQuery.noConflict(true);
-
 import {helpers} from "./helpers.js";
 
+(function($) {
 
-$(function() {
+  helpers.hide_duplicate_posts_menu();  
 
-  helpers.hide_duplicate_posts_menu();
-
-});
+})( jQuery );
