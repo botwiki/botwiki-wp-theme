@@ -18,6 +18,7 @@ var bot_submission = {
         // $('#author-2-url').val('https://twitter.com/jd');
         $('#bot-description').val('This bot generates random images.');
         $('#bot-urls').val('https://twitter.com/coolbot');
+        $('#bot-selected-tweets').val('https://twitter.com/mycoolbot/status/123456789\nhttps://twitter.com/mycoolbot/status/987654321');
         $('#bot-tagline').val('This is a cool bot.');
         $('#bot-networks').val('5');
         $('#bot-networks').trigger('change');
@@ -49,7 +50,7 @@ var bot_submission = {
         $form_submit_button.attr('disabled', 'disabled').html('Please wait...');
         setTimeout(function(){
           $form_submit_button.html('Still working...');
-        }, 3500);
+        }, 4500);
       });
 
       $('#add-author-fields').click(function(ev){
@@ -73,9 +74,20 @@ var bot_submission = {
         else{
           $bot_source_info.addClass('d-none');
         }
-
       });
 
+      var $bot_networks_select = $('#bot-networks'),
+          $selected_tweets_field = $('#bot-selected-tweets-field');
+
+
+      $bot_networks_select.on('change', function(){
+        if ($bot_networks_select.children("option").filter(":selected").text().indexOf('Twitter') > -1){
+          $selected_tweets_field.removeClass('d-none');
+        }
+        else{
+          $selected_tweets_field.addClass('d-none');
+        }
+      });
 
 
     }

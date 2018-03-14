@@ -45,6 +45,9 @@
 
       $bot_authors = array();
 
+      error_log( print_r($_POST['author-names'], true) );
+      error_log( print_r($_POST['author-urls'], true) );
+
       foreach ($_POST['author-names'] as $index => $author_name) {
         if (!empty( $_POST['author-names'][$index] )){
           array_push($bot_authors, trim( $author_name ) . 
@@ -53,7 +56,14 @@
         }
       }
 
+      error_log( print_r($bot_authors, true) );
+
+
       $bot_author_info = implode( "\n", $bot_authors );
+
+      error_log( print_r($bot_author_info, true) );
+
+
       $bot_description = trim($_POST['bot-description'] );
       $bot_urls = trim( $_POST['bot-urls'] );
 
@@ -68,21 +78,21 @@
       $author_tags = array();
 
       foreach ($bot_authors as $bot_author) {
-        $bot_author_info = explode(',', $bot_author);
+        $bot_author_info_arr = explode(',', $bot_author);
 
 
 
-        if ( count( $bot_author_info ) === 2 ){
-          array_push( $created_by_html_array, '<a href="' . $bot_author_info[1] . '">' . $bot_author_info[0] . '</a>');
+        if ( count( $bot_author_info_arr ) === 2 ){
+          array_push( $created_by_html_array, '<a href="' . $bot_author_info_arr[1] . '">' . $bot_author_info_arr[0] . '</a>');
 
-          $twitter_username = $helpers->get_twitter_username_from_url( $bot_author_info[1] );
+          $twitter_username = $helpers->get_twitter_username_from_url( $bot_author_info_arr[1] );
 
           if ( $twitter_username ){
             array_push( $author_tags , $twitter_username );
           }
         }
         else{
-          array_push( $created_by_html_array, $bot_author_info[0]);          
+          array_push( $created_by_html_array, $bot_author_info_arr[0]);          
         }
       }
 
@@ -112,6 +122,7 @@
       $bot_meta = array();
       $bot_meta['bot_url'] = implode( "\n", explode("\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
+      $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
 
       $screenshotable_url = false;
 
@@ -161,6 +172,8 @@
       );
 
       $new_post_id = wp_insert_post($post_data);
+
+      error_log( print_r($bot_author_info, true) );
 
       update_post_meta($new_post_id, 'bot_author_info', $bot_author_info);
 
@@ -225,7 +238,7 @@
             <h1><?php the_title(); ?></h1>
             <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
 
-            <ul class="btn-list">
+            <ul class="btn-list mt-4">
               <li>
                 <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
               </li>
@@ -334,6 +347,11 @@
               <label for="bot-urls">Where can we see your bot? <sup title="This field is required.">*</sup></label>
               <textarea required class="form-control" id="bot-urls" name="bot-urls" rows="3" placeholder="https://twitter.com/mycoolbot&#x0a;https://mycoolbot.tumblr.com"></textarea>
               <small id="bot-urls-help" class="form-text text-muted">Links to your bot, one on each line, please.</small>
+            </div>
+            <div id="bot-selected-tweets-field" class="form-group d-none">
+              <label for="bot-selected-tweets">Choose two tweets from your bot that you like</label>
+              <textarea required class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
+              <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
             </div>
             <div class="form-group">
               <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
