@@ -337,7 +337,7 @@
             </div>
             <div id="bot-selected-tweets-field" class="form-group d-none">
               <label for="bot-selected-tweets">Choose two tweets from your bot that you like</label>
-              <textarea required class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
+              <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
               <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
             </div>
             <div class="form-group">

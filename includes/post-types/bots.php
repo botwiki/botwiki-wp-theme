@@ -320,7 +320,7 @@ class BotsPostType {
         $bot_tweets = explode("\n", str_replace("\r", "", $_POST['bot_tweets']));
         $twitter_oembed = 'https://publish.twitter.com/oembed?url=';
 
-        $bot_tweets_html = '';      
+        $bot_tweets_html = '';
 
         if ($bot_tweets){
           foreach ($bot_tweets as $index=>$tweet_url) {
