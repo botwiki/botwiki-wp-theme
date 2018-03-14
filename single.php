@@ -132,11 +132,8 @@
 
 					    echo join( ' ', $language_tags );
 
+							the_tags('', ' ', '<br>');
 						?>
-
-					</p>
-					<p class="post-tags mt-5 mb-5">
-						<?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?>
 					</p>
 					<!-- /post details -->
 				<?php } elseif ($post_type == 'post') {

@@ -372,7 +372,7 @@ a.pilcrow {
 p.post-tags a {
   font-family: monospace;
   font-size: 1.2em;
-  background-color: #afafaf;
+  background-color: #6a6a6a;
   color: #fff;
   line-height: 2em;
   padding: 5px;
@@ -589,17 +589,26 @@ ul.btn-list {
   overflow: hidden; }
 
 .unshifted {
-  -webkit-transition: opacity 1s, -webkit-transform 0.4s;
-  transition: opacity 1s, -webkit-transform 0.4s;
-  -o-transition: transform 0.4s, opacity 1s;
-  transition: transform 0.4s, opacity 1s;
-  transition: transform 0.4s, opacity 1s, -webkit-transform 0.4s; }
+  -webkit-transition: opacity 0.7s, -webkit-transform 0.4s;
+  transition: opacity 0.7s, -webkit-transform 0.4s;
+  -o-transition: transform 0.4s, opacity 0.7s;
+  transition: transform 0.4s, opacity 0.7s;
+  transition: transform 0.4s, opacity 0.7s, -webkit-transform 0.4s; }
+
+.slide-down {
+  -webkit-transition: opacity 1s, -webkit-transform 0.5s;
+  transition: opacity 1s, -webkit-transform 0.5s;
+  -o-transition: transform 0.5s, opacity 1s;
+  transition: transform 0.5s, opacity 1s;
+  transition: transform 0.5s, opacity 1s, -webkit-transform 0.5s; }
 
 .slide-up,
-.slide-down {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s; }
+.slide-up-hidden {
+  -webkit-transition: opacity 1s, -webkit-transform 0.3s;
+  transition: opacity 1s, -webkit-transform 0.3s;
+  -o-transition: transform 0.3s, opacity 1s;
+  transition: transform 0.3s, opacity 1s;
+  transition: transform 0.3s, opacity 1s, -webkit-transform 0.3s; }
 
 .slide-up {
   opacity: 1;
@@ -607,6 +616,13 @@ ul.btn-list {
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
+
+.slide-up-hidden {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(0, -10px);
+      -ms-transform: translate(0, -10px);
+          transform: translate(0, -10px); }
 
 .slide-down {
   opacity: 0;

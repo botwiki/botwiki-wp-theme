@@ -21,7 +21,6 @@
 
       <!-- footer -->
       <footer class="footer mt-5" role="contentinfo">
-        <?php if ( !is_front_page() ) { ?>
         <div class="container-fluid background-alternate p-5">
           <div class="container share-prompt">
             <h3>Share this <?php echo (is_front_page() ? 'site' : 'page' );?></h3>
@@ -75,9 +74,7 @@
             </div>
           </div>
         </div>
-        <?php } ?>
         <div class="container-fluid background-alternate p-5">
-          <?php if ( !is_front_page() ) { ?>
           <div class="container">
             <div class="row mt-5 mb-5">
               <div class="col-sm-12 col-md-4">
@@ -112,7 +109,6 @@
               </div>
             </div>
           </div>
-          <?php } ?>
           <div class="container pb-5">
             <p>This website is <a href="https://github.com/botwiki/botwiki-wp-theme">open source</a> and powered by <a href="https://wordpress.org" title="WordPress">WordPress</a>. Botwiki and the <a href="http://botzine.org/">Bot! zine</a> and <a href="https://botmakers.org/">Botmakers</a> landing pages are all proudly hosted by <a href="https://digitalocean.com/"><img class="footer-logo-do" src="<?php echo get_template_directory_uri(); ?>/images/logos/digitalocean.svg"></a>, a generous supporter and the sponsor of the very first <a href="<?php echo site_url(); ?>/monthly-bot-challenge/">Monthly Bot Challenge</a>.</p>
             <p>One more way to support us is to sign up using our <a href="https://www.digitalocean.com/?refcode=9e279abc3337">DigitalOcean referral link</a>, which will also earn you a $10 starter credit.</p>

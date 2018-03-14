@@ -19,13 +19,19 @@
 }
 
 .unshifted {
-  transition: transform 0.4s, opacity 1s;
+  transition: transform 0.4s, opacity 0.7s;
 }
 
-.slide-up,
 .slide-down{
-  transition: all 0.5s;
+  transition: transform 0.5s, opacity 1s;
 }
+
+
+.slide-up,
+.slide-up-hidden{
+  transition: transform 0.3s, opacity 1s;
+}
+
 
 .slide-up{
   opacity: 1;
@@ -33,8 +39,15 @@
   transform: translate(0, 0);
 }
 
+.slide-up-hidden{
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0, -10px);
+}
+
 .slide-down{
   opacity: 0 ;
   pointer-events: none;
   transform: translate(0, 150px);
 }
+

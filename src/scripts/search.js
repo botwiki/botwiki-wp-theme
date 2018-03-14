@@ -7,7 +7,7 @@ var search = {
         $search_filter_resources = $('#search-filters-resources');
 
     $('#search-input').click(function(ev){
-      $('#search-filters').removeClass('d-none');
+      $('#search-filters').removeClass('slide-up-hidden').addClass('slide-up');
     });
   }
 }
