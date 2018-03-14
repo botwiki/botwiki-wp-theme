@@ -37,6 +37,11 @@
         </div>
 			<?php } ?>
 			<br class="clear">
+			<?php
+				if ( strpos('Botwiki Interview:', get_the_title() ) !== -1 ){ ?>
+					<p>This is an interview from the Botwiki Interview series. <a href="/botwiki-interviews/">Read more</a>
+				<?php }
+			?>
 		</article>
 		<!-- /article -->
 	<?php endwhile; ?>
