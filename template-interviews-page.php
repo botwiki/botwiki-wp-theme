@@ -30,10 +30,11 @@
         <ul class="mt-3">
         <?php
           foreach ($interviews as $interview) {
+            $page_title = str_replace( 'Botwiki Interview: ', '', $interview->post_title );
             $post = get_post( $interview->ID ); 
             $slug = $post->post_name;
           ?>
-          <li><a href="#<?php echo $slug; ?>"><?php echo $interview->post_title; ?></a></li>
+          <li><a href="#<?php echo $slug; ?>"><?php echo $page_title; ?></a></li>
           <?php } ?>
 
         </ul>
@@ -46,7 +47,7 @@
             $slug = $post->post_name;
           ?>
 
-            <h3 id="<?php echo $slug; ?>"><?php echo $interview->post_title; ?><a class="pilcrow" href="#<?php echo $slug; ?>">¶</a></h3>
+            <h3 id="<?php echo $slug; ?>"><?php echo $page_title; ?><a class="pilcrow" href="#<?php echo $slug; ?>">¶</a></h3>
             <?php
 
               $dominant_color  = get_post_meta( $interview->ID, 'dominant_color', true );
