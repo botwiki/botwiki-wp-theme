@@ -43,6 +43,7 @@
           error_log( print_r( $interviews, true ) );
 
           foreach ($interviews as $interview) {
+            $page_title = str_replace( 'Botwiki Interview: ', '', $interview->post_title );
             $post = get_post( $interview->ID ); 
             $slug = $post->post_name;
           ?>
@@ -60,10 +61,7 @@
                 echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
               ?>
             </div>
-
-            <p><?php echo $interview->post_content; ?></p>
-
-
+            <p><a class="btn"> href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
           <?php }
         ?>
 
