@@ -349,7 +349,7 @@
               <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
               <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
             </div>
-            <div id="bot-source-info" class="mt-3">
+            <div id="bot-source-info" class="mt-3 d-none">
               <div class="form-group">
                 <label for="bot-source-url">Link to your bot's source code</label>
                 <input type="url" class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot">
@@ -391,6 +391,16 @@
               <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it. (Don't overdo it!)</small>
             </div>
 
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
+              <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
+            </div>
+            <div id="botmaker-badge-application" class="mt-3 d-none">
+              <div class="form-group">
+                <input type="email" class="form-control" id="bot-author-email" name="bot-author-email" placeholder="coolbotauthor@email.com">
+                <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to this email. No spam, ever!</small>
+              </div>
+            </div>
 
 
             <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>

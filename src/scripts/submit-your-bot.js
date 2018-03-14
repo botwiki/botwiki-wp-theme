@@ -64,7 +64,6 @@ var bot_submission = {
       });
 
       var $bot_source_info = $('#bot-source-info');
-      $bot_source_info.addClass('d-none');
 
       $('#bot-is-opensource').click(function(ev){
 
@@ -73,6 +72,19 @@ var bot_submission = {
         }
         else{
           $bot_source_info.addClass('d-none');
+        }
+      });
+
+      var $apply_for_botmaker_badge = $('#apply-for-botmaker-badge'),
+          $botaker_badge_application = $('#botmaker-badge-application');
+
+      $apply_for_botmaker_badge.click(function(ev){
+
+        if ($(this).is(':checked')){
+          $botaker_badge_application.removeClass('d-none');
+        }
+        else{
+          $botaker_badge_application.addClass('d-none');
         }
       });
 
