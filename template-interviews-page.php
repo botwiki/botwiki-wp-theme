@@ -1,10 +1,10 @@
 <?php
-  /* Template Name: Projects Page Template */
+  /* Template Name: Interviews Page Template */
   global $helpers;
   get_header();
   $post_id = get_the_ID();
 
-  $projects = get_children( array(
+  $interviews = get_children( array(
     'post_parent' => $post_id,
     'numberposts' => -1,
     'order' => 'ASC',
@@ -29,38 +29,38 @@
         <?php echo get_post_field( 'post_content', $post_id); ?>
         <ul class="mt-3">
         <?php
-          foreach ($projects as $project) {
-            $post = get_post( $project->ID ); 
+          foreach ($interviews as $interview) {
+            $post = get_post( $interview->ID ); 
             $slug = $post->post_name;
           ?>
-          <li><a href="#<?php echo $slug; ?>"><?php echo $project->post_title; ?></a></li>
+          <li><a href="#<?php echo $slug; ?>"><?php echo $interview->post_title; ?></a></li>
           <?php } ?>
 
         </ul>
 
         <?php
-          error_log( print_r( $projects, true ) );
+          error_log( print_r( $interviews, true ) );
 
-          foreach ($projects as $project) {
-            $post = get_post( $project->ID ); 
+          foreach ($interviews as $interview) {
+            $post = get_post( $interview->ID ); 
             $slug = $post->post_name;
           ?>
 
-            <h3 id="<?php echo $slug; ?>"><?php echo $project->post_title; ?><a class="pilcrow" href="#<?php echo $slug; ?>">¶</a></h3>
+            <h3 id="<?php echo $slug; ?>"><?php echo $interview->post_title; ?><a class="pilcrow" href="#<?php echo $slug; ?>">¶</a></h3>
             <?php
 
-              $dominant_color  = get_post_meta( $project->ID, 'dominant_color', true );
+              $dominant_color  = get_post_meta( $interview->ID, 'dominant_color', true );
               $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
               $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
             ?>
             <div class="thumbnail-wrapper mb-5" style="<?php echo $dominant_color_css; ?>">
               <?php
-                echo get_the_post_thumbnail( $project->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
+                echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
               ?>
             </div>
 
-            <p><?php echo $project->post_content; ?></p>
+            <p><?php echo $interview->post_content; ?></p>
 
 
           <?php }
