@@ -63,7 +63,7 @@
                 ?>
               </a>
             </div>
-            <p><? get_the_excerpt( $interview->ID ); ?></p>
+            <p><?php echo get_the_excerpt( $interview->ID ); ?></p>
             <p><a class="btn" href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
           <?php }
         ?>
