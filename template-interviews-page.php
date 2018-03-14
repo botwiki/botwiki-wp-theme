@@ -57,9 +57,11 @@
 
             ?>
             <div class="thumbnail-wrapper mb-5" style="<?php echo $dominant_color_css; ?>">
-              <?php
-                echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
-              ?>
+              <a href="<?php echo get_permalink( $interview->ID ); ?>">
+                <?php
+                  echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
+                ?>
+              </a>
             </div>
             <p><a class="btn" href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
           <?php }
