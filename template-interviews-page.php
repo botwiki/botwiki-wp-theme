@@ -61,7 +61,7 @@
                 echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
               ?>
             </div>
-            <p><a class="btn"> href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
+            <p><a class="btn" href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
           <?php }
         ?>
 
