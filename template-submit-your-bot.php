@@ -18,8 +18,6 @@
 
       wp_mail( get_the_author_meta('user_email', 1), 'New bot submission', print_r( $_POST, true ) );      
 
-      // error_log( print_r( $_POST, true ) );
-
       function add_post_thumbnail( $post_id, $image_path, $description ){
         $upload_dir = wp_upload_dir();
         $image_data = file_get_contents($image_path);
@@ -45,9 +43,6 @@
 
       $bot_authors = array();
 
-      error_log( print_r($_POST['author-names'], true) );
-      error_log( print_r($_POST['author-urls'], true) );
-
       foreach ($_POST['author-names'] as $index => $author_name) {
         if (!empty( $_POST['author-names'][$index] )){
           array_push($bot_authors, trim( $author_name ) . 
@@ -56,13 +51,7 @@
         }
       }
 
-      error_log( print_r($bot_authors, true) );
-
-
       $bot_author_info = implode( "\n", $bot_authors );
-
-      error_log( print_r($bot_author_info, true) );
-
 
       $bot_description = trim($_POST['bot-description'] );
       $bot_urls = trim( $_POST['bot-urls'] );
@@ -172,8 +161,6 @@
       );
 
       $new_post_id = wp_insert_post($post_data);
-
-      error_log( print_r($bot_author_info, true) );
 
       update_post_meta($new_post_id, 'bot_author_info', $bot_author_info);
 
