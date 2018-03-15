@@ -260,6 +260,10 @@ h2 {
   body.search h2 {
     margin-top: 0; }
 
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 2rem; }
+
 h3 {
   font-size: 3.5em;
   text-transform: uppercase;

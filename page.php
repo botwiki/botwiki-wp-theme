@@ -39,7 +39,7 @@
 			<br class="clear">
 			<?php
 				if ( strpos('Botwiki Interview:', get_the_title() ) !== false ){ ?>
-					<p>This is an interview from the Botwiki Interview series. <a href="/botwiki-interviews/">Read more.</a>
+					<p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a>
 				<?php }
 			?>
 		</article>

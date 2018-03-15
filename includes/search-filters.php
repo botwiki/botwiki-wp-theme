@@ -8,12 +8,8 @@ class Search_Filters {
   public function filter_search_results($wp_query) {
 
     if ($wp_query->is_search && !is_admin() ) {
-      // error_log( print_r( $wp_query, true ) );
-      error_log( print_r( $_GET['search-filters-options'], true ) );
-
       if ( isset( $_GET['search-filters-options'] ) && !empty( $_GET['search-filters-options'] )){
         $search_filters_options = $_GET['search-filters-options'];
-
 
         if ( in_array( 'resources' , $search_filters_options ) ||
              in_array( 'tutorials' , $search_filters_options ) ){
@@ -34,7 +30,6 @@ class Search_Filters {
         $wp_query->set( 'post_type', $post_types );        
       }
     }
-
 
     return $wp_query;
   }

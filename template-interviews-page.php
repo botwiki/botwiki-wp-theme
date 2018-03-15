@@ -26,49 +26,34 @@
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <h1><?php the_title(); ?></h1>
 
-        <?php echo get_post_field( 'post_content', $post_id); ?>
-        <ul class="mt-3">
         <?php
-          foreach ($interviews as $interview) {
-            $page_title = str_replace( 'Botwiki Interview: ', '', $interview->post_title );
-            $post = get_post( $interview->ID ); 
-            $slug = $post->post_name;
-          ?>
-          <li><a href="#<?php echo $slug; ?>"><?php echo $page_title; ?></a></li>
-          <?php } ?>
-
-        </ul>
-
-        <?php
-          error_log( print_r( $interviews, true ) );
+          echo get_post_field( 'post_content', $post_id);
 
           foreach ($interviews as $interview) {
             $page_title = str_replace( 'Botwiki Interview: ', '', $interview->post_title );
             $post = get_post( $interview->ID ); 
             $slug = $post->post_name;
           ?>
-
-            <h3 id="<?php echo $slug; ?>"><?php echo $page_title; ?><a class="pilcrow" href="#<?php echo $slug; ?>">¶</a></h3>
-            <?php
-
-              $dominant_color  = get_post_meta( $interview->ID, 'dominant_color', true );
-              $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
-              $dominant_color_css = str_replace(']', ')', $dominant_color_css);
-
-            ?>
-            <div class="thumbnail-wrapper mb-5" style="<?php echo $dominant_color_css; ?>">
-              <a href="<?php echo get_permalink( $interview->ID ); ?>">
-                <?php
-                  echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
-                ?>
-              </a>
+            <div class="card pt-5 mt-5 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 text-center">
+                    <!-- post thumbnail -->
+                    <?php
+                      echo get_the_post_thumbnail( $interview->ID, 'post-thumbnail', ['class' => 'lazy-load mb-5', 'title' => get_post(get_post_thumbnail_id( $interview->ID ))->post_title ] );            
+                    ?>
+                    <!-- /post thumbnail -->
+                  </div>
+                  <div class="col-sm-12 col-md-8">
+                    <h2 id="<?php echo $slug; ?>"><?php echo $page_title; ?></h2>
+                    <p><?php echo get_the_excerpt( $interview->ID ); ?></p>
+                    <p><a class="btn" href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p><?php echo get_the_excerpt( $interview->ID ); ?></p>
-            <p><a class="btn" href="<?php echo get_permalink( $interview->ID ); ?>">Read interview</a></p>
           <?php }
         ?>
-
-
       </article>
     </div>
   </main>
