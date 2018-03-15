@@ -29,7 +29,7 @@
 
 .slide-up,
 .slide-up-hidden{
-  transition: transform 0.3s, opacity 1s;
+  transition: transform 0.3s, opacity 0.4s;
 }
 
 
@@ -42,7 +42,7 @@
 .slide-up-hidden{
   opacity: 0;
   pointer-events: none;
-  transform: translate(0, -10px);
+  transform: translate(0, -15px);
 }
 
 .slide-down{

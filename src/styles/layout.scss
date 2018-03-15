@@ -242,6 +242,16 @@ video {
   padding: 1em 1em 0.5em;  
 }
 
+/* Search */
+
+#search-filters{
+  .form-check{
+    @media(max-width: $site-width-small){
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
 
 /* Pagination */
 
@@ -256,3 +266,4 @@ video {
     display: block;
   }
 }
+

@@ -226,6 +226,12 @@ video {
   margin-bottom: 4rem;
   padding: 1em 1em 0.5em; }
 
+/* Search */
+@media (max-width: 860px) {
+  #search-filters .form-check {
+    margin-top: 1rem;
+    margin-bottom: 1rem; } }
+
 /* Pagination */
 .pagination a, .pagination span {
   padding: 5px !important; }
@@ -608,11 +614,11 @@ ul.btn-list {
 
 .slide-up,
 .slide-up-hidden {
-  -webkit-transition: opacity 1s, -webkit-transform 0.3s;
-  transition: opacity 1s, -webkit-transform 0.3s;
-  -o-transition: transform 0.3s, opacity 1s;
-  transition: transform 0.3s, opacity 1s;
-  transition: transform 0.3s, opacity 1s, -webkit-transform 0.3s; }
+  -webkit-transition: opacity 0.4s, -webkit-transform 0.3s;
+  transition: opacity 0.4s, -webkit-transform 0.3s;
+  -o-transition: transform 0.3s, opacity 0.4s;
+  transition: transform 0.3s, opacity 0.4s;
+  transition: transform 0.3s, opacity 0.4s, -webkit-transform 0.3s; }
 
 .slide-up {
   opacity: 1;
@@ -624,9 +630,9 @@ ul.btn-list {
 .slide-up-hidden {
   opacity: 0;
   pointer-events: none;
-  -webkit-transform: translate(0, -10px);
-      -ms-transform: translate(0, -10px);
-          transform: translate(0, -10px); }
+  -webkit-transform: translate(0, -15px);
+      -ms-transform: translate(0, -15px);
+          transform: translate(0, -15px); }
 
 .slide-down {
   opacity: 0;
