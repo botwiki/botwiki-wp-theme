@@ -62,7 +62,7 @@
           <div class="row mt-5 mb-5">
             <div class="col-sm-12 col-md-4">
               <img class="img-fluid rounded mb-3 mx-auto d-block" src="<?php echo get_template_directory_uri(); ?>/images/logos/digitalocean.png">
-              <p class="footer-callout">Botwiki is brought to you by <a href="https://digitalocean.com/">DigitalOcean</a> and <a href="https://botwiki.org/about/supporters">other generous sponsors</a>.</p>
+              <p class="footer-callout">Botwiki is brought to you by <a href="https://digitalocean.com/">DigitalOcean</a> and <a href="<?php echo site_url(); ?>/about/supporters">other generous sponsors</a>.</p>
             </div>
             <div class="col-sm-12 col-md-4">
               <img class="img-fluid rounded mb-3 mx-auto d-block" src="<?php echo get_template_directory_uri(); ?>/images/logos/botmakers.png">
