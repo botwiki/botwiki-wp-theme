@@ -187,7 +187,7 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 
 /*.single-bot{*/
 .thumbnail-wrapper img {
-  max-height: 40vh;
+  max-height: 45vh;
   -o-object-fit: none;
      object-fit: none;
   width: 100%; }
