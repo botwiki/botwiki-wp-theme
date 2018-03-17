@@ -8,7 +8,14 @@ class Admin_Emails_Shortcode {
   public function get_admin_emails( $atts ) {
     global $helpers;
 
-    return $helpers->get_admin_emails();
+    if ( empty( $atts['text'] ) ){
+      $text = 'send us an email';
+    }
+    else{
+      $text = $atts['text'];
+    }
+
+    return '<a href="mailto:' . $helpers->get_admin_emails() . '">' . $text . '</a>';
   }
 
   public function btn_list_shortcode( $atts ) {
