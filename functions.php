@@ -36,6 +36,8 @@ require 'includes/post-types/resources.php';
 Short codes
 \*------------------------------------*/
 
+require 'includes/shortcodes/shortcodes-list.php';
+
 require 'includes/shortcodes/post-links.php';
 require 'includes/shortcodes/admin-emails.php';
 

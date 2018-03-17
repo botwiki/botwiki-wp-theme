@@ -9,7 +9,7 @@ class Show_Post_ID {
     global $post; ?>
       <pre><code title="Regular link">[link id="<?php echo $post->ID ?>"]</code></pre>
       <pre><code title="Link with a custom CSS class, for example 'btn'">[link id="<?php echo $post->ID ?>" class="btn"]</code></pre>
-      <pre><code title="A list of links formatted as buttons">[btn-list id="<?php echo $post->ID ?>" class="btn"]</code></pre>
+      <pre><code title="A list of links formatted as buttons">[btn-list ids="<?php echo $post->ID ?>" class="btn"]</code></pre>
       <pre><code title="A bulleted list of links">[link-list ids="<?php echo $post->ID ?>,x,y,z"]</code></pre>
       <pre><code title="Links formatted as cards">[link-cards ids="<?php echo $post->ID ?>,x,y,z"]</code></pre>
       <pre><code title="Links formatted as cards, no description">[link-cards ids="<?php echo $post->ID ?>,x,y,z"<br/> description="yes"]</code></pre>
