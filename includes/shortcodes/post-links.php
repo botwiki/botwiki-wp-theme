@@ -58,6 +58,7 @@ class Post_Links {
       }
 
       $link_title = get_the_title( $post_id );
+      
       if ( get_post_status( $post_id ) === 'publish' ){
         $link_list_html .= '<li><a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">' . $link_title . '</a>' 
                         . ($is_external ? ': ' . get_the_excerpt($post_id) . ' (' .  parse_url($link_url)['host'] . ')' : '')
@@ -149,7 +150,16 @@ class Post_Links {
   }
 
   public function link_cards_shortcode( $atts ) {
-    $post_ids = explode( ',', $atts['ids'] );
+    $post_ids_unfiltered = explode( ',', $atts['ids'] );
+    $post_ids = array();
+
+
+
+    foreach ($post_ids_unfiltered as $post_id) {
+      if ( get_post_status( $post_id ) === 'publish' ){
+        $post_ids[] = $post_id;
+      }
+    }
 
     $post_id_groups = array_chunk( $post_ids, 2 );
     $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
