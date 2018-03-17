@@ -143,7 +143,7 @@ class Post_Links {
     $post_id_groups = array_chunk( $post_ids, 2 );
     $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-    $link_list_html = '';
+    $link_list_html = '<div class="mt-md-5 mb-md-5">';
 
     foreach ($post_id_groups as $post_ids) {
       $link_list_html .= '<div class="card-deck mt-md-5 mb-md-5">';
@@ -181,6 +181,8 @@ class Post_Links {
       $link_list_html .= '</div><div>&nbsp;</div>';
 
     }
+    $link_list_html .= '</div>';
+
 
     return $link_list_html;
   }
