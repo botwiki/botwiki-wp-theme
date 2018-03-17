@@ -28,4 +28,10 @@ div#menu-wrapper{
   &:hover{
     background-color: $background-alternate;
   }
+
+ a{
+    display: block;
+    padding: 10px;    
+  }
 }
+

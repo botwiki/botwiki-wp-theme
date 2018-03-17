@@ -175,6 +175,16 @@ ul.navbar-nav{
   }
 }
 
+.single-bot{
+  .thumbnail-wrapper{
+    img{
+      max-height: 40vh;
+      object-fit: none;
+      width: 100%;  
+    }
+  }  
+}
+
 /* Site footer */
 
 .footer{

@@ -39,8 +39,7 @@ class Post_Links {
     $is_external = false;
 
     $post_ids = explode( ',', $atts['ids'] );
-    // $link_list_html = '<div class="note"><p>';
-    $link_list_html = '<p>';
+    $link_list_html = '<ul class="btn-list mb-2">';
 
     foreach ($post_ids as $post_id) {
       $link_url = get_post_meta( $post_id, 'resource_url', true );
@@ -53,12 +52,12 @@ class Post_Links {
       }
 
       $link_title = get_the_title( $post_id );
-      $link_list_html .= '<a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">' . $link_title . '</a>' 
-                      . ($is_external ? ': ' . get_the_excerpt($post_id) . ' (' .  parse_url($link_url)['host'] . ')' : '') ;
+      $link_list_html .= '<li><a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">' . $link_title . '</a>' 
+                      . ($is_external ? ': ' . get_the_excerpt($post_id) . ' (' .  parse_url($link_url)['host'] . ')' : '')
+                      . '</li>' ;
     }
 
-    // $link_list_html .= '</p></div>';
-    $link_list_html .= '</p>';
+    $link_list_html .= '</ul>';
 
     return $link_list_html;
   }
@@ -144,10 +143,10 @@ class Post_Links {
     $post_id_groups = array_chunk( $post_ids, 2 );
     $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-    $link_list_html = '<div class="mt-5 mb-5">';
+    $link_list_html = '';
 
     foreach ($post_id_groups as $post_ids) {
-      $link_list_html .= '<div class="card-deck">';
+      $link_list_html .= '<div class="card-deck mt-md-5 mb-md-5">';
       foreach ($post_ids as $post_id) {
 
         $link_url = get_post_meta( $post_id, 'resource_url', true );
@@ -182,8 +181,6 @@ class Post_Links {
       $link_list_html .= '</div><div>&nbsp;</div>';
 
     }
-
-    $link_list_html .= '</div>';
 
     return $link_list_html;
   }

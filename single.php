@@ -16,9 +16,16 @@
 	    $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 		?>
 			<div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-				<?php
-					the_post_thumbnail('post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ]);
-				?>
+				<?php if ($post_type == 'bot'){ ?>
+				<a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
+				<?php } ?>
+					<?php
+						the_post_thumbnail('post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ]);
+					?>
+					<?php if ($post_type == 'bot'){ ?>
+					</a>
+				<?php } ?>
+
 			</div>
 		<?php } ?>
 		<!-- /post thumbnail -->

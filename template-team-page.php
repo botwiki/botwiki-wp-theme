@@ -39,7 +39,7 @@
         <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->
 
         <?php
-          foreach ( $admins as $admin ) {
+          foreach ( $admins as $index=>$admin ) {
 
             $author_id = $admin->data->ID;
             $author_data = get_userdata( intval($author_id ));
@@ -61,7 +61,7 @@
 
 
             ?>
-            <div class="media mb-5">
+            <div class="media mb-5<?php if ($index === 0){ echo ' mt-5'; }?>">
               <img class="mr-3" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
               <div class="media-body">
                 <h3 id="<?php echo $nickname; ?>" class="mt-0 mb-1"><?php echo $nickname; ?><a class="pilcrow" href="#<?php echo $nickname; ?>">¶</a></h3>

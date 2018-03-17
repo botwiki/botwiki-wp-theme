@@ -56,3 +56,11 @@ ul.btn-list{
     margin-bottom: 0;
   }
 }
+
+body.archive{
+  .note, .card{
+    .btn{
+      margin-bottom: 1em;
+    }
+  }  
+}
