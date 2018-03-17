@@ -15,7 +15,7 @@ class Admin_Emails_Shortcode {
       $text = $atts['text'];
     }
 
-    return '<a href="mailto:' . $helpers->get_admin_emails() . '">' . $text . '</a>';
+    return '<a target="_blank" href="mailto:' . $helpers->get_admin_emails() . '">' . $text . '</a>';
   }
 
   public function btn_list_shortcode( $atts ) {
