@@ -168,22 +168,15 @@ ul.navbar-nav{
 .thumbnail-wrapper{
   text-align: center;
   img{
+    height: 45vh;
+    object-fit: none;
+    width: 100%;  
+
     @media(max-width: $site-width-small){
-      height: 35vh;
       object-fit: cover;    
     }
   }
 }
-
-/*.single-bot{*/
-  .thumbnail-wrapper{
-    img{
-      max-height: 45vh;
-      object-fit: none;
-      width: 100%;  
-    }
-  }  
-/*}*/
 
 /* Site footer */
 
