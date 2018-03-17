@@ -146,7 +146,7 @@ class Post_Links {
     $link_list_html = '<div class="mt-md-5 mb-md-5">';
 
     foreach ($post_id_groups as $post_ids) {
-      $link_list_html .= '<div class="card-deck mt-md-5 mb-md-5">';
+      $link_list_html .= '<div class="card-deck">';
       foreach ($post_ids as $post_id) {
 
         $link_url = get_post_meta( $post_id, 'resource_url', true );
