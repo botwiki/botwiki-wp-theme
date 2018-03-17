@@ -7,6 +7,7 @@
   $children = get_children( array(
     'post_parent' => $post_id,
     'numberposts' => -1,
+    'orderby' => 'publish_date',
     'order' => 'ASC',
     'post_status' => 'publish'
   ) );
