@@ -37,6 +37,7 @@ Short codes
 \*------------------------------------*/
 
 require 'includes/shortcodes/post-links.php';
+require 'includes/shortcodes/admin-emails.php';
 
 /*------------------------------------*\
 Theme Support
