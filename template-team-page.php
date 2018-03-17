@@ -36,7 +36,7 @@
           echo get_post_field( 'post_content', $post_id);
         ?>
 
-        <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2>
+        <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->
 
         <?php
           foreach ( $admins as $admin ) {
