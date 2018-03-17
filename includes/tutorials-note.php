@@ -1,5 +1,7 @@
 <?php
 
+error_log("OK");
+
 class Tutorials_Note {
   public function __construct() {
     add_filter( 'the_content', array( $this, 'tutorials_add_note' ) );
@@ -7,21 +9,23 @@ class Tutorials_Note {
 
   public function tutorials_add_note( $content ) { 
     global $post;
+    $post_type = get_post_type( $post->ID );
+    error_log( print_r( $post_type, true ) );
 
-    $post_title = get_the_title($post->ID);
-    $parent = $post->post_parent;
-    $parent_title = get_the_title($parent);
+    if( $post_type === 'resource'){
+      $post_terms = get_the_terms( $post->ID, 'resource_type');
 
-    if ($post_title === 'Tutorials' || $parent_title === 'Tutorials'){
-      $content = '<div class="note"><p>Before you start making bots, consider reading <a href="'
-               . get_site_url()
-               . '/articles/essays">these essays and articles</a>. Also worth browsing: <a href="'
-               . get_site_url()
-               . '/resources/libraries-frameworks/#language">resources for cleaning up your bot\'s language</a>.</p></div>'
-               . $content;
-
+      foreach ( $post_terms as $term ) {
+        if ( $term->slug === 'tutorial' ){
+          $content = '<div class="note"><p>Before you start making bots, consider reading <a href="'
+                   . get_site_url()
+                   . '/learn/#essays">these essays and articles</a>. Also worth browsing: <a href="'
+                   . get_site_url()
+                   . '/resources/libraries-and-frameworks/#language-filter">resources for cleaning up your bot\'s language</a>.</p></div>'
+                   . $content;
+        }
+      }
     }
-
     return $content;
   }
 }
