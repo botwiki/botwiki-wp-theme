@@ -178,11 +178,9 @@ class Post_Links {
         }
       }
 
-      $link_list_html .= '</div><div>&nbsp;</div>';
-
+      $link_list_html .= '</div>';
     }
     $link_list_html .= '</div>';
-
 
     return $link_list_html;
   }
