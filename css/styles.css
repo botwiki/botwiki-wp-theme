@@ -185,12 +185,14 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
       -o-object-fit: cover;
          object-fit: cover; } }
 
-.single-bot .thumbnail-wrapper img {
+/*.single-bot{*/
+.thumbnail-wrapper img {
   max-height: 40vh;
   -o-object-fit: none;
      object-fit: none;
   width: 100%; }
 
+/*}*/
 /* Site footer */
 .footer .footer-callout {
   max-width: 300px;

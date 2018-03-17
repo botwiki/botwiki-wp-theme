@@ -38,7 +38,7 @@
               $post_meta = get_post_meta( $post_id );
             ?>
             <!-- post details -->
-            <?php if ($post_type == 'tutorial'){ 
+            <?php if ( is_home() || $post_type == 'tutorial' ){ 
               $post_date = get_the_time('F j, Y');
               $post_date_full = $post_date . ' ' . get_the_time('g:i a');
               $m = new \Moment\Moment($post_date);
