@@ -111,7 +111,6 @@ class Post_Links {
           $link_authors_html_arr = array();
 
           foreach ($link_authors as $link_author) {
-            /* TODO: Add support for multiple authors */
             list($author_name, $author_url ) = explode(',', $link_author);
 
             if ( $author_url ){
