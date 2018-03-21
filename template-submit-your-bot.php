@@ -6,6 +6,10 @@
   get_header();
   $post_id = get_the_ID();
 
+  $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
+  $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+  $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+
   if ( !empty( $_POST ) ){
     if (
       ( isset( $_POST['bot-name'] ) && !empty( $_POST['bot-name'] ) ) &&
