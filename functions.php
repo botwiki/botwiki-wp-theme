@@ -42,6 +42,12 @@ require 'includes/shortcodes/post-links.php';
 require 'includes/shortcodes/admin-emails.php';
 
 /*------------------------------------*\
+Tools
+\*------------------------------------*/
+
+require 'includes/tools/screenshots.php';
+
+/*------------------------------------*\
 Theme Support
 \*------------------------------------*/
 

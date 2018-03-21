@@ -1,6 +1,16 @@
 /* Site dimensions */
 /* Fonts */
 /* Colors */
+/* Site dimensions */
+/* Fonts */
+/* Colors */
+#screenshot-img {
+  margin-top: 1rem;
+  max-width: 350px; }
+  @media (max-width: 860px) {
+    #screenshot-img {
+      max-width: 400px; } }
+
 /* Layout helpers. */
 .w-100 {
   width: 100%; }

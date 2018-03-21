@@ -1,0 +1,10 @@
+@import "../styles/variables.scss";
+
+#screenshot-img{
+  margin-top: 1rem;
+  max-width: 350px;
+
+  @media(max-width: $site-width-small){
+    max-width: 400px;
+  }
+}

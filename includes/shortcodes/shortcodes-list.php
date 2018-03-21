@@ -11,7 +11,7 @@ class Shortcodes_List {
       'Custom Shortcodes',
       'Custom Shortcodes',
       'manage_options',
-      'my-custom-submenu-page',
+      'shortcodes-list',
       array( $this, 'shortcodes_list_page_render' )
     );
   }
