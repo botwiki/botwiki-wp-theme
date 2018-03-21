@@ -108,20 +108,22 @@ class Post_Links {
           $link_authors_html .= '<a data-resource-id="' . $post_id . '" href="' . $author_url . '">' . $author_name . '</a>';
         }
         else{
+          $link_authors_html_arr = array();
+
           foreach ($link_authors as $link_author) {
             /* TODO: Add support for multiple authors */
             list($author_name, $author_url ) = explode(',', $link_author);
 
-            // error_log( print_r( array(
-            //   'author_name' => $author_name,
-            //   'author_url' => $author_url,
-            //    ), true
-            // ));
-
-            // echo join(' and ', array_filter(array_merge(array(join(', ', array_slice($array, 0, -1))), array_slice($array, -1)), 'strlen'));
-
-            $link_authors_html .= '<a data-resource-id="' . $post_id . '" href=""></a>';
+            if ( $author_url ){
+              array_push( $link_authors_html_arr, '<a data-resource-id="' . $post_id . '" href="">' . $author_name . '</a>' );
+            }
+            else{
+              array_push( $link_authors_html_arr, $author_name );
+            }            
           }
+
+          global $helpers;
+          $link_authors_html = $helpers->join_with_and( $link_authors_html_arr );
         }
 
         if ( $is_external ){
