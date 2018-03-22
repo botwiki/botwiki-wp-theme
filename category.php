@@ -4,7 +4,7 @@
 		<!-- section -->
     <div class="mt-5">
 
-			<h1><?php _e( 'Categories for ', 'botwiki' ); single_cat_title(); ?></h1>
+			<h1><?php _e( 'Posts labeled ', 'botwiki' ); single_cat_title(); ?></h1>
 
 			<?php get_template_part('loop'); ?>
 
