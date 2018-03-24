@@ -536,6 +536,9 @@ div#menu-wrapper {
   display: block;
   padding: 10px; }
 
+.select2-container {
+  width: 100% !important; }
+
 ul.btn-list {
   list-style: none;
   padding: 0;

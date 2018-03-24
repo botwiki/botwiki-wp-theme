@@ -64,7 +64,7 @@
 
       global $helpers;
 
-      $main_bot_url = str_replace( array( "\n", "\r" ), '', explode("\n", $bot_urls )[0] );      
+      $main_bot_url = trim( str_replace( array( "\n", "\r" ), '', explode("\n", $bot_urls )[0] ) );
 
 
       $created_by_html_array = array();
@@ -76,7 +76,7 @@
 
 
         if ( count( $bot_author_info_arr ) === 2 ){
-          array_push( $created_by_html_array, '<a href="' . $bot_author_info_arr[1] . '">' . $bot_author_info_arr[0] . '</a>');
+          array_push( $created_by_html_array, '<a href="' . trim( $bot_author_info_arr[1] ) . '">' . trim( $bot_author_info_arr[0] ) . '</a>');
 
           $twitter_username = $helpers->get_twitter_username_from_url( $bot_author_info_arr[1] );
 
@@ -94,7 +94,7 @@
 
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
-        $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
+        $post_content .= '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
                       . get_term( $_POST['bot-networks'][0], 'network' )->name
                       . " bot created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";
@@ -133,12 +133,12 @@
         }      
       }
 
-      $screenshotable_url = str_replace( array( "\n", "\r" ), '', $screenshotable_url );
+      $screenshotable_url = trim( str_replace( array( "\n", "\r" ), '', $screenshotable_url ) );
 
       $bot_tags = array();
 
       foreach ($_POST['bot-tags'] as $bot_tag) {
-        array_push( $bot_tags, intval( $bot_tag ) );
+        array_push( $bot_tags, $bot_tag );
       }
 
       if ( count( $author_tags ) > 0 ){
@@ -173,11 +173,11 @@
       }
 
       foreach ($_POST['bot-networks'] as $network) {
-        wp_set_object_terms( $new_post_id, intval( $network ), 'network' );
+        wp_set_object_terms( $new_post_id, $network, 'network' );
       }
 
       foreach ($_POST['bot-source-language'] as $language) {
-        wp_set_object_terms( $new_post_id, intval( $language ), 'programing_language' );
+        wp_set_object_terms( $new_post_id, $language, 'programing_language' );
       }
 
       if ( $screenshotable_url !== false ){
@@ -187,7 +187,7 @@
           // TODO: Proper error handling.
           $screenshot_data_json = json_decode( $screenshot_data );
   
-          $image_path = ABSPATH . 'temp/' . str_replace( '@', '', $_POST['bot-name'] ) . '.png';
+          $image_path = ABSPATH . 'temp/' . str_replace( '@', '', trim( $_POST['bot-name'] ) ) . '.png';
 
           if ( !file_exists(  ABSPATH . 'temp/' ) ) {
             mkdir( ABSPATH . 'temp/' , 0777, true);
@@ -277,16 +277,8 @@
           <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
             <ul class="btn-list">
               <li>
-                <button class="btn" id="test" href="#">Test</button>
+                <button class="btn" id="test" href="#">Test submission</button>
               </li>
-  <!-- 
-              <li>
-                <a class="btn" href="#">Button</a>
-              </li>
-              <li>
-                <a class="btn" href="#">Button</a>
-              </li>
-   -->
             </ul>
 
           <?php } ?>
@@ -316,6 +308,11 @@
               <small id="bot-description-help" class="form-text text-muted">Include any relevant links to your blog.</small>
             </div>
             <div class="form-group">
+              <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
+              <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff.">
+              <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
+            </div>
+            <div class="form-group">
               <label for="bot-networks">Where does your bot operate? <sup title="This field is required.">*</sup></label>
 
               <select required class="form-control js-select2" id="bot-networks" name="bot-networks[]" multiple="multiple" placeholder="Twitter, Tumblr, Slack...">
@@ -325,7 +322,7 @@
                 ) );
 
                 foreach ($networks as $network) { ?>
-                  <option value="<?php echo $network->term_id ?>"><?php echo $network->name ?></option>
+                  <option value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
                 <?php }
               ?> 
               </select>
@@ -343,11 +340,6 @@
               <label for="bot-selected-tweets">Choose two tweets from your bot that you like</label>
               <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
               <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
-            </div>
-            <div class="form-group">
-              <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
-              <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff.">
-              <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
             </div>
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
@@ -369,7 +361,7 @@
                   ) );
 
                   foreach ($languages as $language) { ?>
-                    <option value="<?php echo $language->term_id ?>"><?php echo $language->name ?></option>
+                    <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
                   <?php }
                 ?> 
                 </select>
@@ -387,7 +379,7 @@
                 ) );
 
                 foreach ($tags as $tag) { ?>
-                  <option value="<?php echo $tag->term_id ?>"><?php echo $tag->name ?></option>
+                  <option value="<?php echo $tag->slug ?>"><?php echo $tag->name ?></option>
                 <?php }
               ?> 
               </select>

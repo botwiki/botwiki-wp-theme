@@ -25,7 +25,7 @@ class BW_Helpers {
       $regex  = '#https?://twitter\.com/(?:\#!/)?(\w+)';
 
       if (preg_match("/https*:\/\/twitter.com\/(#!\/)?([^\/]*)/", $url, $match) ){
-        return $match[2];
+        return trim( $match[2] );
       }
     }
     return false;

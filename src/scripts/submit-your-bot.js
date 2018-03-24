@@ -20,15 +20,15 @@ var bot_submission = {
         $('#bot-urls').val('https://twitter.com/coolbot');
         $('#bot-selected-tweets').val('https://twitter.com/mycoolbot/status/123456789\nhttps://twitter.com/mycoolbot/status/987654321');
         $('#bot-tagline').val('This is a cool bot.');
-        $('#bot-networks').val('5');
+        $('#bot-networks').val('twitter-bots');
         $('#bot-networks').trigger('change');
-        $('#bot-tags').val(['92', '64', '55']);
+        $('#bot-tags').val(['generative', 'images', 'nodejs']);
         $('#bot-tags').trigger('change');
 
         $('#bot-is-opensource').click();
 
         $('#bot-source-url').val('https://github.com/botwiki/botwiki.org');
-        $('#bot-source-language').val('25');
+        $('#bot-source-language').val('nodejs');
         $('#bot-source-language').trigger('change');
 
         $('html, body').animate({
@@ -41,6 +41,7 @@ var bot_submission = {
 
       $('.js-select2').each(function(i){
         $(this).select2({
+          tags: true,
           placeholder: $(this).attr('placeholder')
         });
       });
@@ -50,7 +51,7 @@ var bot_submission = {
         $form_submit_button.attr('disabled', 'disabled').html('Please wait...');
         setTimeout(function(){
           $form_submit_button.html('Still working...');
-        }, 4500);
+        }, 4700);
       });
 
       $('#add-author-fields').click(function(ev){
