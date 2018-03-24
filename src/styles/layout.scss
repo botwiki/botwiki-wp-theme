@@ -40,8 +40,8 @@ img{
     object-fit: cover;
   }
 
-  .aligncenter{
-    display: block;
+  &.aligncenter{
+    display: block !impo;
     margin: 3rem auto;
   }
 }

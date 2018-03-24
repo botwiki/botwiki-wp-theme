@@ -28,7 +28,7 @@ img {
     -o-object-fit: cover;
        object-fit: cover; }
   img .aligncenter {
-    display: block;
+    display: block !important;
     margin: 3rem auto; }
 
 .site-width {
