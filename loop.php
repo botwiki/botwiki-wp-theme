@@ -73,16 +73,18 @@
                     }
                   }
                 }
-              ?>
-            </ul>
+                if ( current_user_can('administrator') ){ ?>
+                  <li><a class="btn" href="/wp-admin/post.php?post=<?php echo $post_id; ?>&action=edit">Edit</a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </article>
-  <!-- /article -->
-  </div>
+      </article>
+    <!-- /article -->
+    </div>
 
-<?php endwhile; ?>
+  <?php endwhile; ?>
 
 <?php else: ?>
 

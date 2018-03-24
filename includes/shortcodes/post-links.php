@@ -62,7 +62,7 @@ class Post_Links {
       if ( get_post_status( $post_id ) === 'publish' ){
         $link_list_html .= '<li><a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">' . $link_title . '</a>' 
                         . ($is_external ? ': ' . get_the_excerpt($post_id) . ' (' .  parse_url($link_url)['host'] . ')' : '')
-                        . '</li>' ;        
+                        . '</li>' ;
       }
     }
 
@@ -139,6 +139,11 @@ class Post_Links {
                           . ( !empty(  $link_authors_html ) ? 'by ' . $link_authors_html : '' )
                           . ')';        
         }
+
+        if ( current_user_can('administrator') ){
+          $link_list_html .= ' <a href="/wp-admin/post.php?post=' . $post_id . '&action=edit"><code>[edit]</code></a>';
+        }
+
 
         $link_list_html .= '</li>';
 
