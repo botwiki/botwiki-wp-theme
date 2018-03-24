@@ -124,17 +124,24 @@
 
 					    $network_tags = array();
 
-					    foreach ( $networks as $network ) {
-				        $network_tags[] = '<a href="' . get_site_url() . '/networks/' . $network->slug . '">' . $network->slug . '</a> ';
+					    if ($networks){
+						    foreach ( $networks as $network ) {
+					        $network_tags[] = '<a href="' . get_site_url() . '/networks/' . $network->slug . '">' . $network->slug . '</a> ';
+						    }					    	
 					    }
+
 
 					    echo join( ' ', $network_tags );
 
 							$languages = get_the_terms($post_id, 'programing_language');
 					    $language_tags = array();
 
-					    foreach ( $languages as $language ) {
-				        $language_tags[] = '<a href="' . get_site_url() . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
+
+					    if ($languages){
+						    foreach ( $languages as $language ) {
+					        $language_tags[] = '<a href="' . get_site_url() . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
+						    }
+
 					    }
 
 					    echo join( ' ', $language_tags );

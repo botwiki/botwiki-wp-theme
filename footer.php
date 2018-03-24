@@ -55,7 +55,7 @@
               </li>
             </ul>
             <p class="ssbg-attribution">Sharing buttons by <a href="https://simplesharingbuttons.com/">simplesharingbuttons.com</a>.</p>
-            <p>Botwiki is a personal side project that's made possible through donations and hard work and dedication. Huge thanks to everyone who helped us out! 🙌 PS: Here's a list of our supporters.</p>
+            <p>Botwiki is a personal side project that's made possible through donations and hard work and dedication. Huge thanks to everyone who helped us out! 🙌 PS: Here's a <a href="/about/supporters/">list of our supporters</a>.</p>
           </div>
         </div>
         <div class="container">
@@ -119,13 +119,6 @@
       <!-- /footer -->
     <?php wp_footer(); ?>
     <!-- analytics -->
-    <script>
-    (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-    (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-    l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-    ga('send', 'pageview');
-    </script>
+    <script type="text/javascript">var sc_project=10530872;var sc_invisible=1;var sc_security="b852d106";var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www."); document.write("<sc"+"ript type='text/javascript' src='"+scJsHost+"statcounter.com/counter/counter.js'></"+"script>");</script><noscript><div class="statcounter"><a title="hit counter" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/10530872/0/b852d106/1/" alt="hit counter"></a></div></noscript>
   </body>
 </html>

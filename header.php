@@ -49,6 +49,11 @@
         $page_title = "Posts tagged #" . implode( ' #', $tags );
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
+      elseif ( is_archive() ) {
+        global $wp_query;
+          $page_title = str_replace( 'Archives:', '', get_the_archive_title());
+        $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
+      }
       elseif ( is_search() ) {
         $page_title = 'Searching Botwiki for "' . $_GET['s'] . '"...';
       }
