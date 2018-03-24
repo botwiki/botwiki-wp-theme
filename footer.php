@@ -5,6 +5,9 @@
             <a id="back-to-top" title="Go back all the way to the top of this page" href="#header" class="slide-down"><img src="<?php echo get_template_directory_uri(); ?>/images/icons/arrow-up.svg"></a>
           </li>
           <li>
+            <a id="whats-new" title="See what's new on Botwiki" href="/new/">✨</a>
+          </li>
+          <li>
             <a id="random-bot-link" title="Explore the wonderful world of online bots, one random bot at a time" href="<?php echo site_url(); ?>/random-bot/">🤖</a>
           </li>
           <li>
