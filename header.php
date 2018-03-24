@@ -57,6 +57,9 @@
       elseif ( is_search() ) {
         $page_title = 'Searching Botwiki for "' . $_GET['s'] . '"...';
       }
+      elseif ( is_home()) {
+        $page_title = 'Latest posts from our blog';
+      }
       else{
         $page_title = get_the_title();
       }
