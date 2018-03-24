@@ -17,6 +17,10 @@
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <h1><?php the_title(); ?></h1>
+        <?php
+          echo get_post_field( 'post_content', $post_id);
+        ?>
+
          <ul class="btn-list">
           <li>
             <a class="btn" href="#bots">New bots</a>
@@ -28,10 +32,6 @@
             <a class="btn" href="/blog/">Our blog</a>
           </li>
         </ul>
-
-        <?php
-          echo get_post_field( 'post_content', $post_id);
-        ?>
 
         <h2 id="bots">New bots<a class="pilcrow" href="#bots">¶</a></h2>
 
