@@ -27,6 +27,9 @@ img {
     height: 280px;
     -o-object-fit: cover;
        object-fit: cover; }
+  img .aligncenter {
+    display: block;
+    margin: 3rem auto; }
 
 .site-width {
   max-width: 1500px;
