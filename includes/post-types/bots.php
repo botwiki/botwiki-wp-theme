@@ -35,8 +35,8 @@ function add_pending_bots_link($wp_admin_bar) {
       )
     );
     $wp_admin_bar->add_node($args);
-
   }
+  wp_reset_query();
 }
 
   function filter_query($query){
