@@ -46,7 +46,7 @@
 
 						$bot_urls = preg_split('/\n|\r\n?/', $post_meta['bot_url'][0]);
 
-						error_log( print_r($bot_urls, true) );
+						// error_log( print_r($bot_urls, true) );
 
 						if ( is_array( $bot_urls ) && $bot_urls[0] ){
 							foreach ($bot_urls as $url) {

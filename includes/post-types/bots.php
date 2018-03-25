@@ -10,8 +10,34 @@ class BotsPostType {
     add_action( 'save_post',  array( $this, 'save_meta' ), 10, 2 );
     add_filter( 'enter_title_here', array( $this, 'change_post_title_placeholder' ) );
     add_action( 'pre_get_posts', array( $this, 'filter_query' ) );
+    add_action( 'admin_bar_menu', array( $this, 'add_pending_bots_link' ), 100 );
 
   }
+
+
+function add_pending_bots_link($wp_admin_bar) {
+
+  $query = array(
+  'post_type' => 'bot',
+  'post_status' => array('pending')
+  );
+
+  $pending_count = count( query_posts($query) );
+
+  if ( $pending_count > 0 ){
+    $args = array(
+      'id' => 'review-pending-bots',
+      'title' => 'Review pending bots (' . $pending_count . ')', 
+      'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
+      'meta' => array(
+        'class' => 'review-pending-bots', 
+        'title' => 'Review pending bots'
+      )
+    );
+    $wp_admin_bar->add_node($args);
+
+  }
+}
 
   function filter_query($query){
     $tax_query = array();

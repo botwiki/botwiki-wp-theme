@@ -1,7 +1,5 @@
 <?php
 
-error_log("OK");
-
 class Tutorials_Note {
   public function __construct() {
     add_filter( 'the_content', array( $this, 'tutorials_add_note' ) );
@@ -10,7 +8,7 @@ class Tutorials_Note {
   public function tutorials_add_note( $content ) { 
     global $post;
     $post_type = get_post_type( $post->ID );
-    error_log( print_r( $post_type, true ) );
+    // error_log( print_r( $post_type, true ) );
 
     if( $post_type === 'resource'){
       $post_terms = get_the_terms( $post->ID, 'resource_type');
