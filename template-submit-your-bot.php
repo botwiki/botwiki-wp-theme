@@ -283,7 +283,7 @@
 
           <?php } ?>
 
-          <?php echo get_post_field('post_content', $post_id) ?>
+          <?php echo do_shortcode(get_post_field('post_content', $post_id)); ?>
           <form id="submit-bot-form" method="post" class="mt-5">
             <div class="author-fields form-row">
               <div class="form-group col-md-6">
