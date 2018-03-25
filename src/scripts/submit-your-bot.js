@@ -9,19 +9,44 @@ var bot_submission = {
       $('#test').click(function(ev){
         ev.preventDefault();
 
-        $('#add-author-fields').before('<div class="author-fields form-row"><div class="form-group col-md-6"><label for="author-${new_id}-name">Author\'s name</label><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><label for="author-2-url">Author\'s URL</label><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>');
+        $('#add-author-fields').before('<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>');
 
         $('#bot-name').val('@coolbot');
         $('#author-1-name').val('Stefan');
         $('#author-1-url').val('https://twitter.com/fourtonfish');
         $('#author-2-name').val('John Doe');
         // $('#author-2-url').val('https://twitter.com/jd');
-        $('#bot-description').val('This bot generates random images.');
-        $('#bot-urls').val('https://twitter.com/coolbot');
+        $('#bot-description').val('generates random images.');
+
+
+        var bot_info_network_select_html = $('#bot-info-1-network').html();
+
+
+        $('#add-bot-info-fields').before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select required class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', '-2-')}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot2"></div></div>`);
+
+
+        $('#bot-info-2-network').select2({
+          tags: true,
+          placeholder: $(this).attr('placeholder')
+        });
+
+
+
+
+        $('#bot-info-1-network').val('twitter-bots');
+        $('#bot-info-1-network').trigger('change');
+
+        $('#bot-info-2-network').val('tumblr-bots');
+        $('#bot-info-2-network').trigger('change');
+
+        $('#bot-info-1-url').val('https://twitter.com/coolbot');
+        $('#bot-info-2-url').val('https://coolbot.tumblr.com/');
+
+
+
+
         $('#bot-selected-tweets').val('https://twitter.com/mycoolbot/status/123456789\nhttps://twitter.com/mycoolbot/status/987654321');
         $('#bot-tagline').val('This is a cool bot.');
-        $('#bot-networks').val('twitter-bots');
-        $('#bot-networks').trigger('change');
         $('#bot-tags').val(['generative', 'images', 'nodejs']);
         $('#bot-tags').trigger('change');
 
@@ -59,7 +84,26 @@ var bot_submission = {
 
         var new_id = $('.author-fields').length + 1;
 
-        $(this).before('<div class="author-fields form-row"><div class="form-group col-md-6"><label for="author-${new_id}-name">Author\'s name</label><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><label for="author-2-url">Author\'s URL</label><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>');
+        $(this).before(`<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-${new_id}-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-${new_id}-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>`);
+
+        return false;
+      });
+
+
+
+      var bot_info_network_select_html = $('#bot-info-1-network').html();
+
+      $('#add-bot-info-fields').click(function(ev){
+        ev.preventDefault();
+
+        var new_id = $('.bot-info-fields').length + 1;
+
+        $(this).before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select required class="form-control js-select2" id="bot-info-${new_id}-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', new_id)}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot${new_id}"></div></div>`);
+
+        $(`#bot-info-${new_id}-network`).select2({
+          tags: true,
+          placeholder: $(this).attr('placeholder')
+        });
 
         return false;
       });

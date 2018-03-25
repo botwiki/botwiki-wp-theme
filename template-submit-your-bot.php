@@ -58,13 +58,13 @@
       $bot_author_info = implode( "\n", $bot_authors );
 
       $bot_description = trim($_POST['bot-description'] );
-      $bot_urls = trim( $_POST['bot-urls'] );
+      $bot_urls = $_POST['bot-urls'];
 
       $post_content = '';
 
       global $helpers;
 
-      $main_bot_url = trim( str_replace( array( "\n", "\r" ), '', explode("\n", $bot_urls )[0] ) );
+      $main_bot_url = $bot_urls[0];
 
 
       $created_by_html_array = array();
@@ -95,14 +95,14 @@
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
-                      . get_term( $_POST['bot-networks'][0], 'network' )->name
+                      . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
                       . " bot created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";
       }
       else{
 
-        function get_network_name( $network_term_id ){
-          return get_term( $network_term_id, 'network' )->name;
+        function get_network_name( $network_term_slug ){
+          return get_term_by( 'slug', $network_term_slug, 'network' )->name;
         }
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a bot for '
@@ -113,22 +113,22 @@
 
 
       $bot_meta = array();
-      $bot_meta['bot_url'] = implode( "\n", explode("\n", $bot_urls ) );
+      $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
 
       $screenshotable_url = false;
 
-      foreach ( explode("\n", $bot_urls ) as $bot_url) {
+      foreach ( $bot_urls as $bot_url) {
         if ( strpos( $bot_url, 'twitter.com/') ){
-          $screenshotable_url = $bot_url;
+          $screenshotable_url = trim( $bot_url );
         }
       }
 
       if ( $screenshotable_url === false ){
-        foreach ( explode("\n", $bot_urls ) as $bot_url) {
+        foreach ( $bot_urls as $bot_url) {
           if ( strpos( $bot_url, 'tumblr.com/') ){
-            $screenshotable_url = $bot_url;
+            $screenshotable_url = trim( $bot_url );
           }
         }      
       }
@@ -172,9 +172,7 @@
         update_post_meta( $new_post_id, $key, $value );
       }
 
-      foreach ($_POST['bot-networks'] as $network) {
-        wp_set_object_terms( $new_post_id, $network, 'network' );
-      }
+      wp_set_object_terms( $new_post_id, $_POST['bot-networks'], 'network' );
 
       foreach ($_POST['bot-source-language'] as $language) {
         wp_set_object_terms( $new_post_id, $language, 'programing_language' );
@@ -302,6 +300,32 @@
               <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
               <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot">
             </div>
+            <div class="bot-info-fields form-row">
+              <div class="form-group col-md-12 mb-1">
+                <label>Where can we see your bot?</label>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="bot-info-1-network">Network</label>
+                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">
+                <?php
+                  $networks = get_terms( 'network', array(
+                      'hide_empty' => false,
+                  ) );
+
+                  foreach ($networks as $network) { ?>
+                    <option value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
+                  <?php }
+                ?> 
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="bot-info-1-url">URL</label>
+                <input type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot">
+              </div>
+            </div>
+            <div class="form-group">
+              <button id="add-bot-info-fields" class="btn">Add more networks</button>
+            </div>            
             <div class="form-group">
               <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
               <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."></textarea>
@@ -312,30 +336,11 @@
               <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff.">
               <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
             </div>
-            <div class="form-group">
-              <label for="bot-networks">Where does your bot operate? <sup title="This field is required.">*</sup></label>
 
-              <select required class="form-control js-select2" id="bot-networks" name="bot-networks[]" multiple="multiple" placeholder="Twitter, Tumblr, Slack...">
-              <?php
-                $networks = get_terms( 'network', array(
-                    'hide_empty' => false,
-                ) );
 
-                foreach ($networks as $network) { ?>
-                  <option value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
-                <?php }
-              ?> 
-              </select>
 
-              <small id="bot-networks-help" class="form-text text-muted">List all networks where your bot posts. Missing something?
-              <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>" target="_blank">Let us know.</a>
-              </small>
-            </div>
-            <div class="form-group">
-              <label for="bot-urls">Where can we see your bot? <sup title="This field is required.">*</sup></label>
-              <textarea required class="form-control" id="bot-urls" name="bot-urls" rows="3" placeholder="https://twitter.com/mycoolbot&#x0a;https://mycoolbot.tumblr.com"></textarea>
-              <small id="bot-urls-help" class="form-text text-muted">Links to your bot, one on each line, please.</small>
-            </div>
+
+
             <div id="bot-selected-tweets-field" class="form-group d-none">
               <label for="bot-selected-tweets">Choose two tweets from your bot that you like</label>
               <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>

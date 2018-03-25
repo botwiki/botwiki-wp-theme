@@ -542,6 +542,13 @@ div#menu-wrapper {
 .select2-container {
   width: 100% !important; }
 
+.select2-container .select2-selection--single {
+  min-height: 2.4rem !important;
+  padding-top: 0.2rem !important; }
+
+.select2-selection__arrow {
+  top: 0.4rem !important; }
+
 ul.btn-list {
   list-style: none;
   padding: 0;
