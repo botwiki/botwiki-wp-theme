@@ -21,7 +21,7 @@
           echo get_post_field( 'post_content', $post_id);
         ?>
 
-         <ul class="btn-list">
+         <ul class="btn-list mt-5">
           <li>
             <a class="btn" href="#bots">New bots</a>
           </li>
@@ -48,7 +48,18 @@
 
           get_template_part('loop');
         ?>
-        <a href="/bot/" class="btn">Browse all</a>
+
+        <ul class="btn-list">
+          <li>
+            <a class="btn" href="/bot/">Browse all</a>
+          </li>
+          <li>
+            <a class="btn" href="/random-bot/">Random bot</a>
+          </li>
+          <li>
+            <a class="btn" href="/submit-your-bot/">Add your bot</a>
+          </li>
+        </ul>
 
         <h2 id="resources">New resources<a class="pilcrow" href="#resources">¶</a></h2>
         <?php
@@ -72,7 +83,13 @@
 
           get_template_part('loop');
          ?>
-        <a href="/?post_type=resource" class="btn">Browse all</a>
+
+        <ul class="btn-list">
+          <li>
+            <a class="btn" href="/?post_type=resource">Browse all</a>
+          </li>
+        </ul>
+
       </article>
     </div>
   </main>
