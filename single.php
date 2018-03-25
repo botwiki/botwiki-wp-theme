@@ -46,16 +46,21 @@
 
 						$bot_urls = preg_split('/\n|\r\n?/', $post_meta['bot_url'][0]);
 
-						foreach ($bot_urls as $url) {
-							$info = parse_url($url);
-							$host = $info['host'];
-							$host_names = explode(".", $host);
-							$domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
-							?>
-	            <li>
-	              <a class="btn" href="<?php echo $url; ?>">View on <?php echo $domain; ?></a>
-	            </li>
-						<?php }
+						error_log( print_r($bot_urls, true) );
+
+						if ( is_array( $bot_urls ) && $bot_urls[0] ){
+							foreach ($bot_urls as $url) {
+								$info = parse_url($url);
+								$host = $info['host'];
+								$host_names = explode(".", $host);
+								$domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+								?>
+		            <li>
+		              <a class="btn" href="<?php echo $url; ?>">View on <?php echo $domain; ?></a>
+		            </li>
+							<?php }							
+						}
+
 	          $bot_languages = wp_get_post_terms($post_id, 'programing_language');
 
 	          if ( array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){ ?>
