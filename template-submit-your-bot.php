@@ -173,10 +173,7 @@
       }
 
       wp_set_object_terms( $new_post_id, $_POST['bot-networks'], 'network' );
-
-      foreach ($_POST['bot-source-language'] as $language) {
-        wp_set_object_terms( $new_post_id, $language, 'programing_language' );
-      }
+      wp_set_object_terms( $new_post_id, $_POST['bot-source-language'], 'programing_language' );
 
       if ( $screenshotable_url !== false ){
         $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
