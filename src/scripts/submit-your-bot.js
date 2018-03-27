@@ -18,20 +18,14 @@ var bot_submission = {
         // $('#author-2-url').val('https://twitter.com/jd');
         $('#bot-description').val('generates random images.');
 
-
         var bot_info_network_select_html = $('#bot-info-1-network').html();
 
-
-        $('#add-bot-info-fields').before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select required class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', '-2-')}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot2"></div></div>`);
-
+        $('#add-bot-info-fields').before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', '-2-')}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot2"></div></div>`);
 
         $('#bot-info-2-network').select2({
           tags: true,
           placeholder: $(this).attr('placeholder')
         });
-
-
-
 
         $('#bot-info-1-network').val('twitter-bots');
         $('#bot-info-1-network').trigger('change');
@@ -41,9 +35,6 @@ var bot_submission = {
 
         $('#bot-info-1-url').val('https://twitter.com/coolbot');
         $('#bot-info-2-url').val('https://coolbot.tumblr.com/');
-
-
-
 
         $('#bot-selected-tweets').val('https://twitter.com/mycoolbot/status/123456789\nhttps://twitter.com/mycoolbot/status/987654321');
         $('#bot-tagline').val('This is a cool bot.');
@@ -60,7 +51,6 @@ var bot_submission = {
             scrollTop: $form_submit_button.offset().top - 500
         }, 450);
 
-
         return false;
       });
 
@@ -70,7 +60,6 @@ var bot_submission = {
           placeholder: $(this).attr('placeholder')
         });
       });
-
 
       $('#submit-bot-form').submit(function(){
         $form_submit_button.attr('disabled', 'disabled').html('Please wait...');
@@ -89,8 +78,6 @@ var bot_submission = {
         return false;
       });
 
-
-
       var bot_info_network_select_html = $('#bot-info-1-network').html();
 
       $('#add-bot-info-fields').click(function(ev){
@@ -98,12 +85,14 @@ var bot_submission = {
 
         var new_id = $('.bot-info-fields').length + 1;
 
-        $(this).before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select required class="form-control js-select2" id="bot-info-${new_id}-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', new_id)}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot${new_id}"></div></div>`);
+        $(this).before(`<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-${new_id}-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace('-1-', new_id)}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot${new_id}"></div></div>`);
 
         $(`#bot-info-${new_id}-network`).select2({
           tags: true,
           placeholder: $(this).attr('placeholder')
         });
+
+        enable_selected_tweets_field();
 
         return false;
       });
@@ -133,20 +122,29 @@ var bot_submission = {
         }
       });
 
-      var $bot_networks_select = $('#bot-networks'),
-          $selected_tweets_field = $('#bot-selected-tweets-field');
+      var $selected_tweets_field = $('#bot-selected-tweets-field');
 
+      function enable_selected_tweets_field(){
+        var $bot_networks_select = $('[name="bot-networks[]');
 
-      $bot_networks_select.on('change', function(){
-        if ($bot_networks_select.children("option").filter(":selected").text().indexOf('Twitter') > -1){
-          $selected_tweets_field.removeClass('d-none');
-        }
-        else{
-          $selected_tweets_field.addClass('d-none');
-        }
-      });
+        $bot_networks_select.on('change', function(){
+          var show_selected_tweets_field = false;
+          $bot_networks_select.each(function(i){
+            var $this = $(this);
+            if ($this.children("option").filter(":selected").text().indexOf('Twitter') > -1){
+              show_selected_tweets_field = true;
+            }
+          });
 
-
+          if (show_selected_tweets_field){
+            $selected_tweets_field.removeClass('d-none');
+          }
+          else{
+            $selected_tweets_field.addClass('d-none');            
+          }
+        });
+      }
+      enable_selected_tweets_field();
     }
   }
 }
@@ -154,7 +152,3 @@ var bot_submission = {
 export {
   bot_submission
 };
-
-
-
-
