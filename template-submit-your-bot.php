@@ -176,10 +176,12 @@
       wp_set_object_terms( $new_post_id, $_POST['bot-source-language'], 'programing_language' );
 
       if ( $screenshotable_url !== false ){
-        $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
-
         try {
           // TODO: Proper error handling.
+
+          $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
+
+
           $screenshot_data_json = json_decode( $screenshot_data );
   
           $image_path = ABSPATH . 'temp/' . str_replace( '@', '', trim( $_POST['bot-name'] ) ) . '.png';
