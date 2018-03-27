@@ -34,7 +34,7 @@
 			</div>
 
 			<h1><?php _e( 'Author archives for ', 'botwiki' ); echo get_the_author(); ?></h1>
-			<?php 
+			<?php
 				get_template_part('loop', 'author');
 				get_template_part('pagination');
 			?>
