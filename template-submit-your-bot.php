@@ -312,7 +312,7 @@
                   ) );
 
                   foreach ($networks as $network) { ?>
-                    <option value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
+                    <option <?php if ( $network->name === 'Twitter' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
                   <?php }
                 ?> 
                 </select>
