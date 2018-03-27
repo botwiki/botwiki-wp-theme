@@ -96,7 +96,9 @@
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
                       . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
-                      . " bot created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
+                      . " bot" 
+                      . ( count( $bot_authors) > 0 ? " created by " : "" )
+                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";
       }
       else{
@@ -107,7 +109,8 @@
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a bot for '
                       . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks']) )
-                      . " created by " . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
+                      . ( count( $bot_authors) > 0 ? " created by " : "" )
+                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";        
       }
 
