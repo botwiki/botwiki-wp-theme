@@ -27,7 +27,7 @@ function add_pending_bots_link($wp_admin_bar) {
   if ( $pending_count > 0 ){
     $args = array(
       'id' => 'review-pending-bots',
-      'title' => 'Review pending bots (' . $pending_count . ')', 
+      'title' => 'Review Pending Bots (' . $pending_count . ')', 
       'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
       'meta' => array(
         'class' => 'review-pending-bots', 
