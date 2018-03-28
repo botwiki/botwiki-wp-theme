@@ -11,6 +11,9 @@
   $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
   if ( !empty( $_POST ) ){
+
+    error_log( print_r( $_POST, true ) );
+
     if (
       ( isset( $_POST['bot-name'] ) && !empty( $_POST['bot-name'] ) ) &&
       ( isset( $_POST['bot-description'] ) && !empty( $_POST['bot-description'] ) ) &&
@@ -391,7 +394,7 @@
               ?> 
               </select>
 
-              <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it. (Don't overdo it!)</small>
+              <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it.</small>
             </div>
 
             <div class="form-check mb-2">
