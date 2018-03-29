@@ -11,6 +11,14 @@
     #screenshot-img {
       max-width: 400px; } }
 
+/* Site dimensions */
+/* Fonts */
+/* Colors */
+.background-img-preview {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 1rem; }
+
 /* Layout helpers. */
 .w-100 {
   width: 100%; }

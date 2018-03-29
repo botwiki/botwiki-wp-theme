@@ -22,6 +22,7 @@ require 'includes/random-bot.php';
 require 'includes/show-post-id.php';
 require 'includes/card-title.php';
 require 'includes/add-tags-to-pages.php';
+require 'includes/extra-user-fields.php';
 
 
 /*------------------------------------*\

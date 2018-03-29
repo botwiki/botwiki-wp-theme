@@ -12,7 +12,7 @@
 
   if ( !empty( $_POST ) ){
 
-    error_log( print_r( $_POST, true ) );
+    // error_log( print_r( $_POST, true ) );
 
     if (
       ( isset( $_POST['bot-name'] ) && !empty( $_POST['bot-name'] ) ) &&

@@ -30,6 +30,19 @@ class BW_Helpers {
     }
     return false;
   }
+
+  function get_domain_from_url( $url ){
+    $domain = $url;
+
+    try {
+      $info = parse_url($url);
+      $host = $info['host'];
+      $host_names = explode(".", $host);
+      $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+    } catch (Exception $e) { /* NOOP */ }
+
+    return $domain;
+  }
 }
 
 
