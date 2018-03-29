@@ -68,6 +68,8 @@
     ?>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php echo $page_title ?></title>
+    <meta itemprop="name" content="<?php echo $page_title ?>"/>
+    <meta itemprop="url" content="<?php echo $page_url; ?>"/>
     <meta property="og:title" content="<?php echo $page_title; ?>" />
     <meta name="twitter:title" content="<?php echo $page_title; ?>" />
     <meta name="description" content="<?php echo $page_description; ?>" />

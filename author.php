@@ -45,19 +45,21 @@
 	<main role="main" class="container">
     <div class="mt-5">
 			<div class="media mb-5">
-			  <img class="mr-3" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+			  <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
 			  <div class="media-body">
 			    <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
-			    <?php echo $description; ?>
+			    <div class="p-note">
+			    	<?php echo $description; ?>
+			    </div>
 			    <ul class="btn-list mt-4">
 			    	<?php if ( !empty( $website_url )){ ?>
 			    		<li>
-			    			<a class="btn" title="Personal website" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
+			    			<a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
 			    		</li>
 			    	<?php } ?>
 			    	<?php if ( !empty( $twitter_handle )){ ?>
 			    		<li>
-			    			<a class="btn" title="Twitter" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
+			    			<a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
 			    		</li>
 			    	<?php } ?>
 			    </ul>

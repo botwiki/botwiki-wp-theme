@@ -14,7 +14,7 @@
             <a id="submit-bot-link" title="Add your bot to Botwiki" href="<?php echo site_url(); ?>/submit-your-bot/">📋</a>
           </li>
           <li>
-            <a id="twitter-link" title="Follow @botwikidotorg on Twitter" href="https://twitter.com/botwikidotorg">
+            <a id="twitter-link" title="Follow @botwikidotorg on Twitter" rel="me" href="https://twitter.com/botwikidotorg">
               <img src="<?php echo get_template_directory_uri(); ?>/images/icons/twitter-white.svg">
               <span>@botwikidotorg</span>
             </a>
