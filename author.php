@@ -60,7 +60,6 @@
 			    			<a class="btn" title="Twitter" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
 			    		</li>
 			    	<?php } ?>
-
 			    </ul>
 			  </div>
 			</div>

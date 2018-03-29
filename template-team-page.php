@@ -59,13 +59,31 @@
                 $full_name = "{$first_name} {$last_name}";
             }
 
+            $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+            $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
             ?>
             <div class="media mb-5<?php if ($index === 0){ echo ' mt-5'; }?>">
-              <img class="mr-3" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+              <a href="<?php echo get_author_posts_url($author_id, $nickname ); ?>">
+                <img class="mr-3" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+              </a>
               <div class="media-body">
                 <h3 id="<?php echo $nickname; ?>" class="mt-0 mb-1"><?php echo $nickname; ?><a class="pilcrow" href="#<?php echo $nickname; ?>">¶</a></h3>
                 <?php echo $description; ?>
+                <ul class="btn-list mt-4">
+                  <?php if ( !empty( $website_url )){ ?>
+                    <li>
+                      <a class="btn" title="Personal website" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
+                    </li>
+                  <?php } ?>
+                  <?php if ( !empty( $twitter_handle )){ ?>
+                    <li>
+                      <a class="btn" title="Twitter" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
+                    </li>
+                  <?php } ?>
+                </ul>
+
+
               </div>
             </div>
 
