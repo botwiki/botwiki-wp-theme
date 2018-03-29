@@ -12,7 +12,7 @@
 
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
-      <h1><?php echo "Posts tagged " . implode( ' ', $tag_links ); ?></h1>
+      <h1><?php echo "All posts tagged " . implode( ' ', $tag_links ); ?></h1>
 			<?php get_template_part('loop'); ?>
 			<?php get_template_part('pagination'); ?>
 		</div>

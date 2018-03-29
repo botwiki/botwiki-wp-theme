@@ -141,7 +141,6 @@
 							$languages = get_the_terms($post_id, 'programing_language');
 					    $language_tags = array();
 
-
 					    if ($languages){
 						    foreach ( $languages as $language ) {
 					        $language_tags[] = '<a href="' . get_site_url() . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
@@ -151,7 +150,19 @@
 
 					    echo join( ' ', $language_tags );
 
-							the_tags('', ' ', '<br>');
+							$tags = get_the_tags();
+					    $tags_array = array();
+
+					    if ($tags){
+						    foreach ( $tags as $tag ) {
+					        $tags_array[] = '<a href="' . get_site_url() . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+						    }
+
+					    }
+
+					    echo join( ' ', $tags_array );
+
+							// the_tags('', ' ', '<br>');
 						?>
 					</p>
 					<!-- /post details -->
