@@ -54,6 +54,9 @@ ul.btn-list{
 .note, .card{
   .btn{
     margin-bottom: 0;
+    @media (max-width: $site-width-small){
+      margin-bottom: 1em;
+    }
   }
 }
 
