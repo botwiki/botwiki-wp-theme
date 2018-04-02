@@ -59,18 +59,6 @@
                     <a class="btn view-source" href="<?php echo $post_meta['bot_source_url'][0]; ?>">View source</a>
                   </li>
                   <?php
-                    foreach ($bot_languages as $bot_language) {
-                      if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'github.com') > -1){ ?>
-                        <li>
-                          <a class="btn glitch-remix" href="https://glitch.com/#!/import/<?php echo str_replace('https://github.com/', 'github/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
-                        </li>
-                      <?php }
-                      if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'glitch.com/edit') > -1){ ?>
-                        <li>
-                          <a class="btn glitch-remix" href="<?php echo str_replace('/edit/#!/', '/edit/#!/remix/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
-                        </li>
-                      <?php }
-                    }
                   }
                 }
                 if ( current_user_can('administrator') ){ ?>
