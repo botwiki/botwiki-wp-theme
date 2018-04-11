@@ -155,6 +155,11 @@
         array_push( $bot_tags, 'opensource' );
       }
 
+      error_log( print_r( array(
+        '$_POST[bot-tags]' => $_POST['bot-tags'],
+        'bot_tags' => $bot_tags
+      ), true ) );
+
 
       $post_data = array(
         'post_author' => ( is_user_logged_in() ? get_current_user_id() : 2 ),
@@ -164,14 +169,15 @@
         'post_status' => 'draft',
         'post_type' => 'bot',
         'post_category' => '',
-        'tax_input' => array(
-          'post_tag' => $bot_tags
-        ),
+        // 'tax_input' => array(
+        //   'post_tag' => $bot_tags
+        // ),
         'meta_input' => $bot_meta
       );
 
       $new_post_id = wp_insert_post($post_data);
 
+      wp_set_object_terms($new_post_id, $bot_tags, 'post_tag');
       update_post_meta($new_post_id, 'bot_author_info', $bot_author_info);
 
       foreach ($bot_meta as $key => $value) {
@@ -283,7 +289,6 @@
                 <button class="btn" id="test" href="#">Test submission</button>
               </li>
             </ul>
-
           <?php } ?>
 
           <?php echo do_shortcode(get_post_field('post_content', $post_id)); ?>
