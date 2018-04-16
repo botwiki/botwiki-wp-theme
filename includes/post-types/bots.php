@@ -127,8 +127,8 @@ function add_pending_bots_link($wp_admin_bar) {
         'items_list_navigation' => __( 'Items list navigation', 'botwiki' ),
         'filter_items_list' => __( 'Filter items list', 'botwiki' )
       ),
-      'taxonomies' => array('post_tag', 'programing_language', 'network'),
-      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail' ),
+      'taxonomies' => array('post_tag', 'programing_language', 'network' ),
+      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'author' ),
       'hierarchical' => true,
       'public' => true,
       'show_ui' => true,
