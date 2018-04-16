@@ -38,9 +38,11 @@
         $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
       }
       elseif ( is_author() ) {
-        $author = get_queried_object();
-        $page_title = $author->nickname;
-        $page_thumbnail = get_avatar_url( $author->ID );
+        $author_id = get_query_var('author');
+        $nickname = get_the_author_meta('nickname', $author_id);
+        $post_type = $wp_query->query['post_type'];
+        $page_title = ucfirst($post_type) . 's by ' . $nickname;
+        $page_thumbnail = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
       }
       elseif ( is_tag() ) {
         global $wp_query;

@@ -11,6 +11,7 @@
 	// echo "</code></pre>";
 
 	$nickname = get_the_author_meta('nickname', $author_id);
+	$username = get_the_author_meta('user_nicename', $author_id);
 	$description = get_the_author_meta('description', $author_id);
 
 	$first_name = get_the_author_meta('nickname', $author_id);
@@ -66,11 +67,53 @@
 			  </div>
 			</div>
 
-			<h1 id="author-archives">Author archives <a class="pilcrow" href="#author-archives">¶</a></h1>
+
+			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?> 
+
+				<h1 id="blog">My blog posts <a class="pilcrow" href="#blog">¶</a></h1>
+				<?php
+					get_template_part('loop', 'author');
+					get_template_part('pagination');
+				?>
+
+			<?php } ?>
+
+
+			<h1 id="bots">My bots <a class="pilcrow" href="#bots">¶</a></h1>
+
 			<?php
-				get_template_part('loop', 'author');
-				get_template_part('pagination');
+          global $wp_query;
+
+          $wp_query = new WP_Query( array(
+            'post_type'         => 'bot',
+            'posts_per_page'    => '5',
+            'author'						=> $author_id,
+            'post_status'       => 'publish',
+            'orderby'           => 'publish_date',
+            'order'             => 'DESC'
+          ) );            
+				get_template_part('loop');
 			?>
+			<a class="btn" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all</a>
+
+
+			<h1 id="bots">My resources <a class="pilcrow" href="#resources">¶</a></h1>
+
+			<?php
+          global $wp_query;
+
+          $wp_query = new WP_Query( array(
+            'post_type'         => 'resource',
+            'posts_per_page'    => '5',
+            'author'						=> $author_id,
+            'post_status'       => 'publish',
+            'orderby'           => 'publish_date',
+            'order'             => 'DESC'
+          ) );            
+				get_template_part('loop');
+			?>
+			<a class="btn" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all</a>
+
 		</div>
 	</main>
 

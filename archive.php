@@ -3,7 +3,14 @@
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
       <?php
-      if ( is_tax() ){
+        if(is_author()){
+          $author_id = get_query_var('author');
+          $nickname = get_the_author_meta('nickname', $author_id);
+          $username = get_the_author_meta('user_nicename', $author_id);
+          $post_type = $wp_query->query['post_type'];
+        ?>
+          <h1>Browsing <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a>...</h1>
+      <?php } elseif ( is_tax() ){
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
       ?>
         <h1><?php echo "Posts tagged #" . $term->name; ?></h1>
