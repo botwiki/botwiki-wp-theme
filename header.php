@@ -41,7 +41,12 @@
         $author_id = get_query_var('author');
         $nickname = get_the_author_meta('nickname', $author_id);
         $post_type = $wp_query->query['post_type'];
-        $page_title = ucfirst($post_type) . 's by ' . $nickname;
+        if ( !empty($post_type)){
+          $page_title = ucfirst($post_type) . 's by ' . $nickname;          
+        }
+        else{
+          $page_title = $nickname;                    
+        }
         $page_thumbnail = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
       }
       elseif ( is_tag() ) {
