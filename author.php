@@ -68,7 +68,7 @@
 			</div>
 
 
-			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?> 
+			<?php if ( count_user_posts( $author_id ) > 0 ) {  ?> 
 
 				<h1 id="blog">My blog posts <a class="pilcrow" href="#blog">¶</a></h1>
 				<?php
