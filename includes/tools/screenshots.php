@@ -10,7 +10,7 @@ class Screenshot_Tool {
       'tools.php',
       'Screenshot Tool',
       'Screenshot Tool',
-      'manage_options',
+      'read',
       'screenshot-tool',
       array( $this, 'screenshot_tool_page_render' )
     );
