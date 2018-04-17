@@ -10,7 +10,6 @@ h1, h2, h3, h4, h5, h6{
 
 h1{
   font-size: 5em;
-  text-transform: uppercase;
   margin-top: 5rem;
   margin-bottom: 3rem;
 
@@ -22,7 +21,6 @@ h1{
 
 h2{
   font-size: 4em;
-  text-transform: uppercase;
   margin-top: 4rem;
   margin-bottom: 4rem;
 
@@ -41,16 +39,18 @@ h2{
 
 h3{
   font-size: 3.5em;
-  text-transform: uppercase;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
 h4{
   font-size: 3em;
-  text-transform: uppercase;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+h1, h2, h3, h4{
+  // text-transform: uppercase;  
 }
 
 h5{
