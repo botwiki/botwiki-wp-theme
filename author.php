@@ -78,9 +78,6 @@
 
 			<?php } ?>
 
-
-			<h1 id="bots">My bots <a class="pilcrow" href="#bots">¶</a></h1>
-
 			<?php
           global $wp_query;
 
@@ -91,29 +88,40 @@
             'post_status'       => 'publish',
             'orderby'           => 'publish_date',
             'order'             => 'DESC'
-          ) );            
-				get_template_part('loop');
-			?>
-			<a class="btn" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all</a>
+          ) );
+
+          if ( $wp_query->post_count > 0 ){ ?>
+            <h1 id="bots">My bots <a class="pilcrow" href="#bots">¶</a></h1>
+            <?php
+              get_template_part('loop');
+            ?>
+            <a class="btn" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all</a>
+          <?php }
+        ?>
 
 
-			<h1 id="bots">My resources <a class="pilcrow" href="#resources">¶</a></h1>
 
-			<?php
-          global $wp_query;
 
-          $wp_query = new WP_Query( array(
-            'post_type'         => 'resource',
-            'posts_per_page'    => '5',
-            'author'						=> $author_id,
-            'post_status'       => 'publish',
-            'orderby'           => 'publish_date',
-            'order'             => 'DESC'
-          ) );            
-				get_template_part('loop');
-			?>
-			<a class="btn" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all</a>
+      <?php
+        global $wp_query;
 
+        $wp_query = new WP_Query( array(
+          'post_type'         => 'resource',
+          'posts_per_page'    => '5',
+          'author'            => $author_id,
+          'post_status'       => 'publish',
+          'orderby'           => 'publish_date',
+          'order'             => 'DESC'
+        ) );            
+
+        if ( $wp_query->post_count > 0 ){ ?>
+          <h1 id="bots">My resources <a class="pilcrow" href="#resources">¶</a></h1>
+          <?php
+            get_template_part('loop');
+          ?>
+          <a class="btn" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all</a>
+        <?php }        
+      ?>
 		</div>
 	</main>
 
