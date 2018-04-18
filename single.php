@@ -132,7 +132,7 @@
 							// var_dump($coauthors);
 
   					$coauthors_count = count( $coauthors );
-  					if ($coauthors_count > 2 || ( $coauthors_count === 2 && $coauthors[0]->data->ID !== 2) ){ ?>
+  					if ($coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== 2) ){ ?>
   						<h2 id="authors">Authors <a class="pilcrow" href="#authors">¶</a></h2>
 	  					<?php
 
