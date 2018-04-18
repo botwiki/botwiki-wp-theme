@@ -14,30 +14,30 @@ class BotsPostType {
 
   }
 
+  function add_pending_bots_link($wp_admin_bar) {
+    if ( current_user_can('administrator') ){
+      $query = array(
+      'post_type' => 'bot',
+      'post_status' => array('pending')
+      );
 
-function add_pending_bots_link($wp_admin_bar) {
+      $pending_count = count( query_posts($query) );
 
-  $query = array(
-  'post_type' => 'bot',
-  'post_status' => array('pending')
-  );
-
-  $pending_count = count( query_posts($query) );
-
-  if ( $pending_count > 0 ){
-    $args = array(
-      'id' => 'review-pending-bots',
-      'title' => 'Review Pending Bots (' . $pending_count . ')', 
-      'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
-      'meta' => array(
-        'class' => 'review-pending-bots', 
-        'title' => 'Review pending bots'
-      )
-    );
-    $wp_admin_bar->add_node($args);
+      if ( $pending_count > 0 ){
+        $args = array(
+          'id' => 'review-pending-bots',
+          'title' => 'Review Pending Bots (' . $pending_count . ')', 
+          'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
+          'meta' => array(
+            'class' => 'review-pending-bots', 
+            'title' => 'Review pending bots'
+          )
+        );
+        $wp_admin_bar->add_node($args);
+      }
+      wp_reset_query();    
+    }
   }
-  wp_reset_query();
-}
 
   function filter_query($query){
     $tax_query = array();
