@@ -34,8 +34,11 @@ class Extra_User_Fields {
     <tr>
       <th><label for="twitter-handle">Profile header</label></th>
       <td>
-        <img id="background-img-preview" class="background-img-preview" src="<?php echo esc_attr( get_the_author_meta( 'background-img-url', $user->ID ) ); ?>">
-        <input hidden id="background-img-url" type="text" name="background-img-url" />
+        <?php
+        $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $user->ID ) );
+        ?>
+        <img id="background-img-preview" class="background-img-preview" src="<?php echo $background_img_url; ?>">
+        <input hidden id="background-img-url" type="text" value="<?php echo $background_img_url; ?>" name="background-img-url" />
         <input id="upload-button" type="button" class="button" value="Choose background" />
       </td>
     </tr>
