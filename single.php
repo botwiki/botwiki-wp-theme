@@ -120,12 +120,7 @@
 
 						<?php } ?>
 					  </div>
-					<?php } ?>
-
-
-
-					<?php
-
+					<?php }
 						global $coauthors_plus;
 
   					$coauthors = get_coauthors();
@@ -178,27 +173,9 @@
 
 								 //  $background_img_dominant_color_css = str_replace('[', 'background-color:rgb(', $background_img_dominant_color);
 								 //  $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
-
-
-								include( locate_template( 'author-card.php', false, false ) ); 
-									
+									include( locate_template( 'author-card.php', false, false ) ); 	
 								}
-
 							}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   					}
 					?>
 					<!-- post details -->
