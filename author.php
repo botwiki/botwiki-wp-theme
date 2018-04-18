@@ -14,7 +14,7 @@
 	$username = get_the_author_meta('user_nicename', $author_id);
   $description = get_the_author_meta('description', $author_id);
 
-  if ( current_user_can('administrator') ){  
+  if ( user_can($author_id, 'administrator') ){  
   	$botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
     if ( empty( $botwiki_team_role ) ){
       $botwiki_team_role = "Botwiki team member";      
