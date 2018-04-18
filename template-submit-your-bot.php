@@ -297,6 +297,17 @@
 
           <?php echo do_shortcode(get_post_field('post_content', $post_id)); ?>
           <form id="submit-bot-form" method="post" class="mt-5">
+
+
+          <?php if ( is_user_logged_in() ) {?>
+            <div class="card mb-5">
+              <div class="card-body">
+                <h5 class="card-title mt-1">You are logged in</h5>
+                <p class="card-text">This bot will be added to your profile.</p>
+              </div>
+            </div>
+          <?php } else { ?>
+
             <div class="author-fields form-row">
               <div class="form-group col-md-6">
                 <label for="author-1-name">Author's name</label>
@@ -307,6 +318,10 @@
                 <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
               </div>
             </div>
+
+          <?php } ?>
+
+
             <div class="form-group">
               <button id="add-author-fields" class="btn">Add more authors</button>
             </div>
