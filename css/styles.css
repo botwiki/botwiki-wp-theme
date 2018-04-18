@@ -30,6 +30,9 @@ img {
   img.aligncenter {
     display: block;
     margin: 3rem auto; }
+  .card.author-card img {
+    height: auto;
+    margin: initial; }
 
 .site-width {
   max-width: 1500px;

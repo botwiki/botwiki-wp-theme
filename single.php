@@ -123,6 +123,85 @@
 					<?php } ?>
 
 
+
+					<?php
+
+						global $coauthors_plus;
+
+  					$coauthors = get_coauthors();
+							// var_dump($coauthors);
+
+  					$coauthors_count = count( $coauthors );
+  					if ($coauthors_count > 2 || ( $coauthors_count === 2 && $coauthors[0]->data->ID !== 2) ){ ?>
+  						<h2 id="authors">Authors <a class="pilcrow" href="#authors">¶</a></h2>
+	  					<?php
+
+							foreach ($coauthors as $coauthor) {
+
+								$author_id = $coauthor->data->ID;
+								if ($author_id != 2){
+									$author_data = get_userdata( intval($author_id ));
+
+									// echo "<pre><code>";
+									// var_dump(get_userdata( $author_id ));
+									// echo "</code></pre>";
+
+									$nickname = get_the_author_meta('nickname', $author_id);
+									$username = get_the_author_meta('user_nicename', $author_id);
+
+								  if ( user_can($author_id, 'administrator') ){  
+								  	$botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
+								    if ( empty( $botwiki_team_role ) ){
+								      $botwiki_team_role = "Botwiki team member";      
+								    }
+								  }
+								  else{
+								    $botwiki_team_role = "Botwiki contributor";    
+								  }
+
+									$first_name = get_the_author_meta('nickname', $author_id);
+									$last_name = get_the_author_meta('last_name', $author_id);
+									$full_name = '';
+
+									if( empty($first_name)){
+									    $full_name = $last_name;
+									} elseif( empty( $last_name )){
+									    $full_name = $first_name;
+									} else {
+									    $full_name = "{$first_name} {$last_name}";
+									}
+
+									$botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+
+
+									// $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
+									// $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
+
+								 //  $background_img_dominant_color_css = str_replace('[', 'background-color:rgb(', $background_img_dominant_color);
+								 //  $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
+
+
+								include( locate_template( 'author-card.php', false, false ) ); 
+									
+								}
+
+							}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  					}
+					?>
 					<!-- post details -->
 					<p class="post-tags mt-5 mb-5">
 						<?php 
