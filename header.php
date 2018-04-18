@@ -125,10 +125,9 @@
         <div class="container-fluid">
           <div class="row m-0 w-100">
             <div class="col-sm-6">
-              <!-- <a class="navbar-brand botwiki-logo" href="<?php #echo get_site_url(); ?>">b</a> -->
+              <label id="menu-icon" class="cursor-pointer botwiki-logo" for="menu-toggle">b</label>
             </div>
             <div class="col-sm-6 text-right pr-0">
-              <label id="menu-icon" class="cursor-pointer" for="menu-toggle">☰</label>
             </div>
           </div>
         </div>

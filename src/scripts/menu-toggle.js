@@ -13,7 +13,7 @@ var menu_toggle = {
       if ($('#menu-toggle').is(':checked') === true){
         console.log('1');
         $('body').removeClass('menu-open');
-        $menu_icon.html('☰').removeClass('mr-3 mt-0');
+        $menu_icon.html('b').removeClass('mr-3 mt-0');
       }
       else{
         console.log('0');      
