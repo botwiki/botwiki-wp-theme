@@ -12,7 +12,17 @@
 
 	$nickname = get_the_author_meta('nickname', $author_id);
 	$username = get_the_author_meta('user_nicename', $author_id);
-	$description = get_the_author_meta('description', $author_id);
+  $description = get_the_author_meta('description', $author_id);
+
+  if ( current_user_can('administrator') ){  
+  	$botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
+    if ( empty( $botwiki_team_role ) ){
+      $botwiki_team_role = "Botwiki team member";      
+    }
+  }
+  else{
+    $botwiki_team_role = "Botwiki contributor";    
+  }
 
 	$first_name = get_the_author_meta('nickname', $author_id);
 	$last_name = get_the_author_meta('last_name', $author_id);
@@ -49,6 +59,13 @@
 			  <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
 			  <div class="media-body">
 			    <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
+
+          <div class="card mt-4 mb-4">
+            <div class="card-body">
+              <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
+            </div>
+          </div>
+
 			    <div class="p-note">
 			    	<?php echo $description; ?>
 			    </div>

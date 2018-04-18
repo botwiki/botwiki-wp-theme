@@ -24,6 +24,15 @@ class Extra_User_Fields {
     <h3><?php _e("Extra profile information", "blank"); ?></h3>
 
     <table class="form-table">
+    <?php if ( current_user_can('administrator') ){?>
+    <tr>
+      <th><label for="botwiki-team-role">Botwiki team role</label></th>
+      <td>
+        <textarea name="botwiki-team-role" id="botwiki-team-role" class="regular-text"><?php echo esc_attr( get_the_author_meta( 'botwiki-team-role', $user->ID ) ); ?></textarea><br />
+        <span class="description"><?php _e("What do you do at Botwiki?"); ?></span>
+      </td>
+    </tr>
+    <?php } ?>
     <tr>
       <th><label for="twitter-handle">Twitter handle</label></th>
       <td>
@@ -76,6 +85,7 @@ class Extra_User_Fields {
         return false; 
     }
 
+    update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
     update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
     update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
 
