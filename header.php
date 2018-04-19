@@ -7,6 +7,9 @@
       $page_url = home_url( $wp->request );
       $page_thumbnail = get_the_post_thumbnail_url();
       $page_description = get_the_excerpt();
+      if ( empty( $page_description ) ){
+        $page_description = get_bloginfo('description');        
+      }
 
       if ( empty($page_thumbnail ) ){
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
