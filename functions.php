@@ -25,6 +25,7 @@ require 'includes/add-tags-to-pages.php';
 require 'includes/extra-user-fields.php';
 require 'includes/contributor-hide-others-posts.php';
 require 'includes/new-post-instructions.php';
+require 'includes/rss-feed.php';
 
 
 /*------------------------------------*\
