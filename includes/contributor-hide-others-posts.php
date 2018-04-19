@@ -14,8 +14,8 @@ class Contributors_Hide_Others_Posts {
   public function hide_others_posts_filter( $query_vars ) { 
     if ( ! current_user_can( $GLOBALS['post_type_object']->cap->edit_others_posts ) ) {
         $query_vars['author'] = get_current_user_id();
-    } ?>
-    <? return $query_vars;
+    }
+    return $query_vars;
   }
 
   public function hide_others_posts_links( $views ) { 
