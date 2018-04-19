@@ -1,10 +1,31 @@
-<?php get_header(); ?>
+<?php get_header();
+  if(is_author()){
+    $author_id = get_query_var('author');
+
+    $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
+    $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
+
+    if ( empty( $background_img_url )){
+      $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', 2 ) );
+      $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', 2 ) );    
+    }
+
+    $background_img_dominant_color_css = str_replace('[', 'background-color:rgb(', $background_img_dominant_color);
+    $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
+
+
+    if ( !empty( $background_img_url ) ){ ?>
+      <div class="thumbnail-wrapper" style="<?php echo $background_img_dominant_color_css; ?>">
+        <img src="<?php echo $background_img_url; ?>">
+      </div>
+    <?php }
+  } ?>
+
 
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
       <?php
         if(is_author()){
-          $author_id = get_query_var('author');
           $nickname = get_the_author_meta('nickname', $author_id);
           $username = get_the_author_meta('user_nicename', $author_id);
           $post_type = $wp_query->query['post_type'];
