@@ -41,6 +41,17 @@
         $author_id = get_query_var('author');
         $nickname = get_the_author_meta('nickname', $author_id);
         $post_type = $wp_query->query['post_type'];
+
+        if ( user_can($author_id, 'administrator') ){  
+          $page_description = get_the_author_meta('botwiki-team-role', $author_id);
+          if ( empty( $page_description ) ){
+            $page_description = "Botwiki team member";      
+          }
+        }
+        else{
+          $page_description = "Botwiki contributor";    
+        }
+
         if ( !empty($post_type)){
           $page_title = ucfirst($post_type) . 's by ' . $nickname;          
         }
@@ -112,7 +123,6 @@
     <meta name="theme-color" content="#38313a">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="<?php bloginfo('description'); ?>">
     <link href='https://fonts.googleapis.com/css?family=Anton|Open+Sans|Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki' rel='stylesheet' type='text/css'>
 		<?php wp_head(); ?>
