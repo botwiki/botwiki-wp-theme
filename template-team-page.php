@@ -151,7 +151,7 @@
 
             <div class="col-xs-6 col-s-2 m-2 text-center">
               <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                <img class="lazy-load rounded" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+                <img class="lazy-load rounded" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
               </a>
               
             </div>
