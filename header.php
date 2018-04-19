@@ -92,6 +92,7 @@
 		<title><?php echo $page_title ?></title>
     <meta itemprop="name" content="<?php echo $page_title ?>"/>
     <meta itemprop="url" content="<?php echo $page_url; ?>"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
     <meta property="og:title" content="<?php echo $page_title; ?>" />
     <meta name="twitter:title" content="<?php echo $page_title; ?>" />
     <meta name="description" content="<?php echo $page_description; ?>" />
