@@ -10,12 +10,12 @@
           $post_type = $wp_query->query['post_type'];
         ?>
           <h1>Browsing <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a>...</h1>
-      <?php } elseif ( is_tax() ){
+      <?php } else if ( is_tax() ){
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
       ?>
         <h1><?php echo "Posts tagged #" . $term->name; ?></h1>
       <?php }
-      elseif ( $wp_query->query['post_type'] == 'bot' ) {
+      else if ( $wp_query->query['post_type'] == 'bot' ) {
 
         if ( $_GET['networks'] || $_GET['languages'] || $_GET['tags'] ){
           function network_links( $network ){
@@ -57,6 +57,21 @@
 			<?php get_template_part( 'pagination' ); ?>
 
 
+      <?php if(is_author()){
+
+        if ( user_can($author_id, 'administrator') ){  
+          $botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
+          if ( empty( $botwiki_team_role ) ){
+            $botwiki_team_role = "Botwiki team member";      
+          }
+        }
+        else{
+          $botwiki_team_role = "Botwiki contributor";    
+        }
+        $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+
+        include( locate_template( 'author-card.php', false, false ) );
+      } ?>
 
 
 		</div>
