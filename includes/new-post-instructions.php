@@ -19,7 +19,6 @@ class New_Post_Instructions {
       <?php }
     }
   }
-
 }
 
 $new_post_instructions_init = new New_Post_Instructions();
