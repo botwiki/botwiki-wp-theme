@@ -1,7 +1,6 @@
 <div class="mt-5">
   <div class="card mt-4 mb-4 author-card">
     <div class="card-body">
-
       <div class="media mt-3">
         <a href="<?php echo $botwiki_profile_page_url;?>">
           <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">

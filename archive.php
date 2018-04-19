@@ -71,6 +71,7 @@
         $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
 
         include( locate_template( 'author-card.php', false, false ) );
+        wp_reset_query();
       } ?>
 
 
