@@ -43,6 +43,11 @@
 	$background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
 	$background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
 
+  if ( empty( $background_img_url )){
+    $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', 2 ) );
+    $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', 2 ) );    
+  }
+
   $background_img_dominant_color_css = str_replace('[', 'background-color:rgb(', $background_img_dominant_color);
   $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
 
