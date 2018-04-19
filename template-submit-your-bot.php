@@ -155,12 +155,6 @@
         array_push( $bot_tags, 'opensource' );
       }
 
-      error_log( print_r( array(
-        '$_POST[bot-tags]' => $_POST['bot-tags'],
-        'bot_tags' => $bot_tags
-      ), true ) );
-
-
       $post_data = array(
         'post_author' => ( is_user_logged_in() ? get_current_user_id() : 2 ),
         'post_content' => $post_content,

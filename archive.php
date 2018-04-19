@@ -5,7 +5,6 @@
       <?php
         if(is_author()){
           $author_id = get_query_var('author');
-          error_log( print_r( $author_id, true ) );
           $nickname = get_the_author_meta('nickname', $author_id);
           $username = get_the_author_meta('user_nicename', $author_id);
           $post_type = $wp_query->query['post_type'];
