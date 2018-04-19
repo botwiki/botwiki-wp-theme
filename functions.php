@@ -23,6 +23,7 @@ require 'includes/show-post-id.php';
 require 'includes/card-title.php';
 require 'includes/add-tags-to-pages.php';
 require 'includes/extra-user-fields.php';
+require 'includes/contributor-hide-others-posts.php';
 
 
 /*------------------------------------*\

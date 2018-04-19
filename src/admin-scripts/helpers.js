@@ -23,6 +23,13 @@ var helpers = {
         $menu_posts.first().hide();  
       }
     });
+  },
+  show_bot_submission_form_link_admin: function(){
+
+    jQuery(function(){
+        jQuery("body.post-type-bot .wrap .page-title-action").attr('href', '/submit-your-bot');
+    });
+
   }
 }
 
