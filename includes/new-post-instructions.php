@@ -1,0 +1,24 @@
+<?php
+
+class New_Post_Instructions {
+  public function __construct() {
+    add_action( 'edit_form_after_title', array( $this, 'show_new_post_instructions' ) );
+  }
+
+  public function show_new_post_instructions() { 
+    $current_screen = get_current_screen();
+
+    if ( $current_screen->parent_base === 'edit' ){
+      $post_type = $current_screen->post_type;
+
+      if ($post_type === 'resource'){ ?>
+        <h2 style="padding-left: 0;">Adding resources to Botwiki</h2>
+        <p>
+          To add an <strong>external resource</strong> not hosted on Botwiki, fill out the URL of the resource <a href="#resource-info-meta">below</a>. Be sure to also <a href="#postexcerpt">add an excerpt</a>, which will be shown on search results page.
+        </p>
+      <?php }
+    }
+  }
+}
+
+$new_post_instructions_init = new New_Post_Instructions();
