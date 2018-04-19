@@ -119,6 +119,7 @@
 
             if ( count( $contributors ) > 0 ){ ?>
               <h2 id="site-contributors">Site contributors<a class="pilcrow" href="#site-contributors">¶</a></h2>
+              <div class="row">
               <?php
 
               foreach ( $contributors as $contributor ) {
@@ -147,36 +148,16 @@
 
                 
               ?>
-            <div class="media mb-5<?php if ($index === 0){ echo ' mt-5'; }?>">
+
+            <div class="col-xs-6 col-s-2 m-2 text-center">
               <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+                <img class="lazy-load rounded" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
               </a>
-              <div class="media-body">
-                <h3 id="<?php echo $username; ?>" class="mt-0 mb-1"><?php echo $nickname; ?><a class="pilcrow" href="#<?php echo $username; ?>">¶</a></h3>
-                <div class="p-note">
-                  <?php echo $description; ?>
-                </div>
-                <ul class="btn-list mt-4">
-                  <li>
-                    <a class="btn" rel="me" href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                      View profile
-                    </a>                    
-                  </li>
-                  <?php if ( !empty( $twitter_handle )){ ?>
-                    <li>
-                      <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
-                    </li>
-                  <?php } ?>
-                  <?php if ( !empty( $website_url )){ ?>
-                    <li>
-                      <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
-                    </li>
-                  <?php } ?>
-                </ul>
-              </div>
+              
             </div>
             <?php }
           } ?>
+        </div>
       </article>
     </div>
   </main>
