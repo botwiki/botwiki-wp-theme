@@ -211,10 +211,11 @@
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
 
-
-          global $wpdb;
-          $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
-          $wpdb->query($query);
+          if ( !is_user_logged_in() ){
+            global $wpdb;
+            $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
+            $wpdb->query($query);
+          }
 
         } catch (Exception $e) {
           /* NOOP */
