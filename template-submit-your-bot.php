@@ -50,11 +50,13 @@
 
       $bot_authors = array();
 
-      foreach ($_POST['author-names'] as $index => $author_name) {
-        if (!empty( $_POST['author-names'][$index] )){
-          array_push($bot_authors, trim( $author_name ) . 
-                    ( array_key_exists( $index, $_POST['author-urls']  ) && !empty( $_POST['author-urls'][$index] )
-                    ? ', ' . trim( $_POST['author-urls'][$index] ) : '' ) );
+      if ( !empty( $_POST['author-names'] ) ){
+        foreach ($_POST['author-names'] as $index => $author_name) {
+          if (!empty( $_POST['author-names'][$index] )){
+            array_push($bot_authors, trim( $author_name ) . 
+                      ( array_key_exists( $index, $_POST['author-urls']  ) && !empty( $_POST['author-urls'][$index] )
+                      ? ', ' . trim( $_POST['author-urls'][$index] ) : '' ) );
+          }
         }
       }
 
@@ -231,9 +233,18 @@
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>
-            <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+            <?php if ( is_user_logged_in() ){ ?>
+              <p><strong>Thank you for your submission!</strong></p> 
+            <?php } else { ?>
+              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+            <?php } ?>
 
             <ul class="btn-list mt-4">
+              <?php if ( is_user_logged_in() ){ ?>
+                <li>
+                  <a class="btn" href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">Review your bots</a>
+                </li>
+              <?php }?>
               <li>
                 <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
               </li>
