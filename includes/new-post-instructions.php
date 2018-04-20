@@ -17,7 +17,6 @@ class New_Post_Instructions {
           To add an <strong>external resource</strong> not hosted on Botwiki, fill out the URL of the resource <a href="#resource-info-meta">below</a>. Be sure to also <a href="#postexcerpt">add an excerpt</a>, which will be shown on search results page.
         </p>
       <?php } else if ( $post_type === 'bot' ){ ?>
-        <meta http-equiv="refresh" content="0;URL='/submit-your-bot/'" />
         <div class="notice notice-info">
           <p>
             Please use the <a href="/submit-your-bot/">bot submission form</a>.
