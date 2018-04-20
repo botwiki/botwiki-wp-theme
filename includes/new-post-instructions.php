@@ -19,7 +19,7 @@ class New_Post_Instructions {
       <?php } else if ( $post_type === 'bot' ){ ?>
         <div class="notice notice-info">
           <p>
-            Please use the <a href="/submit-your-bot/">bot submission form</a>.
+            Please use the <a href="/submit-your-bot/">bot submission form</a> to add a new bot.
           </p>
         </div>
       <?php }
