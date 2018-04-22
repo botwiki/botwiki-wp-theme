@@ -60,39 +60,30 @@
 
 	<main role="main" class="container">
     <div class="mt-5">
-			<div class="media mb-5">
-			  <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
-			  <div class="media-body">
-			    <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
-
+      <div class="row">
+        <div class="col-sm-12 col-md-2 text-center">
+          <img class="mr-3 mb-4 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+        </div>
+        <div class="col-sm-12 col-md-10">
+          <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
+        </div>
+        <div class="col-sm-12">
           <div class="card mt-4 mb-4">
             <div class="card-body">
               <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
             </div>
           </div>
-
-			    <div class="p-note">
-			    	<?php echo $description; ?>
-			    </div>
-			    <ul class="btn-list mt-4">
-			    	<?php if ( !empty( $website_url )){ ?>
-			    		<li>
-			    			<a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
-			    		</li>
-			    	<?php } ?>
-			    	<?php if ( !empty( $twitter_handle )){ ?>
-			    		<li>
-			    			<a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
-			    		</li>
-			    	<?php } ?>
-			    </ul>
-			  </div>
-			</div>
-
+        </div>
+        <div class="col-sm-12">
+          <div class="p-note">
+            <?php echo $description; ?>
+          </div>
+        </div>
+      </div>
 
 			<?php if ( count_user_posts( $author_id ) > 0 ) {  ?> 
 
-				<h1 id="blog">My blog posts <a class="pilcrow" href="#blog">¶</a></h1>
+				<h1 id="blog">My blog posts</h1>
 				<?php
 					get_template_part('loop', 'author');
 					get_template_part('pagination');
@@ -113,17 +104,13 @@
           ) );
 
           if ( $wp_query->post_count > 0 ){ ?>
-            <h1 id="bots">My bots <a class="pilcrow" href="#bots">¶</a></h1>
+            <h1 id="bots">My bots</h1>
             <?php
               get_template_part('loop');
             ?>
             <a class="btn" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all</a>
           <?php }
         ?>
-
-
-
-
       <?php
         global $wp_query;
 
@@ -137,7 +124,7 @@
         ) );            
 
         if ( $wp_query->post_count > 0 ){ ?>
-          <h1 id="bots">My resources <a class="pilcrow" href="#resources">¶</a></h1>
+          <h1 id="bots">My resources</h1>
           <?php
             get_template_part('loop');
           ?>
