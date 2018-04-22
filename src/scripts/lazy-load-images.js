@@ -1,12 +1,10 @@
-"use strict";
 /*
   Lazy Load Images without jQuery
   http://kaizau.github.com/Lazy-Load-Images-without-jQuery/
   Original by Mike Pulaski - http://www.mikepulaski.com
   Modified by Kai Zau - http://kaizau.com
 */
-
-function lazyLoaderFn() {
+(function() {
   var addEventListener =  window.addEventListener || function(n,f) { window.attachEvent('on'+n, f); },
       removeEventListener = window.removeEventListener || function(n,f,b) { window.detachEvent('on'+n, f); };
 
@@ -129,7 +127,5 @@ function lazyLoaderFn() {
     }
   };
 
-  return lazyLoader;
-}
-
-export {lazyLoaderFn};
+  lazyLoader.init();
+})();

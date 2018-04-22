@@ -19,7 +19,8 @@
   <main role="main" class="container-fluid m-0 p-0">
     <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
       <?php
-        the_post_thumbnail( 'post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ] );
+        $post_thumbnail_id = get_post_thumbnail_id();
+        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load', 'title' => get_post($post_thumbnail_id)->post_title ]);
       ?>
     </div>
     <div class="container">
@@ -76,7 +77,7 @@
             ?>
             <div class="media mb-5<?php if ($index === 0){ echo ' mt-5'; }?>">
               <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                <img class="mr-3 u-photo" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+                <img class="mr-3 u-photo lazy-load" class="lazy-load" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
               </a>
               <div class="media-body">
                 <h3 id="<?php echo $username; ?>" class="mt-0 mb-1"><?php echo $nickname; ?><a class="pilcrow" href="#<?php echo $username; ?>">¶</a></h3>

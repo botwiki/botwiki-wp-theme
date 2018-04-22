@@ -11,7 +11,8 @@
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php
 				if ( !is_front_page() ){
-					the_post_thumbnail('post-thumbnail', ['class' => 'lazy-load', 'title' => get_post(get_post_thumbnail_id())->post_title ]);
+					$post_thumbnail_id = get_post_thumbnail_id();
+					the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load', 'title' => get_post($post_thumbnail_id)->post_title ]);
 				}
 				?>
 			</a>

@@ -7,6 +7,8 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     browserify = require('browserify'),
     babelify = require('babelify'),
+    sourcemaps = require('gulp-sourcemaps'),
+    babel = require('gulp-babel'),
     source = require('vinyl-source-stream'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
@@ -71,47 +73,31 @@ gulp.task('admin-styles', function() {
 });
 
 gulp.task('admin-scripts', function() {
-  return browserify({ debug: true })
-  .transform("babelify", {presets: ["es2015"]})
-  .on('error', swallow_error)
-  .require("./src/admin-scripts/scripts.js", { entry: true })
-  .on('error',swallow_error)
-  .bundle()
-  .on('error',swallow_error)
-  .pipe(source('scripts.js'))
-  .on('error', swallow_error)
-  .pipe(gulp.dest('./admin-js'))
-  .on('error',swallow_error)
-  .pipe(streamify(uglify()))
-  .on('error',swallow_error)
-  .pipe(rename({suffix: '.min'}))
-  .on('error',swallow_error)
-  .pipe(gulp.dest('./admin-js'))
-  .on('error',swallow_error)
-  .pipe(reload({stream:true}))
-  .on('error', swallow_error);
+  gulp.src('src/admin-scripts/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .on('error', swallow_error)
+    .pipe(concat('scripts.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./admin-js'))
 });
 
 gulp.task('scripts', function() {
-  return browserify({ debug: true })
-  .transform("babelify", {presets: ["es2015"]})
-  .on('error', swallow_error)
-  .require("./src/scripts/scripts.js", { entry: true })
-  .on('error',swallow_error)
-  .bundle()
-  .on('error',swallow_error)
-  .pipe(source('scripts.js'))
-  .on('error', swallow_error)
-  .pipe(gulp.dest('./js'))
-  .on('error',swallow_error)
-  .pipe(streamify(uglify()))
-  .on('error',swallow_error)
-  .pipe(rename({suffix: '.min'}))
-  .on('error',swallow_error)
-  .pipe(gulp.dest('./js'))
-  .on('error',swallow_error)
-  .pipe(reload({stream:true}))
-  .on('error', swallow_error);
+  gulp.src('src/scripts/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .on('error', swallow_error)
+    .pipe(concat('scripts.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./js'))
 });
 
 gulp.task('jslint', function(){
