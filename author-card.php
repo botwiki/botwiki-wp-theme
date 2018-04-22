@@ -10,7 +10,7 @@
           <p><?php echo $botwiki_team_role; ?></p>
         </div>
         <div class="col-sm-12">
-          <ul class="btn-list mt-2">
+          <ul class="btn-list mt-2 mb-2">
             <li>
               <a class="btn" title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">View profile</a>
             </li>
