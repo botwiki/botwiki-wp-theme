@@ -75,38 +75,43 @@
             $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
             ?>
-            <div class="media mb-5<?php if ($index === 0){ echo ' mt-5'; }?>">
-              <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                <img class="mr-3 u-photo lazy-load" class="lazy-load" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
-              </a>
-              <div class="media-body">
-                <h3 id="<?php echo $username; ?>" class="mt-0 mb-1"><?php echo $nickname; ?><a class="pilcrow" href="#<?php echo $username; ?>">¶</a></h3>
-                <div class="card mt-4 mb-4">
-                  <div class="card-body">
-                    <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
+            <div class="container mt-5 p-0">
+              <div class="row">
+                <div class="col-sm-12 col-md-2 text-center">
+                  <img class="mr-3 mb-4 u-photo rounded" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+                </div>
+                <div class="col-sm-12 col-md-10">
+                  <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
+                </div>
+                <div class="col-sm-12">
+                  <div class="card mt-4 mb-4">
+                    <div class="card-body">
+                      <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
+                    </div>
                   </div>
                 </div>
-
-                <div class="p-note">
-                  <?php echo $description; ?>
+                <div class="col-sm-12">
+                  <div class="p-note">
+                    <?php echo $description; ?>
+                  </div>
+                  <ul class="btn-list mt-4">
+                    <li>
+                      <a class="btn" rel="me" href="<?php echo get_author_posts_url($author_id, $username ); ?>">
+                        View profile
+                      </a>                    
+                    </li>
+                    <?php if ( !empty( $twitter_handle )){ ?>
+                      <li>
+                        <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
+                      </li>
+                    <?php } ?>
+                    <?php if ( !empty( $website_url )){ ?>
+                      <li>
+                        <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
+                      </li>
+                    <?php } ?>
+                  </ul>                  
                 </div>
-                <ul class="btn-list mt-4">
-                  <li>
-                    <a class="btn" rel="me" href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                      View profile
-                    </a>                    
-                  </li>
-                  <?php if ( !empty( $twitter_handle )){ ?>
-                    <li>
-                      <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
-                    </li>
-                  <?php } ?>
-                  <?php if ( !empty( $website_url )){ ?>
-                    <li>
-                      <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
-                    </li>
-                  <?php } ?>
-                </ul>
               </div>
             </div>
             <?php }
