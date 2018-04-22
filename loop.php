@@ -49,7 +49,7 @@
             ?>
 
             <p><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-              by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em></p>
+              by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('user_nicename', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em></p>
             <?php } ?>
             <!-- /post details -->
             <ul class="btn-list">
