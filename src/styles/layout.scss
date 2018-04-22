@@ -180,7 +180,12 @@ ul.navbar-nav{
   img{
     height: 45vh;
     object-fit: none;
-    width: 100%;  
+    width: 100%;
+    transition: height 0.3s;
+
+    &.image-expanded{
+      height: 100vh;
+    }
 
     @media(max-width: $site-width-small){
       object-fit: cover;    
