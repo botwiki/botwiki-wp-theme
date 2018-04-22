@@ -41,6 +41,10 @@
 
         $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
       }
+      elseif ( is_category() ) {
+        // $page_title = 'Posts labeled ' . single_cat_title();
+        $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
+      }
       elseif ( is_author() ) {
         $author_id = get_query_var('author');
         $nickname = get_the_author_meta('nickname', $author_id);
