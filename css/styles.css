@@ -188,12 +188,15 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
     -webkit-transition: height 0.3s;
     -o-transition: height 0.3s;
     transition: height 0.3s; }
-    .thumbnail-wrapper img.image-expanded {
-      height: 100vh; }
     @media (max-width: 860px) {
       .thumbnail-wrapper img {
         -o-object-fit: cover;
            object-fit: cover; } }
+    .thumbnail-wrapper img.image-expanded {
+      height: 100vh;
+      max-width: 100vw;
+      -o-object-fit: none;
+         object-fit: none; }
 
 /* Site footer */
 .footer .footer-callout {
