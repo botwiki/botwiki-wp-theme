@@ -3,6 +3,11 @@
 class Screenshot_Tool {
   public function __construct() {
     add_action('admin_menu', array( $this, 'add_tools_submenu_page' ) );
+    add_filter('admin_post_thumbnail_html', array( $this, 'add_featured_image_instruction' ) );
+  }
+
+  function add_featured_image_instruction( $content ) {
+    return $content .= '<p>You can use the <a href="/wp-admin/tools.php?page=screenshot-tool" target="_blank">Screenshot tool</a> to create the thumbnail image.</p>';
   }
 
   function add_tools_submenu_page() {
@@ -15,7 +20,6 @@ class Screenshot_Tool {
       array( $this, 'screenshot_tool_page_render' )
     );
   }
-
 
   function screenshot_tool_page_render() { ?>
     <div class="wrap screenshot-tool">
