@@ -128,7 +128,7 @@
 
   					$coauthors_count = count( $coauthors );
   					if ($coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2") ){ ?>
-  						<h2 id="authors">Authors <a class="pilcrow" href="#authors">¶</a></h2>
+  						<h2 id="authors">Created by <a class="pilcrow" href="#authors">¶</a></h2>
 	  					<?php
 
 							foreach ($coauthors as $coauthor) {
