@@ -49,11 +49,11 @@
         if ( user_can($author_id, 'administrator') ){  
           $page_description = get_the_author_meta('botwiki-team-role', $author_id);
           if ( empty( $page_description ) ){
-            $page_description = "Botwiki team member";      
+            $page_description = "Botwiki team member.";
           }
         }
         else{
-          $page_description = "Botwiki contributor";    
+          $page_description = "Botwiki contributor.";    
         }
 
         if ( !empty($post_type)){

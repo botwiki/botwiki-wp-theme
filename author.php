@@ -17,11 +17,11 @@
   if ( user_can($author_id, 'administrator') ){  
   	$botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
     if ( empty( $botwiki_team_role ) ){
-      $botwiki_team_role = "Botwiki team member";      
+      $botwiki_team_role = "Botwiki team member.";
     }
   }
   else{
-    $botwiki_team_role = "Botwiki contributor";    
+    $botwiki_team_role = "Botwiki contributor.";    
   }
 
 	$first_name = get_the_author_meta('nickname', $author_id);
