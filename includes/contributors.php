@@ -1,10 +1,11 @@
 <?php
 
-class Contributors_Hide_Others_Posts {
+class Contributors_Restrictions {
   public function __construct() {
     add_action( 'load-edit.php', array( $this, 'hide_others_posts' ) );
     add_filter( 'views_edit-post', array( $this, 'hide_others_posts_links' ) );
     add_filter( 'admin_footer', array( $this, 'hide_others_posts_links_admin' ) );
+    add_filter( 'ajax_query_attachments_args', array( $this, 'restrict_media_library' ) );
   }
 
   public function hide_others_posts() { 
@@ -31,6 +32,13 @@ class Contributors_Hide_Others_Posts {
       </script>
     <?php }
   }
+
+  function restrict_media_library( $query ) {
+    global $current_user;
+    $query['author'] = $current_user->ID ;
+    return $query;
+  }
+
 }
 
-$contributors_hide_others_posts_init = new Contributors_Hide_Others_Posts();
+$contributors_restrictions_init = new Contributors_Restrictions();
