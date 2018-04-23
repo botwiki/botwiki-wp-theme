@@ -15,7 +15,6 @@
               <a class="btn" title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">View profile</a>
             </li>
           </ul>
-
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ require 'includes/card-title.php';
 require 'includes/add-tags-to-pages.php';
 require 'includes/extra-user-fields.php';
 require 'includes/contributors.php';
+require 'includes/profile-page-link.php';
 require 'includes/new-post-instructions.php';
 require 'includes/rss-feed.php';
 
