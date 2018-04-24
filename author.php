@@ -78,6 +78,21 @@
           <div class="p-note">
             <?php echo $description; ?>
           </div>
+          <div>
+          <ul class="btn-list mt-5">
+            <?php if ( !empty( $website_url )){ ?> 
+              <li> 
+                <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?>
+                </a>  
+              </li> 
+            <?php } ?>  
+            <?php if ( !empty( $twitter_handle )){ ?> 
+              <li>  
+                <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a> 
+              </li> 
+            <?php } ?>  
+          </ul>            
+          </div>
         </div>
       </div>
 
