@@ -11,7 +11,7 @@ class Profile_Page_Link {
 
     $args = array(
       'id' => 'show-profile-page-link',
-      'title' => 'My profile page', 
+      'title' => 'My Profile Page', 
       'href' => $botwiki_profile_page_url, 
       'meta' => array(
         'class' => 'show-profile-page-link', 
