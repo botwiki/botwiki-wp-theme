@@ -290,7 +290,8 @@ h2 {
 
 .card h2 {
   margin-top: 0;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  font-size: 3em; }
 
 h3 {
   font-size: 3.5em;
@@ -578,7 +579,7 @@ ul.btn-list {
 .btn {
   font-family: "Oswald ", sans-serif;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  padding: 14px;
+  padding: 10px;
   color: #4d4350 !important;
   border-radius: 5px;
   background-color: #fafafa;
