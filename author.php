@@ -111,7 +111,7 @@
 
           $wp_query = new WP_Query( array(
             'post_type'         => 'bot',
-            'posts_per_page'    => '5',
+            'posts_per_page'    => '6',
             'author'						=> $author_id,
             'post_status'       => 'publish',
             'orderby'           => 'publish_date',
@@ -123,6 +123,10 @@
 
 
             <?php
+              if ( $wp_query->post_count > 2 && $wp_query->post_count % 2 !== 0 ){
+                array_pop($wp_query->posts);
+              }
+
               $post_groups = array_chunk( $wp_query->posts, 2 );
               $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
