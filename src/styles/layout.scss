@@ -185,7 +185,7 @@ ul.navbar-nav{
     height: 45vh;
     object-fit: none;
     width: 100%;
-    transition: height 0.3s;
+    transition: all 0.3s;
 
     @media(max-width: $site-width-small){
       object-fit: cover;    
