@@ -189,7 +189,7 @@
 
 
 
-            <a class="btn" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
+            <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
           <?php }
         ?>
       <?php
@@ -209,7 +209,7 @@
           <?php
             get_template_part('loop');
           ?>
-          <a class="btn" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>
+          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>
         <?php }        
       ?>
 		</div>
