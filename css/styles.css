@@ -24,7 +24,7 @@ body .container {
 img {
   max-width: 100%; }
   .card img {
-    height: 280px;
+    height: 200px;
     -o-object-fit: cover;
        object-fit: cover; }
   img.aligncenter {
