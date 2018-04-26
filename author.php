@@ -139,7 +139,7 @@
                   $post_meta = get_post_meta( $post_id );
                   if ( get_post_status( $post_id ) === 'publish' ){
                     $bot_url = post_permalink( $post_id );
-                    $bot_source_url = $post_meta['bot_source_url'];
+                    $bot_source_url = $post_meta['bot_source_url'][0];
 
                     $bot_title = $post_meta['card_title'];
                     if ( empty( $bot_title ) ){
