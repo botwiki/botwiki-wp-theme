@@ -1,6 +1,12 @@
 /* Site dimensions */
 /* Fonts */
 /* Colors */
+input[hidden] {
+  display: none !important; }
+
+.regular-text {
+  max-width: 100%; }
+
 /* Site dimensions */
 /* Fonts */
 /* Colors */
@@ -19,6 +25,10 @@
   display: block;
   max-width: 100%;
   margin-bottom: 1rem; }
+
+#wp-user-profiles-page table.form-table textarea {
+  width: 100% !important;
+  max-width: 100% !important; }
 
 /* Layout helpers. */
 .w-100 {
