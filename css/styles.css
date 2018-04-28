@@ -569,6 +569,13 @@ div#menu-wrapper {
 .select2-selection__arrow {
   top: 0.4rem !important; }
 
+.medium-editor-element {
+  min-height: 90px !important; }
+
+.medium-editor-placeholder:after {
+  color: #6c757d !important;
+  font-style: normal !important; }
+
 ul.btn-list {
   list-style: none;
   padding: 0;

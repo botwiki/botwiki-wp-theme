@@ -283,6 +283,8 @@
     <?php }
   }
   else { ?>
+    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
+    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/css/select2.min.css' media='all' />
 
     <main role="main" class="container-fluid m-0 p-0">
@@ -367,7 +369,7 @@
             <div class="form-group">
               <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
               <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."></textarea>
-              <small id="bot-description-help" class="form-text text-muted">Include any relevant links to your blog.</small>
+              <small id="bot-description-help" class="form-text text-muted">You can select text to add links.</small>
             </div>
             <div class="form-group">
               <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
@@ -443,7 +445,7 @@
       </div>
     </main>
     <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/js/select2.min.js"></script>
-
+    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>
 <?php get_footer(); ?>

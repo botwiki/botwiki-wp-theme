@@ -13,4 +13,11 @@
   top: 0.4rem !important;  
 }
 
+.medium-editor-element{
+  min-height: 90px !important;
+}
 
+.medium-editor-placeholder:after{
+  color: #6c757d !important;
+  font-style: normal !important;
+}

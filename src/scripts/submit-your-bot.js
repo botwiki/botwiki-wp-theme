@@ -143,4 +143,13 @@ $(function() {
     }
     enable_selected_tweets_field();
   }
+  var bot_description_editor = new MediumEditor('#bot-description', {
+    placeholder: {
+      text: 'This bot makes...',
+      hideOnClick: true
+    },
+    toolbar: {
+      buttons: ['anchor']
+    }
+  });  
 });
