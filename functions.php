@@ -27,6 +27,7 @@ require 'includes/contributors.php';
 require 'includes/profile-page-link.php';
 require 'includes/new-post-instructions.php';
 require 'includes/rss-feed.php';
+require 'includes/archive-page.php';
 
 
 /*------------------------------------*\
