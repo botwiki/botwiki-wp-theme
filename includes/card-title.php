@@ -13,14 +13,16 @@ class Show_Card_Title {
   }
 
   public function show_card_title( $post_type ) {
-    add_meta_box(
-      'card-title',
-      'Card title',
-      array( $this, 'card_title_fields' ),
-      $post_type,
-      'advanced',
-      'high'
-    );
+    if ( in_array( $post_type, ['post', 'bot', 'resource', 'page' ])){
+      add_meta_box(
+        'card-title',
+        'Card title',
+        array( $this, 'card_title_fields' ),
+        $post_type,
+        'advanced',
+        'high'
+      );      
+    }
   }
 
   public function card_title_fields( $post ) {
