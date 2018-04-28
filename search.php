@@ -4,7 +4,7 @@
 ?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
-			<h1><?php echo sprintf( __( '%s Search Results for ', 'botwiki' ), $wp_query->found_posts ); echo '<em>'. get_search_query() . '</em>'; ?></h1>
+			<h1><?php echo sprintf( __( '%s Search Result(s) for ', 'botwiki' ), $wp_query->found_posts ); echo '<em>'. get_search_query() . '</em>'; ?></h1>
       <?php
         get_search_form(true);
         get_template_part('loop');
