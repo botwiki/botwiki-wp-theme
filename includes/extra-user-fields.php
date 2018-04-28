@@ -48,7 +48,8 @@ class Extra_User_Fields {
         ?>
         <img id="background-img-preview" class="background-img-preview" src="<?php echo $background_img_url; ?>">
         <input hidden id="background-img-url" type="text" value="<?php echo $background_img_url; ?>" name="background-img-url" />
-        <input id="upload-button" type="button" class="button" value="Choose background" />
+        <input id="upload-button" type="button" class="button-primary" value="Choose background" />
+        <input id="clear-background-img" type="button" class="button" value="Remove background" />
       </td>
     </tr>
     </table>
@@ -59,7 +60,7 @@ class Extra_User_Fields {
 
         $('#upload-button').click(function(e) {
           e.preventDefault();
-            if (mediaUploader) {
+          if (mediaUploader) {
             mediaUploader.open();
             return;
           }
@@ -75,6 +76,12 @@ class Extra_User_Fields {
             $('#background-img-preview').attr('src', attachment.url);
           });
           mediaUploader.open();
+        });
+
+        $('#clear-background-img').click(function(e) {
+          e.preventDefault();
+          $('#background-img-url').val('');
+          $('#background-img-preview').attr('src', '');
         });
       });
     </script>
