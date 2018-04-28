@@ -559,7 +559,7 @@ div#menu-wrapper {
   display: block;
   padding: 10px; }
 
-.select2-container {
+.select2-container, .select2-container input {
   width: 100% !important; }
 
 .select2-container .select2-selection--single {
