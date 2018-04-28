@@ -16,8 +16,10 @@ class Show_Post_ID {
     <?php
   }
 
-  public function show_post_id_meta_box( $post_type ) { 
-    add_meta_box('projects_refid', 'Link shortcodes', array( $this, 'show_post_id' ), $post_type, 'side', 'high');
+  public function show_post_id_meta_box( $post_type ) {
+    if ( in_array( $post_type, array( 'post', 'resource' ) ) ){
+      add_meta_box('projects_refid', 'Link shortcodes', array( $this, 'show_post_id' ), $post_type, 'side', 'high');      
+    }
   }
 }
 
