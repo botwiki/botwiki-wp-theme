@@ -2,6 +2,12 @@
   if(is_author()){
     $author_id = get_query_var('author');
 
+    $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
+
+    if ( empty( $profile_img_url )){
+      $profile_img_url = get_avatar_url($author_id);
+    }
+
     $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
     $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
 

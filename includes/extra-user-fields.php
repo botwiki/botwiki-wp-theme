@@ -41,14 +41,32 @@ class Extra_User_Fields {
       </td>
     </tr>
     <tr>
-      <th><label for="twitter-handle">Profile header</label></th>
+      <th><label for="background-img-url">Profile image</label></th>
+      <td>
+        <?php
+        $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
+
+        if ( empty( $profile_img_url )){
+          $profile_img_url = get_avatar_url($author_id);
+        }
+
+        ?>
+        <img id="profile-img-preview" class="profile-img-preview" src="<?php echo $profile_img_url; ?>">
+        <input hidden id="profile-img-url" type="text" value="<?php echo $profile_img_url; ?>" name="profile-img-url" />
+        <input id="select-profile-img" type="button" class="button-primary" value="Choose profile image" />
+        <input id="clear-profile-img" type="button" class="button" value="Remove profile image" />
+        <p class="description">Square images work best. If you don't set your profile image, your <a href="https://gravatar.com" target="_blank">Gravatar</a> will be used.</p>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="background-img-url">Profile header</label></th>
       <td>
         <?php
         $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $user->ID ) );
         ?>
         <img id="background-img-preview" class="background-img-preview" src="<?php echo $background_img_url; ?>">
         <input hidden id="background-img-url" type="text" value="<?php echo $background_img_url; ?>" name="background-img-url" />
-        <input id="upload-button" type="button" class="button-primary" value="Choose background" />
+        <input id="select-background-img" type="button" class="button-primary" value="Choose background" />
         <input id="clear-background-img" type="button" class="button" value="Remove background" />
       </td>
     </tr>
@@ -56,32 +74,60 @@ class Extra_User_Fields {
     <script type="text/javascript">
       jQuery(document).ready(function($){
 
-        var mediaUploader;
+        var mediaUploaderBackgroundIMG;
 
-        $('#upload-button').click(function(e) {
+        $('#select-background-img').click(function(e) {
           e.preventDefault();
-          if (mediaUploader) {
-            mediaUploader.open();
+          if (mediaUploaderBackgroundIMG) {
+            mediaUploaderBackgroundIMG.open();
             return;
           }
-          mediaUploader = wp.media.frames.file_frame = wp.media({
+          mediaUploaderBackgroundIMG = wp.media.frames.file_frame = wp.media({
             title: 'Choose Image',
             button: {
             text: 'Choose Image'
           }, multiple: false });
 
-          mediaUploader.on('select', function() {
-            attachment = mediaUploader.state().get('selection').first().toJSON();
+          mediaUploaderBackgroundIMG.on('select', function() {
+            attachment = mediaUploaderBackgroundIMG.state().get('selection').first().toJSON();
             $('#background-img-url').val(attachment.url);
             $('#background-img-preview').attr('src', attachment.url);
           });
-          mediaUploader.open();
+          mediaUploaderBackgroundIMG.open();
+        });
+
+        var mediaUploaderProfileIMG;
+
+        $('#select-profile-img').click(function(e) {
+          e.preventDefault();
+          if (mediaUploaderProfileIMG) {
+            mediaUploaderProfileIMG.open();
+            return;
+          }
+          mediaUploaderProfileIMG = wp.media.frames.file_frame = wp.media({
+            title: 'Choose Image',
+            button: {
+            text: 'Choose Image'
+          }, multiple: false });
+
+          mediaUploaderProfileIMG.on('select', function() {
+            attachment = mediaUploaderProfileIMG.state().get('selection').first().toJSON();
+            $('#profile-img-url').val(attachment.url);
+            $('#profile-img-preview').attr('src', attachment.url);
+          });
+          mediaUploaderProfileIMG.open();
         });
 
         $('#clear-background-img').click(function(e) {
           e.preventDefault();
           $('#background-img-url').val('');
           $('#background-img-preview').attr('src', '');
+        });
+
+        $('#clear-profile-img').click(function(e) {
+          e.preventDefault();
+          $('#profile-img-url').val('');
+          $('#profile-img-preview').attr('src', '<?php echo get_avatar_url($author_id); ?>');
         });
       });
     </script>
@@ -94,6 +140,7 @@ class Extra_User_Fields {
 
     update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
     update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
+    update_user_meta( $user_id, 'profile-img-url', $_POST['profile-img-url'] );
     update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
 
     try {

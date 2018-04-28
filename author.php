@@ -40,8 +40,14 @@
 	$website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
 	$twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
-	$background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
-	$background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
+  $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+  if ( empty( $profile_img_url )){
+    $profile_img_url = get_avatar_url($author_id);
+  }
+
+  $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
+  $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
 
   if ( empty( $background_img_url )){
     $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', 2 ) );
@@ -62,7 +68,7 @@
     <div class="mt-5">
       <div class="row">
         <div class="col-sm-12 col-md-2 text-center">
-          <img class="mr-3 mb-4 u-photo rounded" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+          <img class="mr-3 mb-4 u-photo rounded" src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
         </div>
         <div class="col-sm-12 col-md-10">
           <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>

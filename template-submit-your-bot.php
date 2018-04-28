@@ -307,11 +307,33 @@
           <form id="submit-bot-form" method="post" class="mt-5">
 
 
-          <?php if ( is_user_logged_in() ) {?>
+          <?php if ( is_user_logged_in() ) {
+            $author_id = get_current_user_id();
+            $username = get_the_author_meta('user_nicename', get_current_user_id() );
+            $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+            if ( empty( $profile_img_url )){
+              $profile_img_url = get_avatar_url($author_id);
+            }
+
+            $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+
+          ?>
             <div class="card mb-5">
               <div class="card-body">
-                <h5 class="card-title mt-1">You are logged in</h5>
-                <p class="card-text">This bot will be added to your profile.</p>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <a href="<?php echo $botwiki_profile_page_url; ?>">
+                        <img class="img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>">
+                      </a>
+                    </div>
+                    <div class="col-sm-10">
+                      <h5 class="card-title mt-1">You are logged in</h5>
+                      <p class="card-text">This bot will be added to <a href="<?php echo $botwiki_profile_page_url; ?>">your profile</a>.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           <?php } else { ?>
