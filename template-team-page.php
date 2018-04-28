@@ -149,17 +149,19 @@
                     $full_name = "{$first_name} {$last_name}";
                 }
 
+                $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+                if ( empty( $profile_img_url )){
+                  $profile_img_url = get_avatar_url($author_id);
+                }
+
                 $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
                 $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
-
-                
               ?>
-
             <div class="col-xs-6 col-s-2 m-2 text-center">
               <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                <img class="lazy-load rounded" src="<?php echo get_avatar_url($author_id); ?>" data-src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
+                <img class="lazy-load rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
               </a>
-              
             </div>
             <?php }
           } ?>

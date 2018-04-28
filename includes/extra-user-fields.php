@@ -47,7 +47,7 @@ class Extra_User_Fields {
         $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
 
         if ( empty( $profile_img_url )){
-          $profile_img_url = get_avatar_url($author_id);
+          $profile_img_url = get_avatar_url($user->ID);
         }
 
         ?>
