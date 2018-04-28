@@ -12,6 +12,16 @@ $(function() {
       location.hostname == this.hostname
     ) {
       var target = $(this.hash);
+
+      if (window.history && window.history.pushState && target.selector){
+        if (target.selector === '#header'){
+          history.pushState(null, null, window.location.pathname);
+        }
+        else{
+          history.pushState(null, null, target.selector);
+        }
+      }
+
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         event.preventDefault();
