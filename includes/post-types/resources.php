@@ -185,6 +185,10 @@ class ResourcesPostType {
   }
 
   function save_meta( $post_id ) {
+    if ( wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce') ){
+      return;
+    }
+
     $post_type = get_post_type( $post_id );
     if ( $post_type === 'resource' ){
       update_post_meta($post_id, 'resource_author_info', $_POST['resource_author_info']);

@@ -124,6 +124,10 @@ class TutorialsPostType {
   }
 
   function save_meta( $post_id ) {
+    if ( wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce') ){
+      return;
+    }
+
     $post_type = get_post_type( $post_id );
     if ( $post_type === 'tutorial' ){
       update_post_meta($post_id, 'tutorial_author_info', $_POST['tutorial_author_info']);

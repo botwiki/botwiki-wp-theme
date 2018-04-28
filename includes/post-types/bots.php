@@ -335,6 +335,10 @@ class BotsPostType {
   }
 
   function save_meta( $post_id ) {
+    if ( wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce') ){
+      return;
+    }
+
     $post_type = get_post_type( $post_id );
     if ( $post_type === 'bot' ){
       update_post_meta($post_id, 'bot_author_info', $_POST['bot_author_info']);
