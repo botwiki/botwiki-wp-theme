@@ -234,12 +234,8 @@
         </div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1><?php the_title(); ?></h1>
-            <?php if ( is_user_logged_in() ){ ?>
-              <p><strong>Thank you for your submission!</strong></p> 
-            <?php } else { ?>
-              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-            <?php } ?>
+            <h1>Thank you</h1>
+            <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
 
             <ul class="btn-list mt-4">
               <?php if ( is_user_logged_in() ){ ?>

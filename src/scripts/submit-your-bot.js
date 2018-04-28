@@ -3,6 +3,16 @@ $(function() {
       $form_submit_button = $('#bot-form-submit');
   if ($body.hasClass('page-template-template-submit-your-bot')){
 
+    /* Wake up the screenshot service on Glitch. */
+
+    $.get({
+      url: 'https://screenshot-beta.glitch.me'
+    }).done(function( data ) {
+      /* noop */
+    });
+
+    /* Test submission, only available to admins. */
+
     $('#test').click(function(ev){
       ev.preventDefault();
 

@@ -30,7 +30,7 @@ $(function() {
           'src': `data:image/png;base64, ${data.screenshot.data}`,
           'download': download_name
         });
-      });          
+      });
     }
     else{
       alert('You forgot the URL!');
