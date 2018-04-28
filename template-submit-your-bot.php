@@ -36,7 +36,8 @@
         $wp_filetype = wp_check_filetype($filename, null );
         $attachment = array(
           'post_mime_type' => $wp_filetype['type'],
-          'post_title' => $description,
+          // 'post_title' => $description,
+          'post_title' => $_POST['bot-name'],
           'post_content' => '',
           'post_status' => 'inherit'
         );
