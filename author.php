@@ -145,6 +145,8 @@
 
               $author_tags = array_unique( $author_tags );
 
+              sort( $author_tags );
+
               $site_url = get_site_url();
 
               if ( $wp_query->post_count > 2 && $wp_query->post_count % 2 !== 0 ){
