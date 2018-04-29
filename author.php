@@ -2,7 +2,7 @@
 	get_header();
 
 	global $helpers;
-
+  $site_url = get_site_url();
 	$author_id = get_query_var('author');
 	$author_data = get_userdata( intval($author_id ));
 
@@ -131,23 +131,16 @@
             <?php
               $posts = $wp_query->posts;
 
-              $author_tags = array();
-              $author_tags_html = array();
-
-
-              function get_tag_slug( $tag ){
-                return $tag->slug;
-              }
+              $author_tags_bots = array();
+              $author_tags_bots_html = array();
 
               foreach ($posts as $post) {
-                $author_tags = array_merge($author_tags, array_map( "get_tag_slug", wp_get_post_tags( $post->ID ) ) );
+                $author_tags_bots = array_merge($author_tags_bots, array_map( array( $helpers, 'get_tag_slug'), wp_get_post_tags( $post->ID ) ) );
               }
 
-              $author_tags = array_unique( $author_tags );
+              $author_tags_bots = array_unique( $author_tags_bots );
 
-              sort( $author_tags );
-
-              $site_url = get_site_url();
+              sort( $author_tags_bots );
 
               if ( $wp_query->post_count > 2 && $wp_query->post_count % 2 !== 0 ){
                 array_pop($wp_query->posts);
@@ -205,11 +198,11 @@
 
               ?><p class="post-tags mt-5 mb-5"><?php
 
-                foreach ( $author_tags as $tag ) {
-                  $author_tags_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
+                foreach ( $author_tags_bots as $tag ) {
+                  $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
                 }
 
-                echo join( ' ', $author_tags_html );
+                echo join( ' ', $author_tags_bots_html );
               ?></p>
             <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
           <?php }

@@ -43,6 +43,10 @@ class BW_Helpers {
 
     return $domain;
   }
+
+  function get_tag_slug( $tag ){
+    return $tag->slug;
+  }
 }
 
 
