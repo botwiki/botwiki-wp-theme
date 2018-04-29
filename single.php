@@ -3,6 +3,7 @@
 	$post_id = get_the_id();
 	$post_type = get_post_type();
 	$post_meta = get_post_meta( $post_id );	
+  $site_url = get_site_url();
 ?>
 	<main role="main" class="container-fluid m-0 p-0">
 
@@ -81,7 +82,7 @@
 	                    <a class="btn glitch-remix" href="https://gomix.com/#!/import/<?php echo str_replace('https://github.com/', 'github/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
 	                  </li>
 	                  <li>
-	                    <a href="<?php echo get_site_url(); ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
+	                    <a href="<?php echo $site_url; ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
 	                  </li>
 	                <?php }
 	                if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'glitch.com/edit/#!/') > -1){ ?>
@@ -89,7 +90,7 @@
 	                    <a class="btn glitch-remix" href="<?php echo str_replace('edit/#!/', 'edit/#!/remix/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
 	                  </li>
 	                  <li>
-	                    <a href="<?php echo get_site_url(); ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
+	                    <a href="<?php echo $site_url; ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
 	                  </li>
 	                <?php }
 	              } ?>
@@ -136,7 +137,7 @@
 
 					    if ($networks){
 						    foreach ( $networks as $network ) {
-					        $network_tags[] = '<a href="' . get_site_url() . '/networks/' . $network->slug . '">' . $network->slug . '</a> ';
+					        $network_tags[] = '<a href="' . $site_url . '/networks/' . $network->slug . '">' . $network->slug . '</a> ';
 						    }					    	
 					    }
 
@@ -148,7 +149,7 @@
 
 					    if ($languages){
 						    foreach ( $languages as $language ) {
-					        $language_tags[] = '<a href="' . get_site_url() . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
+					        $language_tags[] = '<a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
 						    }
 
 					    }
@@ -160,9 +161,8 @@
 
 					    if ($tags){
 						    foreach ( $tags as $tag ) {
-					        $tags_array[] = '<a href="' . get_site_url() . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+					        $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
 						    }
-
 					    }
 
 					    echo join( ' ', $tags_array );
@@ -230,7 +230,7 @@
 									    $full_name = "{$first_name} {$last_name}";
 									}
 
-									$botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+									$botwiki_profile_page_url = $site_url . '/author/' . $username;
 
 							    $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
 
