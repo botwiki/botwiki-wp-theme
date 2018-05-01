@@ -1,16 +1,16 @@
 .lazy-load{
   opacity: 0;
-  transform: translate(0,30px);  
+  transform: translate(0,30px) scale(1.05);
 }
 
 .lazy-loaded{
   opacity: 1;
-  transform: translate(0,0);
+  transform: translate(0,0) scale(1);
 }
 
 .lazy-load,
 .lazy-loaded{
-  transition: transform 0.4s, opacity 0.7s;
+  transition: transform 0.4s, scale 0.5s, opacity 0.7s;
 }
 
 
