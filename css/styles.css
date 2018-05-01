@@ -110,9 +110,9 @@ nav {
   background-color: #fff;
   opacity: 0;
   pointer-events: none;
-  -webkit-transform: translateY(-5%);
-      -ms-transform: translateY(-5%);
-          transform: translateY(-5%);
+  -webkit-transform: translateY(-5%) scale(1.02);
+      -ms-transform: translateY(-5%) scale(1.02);
+          transform: translateY(-5%) scale(1.02);
   -webkit-transition: opacity 0.1s, -webkit-transform 0.5s;
   transition: opacity 0.1s, -webkit-transform 0.5s;
   -o-transition: transform 0.5s, opacity 0.1s;
