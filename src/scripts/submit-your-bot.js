@@ -11,6 +11,19 @@ $(function() {
       /* noop */
     });
 
+
+
+    /* Disassociate bot author to allow logged in users to submit other people's bots. */
+
+    $('#disassociate-author').click(function(ev){
+      ev.preventDefault();
+      $('#logged-in-author').remove();
+      $('#disassociate-author-input').val('true');
+      $('#add-author-fields').click();
+      return false;
+    });
+    
+
     /* Test submission, only available to admins. */
 
     $('#test').click(function(ev){

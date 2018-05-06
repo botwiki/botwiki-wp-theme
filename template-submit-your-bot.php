@@ -158,8 +158,10 @@
         array_push( $bot_tags, 'opensource' );
       }
 
+      error_log( print_r( $_POST['disassociate-author-input'], true ) );
+
       $post_data = array(
-        'post_author' => ( is_user_logged_in() ? get_current_user_id() : 2 ),
+        'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
         'post_content' => $post_content,
         'post_title' => $_POST['bot-name'],
         'post_excerpt' => $_POST['bot-tagline'],
@@ -189,7 +191,6 @@
           // TODO: Proper error handling.
 
           $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
-
 
           $screenshot_data_json = json_decode( $screenshot_data );
   
@@ -235,14 +236,12 @@
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <h1>Thank you</h1>
-            <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-
+            <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
+              <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
+            <?php } else { ?>
+              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+            <?php } ?>
             <ul class="btn-list mt-4">
-              <?php if ( is_user_logged_in() ){ ?>
-                <li>
-                  <a class="btn" href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">Review your bots</a>
-                </li>
-              <?php }?>
               <li>
                 <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
               </li>
@@ -276,14 +275,12 @@
           </article>
         </div>
       </main>
-
     <?php }
   }
   else { ?>
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/css/select2.min.css' media='all' />
-
     <main role="main" class="container-fluid m-0 p-0">
       <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
         <?php
@@ -294,7 +291,6 @@
       <div class="container">
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
           <h1><?php the_title(); ?></h1>
-
           <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
             <ul class="btn-list">
               <li>
@@ -302,11 +298,8 @@
               </li>
             </ul>
           <?php } ?>
-
           <?php echo do_shortcode(get_post_field('post_content', $post_id)); ?>
           <form id="submit-bot-form" method="post" class="mt-5">
-
-
           <?php if ( is_user_logged_in() ) {
             $author_id = get_current_user_id();
             $username = get_the_author_meta('user_nicename', get_current_user_id() );
@@ -315,11 +308,9 @@
             if ( empty( $profile_img_url )){
               $profile_img_url = get_avatar_url($author_id);
             }
-
             $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
-
           ?>
-            <div class="card mb-5">
+            <div id="logged-in-author" class="card mb-5">
               <div class="card-body">
                 <div class="container">
                   <div class="row">
@@ -331,13 +322,16 @@
                     <div class="col-sm-10">
                       <h5 class="card-title mt-1">You are logged in</h5>
                       <p class="card-text">This bot will be added to <a href="<?php echo $botwiki_profile_page_url; ?>">your profile</a>.</p>
+                      <p>
+                        <a id="disassociate-author" href="#"><em>This is not my bot.</em></a>
+                        <input type="hidden" name="disassociate-author-input" value="false">
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           <?php } else { ?>
-
             <div class="author-fields form-row">
               <div class="form-group col-md-6">
                 <label for="author-1-name">Author's name</label>
@@ -348,10 +342,7 @@
                 <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
               </div>
             </div>
-
           <?php } ?>
-
-
             <div class="form-group">
               <button id="add-author-fields" class="btn">Add more authors</button>
             </div>
@@ -361,7 +352,7 @@
             </div>
             <div class="bot-info-fields form-row">
               <div class="form-group col-md-12 mb-1">
-                <label>Where can we see your bot?</label>
+                <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
               </div>
               <div class="form-group col-md-6">
                 <label for="bot-info-1-network">Network</label>
@@ -379,7 +370,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="bot-info-1-url">URL</label>
-                <input type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot">
+                <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot">
               </div>
             </div>
             <div class="form-group">
