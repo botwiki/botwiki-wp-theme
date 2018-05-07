@@ -17,8 +17,9 @@ class BotsPostType {
   function add_pending_bots_link($wp_admin_bar) {
     if ( current_user_can('administrator') ){
       $query = array(
-      'post_type' => 'bot',
-      'post_status' => array('pending')
+        'post_type' => 'bot',
+        'post_status' => array('pending'),
+        'posts_per_page'    => -1
       );
 
       $pending_count = count( query_posts($query) );
