@@ -25,8 +25,20 @@ div#menu-wrapper{
 }
 
 .hover-box{
+  &,&:hover{
+    transition: background-color 0.7s;
+    h2, p{
+      transition: transform 0.3s;
+    }
+  }
   &:hover{
     background-color: $background-alternate;
+    h2{
+      transform: translate(0,-5px);
+    } 
+    p{
+      transform: translate(0,-2px);
+    } 
   }
 
  a{

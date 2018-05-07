@@ -509,6 +509,18 @@ div.bottom-page-links {
     @media (min-width: 860px) {
       div.bottom-page-links a {
         font-size: 1.9em; } }
+    div.bottom-page-links a, div.bottom-page-links a:hover {
+      -webkit-transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
+      transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
+      -o-transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, -webkit-transform 0.2s, -webkit-box-shadow 0.2s; }
+    div.bottom-page-links a:hover {
+      -webkit-transform: translate(0, -2px) rotate(2deg);
+          -ms-transform: translate(0, -2px) rotate(2deg);
+              transform: translate(0, -2px) rotate(2deg);
+      -webkit-box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+              box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5); }
     div.bottom-page-links a#back-to-top {
       padding: 12px;
       line-height: 1em; }
@@ -552,8 +564,27 @@ div#menu-wrapper {
     color: #4d4350;
     text-decoration: none; }
 
+.hover-box, .hover-box:hover {
+  -webkit-transition: background-color 0.7s;
+  -o-transition: background-color 0.7s;
+  transition: background-color 0.7s; }
+  .hover-box h2, .hover-box p, .hover-box:hover h2, .hover-box:hover p {
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    -o-transition: transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s; }
+
 .hover-box:hover {
   background-color: #f3f3f3; }
+  .hover-box:hover h2 {
+    -webkit-transform: translate(0, -5px);
+        -ms-transform: translate(0, -5px);
+            transform: translate(0, -5px); }
+  .hover-box:hover p {
+    -webkit-transform: translate(0, -2px);
+        -ms-transform: translate(0, -2px);
+            transform: translate(0, -2px); }
 
 .hover-box a {
   display: block;
