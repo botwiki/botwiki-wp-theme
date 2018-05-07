@@ -256,7 +256,7 @@ video {
   .d-xs-block {
     display: block; } }
 
-body {
+body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
   color: #4d4350; }
 
