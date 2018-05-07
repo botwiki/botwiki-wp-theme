@@ -510,11 +510,11 @@ div.bottom-page-links {
       div.bottom-page-links a {
         font-size: 1.9em; } }
     div.bottom-page-links a, div.bottom-page-links a:hover {
-      -webkit-transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
-      transition: -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
-      -o-transition: transform 0.2s, box-shadow 0.2s;
-      transition: transform 0.2s, box-shadow 0.2s;
-      transition: transform 0.2s, box-shadow 0.2s, -webkit-transform 0.2s, -webkit-box-shadow 0.2s; }
+      -webkit-transition: opacity 0.3s, -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
+      transition: opacity 0.3s, -webkit-transform 0.2s, -webkit-box-shadow 0.2s;
+      -o-transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+      transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+      transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s, -webkit-transform 0.2s, -webkit-box-shadow 0.2s; }
     div.bottom-page-links a:hover {
       -webkit-transform: translate(0, -2px) rotate(2deg);
           -ms-transform: translate(0, -2px) rotate(2deg);

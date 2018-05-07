@@ -329,7 +329,7 @@ div.bottom-page-links{
     }
     
     &, &:hover{
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
     }
     &:hover {
       transform: translate(0, -2px) rotate(2deg);    
