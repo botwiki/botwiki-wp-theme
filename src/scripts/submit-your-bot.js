@@ -173,7 +173,7 @@ $(function() {
         hideOnClick: true
       },
       toolbar: {
-        buttons: ['anchor']
+        buttons: ['anchor', 'pre', 'quote']
       }
     });    
   }
