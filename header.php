@@ -45,6 +45,10 @@
         // $page_title = 'Posts labeled ' . single_cat_title();
         $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
       }
+      elseif ( is_post_type_archive() ) {
+        $post_type = $wp_query->query['post_type'];          
+        $page_title = 'Browsing all ' . $post_type . 's...'; 
+      }
       elseif ( is_author() ) {
         $author_id = get_query_var('author');
         $nickname = get_the_author_meta('nickname', $author_id);
@@ -73,6 +77,11 @@
         $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
   
         $page_title = "Posts tagged #" . implode( ' #', $tags );
+        $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
+      }
+      elseif ( is_tax() ) {
+        $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
+        $page_title = "Posts tagged #" . $term->name;
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_archive() ) {
