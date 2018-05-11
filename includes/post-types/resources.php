@@ -8,11 +8,23 @@ class ResourcesPostType {
     add_action( 'save_post',  array( $this, 'save_meta' ), 10, 2 );
     add_filter( 'enter_title_here', array( $this, 'change_post_title_placeholder' ) );
     add_filter( 'post_type_link', array( $this, 'resource_page_link' ), 1, 3 );
+    add_filter( 'template_redirect', array( $this, 'external_resource_redirect' ) );
+
   }
 
   function create_post_type() {
     add_action( 'init', array( $this, 'register_resource_post_type' ), 40 );
     add_action( 'init', array( $this, 'register_resource_type_taxonomy' ), 40 );
+  }
+
+  function external_resource_redirect() {
+    global $wp_query;
+    if ($wp_query->query['post_type'] === 'resource'){
+      $external_resource_url = get_post_meta( $wp_query->posts[0]->ID, 'resource_url', true );
+      if ( !empty( $external_resource_url ) ){
+        wp_redirect( $external_resource_url );
+      }
+    }
   }
 
   function resource_page_link( $post_link, $post ){
