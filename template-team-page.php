@@ -34,7 +34,7 @@
         </ul>
 
         <?php
-          echo get_post_field( 'post_content', $post_id);
+          echo do_shortcode( get_post_field('post_content', $post_id) );
         ?>
 
         <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->

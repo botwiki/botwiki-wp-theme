@@ -27,7 +27,7 @@ class BotsPostType {
       if ( $pending_count > 0 ){
         $args = array(
           'id' => 'review-pending-bots',
-          'title' => 'Review Pending Bots (' . $pending_count . ')', 
+          'title' => 'New Bots (' . $pending_count . ')', 
           'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
           'meta' => array(
             'class' => 'review-pending-bots', 

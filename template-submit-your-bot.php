@@ -23,7 +23,9 @@
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
 
-      wp_mail( get_the_author_meta('user_email', 1), 'New bot submission', print_r( $_POST, true ) );      
+      if (get_current_user_id() !== 1){
+        wp_mail( get_the_author_meta('user_email', 1), 'New bot submission', print_r( $_POST, true ) );      
+      }
 
       function add_post_thumbnail( $post_id, $image_path, $description ){
         $upload_dir = wp_upload_dir();
@@ -158,8 +160,6 @@
         array_push( $bot_tags, 'opensource' );
       }
 
-      error_log( print_r( $_POST['disassociate-author-input'], true ) );
-
       $post_data = array(
         'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
         'post_content' => $post_content,
@@ -215,7 +215,7 @@
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
 
-          if ( !is_user_logged_in() ){
+          if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
             global $wpdb;
             $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
             $wpdb->query($query);
@@ -298,7 +298,7 @@
               </li>
             </ul>
           <?php } ?>
-          <?php echo do_shortcode(get_post_field('post_content', $post_id)); ?>
+          <?php echo do_shortcode( get_post_field('post_content', $post_id) ); ?>
           <form id="submit-bot-form" method="post" class="mt-5">
           <?php if ( is_user_logged_in() ) {
             $author_id = get_current_user_id();

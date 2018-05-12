@@ -22,7 +22,7 @@
           </li>
         </ul>
 
-        <?php echo do_shortcode(get_post_field('post_content', $post_id) ); ?>
+        <?php echo do_shortcode( get_post_field( 'post_content', $post_id) ); ?>
 
       </article>
     </div>

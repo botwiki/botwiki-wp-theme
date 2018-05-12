@@ -9,6 +9,7 @@ class ResourcesPostType {
     add_filter( 'enter_title_here', array( $this, 'change_post_title_placeholder' ) );
     add_filter( 'post_type_link', array( $this, 'resource_page_link' ), 1, 3 );
     add_filter( 'template_redirect', array( $this, 'external_resource_redirect' ) );
+    add_action( 'admin_bar_menu', array( $this, 'add_pending_resources_link' ), 100 );
 
   }
 
@@ -194,6 +195,33 @@ class ResourcesPostType {
       'normal',
       'core'      
     );
+  }
+
+
+  function add_pending_resources_link($wp_admin_bar) {
+    if ( current_user_can('administrator') ){
+      $query = array(
+        'post_type' => 'resource',
+        'post_status' => array('pending'),
+        'posts_per_page'    => -1
+      );
+
+      $pending_count = count( query_posts($query) );
+
+      if ( $pending_count > 0 ){
+        $args = array(
+          'id' => 'review-pending-resources',
+          'title' => 'New Resources (' . $pending_count . ')', 
+          'href' => '/wp-admin/edit.php?post_status=pending&post_type=resource', 
+          'meta' => array(
+            'class' => 'review-pending-resources', 
+            'title' => 'Review pending resources'
+          )
+        );
+        $wp_admin_bar->add_node($args);
+      }
+      wp_reset_query();    
+    }
   }
 
   function save_meta( $post_id ) {
