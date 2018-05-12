@@ -96,7 +96,7 @@
                   <li><a class="h-card" rel="me" href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
                   <li><a class="u-email" rel="me" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Email us</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/feedback">Give feedback</a></li>
-                  <li><a href="<?php echo site_url(); ?>/submit-your-bot">Submit a bot</a></li>
+                  <li><a href="<?php echo site_url(); ?>/about/contribute/" title="Add your bot, tutorial, and other botmaking resources to Botwiki" href="<?php echo home_url(); ?>/about/contribute/">Contribute to Botwiki</a></li>
                   <li><a href="https://botmakers.org/">Join Botmakers</a></li>
                 </ul>                
               </div>

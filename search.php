@@ -15,7 +15,7 @@
       <?php }?>
       <ul>
         <li>
-          <a href="<?php echo home_url(); ?>/submit-your-bot">Submit a bot to Botwiki</a>
+          <a title="Add your bot, tutorial, and other botmaking resources to Botwiki" href="<?php echo home_url(); ?>/about/contribute/">Contribute to Botwiki</a>
           <ul>
             <li><em>Please be patient while we review the submissions</em> <span title="Thank you!">🙇</span></li>
           </ul>  
