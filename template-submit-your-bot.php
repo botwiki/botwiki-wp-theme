@@ -28,10 +28,10 @@
           ( isset( $_POST['apply-for-botmaker-badge'] ) && !empty( $_POST['apply-for-botmaker-badge'] ) ) &&
           ( isset( $_POST['bot-author-email'] ) && !empty( $_POST['bot-author-email'] ) )
         ){
-          $email_subject = 'New bot submission';          
+          $email_subject = 'Badge request and new bot submission';         
         }
         else{
-          $email_subject = 'Badge request and new bot submission';         
+          $email_subject = 'New bot submission';          
         }
         wp_mail( get_the_author_meta('user_email', 1), $email_subject, print_r( $_POST, true ) );      
       }
