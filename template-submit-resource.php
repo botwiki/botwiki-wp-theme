@@ -67,8 +67,6 @@
       $resource_description = trim($_POST['resource-description'] );
       $resource_url = trim($_POST['resource-url']);
 
-      $post_content = '';
-
       global $helpers;
 
       $created_by_html_array = array();
@@ -93,32 +91,6 @@
         }
       }
 
-
-
-
-      if ( count( $_POST['resource-networks'] ) == 1 ){
-
-        $post_content .= '<p><a href="' . $resource_url . '">' . trim( $_POST['resource-name'] ) . '</a> is a '
-                      . get_term_by( 'slug', $_POST['resource-networks'][0], 'network' )->name
-                      . " resource" 
-                      . ( count( $resource_authors) > 0 ? " created by " : "" )
-                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
-                      . $resource_description . "</p>";
-      }
-      else{
-
-        function get_network_name( $network_term_slug ){
-          return get_term_by( 'slug', $network_term_slug, 'network' )->name;
-        }
-
-        $post_content .= '<p><a href="' . $resource_url . '">' . $_POST['resource-name'] . '</a> is a resource for '
-                      . $helpers->join_with_and( array_map( 'get_network_name', $_POST['resource-networks']) )
-                      . ( count( $resource_authors) > 0 ? " created by " : "" )
-                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
-                      . $resource_description . "</p>";        
-      }
-
-
       $resource_meta = array();
       $resource_meta['resource_url'] = $resource_url;
 
@@ -138,7 +110,7 @@
 
       $post_data = array(
         'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
-        'post_content' => $post_content,
+        'post_content' => '',
         'post_title' => $_POST['resource-name'],
         'post_excerpt' => $_POST['resource-tagline'],
         'post_status' => 'draft',
