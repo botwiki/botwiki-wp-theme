@@ -100,6 +100,13 @@
         array_push( $resource_tags, $resource_tag );
       }
 
+      if ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ){
+        $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
+        if ( !empty( $twitter_handle ) ){
+          array_push( $resource_tags, $twitter_handle );
+        }
+      }
+
       if ( count( $author_tags ) > 0 ){
         $resource_tags = array_merge( $resource_tags, $author_tags );
       }
