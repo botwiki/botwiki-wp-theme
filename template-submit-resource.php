@@ -122,7 +122,7 @@
         'meta_input' => $resource_meta
       );
 
-      error_log( print_r( $resource_meta, true ) );
+      // error_log( print_r( $resource_meta, true ) );
 
       $new_post_id = wp_insert_post($post_data);
 
@@ -144,7 +144,7 @@
 
         $screenshot_data_json = json_decode( $screenshot_data );
 
-        $image_path = ABSPATH . 'temp/' . str_replace( '@', '', trim( $_POST['resource-name'] ) ) . '.png';
+        $image_path = ABSPATH . 'temp/' . str_replace( '@', '', trim( urlencode( $_POST['resource-name'] ) ) ) . '.png';
 
         if ( !file_exists(  ABSPATH . 'temp/' ) ) {
           mkdir( ABSPATH . 'temp/' , 0777, true);
