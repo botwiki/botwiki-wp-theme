@@ -144,7 +144,7 @@
 
         $screenshot_data_json = json_decode( $screenshot_data );
 
-        $image_path = ABSPATH . 'temp/' . str_replace( '@', '', trim( urlencode( $_POST['resource-name'] ) ) ) . '.png';
+        $image_path = ABSPATH . 'temp/' . preg_replace("[^\w\s\d\.\-_~,;:\[\]\(\]]", '', trim( $_POST['resource-name'] ) ) . '.png';
 
         if ( !file_exists(  ABSPATH . 'temp/' ) ) {
           mkdir( ABSPATH . 'temp/' , 0777, true);
