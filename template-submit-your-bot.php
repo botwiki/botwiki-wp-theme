@@ -24,7 +24,16 @@
     ) {
 
       if (get_current_user_id() !== 1){
-        wp_mail( get_the_author_meta('user_email', 1), 'New bot submission', print_r( $_POST, true ) );      
+        if (
+          ( isset( $_POST['apply-for-botmaker-badge'] ) && !empty( $_POST['apply-for-botmaker-badge'] ) ) &&
+          ( isset( $_POST['bot-author-email'] ) && !empty( $_POST['bot-author-email'] ) )
+        ){
+          $email_subject = 'New bot submission';          
+        }
+        else{
+          $email_subject = 'Badge request and new bot submission';         
+        }
+        wp_mail( get_the_author_meta('user_email', 1), $email_subject, print_r( $_POST, true ) );      
       }
 
       function add_post_thumbnail( $post_id, $image_path, $description ){
@@ -154,7 +163,7 @@
 
       if ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ){
         $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
-        
+
         if ( !empty( $twitter_handle ) ){
           array_push( $bot_tags, $twitter_handle );
         }
