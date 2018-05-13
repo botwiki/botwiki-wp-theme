@@ -17,8 +17,6 @@
     if (
       ( isset( $_POST['resource-type'] ) && !empty( $_POST['resource-type'] ) ) &&
       ( isset( $_POST['resource-name'] ) && !empty( $_POST['resource-name'] ) ) &&
-      ( isset( $_POST['resource-description'] ) && !empty( $_POST['resource-description'] ) ) &&
-      ( isset( $_POST['resource-networks'] ) && !empty( $_POST['resource-networks'] ) ) &&
       ( isset( $_POST['resource-url'] ) && !empty( $_POST['resource-url'] ) ) &&
       ( isset( $_POST['resource-tagline'] ) && !empty( $_POST['resource-tagline'] ) ) &&
       ( isset( $_POST['resource-tags'] ) && !empty( $_POST['resource-tags'] ) )
