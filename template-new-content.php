@@ -52,7 +52,7 @@
 
         <ul class="btn-list">
           <li>
-            <a class="btn" href="/bot/">Browse all</a>
+            <a class="btn" href="/bots/">Browse all</a>
           </li>
           <li>
             <a class="btn" href="/random-bot/">Random bot</a>
@@ -88,6 +88,9 @@
         <ul class="btn-list">
           <li>
             <a class="btn" href="/?post_type=resource">Browse all</a>
+          </li>
+          <li>
+            <a class="btn" href="/submit-resource/">Add your resource</a>
           </li>
         </ul>
 
