@@ -44,7 +44,7 @@
                     <?php
 
                     $post_thumbnail_id = get_post_thumbnail_id( $child->ID );
-                    the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load', 'title' => get_post($post_thumbnail_id)->post_title ]);
+                    the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load mb-5', 'title' => get_post($post_thumbnail_id)->post_title ]);
                     ?>
                     <!-- /post thumbnail -->
                   </div>
