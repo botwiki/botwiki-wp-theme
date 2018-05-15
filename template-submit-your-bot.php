@@ -263,6 +263,9 @@
                 <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
               </li>
               <li>
+                <a class="btn" href="/submit-resource/">Add a resource</a>
+              </li>
+              <li>
                 <a class="btn" href="/bots/#browse-bots-by-category">Browse bots</a>
               </li>
               <li>

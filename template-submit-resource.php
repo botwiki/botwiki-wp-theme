@@ -213,6 +213,9 @@
                 <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
               </li>
               <li>
+                <a class="btn" href="/submit-your-bot/">Submit a bot</a>
+              </li>
+              <li>
                 <a class="btn" href="/resources/">Browse resources</a>
               </li>
               <li>
