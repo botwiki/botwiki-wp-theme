@@ -75,7 +75,7 @@
           }
 
           ?>
-          <h1>Browsing bots tagged <?php echo trim( $networks ); echo trim( $languages ); echo trim( $tags ); ?>&nbsp;...</h1>
+          <h1>Browsing bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tags ); ?>&nbsp;...</h1>
         <?php }
         else {?>
           <h1>Browsing all bots...</h1>
