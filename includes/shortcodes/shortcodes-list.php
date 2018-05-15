@@ -49,6 +49,28 @@ class Shortcodes_List {
       </tr>
     </table>
 
+    <div class="wrap"><div id="icon-tools" class="icon32"></div>
+      <h2>Custom HTML</h2>
+    </div>
+
+    <table class="widefat">
+      <tr>
+        <th class="row-title">HTML</th>
+        <th>Purpose</th>
+      </tr>
+      <tr valign="top">
+        <td scope="row"><pre><code>&#x3C;div class=&#x22;video-background&#x22;&#x3E;
+  &#x3C;div class=&#x22;video-wrapper&#x22;&#x3E;
+    IFRAME_CODE
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+        </td>
+        <td>
+          Add responsive video.
+        </td>
+      </tr>
+    </table>
+
   <?php }
 }
 
