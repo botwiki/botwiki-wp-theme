@@ -131,6 +131,7 @@
                       . $bot_description . "</p>";        
       }
 
+      $post_content = str_replace("</p></p>", "</p>", $post_content);
 
       $bot_meta = array();
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
