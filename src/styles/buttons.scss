@@ -10,7 +10,7 @@ ul.btn-list{
 
 .btn{
   font-family: "Oswald ", sans-serif;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid #ccc;
 
   padding: 10px;
 
@@ -19,13 +19,11 @@ ul.btn-list{
   }
   
   color: $color-primary !important;
-  border-radius: 5px;
   background-color: #fafafa;
   font-size: 0.9em;
-  box-shadow: 2px 2px $color-primary + #555;
 
   &:hover{
-    box-shadow: 1px 1px 0 $color-primary + #222;
+    // box-shadow: 1px 1px 0 $color-primary + #222;
     color: $color-primary;
     text-decoration: none;
     background-color: #fafafa - #111;
