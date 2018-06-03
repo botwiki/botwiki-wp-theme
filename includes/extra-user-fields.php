@@ -28,6 +28,7 @@ class Extra_User_Fields {
     <tr>
       <th><label for="botwiki-team-role">Botwiki team role</label></th>
       <td>
+        <input type="hidden" name="extra_user_fields" value="true" />
         <textarea name="botwiki-team-role" id="botwiki-team-role" class="regular-text"><?php echo esc_attr( get_the_author_meta( 'botwiki-team-role', $user->ID ) ); ?></textarea><br />
         <span class="description"><?php _e("What do you do at Botwiki?"); ?></span>
       </td>
@@ -138,18 +139,18 @@ class Extra_User_Fields {
         return false; 
     }
 
-    update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
-    update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
-    update_user_meta( $user_id, 'profile-img-url', $_POST['profile-img-url'] );
-    update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
+    if (isset($_POST['extra_user_fields'])) {
+      update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
+      update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
+      update_user_meta( $user_id, 'profile-img-url', $_POST['profile-img-url'] );
+      update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
 
-    try {
-      $dominant_color = ColorThief::getColor( str_replace( get_site_url(), ABSPATH, $_POST['background-img-url'] ) );
-      update_user_meta($user_id, 'background-img-dominant-color', json_encode($dominant_color));
-    } catch (Exception $e) { /* NOOP */ }
+      try {
+        $dominant_color = ColorThief::getColor( str_replace( get_site_url(), ABSPATH, $_POST['background-img-url'] ) );
+        update_user_meta($user_id, 'background-img-dominant-color', json_encode($dominant_color));
+      } catch (Exception $e) { /* NOOP */ }
+    }
   }
-
-
 }
 
 $extra_user_fields_init = new Extra_User_Fields();
