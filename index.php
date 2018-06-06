@@ -19,7 +19,9 @@
 
   <main role="main" class="container">
     <div class="mt-5">
-			<h1><?php _e( 'Latest posts', 'botwiki' ); ?></h1>
+			<!-- <h1><?php
+      // _e( 'Latest posts', 'botwiki' ); ?>
+      </h1> -->
 			<?php get_template_part('loop'); ?>
 			<?php get_template_part('pagination'); ?>
       <p>Be sure to follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a>!</p>
