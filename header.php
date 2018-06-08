@@ -150,7 +150,7 @@
       $post_id = get_the_id();
       $dominant_color = get_post_meta( $post_id, 'dominant_color', true );
 
-      if ($dominant_color){
+      if (!is_front_page() && $dominant_color){
             $dominant_color_css = str_replace('[', 'background-color:rgba(', $dominant_color);
             $dominant_color_css = str_replace(']', ',0.05)', $dominant_color_css); 
             echo ' style = " '. $dominant_color_css . '"';
