@@ -29,7 +29,7 @@
           $post_id = get_the_id();
           $dominant_color = get_post_meta( $post_id, 'dominant_color', true );
 
-          if (!is_front_page() && $dominant_color){
+          if (!is_front_page() && !is_home() && $dominant_color){
                 $dominant_color_css = str_replace('[', 'background-color:rgba(', $dominant_color);
                 $dominant_color_css = str_replace(']', ',0.2)', $dominant_color_css); 
                 echo ' style = " '. $dominant_color_css . '"';
@@ -92,7 +92,7 @@
         </div>
         <div class="container-fluid background-alternate p-5"
         <?php
-          if (!is_front_page() && $dominant_color){
+          if (!is_front_page() && !is_home() && $dominant_color){
             echo ' style = " '. $dominant_color_css . '"';
           }
         ?>

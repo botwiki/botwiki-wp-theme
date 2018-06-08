@@ -145,18 +145,7 @@
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki' rel='stylesheet' type='text/css'>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>
-    <?php
-      $post_id = get_the_id();
-      $dominant_color = get_post_meta( $post_id, 'dominant_color', true );
-
-      if (!is_front_page() && $dominant_color){
-            $dominant_color_css = str_replace('[', 'background-color:rgba(', $dominant_color);
-            $dominant_color_css = str_replace(']', ',0.05)', $dominant_color_css); 
-            echo ' style = " '. $dominant_color_css . '"';
-      }
-    ?>
-  >
+	<body <?php body_class(); ?>>
     <noscript><style type="text/css">.lazy-load{opacity:1;transform:none;}</style></noscript>
     <header id="header">
     <?php if (!is_front_page()){ ?>
