@@ -23,8 +23,21 @@
       </div>
 
       <!-- footer -->
-      <footer class="footer mt-5" role="contentinfo">
-        <div class="container-fluid background-alternate p-5">
+      <footer class="footer mt-5 background-fff" role="contentinfo">
+        <div class="container-fluid background-alternate p-5"
+        <?php
+          $post_id = get_the_id();
+          $dominant_color = get_post_meta( $post_id, 'dominant_color', true );
+
+          if ($dominant_color){
+                $dominant_color_css = str_replace('[', 'background-color:rgba(', $dominant_color);
+                $dominant_color_css = str_replace(']', ',0.2)', $dominant_color_css); 
+                echo ' style = " '. $dominant_color_css . '"';
+          }
+        ?>
+
+
+        >
           <div class="container share-prompt">
             <h3>Share this <?php echo (is_front_page() ? 'site' : 'page' );?></h3>
             <?php
@@ -77,7 +90,13 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid background-alternate p-5">
+        <div class="container-fluid background-alternate p-5"
+        <?php
+          if ($dominant_color){
+            echo ' style = " '. $dominant_color_css . '"';
+          }
+        ?>
+        >
           <div class="container">
             <div class="row mt-5 mb-5">
               <div class="col-sm-12 col-md-4">

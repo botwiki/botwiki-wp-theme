@@ -462,6 +462,9 @@ p.post-tags a {
 .background-alternate {
   background-color: #f3f3f3; }
 
+.background-fff {
+  background-color: #fff; }
+
 footer ul.footer-list {
   padding: 0;
   list-style: none; }
