@@ -413,4 +413,9 @@ add_filter(  'pre_user_description',  'wp_filter_post_kses' );
 
 add_post_type_support( 'page', 'excerpt' );
 
+function fix_blog_pagination() {
+  add_rewrite_rule(get_option('category_base').'/page/?([0-9]{1,})/?$', 'index.php?pagename=' . get_option('category_base').'&paged=$matches[1]', 'top');
+}
+add_action('init', 'fix_blog_pagination');
+
 ?>
