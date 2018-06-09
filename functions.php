@@ -420,7 +420,6 @@ add_action('init', 'fix_blog_pagination');
 function fix_blog_pagination(){
   global $wp_rewrite;
   add_rewrite_rule('^blog/page/?([0-9])?','index.php?post_type=post&paged=$matches[1]','top');  
-  add_rewrite_rule('^blog/?','index.php?post_type=post','top');
   add_rewrite_endpoint( 'blog', EP_PERMALINK | EP_PAGES );
   $wp_rewrite->flush_rules();
 }
