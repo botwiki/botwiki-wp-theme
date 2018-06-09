@@ -259,7 +259,8 @@ function botwiki_site_pagination(){
   $big = 999999999;
   echo paginate_links(array(
     'base' => str_replace($big, '%#%', get_pagenum_link($big)),
-    'format' => '?paged=%#%',
+    // 'format' => '?paged=%#%',
+    'format' => '/page/%#%',
     'current' => max(1, get_query_var( 'paged' )),
     'total' => $wp_query->max_num_pages
   ));
@@ -413,9 +414,15 @@ add_filter(  'pre_user_description',  'wp_filter_post_kses' );
 
 add_post_type_support( 'page', 'excerpt' );
 
-function fix_blog_pagination() {
-  add_rewrite_rule(get_option('category_base').'/page/?([0-9]{1,})/?$', 'index.php?pagename=' . get_option('category_base').'&paged=$matches[1]', 'top');
-}
+
 add_action('init', 'fix_blog_pagination');
+
+function fix_blog_pagination(){
+  global $wp_rewrite;
+  add_rewrite_rule('^blog/page/?([0-9])?','index.php?post_type=post&paged=$matches[1]','top');  
+  add_rewrite_rule('^blog/?','index.php?post_type=post','top');
+  add_rewrite_endpoint( 'blog', EP_PERMALINK | EP_PAGES );
+  $wp_rewrite->flush_rules();
+}
 
 ?>
