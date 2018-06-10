@@ -697,13 +697,13 @@ body.archive .note .btn, body.archive .card .btn {
   color: #000;
   font-weight: bold; }
 
-.post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+.post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
   min-height: 302px; }
   @media (max-width: 860px) {
-    .post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+    .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
       min-height: 606px; } }
   @media (max-width: 767px) {
-    .post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+    .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
       min-height: 302px; } }
 
 .lazy-load {

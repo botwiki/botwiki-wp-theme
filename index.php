@@ -14,7 +14,7 @@
   // $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
 <!-- 
-  <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
+  <div class="thumbnail-wrapper" style="<?php // echo $dominant_color_css; ?>">
     <img src="<?php // echo $featured_image; ?>">
   </div>
  -->
