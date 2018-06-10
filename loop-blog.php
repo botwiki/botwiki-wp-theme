@@ -34,7 +34,11 @@
         $index = $wp_query->current_post + 1;
         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
-        error_log( print_r( $page, true ) );
+        error_log( print_r( array(
+          'page' => $page,
+          'index' => $index,
+          'the_title' => get_the_title()
+        ), true ) );
 
         if ( $page === 1 && $index === 1 ){ ?>
           <div class="row">
@@ -43,11 +47,12 @@
             </div>
         <?php } elseif ( $page !== 1 && $index === 1 ) { ?>
           <div class="row">
-
+              <div class="col-sm-12 col-md-4 text-center m-0 p-0">
+                <?php render_post( $page, $index, $post->ID ); ?>
+              </div>
         <?php } elseif ( $page === 1 && $index === 2 ) { ?>
           <div class="col-sm-12 col-md-4">
             <div class="row">
-
               <div class="col-sm-12 text-center m-0 p-0">
                 <?php render_post( $page, $index, $post->ID ); ?>
               </div>
