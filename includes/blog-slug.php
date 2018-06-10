@@ -5,6 +5,7 @@
 class Blog_Slug {
   public function __construct() {
     add_action( 'init', array( $this, 'override_default_post_type' ) );
+    add_action( 'pre_get_posts', array( $this, 'change_post_count' ) );
   }
 
   public function override_default_post_type( $content ) { 
@@ -23,6 +24,16 @@ class Blog_Slug {
         'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
     ) );
   }
+
+    function change_post_count($query){
+      global $wp_the_query;
+
+      if ( ( ! is_admin() ) && ( $query === $wp_the_query ) ) {
+        $query->set( 'posts_per_page', 20 );
+      }
+
+
+    }
 }
 
 $blog_slug_init = new Blog_Slug();

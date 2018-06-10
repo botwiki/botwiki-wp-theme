@@ -658,6 +658,54 @@ body.archive .note .btn, body.archive .card .btn {
 .cursor-pointer {
   cursor: pointer; }
 
+.post-thumbnail {
+  padding: 5px;
+  margin: 1px;
+  position: relative; }
+  .post-thumbnail, .post-thumbnail:hover {
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s; }
+  .post-thumbnail:hover {
+    border: 5px solid transparent;
+    overflow: hidden; }
+  .post-thumbnail, .post-thumbnail .post-thumbnail-img {
+    min-height: 150px; }
+    @media (max-width: 860px) {
+      .post-thumbnail, .post-thumbnail .post-thumbnail-img {
+        min-height: 302px; } }
+
+.post-thumbnail-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.post-thumbnail-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.post-thumbnail-title {
+  position: absolute;
+  bottom: 0;
+  border: 5px solid #000;
+  background: #fff;
+  padding: 5px;
+  color: #000;
+  font-weight: bold; }
+
+.post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+  min-height: 302px; }
+  @media (max-width: 860px) {
+    .post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+      min-height: 606px; } }
+  @media (max-width: 767px) {
+    .post-thumbnail-1, .post-thumbnail-1 .post-thumbnail-img {
+      min-height: 302px; } }
+
 .lazy-load {
   opacity: 0;
   -webkit-transform: translate(0, 30px) scale(1.05);

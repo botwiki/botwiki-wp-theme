@@ -9,22 +9,23 @@
 ?>
 
 <?php
-  $dominant_color  = get_post_meta( $page_for_posts, 'dominant_color', true );
-  $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
-  $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+  // $dominant_color  = get_post_meta( $page_for_posts, 'dominant_color', true );
+  // $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+  // $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
+<!-- 
   <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-    <img src="<?php echo $featured_image; ?>">
+    <img src="<?php // echo $featured_image; ?>">
   </div>
-
+ -->
   <main role="main" class="container">
     <div class="mt-5">
 			<!-- <h1><?php
       // _e( 'Latest posts', 'botwiki' ); ?>
       </h1> -->
-			<?php get_template_part('loop'); ?>
+			<?php get_template_part('loop-blog'); ?>
 			<?php get_template_part('pagination'); ?>
-      <p>Be sure to follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a>!</p>
+      <p class="mt-5">Be sure to follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a>!</p>
 		</div>
 	</main>
 <?php get_footer(); ?>
