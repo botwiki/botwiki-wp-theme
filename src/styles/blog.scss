@@ -8,14 +8,16 @@
   }
 
   &:hover{
-    border: 5px solid rgba(0,0,0,0);
-    overflow:hidden;
+    padding-bottom: 15px;
+    margin-left: 15px;
+    // border-bottom: 15px solid rgba(0,0,0,0);
+    // overflow:hidden;
   }
 
   &, & .post-thumbnail-img{
-    min-height: 150px;
+    min-height: 250px;
     @media(max-width: $site-width-small){
-      min-height: 302px;
+      min-height: 502px;
     }
   }  
 }
@@ -43,20 +45,28 @@
   padding: 5px;
 
   color: #000;
+
   font-weight: bold;
+  .post-thumbnail &,
+  .post-thumbnail:hover &{
+    transition: all 0.2s;
+  }
+
   .post-thumbnail:hover &{
     // text-decoration: underline !important;
+    margin-left: -15px;
+    // margin-bottom: 25px;
   }
 }
 
 .post-thumbnail-1-1{
   &, & .post-thumbnail-img{
-    min-height: 302px;
+    min-height: 502px;
     @media(max-width: $site-width-small){
       min-height: 606px;
     }
     @media(max-width: 767px){
-      min-height: 302px;
+      min-height: 502px;
     }
   }
 }
