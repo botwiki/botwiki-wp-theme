@@ -20,7 +20,10 @@ class Contributors_Restrictions {
   }
 
   public function hide_others_posts_links( $views ) { 
-    return array();    
+    if ( !current_user_can( 'administrator' ) ) {
+      $views = array();
+    }
+    return $views;
   }
 
   public function hide_others_posts_links_admin(  ) { 
