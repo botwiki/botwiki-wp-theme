@@ -34,6 +34,7 @@
 
 
 .post-thumbnail-title{
+  text-align: left;
   position: absolute;
   bottom: 0;
   border: 5px solid #000;
@@ -53,6 +54,12 @@
     margin-left: -15px;
     // margin-bottom: 25px;
   }
+}
+
+.post-thumbnail-date{
+  font-family: monospace;
+  display: block;
+  text-align: right;
 }
 
 .post-thumbnail-1-1{

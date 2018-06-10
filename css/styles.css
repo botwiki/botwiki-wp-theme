@@ -717,6 +717,7 @@ body.archive .note .btn, body.archive .card .btn {
   background-size: cover; }
 
 .post-thumbnail-title {
+  text-align: left;
   position: absolute;
   bottom: 0;
   border: 5px solid #000;
@@ -731,6 +732,11 @@ body.archive .note .btn, body.archive .card .btn {
     transition: all 0.2s; }
   .post-thumbnail:hover .post-thumbnail-title {
     margin-left: -15px; }
+
+.post-thumbnail-date {
+  font-family: monospace;
+  display: block;
+  text-align: right; }
 
 .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
   min-height: 502px; }

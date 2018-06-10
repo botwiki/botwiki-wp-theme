@@ -19,7 +19,15 @@
         </div>
         <!-- post title -->
         <p class="post-thumbnail-title">
-          <?php the_title(); ?>
+          <?php
+          the_title();
+
+          $post_date = get_the_time('F j, Y');
+          $post_date_full = $post_date . ' ' . get_the_time('g:i a');
+          $m = new \Moment\Moment($post_date);
+          $post_date_ago = $m->fromNow()->getRelative();
+          echo " <span class='post-thumbnail-date'>$post_date_ago</span>";
+          ?>
         </p>
         <!-- /post title -->
 
