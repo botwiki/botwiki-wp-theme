@@ -34,12 +34,6 @@
         $index = $wp_query->current_post + 1;
         $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
-        error_log( print_r( array(
-          'page' => $page,
-          'index' => $index,
-          'the_title' => get_the_title()
-        ), true ) );
-
         if ( $page === 1 && $index === 1 ){ ?>
           <div class="row">
             <div class="col-sm-12 col-md-8 text-center m-0 p-0">

@@ -667,26 +667,23 @@ body.archive .note .btn, body.archive .card .btn {
     -o-transition: all 0.2s;
     transition: all 0.2s; }
   .post-thumbnail:hover {
-    padding-bottom: 15px;
-    margin-left: 15px; }
+    padding-bottom: 15px; }
+    @media (min-width: 860px) {
+      .post-thumbnail:hover {
+        -webkit-transform: scale(0.99);
+            -ms-transform: scale(0.99);
+                transform: scale(0.99); } }
   .post-thumbnail, .post-thumbnail .post-thumbnail-img {
     min-height: 250px; }
-    @media (max-width: 860px) {
-      .post-thumbnail, .post-thumbnail .post-thumbnail-img {
-        min-height: 502px; } }
 
 .post-thumbnail-img {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; }
-
-.post-thumbnail-img {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0; }
+  bottom: 0;
+  background-position: center center;
+  background-size: cover; }
 
 .post-thumbnail-title {
   position: absolute;
@@ -706,12 +703,9 @@ body.archive .note .btn, body.archive .card .btn {
 
 .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
   min-height: 502px; }
-  @media (max-width: 860px) {
-    .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
-      min-height: 606px; } }
   @media (max-width: 767px) {
     .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
-      min-height: 502px; } }
+      min-height: 250px; } }
 
 .lazy-load {
   opacity: 0;

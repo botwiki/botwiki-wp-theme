@@ -9,16 +9,16 @@
 
   &:hover{
     padding-bottom: 15px;
-    margin-left: 15px;
+    // margin-left: 15px;
+    @media(min-width: $site-width-small){
+      transform: scale(0.99);
+    }
     // border-bottom: 15px solid rgba(0,0,0,0);
     // overflow:hidden;
   }
 
   &, & .post-thumbnail-img{
     min-height: 250px;
-    @media(max-width: $site-width-small){
-      min-height: 502px;
-    }
   }  
 }
 
@@ -28,14 +28,10 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background-position: center center;
+  background-size: cover;
 }
 
-.post-thumbnail-img{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 
 .post-thumbnail-title{
   position: absolute;
@@ -63,10 +59,10 @@
   &, & .post-thumbnail-img{
     min-height: 502px;
     @media(max-width: $site-width-small){
-      min-height: 606px;
+      // min-height: 606px;
     }
     @media(max-width: 767px){
-      min-height: 502px;
+      min-height: 250px;
     }
   }
 }
