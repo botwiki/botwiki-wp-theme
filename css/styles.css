@@ -567,31 +567,62 @@ div#menu-wrapper {
     color: #4d4350;
     text-decoration: none; }
 
-.hover-box, .hover-box:hover {
-  -webkit-transition: background-color 0.7s;
-  -o-transition: background-color 0.7s;
-  transition: background-color 0.7s; }
-  .hover-box h2, .hover-box p, .hover-box:hover h2, .hover-box:hover p {
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: -webkit-transform 0.3s;
-    -o-transition: transform 0.3s;
-    transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s; }
+.hover-box {
+  position: relative; }
+  .hover-box, .hover-box:hover {
+    -webkit-transition: background-color 0.7s;
+    -o-transition: background-color 0.7s;
+    transition: background-color 0.7s; }
+    .hover-box h2, .hover-box p, .hover-box:hover h2, .hover-box:hover p {
+      -webkit-transition: -webkit-transform 0.3s;
+      transition: -webkit-transform 0.3s;
+      -o-transition: transform 0.3s;
+      transition: transform 0.3s;
+      transition: transform 0.3s, -webkit-transform 0.3s; }
+  .hover-box:hover {
+    background-color: #f3f3f3; }
+    .hover-box:hover h2 {
+      -webkit-transform: translate(0, -5px);
+          -ms-transform: translate(0, -5px);
+              transform: translate(0, -5px); }
+    .hover-box:hover p {
+      -webkit-transform: translate(0, -2px);
+          -ms-transform: translate(0, -2px);
+              transform: translate(0, -2px); }
+  .hover-box a {
+    display: block;
+    padding: 10px; }
 
-.hover-box:hover {
-  background-color: #f3f3f3; }
-  .hover-box:hover h2 {
-    -webkit-transform: translate(0, -5px);
-        -ms-transform: translate(0, -5px);
-            transform: translate(0, -5px); }
-  .hover-box:hover p {
-    -webkit-transform: translate(0, -2px);
-        -ms-transform: translate(0, -2px);
-            transform: translate(0, -2px); }
+@media (min-width: 860px) {
+  .hover-icon {
+    font-size: 5em;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 1000;
+    opacity: 0;
+    -webkit-transform: translate(0, 20px) rotate(10deg);
+        -ms-transform: translate(0, 20px) rotate(10deg);
+            transform: translate(0, 20px) rotate(10deg);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.3s;
+    transition: opacity 0.2s, -webkit-transform 0.3s;
+    -o-transition: transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s; }
+    .hover-box:hover .hover-icon {
+      opacity: 1;
+      -webkit-transform: translate(0) rotate(15deg);
+          -ms-transform: translate(0) rotate(15deg);
+              transform: translate(0) rotate(15deg);
+      -webkit-transition: opacity 0.2s, -webkit-transform 0.3s;
+      transition: opacity 0.2s, -webkit-transform 0.3s;
+      -o-transition: transform 0.3s, opacity 0.2s;
+      transition: transform 0.3s, opacity 0.2s;
+      transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s; } }
 
-.hover-box a {
-  display: block;
-  padding: 10px; }
+@media (max-width: 860px) {
+  .hover-icon {
+    display: none; } }
 
 .select2-container, .select2-container input {
   width: 100% !important; }

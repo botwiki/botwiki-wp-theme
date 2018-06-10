@@ -25,6 +25,7 @@ div#menu-wrapper{
 }
 
 .hover-box{
+  position: relative;
   &,&:hover{
     transition: background-color 0.7s;
     h2, p{
@@ -44,6 +45,27 @@ div#menu-wrapper{
  a{
     display: block;
     padding: 10px;    
+  }
+}
+
+.hover-icon{
+  @media(min-width: $site-width-small){
+    font-size: 5em;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translate(0,20px) rotate(10deg);
+    transition: transform 0.3s, opacity 0.2s; 
+    .hover-box:hover &{
+      opacity: 1;
+      transform: translate(0) rotate(15deg);
+      transition: transform 0.3s, opacity 0.2s; 
+    }
+  }
+  @media(max-width: $site-width-small){
+    display: none;
   }
 }
 
