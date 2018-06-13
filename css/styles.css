@@ -689,6 +689,15 @@ body.archive .note .btn, body.archive .card .btn {
 .cursor-pointer {
   cursor: pointer; }
 
+.blog-title {
+  text-align: center;
+  text-transform: uppercase; }
+  .blog-title:before {
+    display: block;
+    content: 'latest posts from the';
+    margin-bottom: 0.5rem;
+    font-size: 1rem; }
+
 .post-thumbnail {
   padding: 5px;
   margin: 1px;
@@ -699,11 +708,6 @@ body.archive .note .btn, body.archive .card .btn {
     transition: all 0.2s; }
   .post-thumbnail:hover {
     padding-bottom: 15px; }
-    @media (min-width: 860px) {
-      .post-thumbnail:hover {
-        -webkit-transform: scale(0.99);
-            -ms-transform: scale(0.99);
-                transform: scale(0.99); } }
   .post-thumbnail, .post-thumbnail .post-thumbnail-img {
     min-height: 250px; }
 
@@ -725,13 +729,18 @@ body.archive .note .btn, body.archive .card .btn {
   padding: 5px;
   color: #000;
   font-weight: bold; }
+  .post-thumbnail .post-thumbnail-title {
+    left: 0;
+    right: 0; }
   .post-thumbnail .post-thumbnail-title,
   .post-thumbnail:hover .post-thumbnail-title {
     -webkit-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s; }
   .post-thumbnail:hover .post-thumbnail-title {
-    margin-left: -15px; }
+    padding: 1rem 5px; }
+  .post-thumbnail-1-1:hover .post-thumbnail-title {
+    padding: 2rem 5px; }
 
 .post-thumbnail-date {
   font-family: monospace;

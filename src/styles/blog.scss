@@ -1,3 +1,14 @@
+.blog-title{
+  text-align: center;
+  text-transform: uppercase;
+  &:before{
+    display: block;
+    content: 'latest posts from the';
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
 .post-thumbnail{
   padding: 5px;
   margin: 1px;
@@ -10,9 +21,9 @@
   &:hover{
     padding-bottom: 15px;
     // margin-left: 15px;
-    @media(min-width: $site-width-small){
-      transform: scale(0.99);
-    }
+    // @media(min-width: $site-width-small){
+    //   transform: scale(0.99);
+    // }
     // border-bottom: 15px solid rgba(0,0,0,0);
     // overflow:hidden;
   }
@@ -42,19 +53,29 @@
   padding: 5px;
 
   color: #000;
-
   font-weight: bold;
+
+  .post-thumbnail &{
+    left: 0;
+    right: 0;
+  }
   .post-thumbnail &,
   .post-thumbnail:hover &{
     transition: all 0.2s;
   }
 
   .post-thumbnail:hover &{
-    // text-decoration: underline !important;
-    margin-left: -15px;
-    // margin-bottom: 25px;
+    padding: 1rem 5px;
   }
+
+  .post-thumbnail-1-1:hover &{
+    padding: 2rem 5px;
+  }
+
 }
+
+
+
 
 .post-thumbnail-date{
   font-family: monospace;

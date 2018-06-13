@@ -19,13 +19,19 @@
   </div>
  -->
   <main role="main" class="container">
+    <h2 class="blog-title">Botwiki Blog</h2>
     <div class="mt-5">
 			<!-- <h1><?php
       // _e( 'Latest posts', 'botwiki' ); ?>
       </h1> -->
 			<?php get_template_part('loop-blog'); ?>
 			<?php get_template_part('pagination'); ?>
-      <p class="mt-5">Be sure to follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a>!</p>
+      <h3>Wait, there's more!</h3>
+      <ul>
+        <li>follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
+        <li>check out our <a href="/learn/#blogs-and-websites">blogroll</a></li>
+        <li>meet <a href="/about/team">the team</a></li>
+      </ul>
 		</div>
 	</main>
 <?php get_footer(); ?>
