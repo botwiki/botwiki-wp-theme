@@ -185,8 +185,8 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
   text-align: center; }
   .thumbnail-wrapper img {
     height: 45vh;
-    -o-object-fit: none;
-       object-fit: none;
+    -o-object-fit: cover;
+       object-fit: cover;
     width: 100%;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -200,6 +200,12 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
       max-width: 100vw;
       -o-object-fit: none;
          object-fit: none; }
+
+body.single-bot .thumbnail-wrapper {
+  text-align: center; }
+  body.single-bot .thumbnail-wrapper img {
+    -o-object-fit: none;
+       object-fit: none; }
 
 /* Site footer */
 .footer .footer-callout {

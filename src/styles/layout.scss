@@ -190,7 +190,7 @@ ul.navbar-nav{
   text-align: center;
   img{
     height: 45vh;
-    object-fit: none;
+    object-fit: cover;
     width: 100%;
     transition: all 0.3s;
 
@@ -204,6 +204,15 @@ ul.navbar-nav{
       object-fit: none;
     }
   }
+}
+
+body.single-bot{
+  .thumbnail-wrapper{
+    text-align: center;
+    img{
+      object-fit: none;
+    }
+  }  
 }
 
 /* Site footer */
