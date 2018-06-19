@@ -106,6 +106,20 @@
 
 				<h1 id="blog">My blog posts</h1>
 				<?php
+
+          global $wp_query;
+
+          $wp_query = new WP_Query( array(
+            'post_type'         => 'post',
+            'author'            => $author_id,
+            'paged'              =>  (get_query_var('paged')) ? get_query_var('paged') : 1,
+            'page'              =>  (get_query_var('paged')) ? get_query_var('paged') : 1,
+            'posts_per_page'    => '5',
+            'post_status'       => 'publish',
+            'orderby'           => 'publish_date',
+            'order'             => 'DESC'
+          ) );            
+
 					get_template_part('loop', 'author');
 					get_template_part('pagination');
 				?>
@@ -196,7 +210,10 @@
               $bot_list_html .= '</div>';
               echo $bot_list_html;
 
-              ?><p class="post-tags mt-5 mb-5"><?php
+              ?>
+              <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
+
+              <p class="post-tags mt-5 mb-5"><?php
 
                 foreach ( $author_tags_bots as $tag ) {
                   $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
@@ -204,7 +221,6 @@
 
                 echo join( ' ', $author_tags_bots_html );
               ?></p>
-            <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
           <?php }
         ?>
       <?php
@@ -236,6 +252,7 @@
 
             get_template_part('loop');
           ?>
+          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>
           <p class="post-tags mt-5 mb-5"><?php
             foreach ( $author_tags_resources as $tag ) {
               $author_tags_resources_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=resource&tags=' . $tag . '">' . $tag . '</a> ';
@@ -243,8 +260,6 @@
 
             echo join( ' ', $author_tags_resources_html );
           ?></p>
-
-          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>
         <?php }        
       ?>
 		</div>
