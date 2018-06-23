@@ -707,13 +707,8 @@ body.archive .note .btn, body.archive .card .btn {
 .post-thumbnail {
   padding: 5px;
   margin: 1px;
-  position: relative; }
-  .post-thumbnail, .post-thumbnail:hover {
-    -webkit-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s; }
-  .post-thumbnail:hover {
-    padding-bottom: 15px; }
+  position: relative;
+  overflow: hidden; }
   .post-thumbnail, .post-thumbnail .post-thumbnail-img {
     min-height: 250px; }
 
@@ -738,15 +733,9 @@ body.archive .note .btn, body.archive .card .btn {
   .post-thumbnail .post-thumbnail-title {
     left: 0;
     right: 0; }
-  .post-thumbnail .post-thumbnail-title,
-  .post-thumbnail:hover .post-thumbnail-title {
-    -webkit-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    transition: all 0.2s; }
-  .post-thumbnail:hover .post-thumbnail-title {
-    padding: 1rem 5px; }
-  .post-thumbnail-1-1:hover .post-thumbnail-title {
-    padding: 2rem 5px; }
+  .post-thumbnail .post-thumbnail-title {
+    margin: 5px;
+    padding: 10px 5px; }
 
 .post-thumbnail-date {
   font-family: monospace;

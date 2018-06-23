@@ -14,23 +14,15 @@
   margin: 1px;
   position: relative;
 
-  &, &:hover{
-    transition: all 0.2s;
-  }
-
-  &:hover{
-    padding-bottom: 15px;
-    // margin-left: 15px;
-    // @media(min-width: $site-width-small){
-    //   transform: scale(0.99);
-    // }
-    // border-bottom: 15px solid rgba(0,0,0,0);
-    // overflow:hidden;
-  }
+  // &, &:hover{
+  //   transition: all 0.2s;
+  // }
 
   &, & .post-thumbnail-img{
     min-height: 250px;
   }  
+
+  overflow: hidden;
 }
 
 .post-thumbnail-img{
@@ -41,6 +33,15 @@
   bottom: 0;
   background-position: center center;
   background-size: cover;
+
+  // &:hover{
+  //   opacity: 0.8;
+  //   transform: scale(1.05);
+  // }
+
+  // &, &:hover{
+  //   transition: all 0.3s;
+  // }
 }
 
 
@@ -59,19 +60,16 @@
     left: 0;
     right: 0;
   }
-  .post-thumbnail &,
-  .post-thumbnail:hover &{
-    transition: all 0.2s;
-  }
 
-  .post-thumbnail:hover &{
-    padding: 1rem 5px;
-  }
+  // .post-thumbnail &,
+  // .post-thumbnail:hover &{
+  //   transition: all 0.2s;
+  // }
 
-  .post-thumbnail-1-1:hover &{
-    padding: 2rem 5px;
+  .post-thumbnail &{
+    margin: 5px;
+    padding: 10px 5px;
   }
-
 }
 
 
