@@ -565,6 +565,7 @@ div#menu-wrapper {
   body.home article h2,
   div#menu-wrapper h2 {
     font-family: "Open Sans", sans-serif;
+    font-weight: normal;
     text-transform: lowercase;
     margin-top: 3rem;
     font-size: 3rem;
