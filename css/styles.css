@@ -34,6 +34,10 @@ img {
     height: auto;
     margin: initial; }
 
+.card-footer {
+  background: none;
+  border-top: none; }
+
 .card-title {
   margin-top: 0.75rem; }
 
@@ -309,8 +313,8 @@ h3 {
 
 h4 {
   font-size: 3em;
-  margin-top: 2rem;
-  margin-bottom: 2rem; }
+  margin-top: 4rem;
+  margin-bottom: 3rem; }
   @media (max-width: 900px) {
     h4 {
       font-size: 2em; } }
