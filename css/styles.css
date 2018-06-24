@@ -322,6 +322,9 @@ h4 {
   h3 + h4 {
     margin-top: -2rem; }
 
+#page-content {
+  margin-top: 0; }
+
 h5 {
   font-size: 2em;
   margin-top: 2rem;
