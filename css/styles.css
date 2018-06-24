@@ -617,9 +617,9 @@ div#menu-wrapper {
     transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s; }
     .hover-box:hover .hover-icon {
       opacity: 1;
-      -webkit-transform: translate(0) rotate(15deg);
-          -ms-transform: translate(0) rotate(15deg);
-              transform: translate(0) rotate(15deg);
+      -webkit-transform: translate(0) rotate(10deg);
+          -ms-transform: translate(0) rotate(10deg);
+              transform: translate(0) rotate(10deg);
       -webkit-transition: opacity 0.2s, -webkit-transform 0.3s;
       transition: opacity 0.2s, -webkit-transform 0.3s;
       -o-transition: transform 0.3s, opacity 0.2s;

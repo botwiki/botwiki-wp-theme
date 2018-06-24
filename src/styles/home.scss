@@ -60,7 +60,7 @@ div#menu-wrapper{
     transition: transform 0.3s, opacity 0.2s; 
     .hover-box:hover &{
       opacity: 1;
-      transform: translate(0) rotate(15deg);
+      transform: translate(0) rotate(10deg);
       transition: transform 0.3s, opacity 0.2s; 
     }
   }
