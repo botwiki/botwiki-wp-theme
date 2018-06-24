@@ -79,7 +79,7 @@ img{
 
 nav{
   pointer-events: none;
-  font-family: 'Anton';
+  font-family: $title-font-family;
   min-height: 5em;
   #menu-toggle{
     display: none;

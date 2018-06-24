@@ -49,7 +49,7 @@ img {
 /* Site navigation */
 nav {
   pointer-events: none;
-  font-family: 'Anton';
+  font-family: "Fira Sans", sans-serif;
   min-height: 5em; }
   nav #menu-toggle {
     display: none; }
@@ -271,8 +271,9 @@ body, .hover-box p {
   color: #4d4350; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Anton", sans-serif;
-  line-height: 1; }
+  font-family: "Fira Sans", sans-serif;
+  line-height: 1;
+  font-weight: bold; }
 
 h1 {
   font-size: 5em;
@@ -484,7 +485,7 @@ footer ul.footer-list {
   footer ul.footer-list li {
     font-weight: bold; }
     footer ul.footer-list li.list-header {
-      font-family: Anton;
+      font-family: "Fira Sans", sans-serif;
       font-size: 1.8em;
       text-transform: uppercase;
       margin-bottom: 0.6em; }

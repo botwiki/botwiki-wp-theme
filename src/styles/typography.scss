@@ -6,6 +6,7 @@ body, .hover-box p {
 h1, h2, h3, h4, h5, h6{
   font-family: $title-font-family;
   line-height: 1;
+  font-weight: bold;
 }
 
 h1{
@@ -278,7 +279,7 @@ footer{
       font-weight: bold;
 
       &.list-header{
-        font-family: Anton;
+        font-family: $title-font-family;
         font-size: 1.8em;
         text-transform: uppercase;
         margin-bottom: 0.6em;
