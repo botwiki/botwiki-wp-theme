@@ -725,13 +725,25 @@ body.archive .note .btn, body.archive .card .btn {
   right: 0;
   bottom: 0;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  -webkit-filter: brightness(30%);
+          filter: brightness(30%);
+  opacity: 0.8; }
+  .post-thumbnail-img:hover {
+    -webkit-filter: brightness(20%);
+            filter: brightness(20%); }
+  .post-thumbnail-img, .post-thumbnail-img:hover {
+    -webkit-transition: -webkit-filter 0.3s;
+    transition: -webkit-filter 0.3s;
+    -o-transition: filter 0.3s;
+    transition: filter 0.3s;
+    transition: filter 0.3s, -webkit-filter 0.3s; }
 
 .post-thumbnail-title {
   text-align: left;
   position: absolute;
   bottom: 0;
-  border: 5px solid #000;
+  border: 3px solid #4d4350;
   background: #fff;
   padding: 5px;
   color: #000;
@@ -745,8 +757,7 @@ body.archive .note .btn, body.archive .card .btn {
 
 .post-thumbnail-date {
   font-family: monospace;
-  display: block;
-  text-align: right; }
+  display: block; }
 
 .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
   min-height: 502px; }

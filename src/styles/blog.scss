@@ -33,15 +33,16 @@
   bottom: 0;
   background-position: center center;
   background-size: cover;
+  filter: brightness(30%);
+  opacity: 0.8;
 
-  // &:hover{
-  //   opacity: 0.8;
-  //   transform: scale(1.05);
-  // }
+  &:hover{
+    filter: brightness(20%);
+  }
 
-  // &, &:hover{
-  //   transition: all 0.3s;
-  // }
+  &, &:hover{
+    transition: filter 0.3s;
+  }
 }
 
 
@@ -49,7 +50,7 @@
   text-align: left;
   position: absolute;
   bottom: 0;
-  border: 5px solid #000;
+  border: 3px solid $color-primary;
   background: #fff;
   padding: 5px;
 
@@ -78,7 +79,7 @@
 .post-thumbnail-date{
   font-family: monospace;
   display: block;
-  text-align: right;
+  // text-align: right;
 }
 
 .post-thumbnail-1-1{
