@@ -601,7 +601,7 @@ div#menu-wrapper {
 
 @media (min-width: 860px) {
   .hover-icon {
-    font-size: 5em;
+    font-size: 4.5em;
     position: absolute;
     top: -5px;
     right: -5px;
