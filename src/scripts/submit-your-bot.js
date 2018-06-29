@@ -77,7 +77,8 @@ $(function() {
     $('.js-select2').each(function(i){
       $(this).select2({
         tags: true,
-        placeholder: $(this).attr('placeholder')
+        placeholder: $(this).attr('placeholder'),
+        minimumInputLength: 3
       });
     });
 
