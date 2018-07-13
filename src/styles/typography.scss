@@ -48,6 +48,9 @@ h2{
     margin-bottom: 2rem;
     font-size: 3em;
   }
+  h3{
+    color: $color-primary;
+  }
 }
 
 h3{
@@ -182,23 +185,30 @@ hr{
   }
 }
 
-a.pilcrow{
-  font-size: 0.9em;
-  vertical-align: top;
-  margin-left: 1rem;
+a{
+  &.pilcrow{
+    font-size: 0.9em;
+    vertical-align: top;
+    margin-left: 1rem;
 
-  &, &:visited{
-    color: $color-primary + #999;
-    transition: color 0.2s;    
+    &, &:visited{
+      color: $color-primary + #999;
+      transition: color 0.2s;    
+    }
+    &:hover{
+      transition: color 0.3s;
+      color: $color-primary + #222;
+    }
+    &, &:hover{
+      text-decoration: none;    
+    }
   }
-  &:hover{
-    transition: color 0.3s;
-    color: $color-primary + #222;
-  }
-  &, &:hover{
-    text-decoration: none;    
+  &.no-underline,
+  &.no-underline:hover{
+    text-decoration: none !important;
   }
 }
+
 
 p.post-tags{
   a{
