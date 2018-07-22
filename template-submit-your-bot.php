@@ -162,6 +162,10 @@
         array_push( $bot_tags, $bot_tag );
       }
 
+      if ( isset( $_POST['bot-is-interactive'] ) ){
+        array_push( $bot_tags, 'interactive' );        
+      }
+
       if ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ){
         $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
 
@@ -411,6 +415,11 @@
               <label for="bot-selected-tweets">Choose two tweets from your bot that you like</label>
               <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
               <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
+            </div>
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
+              <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
+              <small id="bot-is-interactive-help" class="form-text text-muted">This bot responds to messages, applies effects to images, etc.</small>
             </div>
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
