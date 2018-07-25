@@ -137,6 +137,7 @@
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
+      $bot_meta['bot_author_email'] = trim( $_POST['bot-author-email'] );      
 
       $screenshotable_url = false;
 

@@ -300,7 +300,21 @@ class BotsPostType {
         </td>
       </tr>
     </table>
-  <?php }   
+
+    <?php
+    if ( isset( $bot_meta['bot_author_email'] ) ){ ?>
+      <div class="notice notice-warning inline">
+        <p>
+          <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/83O0uKlSQzi76AOcOnV8PA/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_meta['bot_author_email'][0]; ?></code>.
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="w-100" name="botmaker_badge_awarded" <?php echo ($bot_meta['botmaker_badge_awarded'][0] == "on" ? "checked" : ""); ?>> Awarded
+          </label>
+        </p>
+      </div>
+    <?php }
+  }   
 
   function add_bot_tweets(){
     add_meta_box(
@@ -345,6 +359,7 @@ class BotsPostType {
       update_post_meta($post_id, 'bot_author_info', $_POST['bot_author_info']);
       update_post_meta($post_id, 'bot_url', $_POST['bot_url']);
       update_post_meta($post_id, 'bot_source_url', $_POST['bot_source_url']);
+      update_post_meta($post_id, 'botmaker_badge_awarded', $_POST['botmaker_badge_awarded']);
       update_post_meta($post_id, 'bot_tweets', $_POST['bot_tweets']);
 
       if ($_POST['bot_tweets']){

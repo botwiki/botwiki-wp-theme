@@ -5,8 +5,10 @@ class New_Post_Instructions {
     add_action( 'edit_form_after_title', array( $this, 'show_new_post_instructions' ) );
   }
 
-  public function show_new_post_instructions() { 
+  public function show_new_post_instructions( $post ) { 
     $current_screen = get_current_screen();
+
+    // $post_meta = get_post_meta( $post->ID );
 
     if ( $current_screen->parent_base === 'edit' ){
       $post_type = $current_screen->post_type;
