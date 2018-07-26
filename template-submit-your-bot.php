@@ -206,6 +206,10 @@
         update_post_meta( $new_post_id, $key, $value );
       }
 
+      if ( count( array_intersect( $_POST['bot-networks'], array('mastodon', 'gnu-social') ) ) > 0 ){
+        array_push($_POST['bot-networks'], 'fediverse');      
+      }
+
       wp_set_object_terms( $new_post_id, $_POST['bot-networks'], 'network' );
       wp_set_object_terms( $new_post_id, $_POST['bot-source-language'], 'programing_language' );
 
