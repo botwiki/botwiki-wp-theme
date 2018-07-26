@@ -302,7 +302,7 @@ class BotsPostType {
     </table>
 
     <?php
-    if ( !empty( $bot_meta['bot_author_email'] ) ){ ?>
+    if ( isset( $bot_meta['bot_author_email'] && strlen( $bot_meta['bot_author_email'] ) > 0 ) ){ ?>
       <div class="notice notice-warning inline">
         <p>
           <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/83O0uKlSQzi76AOcOnV8PA/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_meta['bot_author_email'][0]; ?></code>.
