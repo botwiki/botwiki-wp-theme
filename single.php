@@ -113,22 +113,28 @@
 
 					$network_names = array_map("get_network_name", $networks);
 
-					if ( in_array('Twitter', $network_names) ) { 
-						// $bot_tweets_html = get_post_meta( $post_id, 'bot_tweets_html', true );
-						$bot_tweets_html = explode( '</blockquote>', get_post_meta( $post_id, 'bot_tweets_html', true ) );
-						?>
+					// $bot_tweets_html = get_post_meta( $post_id, 'bot_tweets_html', true );
+					$bot_tweets_html = explode( '</blockquote>', get_post_meta( $post_id, 'bot_tweets_html', true ) );
+					?>
 
-					  <div class="row">
+				  <div class="row">
 
 
-						<?php foreach ($bot_tweets_html as $tweet_html) { ?>
-					    <div class="col-sm-12 col-md-6">
-					      <?php echo $tweet_html . '</blockquote>' ?>
-					    </div>
+					<?php foreach ($bot_tweets_html as $tweet_html) { ?>
+				    <div class="col-sm-12 col-md-6">
+				      <?php
+				      if ( strpos($tweet_html, 'twitter-tweet')){
+					      echo $tweet_html . '</blockquote>';
+				      }
+				      elseif ( strpos($tweet_html, 'mastodon-embed')){
+					      echo str_replace( '<blockquote>', '', $tweet_html) ;
+				      }
+				      ?>
+				    </div>
 
-						<?php } ?>
-					  </div>
 					<?php } ?>
+				  </div>
+
 					<!-- post details -->
 					<p class="post-tags mt-5 mb-5">
 						<?php 

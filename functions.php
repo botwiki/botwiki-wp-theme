@@ -141,6 +141,13 @@ function load_twitter_js(){
   <?php }
 }
 
+function load_mastodon_js(){
+  global $post;
+  if ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
+    <script src="https://botsin.space/embed.js" async="async"></script>
+  <?php }
+}
+
 function load_highlight_js(){
   global $post;
   if ( strpos( get_post_field( 'post_content', $post->ID ), '<code>' ) !== false ){
@@ -341,6 +348,7 @@ Actions + Filters + ShortCodes
 add_action( 'init', 'html5blank_header_scripts' );
 add_action( 'wp_enqueue_scripts', 'load_styles' );
 add_action( 'wp_enqueue_scripts', 'load_twitter_js' );
+add_action( 'wp_enqueue_scripts', 'load_mastodon_js' );
 add_action( 'wp_enqueue_scripts', 'load_highlight_js' );
 add_action( 'admin_enqueue_scripts', 'load_admin_js_styles' );
 add_action( 'init', 'register_site_menu' );
