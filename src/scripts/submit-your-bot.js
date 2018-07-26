@@ -143,7 +143,8 @@ $(function() {
       }
     });
 
-    var $selected_tweets_field = $('#bot-selected-tweets-field');
+    var $selected_tweets_field = $('#bot-selected-tweets-field'),
+        $selected_tweets_label = $('#bot-selected-tweets-label');
 
     function enable_selected_tweets_field(){
       var $bot_networks_select = $('[name="bot-networks[]');
@@ -151,8 +152,15 @@ $(function() {
       $bot_networks_select.on('change', function(){
         var show_selected_tweets_field = false;
         $bot_networks_select.each(function(i){
-          var $this = $(this);
-          if ($this.children("option").filter(":selected").text().indexOf('Twitter') > -1){
+          var $this = $(this),
+              selected_network = $this.children("option").filter(":selected").text();
+
+          if ( selected_network.indexOf('Twitter') > -1 ){
+            $selected_tweets_label.html('tweets');
+            show_selected_tweets_field = true;
+          }
+          if ( selected_network.indexOf('Mastodon') > -1 ){
+            $selected_tweets_label.html('toots');
             show_selected_tweets_field = true;
           }
         });
