@@ -266,6 +266,10 @@ video {
   .d-xs-block {
     display: block; } }
 
+.mastodon-embed {
+  /* TODO: Temporary fix for iframe size. */
+  min-height: 450px; }
+
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
   color: #4d4350; }

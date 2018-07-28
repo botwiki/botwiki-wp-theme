@@ -1,6 +1,40 @@
+/* globals MediumEditor */
+
 $(function() {
   var $body = $('body'),
       $form_submit_button = $('#bot-form-submit');
+
+  function enable_selected_tweets_field(){
+    var $bot_networks_select = $('[name="bot-networks[]'),
+        $selected_tweets_field = $('#bot-selected-tweets-field'),
+        $selected_tweets_label = $('#bot-selected-tweets-label');
+
+
+    $bot_networks_select.on('change', function(){
+      var show_selected_tweets_field = false;
+      $bot_networks_select.each(function(i){
+        var $this = $(this),
+            selected_network = $this.children("option").filter(":selected").text();
+
+        if ( selected_network.indexOf('Twitter') > -1 ){
+          $selected_tweets_label.html('tweets');
+          show_selected_tweets_field = true;
+        }
+        if ( selected_network.indexOf('Mastodon') > -1 ){
+          $selected_tweets_label.html('toots');
+          show_selected_tweets_field = true;
+        }
+      });
+
+      if (show_selected_tweets_field){
+        $selected_tweets_field.removeClass('d-none');
+      }
+      else{
+        $selected_tweets_field.addClass('d-none');            
+      }
+    });
+  }
+
   if ($body.hasClass('page-template-template-submit-your-bot')){
 
     /* Wake up the screenshot service on Glitch. */
@@ -143,36 +177,6 @@ $(function() {
       }
     });
 
-    var $selected_tweets_field = $('#bot-selected-tweets-field'),
-        $selected_tweets_label = $('#bot-selected-tweets-label');
-
-    function enable_selected_tweets_field(){
-      var $bot_networks_select = $('[name="bot-networks[]');
-
-      $bot_networks_select.on('change', function(){
-        var show_selected_tweets_field = false;
-        $bot_networks_select.each(function(i){
-          var $this = $(this),
-              selected_network = $this.children("option").filter(":selected").text();
-
-          if ( selected_network.indexOf('Twitter') > -1 ){
-            $selected_tweets_label.html('tweets');
-            show_selected_tweets_field = true;
-          }
-          if ( selected_network.indexOf('Mastodon') > -1 ){
-            $selected_tweets_label.html('toots');
-            show_selected_tweets_field = true;
-          }
-        });
-
-        if (show_selected_tweets_field){
-          $selected_tweets_field.removeClass('d-none');
-        }
-        else{
-          $selected_tweets_field.addClass('d-none');            
-        }
-      });
-    }
     enable_selected_tweets_field();
   }
   if (typeof MediumEditor !== "undefined"){

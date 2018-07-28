@@ -370,7 +370,6 @@ class BotsPostType {
 
         if ($bot_tweets){
           foreach ($bot_tweets as $index=>$tweet_url) {
-
             if ( strpos( $tweet_url, 'twitter.com/' ) ){
               $data = file_get_contents($twitter_oembed . urlencode($tweet_url));
               $bot_tweets_html .= json_decode($data)->html;              

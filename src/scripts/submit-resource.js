@@ -1,6 +1,31 @@
+/* globals MediumEditor */
+
 $(function() {
   var $body = $('body'),
       $form_submit_button = $('#resource-form-submit');
+
+  function enable_selected_tweets_field(){
+    var $resource_networks_select = $('[name="resource-networks[]'),
+        $selected_tweets_field = $('#resource-selected-tweets-field');
+
+    $resource_networks_select.on('change', function(){
+      var show_selected_tweets_field = false;
+      $resource_networks_select.each(function(i){
+        var $this = $(this);
+        if ($this.children("option").filter(":selected").text().indexOf('Twitter') > -1){
+          show_selected_tweets_field = true;
+        }
+      });
+
+      if (show_selected_tweets_field){
+        $selected_tweets_field.removeClass('d-none');
+      }
+      else{
+        $selected_tweets_field.addClass('d-none');            
+      }
+    });
+  }
+
   if ($body.hasClass('page-template-template-submit-resource')){
 
     /* Wake up the screenshot service on Glitch. */
@@ -142,28 +167,6 @@ $(function() {
       }
     });
 
-    var $selected_tweets_field = $('#resource-selected-tweets-field');
-
-    function enable_selected_tweets_field(){
-      var $resource_networks_select = $('[name="resource-networks[]');
-
-      $resource_networks_select.on('change', function(){
-        var show_selected_tweets_field = false;
-        $resource_networks_select.each(function(i){
-          var $this = $(this);
-          if ($this.children("option").filter(":selected").text().indexOf('Twitter') > -1){
-            show_selected_tweets_field = true;
-          }
-        });
-
-        if (show_selected_tweets_field){
-          $selected_tweets_field.removeClass('d-none');
-        }
-        else{
-          $selected_tweets_field.addClass('d-none');            
-        }
-      });
-    }
     enable_selected_tweets_field();
   }
   if (typeof MediumEditor !== "undefined"){
