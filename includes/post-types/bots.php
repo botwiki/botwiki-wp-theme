@@ -302,14 +302,16 @@ class BotsPostType {
     </table>
 
     <?php
-    if ( isset( $bot_meta['bot_author_email'] ) && strlen( $bot_meta['bot_author_email'][0] ) > 0 ){ ?>
-      <div class="notice notice-warning inline">
+    if ( isset( $bot_meta['bot_author_email'] ) && strlen( $bot_meta['bot_author_email'][0] ) > 0 ){
+      $botmaker_badge_awarded = ( array_key_exists('botmaker_badge_awarded', $bot_meta ) && $bot_meta['botmaker_badge_awarded'][0] == "on" );
+      ?>
+      <div class="notice <?php echo ($botmaker_badge_awarded ? "notice-info" : "notice-warning"); ?> inline">
         <p>
           <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/83O0uKlSQzi76AOcOnV8PA/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_meta['bot_author_email'][0]; ?></code>.
         </p>
         <p>
           <label>
-            <input type="checkbox" class="w-100" name="botmaker_badge_awarded" <?php echo ($bot_meta['botmaker_badge_awarded'][0] == "on" ? "checked" : ""); ?>> Awarded
+            <input type="checkbox" class="w-100" name="botmaker_badge_awarded" <?php echo ($botmaker_badge_awarded ? "checked" : ""); ?>> Awarded
           </label>
         </p>
       </div>
