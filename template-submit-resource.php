@@ -103,6 +103,7 @@
 
       $resource_meta = array();
       $resource_meta['resource_url'] = $resource_url;
+      $resource_meta['resource_author_email'] = trim( $_POST['resource-author-email'] );      
 
       $resource_tags = array();
 
