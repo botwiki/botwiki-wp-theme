@@ -97,12 +97,28 @@
 							<?php } ?>
 	              </ul>
 	          <?php }
+
+
+					else if ($post_type == 'resource'){
+
+							$info = parse_url( $post_meta['resource_url'][0] );
+							$host = $info['host'];
+							$host_names = explode(".", $host);
+							$domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+
+						?>
+	        	<ul class="btn-list">
+	        		<li>
+	        			<a class="btn" href="<?php echo $post_meta['resource_url'][0]; ?>">View on <?php echo $domain; ?></a>
+	        		</li>
+						<?php        
 	        ?>
-	      
+            </ul>
+        <?php }	      
 
 
 
-				<?php the_content(); // Dynamic Content ?>
+				the_content(); // Dynamic Content ?>
 
 				<?php
 				if ( $post_type == 'bot' ) { 
