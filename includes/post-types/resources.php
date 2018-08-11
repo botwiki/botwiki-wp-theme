@@ -22,7 +22,9 @@ class ResourcesPostType {
     global $wp_query;
     if ($wp_query->query['post_type'] === 'resource'){
       $external_resource_url = get_post_meta( $wp_query->posts[0]->ID, 'resource_url', true );
-      if ( !empty( $external_resource_url ) ){
+      $content = get_post_field( 'post_content', $wp_query->posts[0]->ID );
+
+      if ( empty( $content ) && !empty( $external_resource_url ) ){
         wp_redirect( $external_resource_url );
       }
     }
@@ -35,16 +37,16 @@ class ResourcesPostType {
     if ( is_object( $post ) ){
       $post_link_resource = get_post_meta( $post->ID, 'resource_url', true );
 
-      if ( empty( $post_link_resource ) ){
+
+      if ( empty( $content ) && !empty( $external_resource_url ) ){
+        $post_link = $post_link_resource;
+      }
+      else{
         $terms = wp_get_object_terms( $post->ID, 'resource_type' );
 
         if( $terms ){
             $post_link = str_replace( '%resource_type%' , $terms[0]->slug , $post_link );
         }
-
-      }
-      else{
-        $post_link = $post_link_resource;
       }
     }
 
