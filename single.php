@@ -99,7 +99,7 @@
 	          <?php }
 
 
-					else if ($post_type == 'resource'){
+					else if ($post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
 
 							$info = parse_url( $post_meta['resource_url'][0] );
 							$host = $info['host'];
