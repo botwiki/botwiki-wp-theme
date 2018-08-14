@@ -517,7 +517,8 @@ div.bottom-page-links {
   bottom: 10px;
   right: 10px; }
   div.bottom-page-links ul {
-    list-style: none; }
+    list-style: none;
+    padding: 0; }
     div.bottom-page-links ul li {
       display: inline; }
   div.bottom-page-links img {
