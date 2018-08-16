@@ -362,7 +362,7 @@
             <div class="form-group">
               <label for="resource-language">Does this <span class="resource-type-name">tutorial</span> use a specific programing language?</label>
 
-              <select class="form-control js-select2" id="resource-language" name="resource-language[]" multiple="multiple" placeholder="node.js, Python, Java...">
+              <select class="form-control js-select2" id="resource-language" name="resource-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="1">
               <?php
                 $languages = get_terms( 'programing_language', array(
                     'hide_empty' => false,

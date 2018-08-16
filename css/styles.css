@@ -518,7 +518,8 @@ div.bottom-page-links {
   right: 10px; }
   div.bottom-page-links ul {
     list-style: none;
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 0; }
     div.bottom-page-links ul li {
       display: inline; }
   div.bottom-page-links img {

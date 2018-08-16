@@ -92,7 +92,7 @@ $(function() {
       $(this).select2({
         tags: true,
         placeholder: $(this).attr('placeholder'),
-        minimumInputLength: 3
+        minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3
       });
     });
 
