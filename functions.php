@@ -19,6 +19,7 @@ require 'includes/background-image-dominant-color.php';
 require 'includes/header-links.php';
 require 'includes/tutorials-note.php';
 require 'includes/random-bot.php';
+require 'includes/opensource-bots.php';
 require 'includes/show-post-id.php';
 require 'includes/card-title.php';
 require 'includes/add-tags-to-pages.php';

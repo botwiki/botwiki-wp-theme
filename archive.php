@@ -38,7 +38,9 @@
           $username = get_the_author_meta('user_nicename', $author_id);
           $post_type = $wp_query->query['post_type'];          
         ?>
-          <h1>Browsing <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a><?php
+          <h1>Browsing <?php
+            echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
+          ?> <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a><?php
           if ( !empty( $_GET['tags'] )){ ?>
             tagged <a href="<?php echo $site_url . '/tag/' . $_GET['tags'] ;?>">#<?php echo $_GET['tags']; ?></a><?php } ?>&nbsp;...</h1>
       <?php } elseif ( is_tax() ){
@@ -75,10 +77,14 @@
           }
 
           ?>
-          <h1>Browsing bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tags ); ?>&nbsp;...</h1>
+          <h1>Browsing <?php 
+            echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
+          ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tags ); ?>&nbsp;...</h1>
         <?php }
         else {?>
-          <h1>Browsing all bots...</h1>
+          <h1>Browsing all <?php
+            echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
+          ?> bots...</h1>
         <?php } ?>
       <?php }
       else{ ?>
