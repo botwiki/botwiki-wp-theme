@@ -122,9 +122,9 @@
         $resource_tags = array_merge( $resource_tags, $author_tags );
       }
 
-      if ( isset( $_POST['resource-source-url'] ) && !empty( $_POST['resource-source-url'] ) ){
-        array_push( $resource_tags, 'opensource' );
-      }
+      // if ( isset( $_POST['resource-source-url'] ) && !empty( $_POST['resource-source-url'] ) ){
+      //   array_push( $resource_tags, 'opensource' );
+      // }
 
       $post_data = array(
         'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),

@@ -179,9 +179,9 @@
         $bot_tags = array_merge( $bot_tags, $author_tags );
       }
 
-      if ( isset( $_POST['bot-source-url'] ) && !empty( $_POST['bot-source-url'] ) ){
-        array_push( $bot_tags, 'opensource' );
-      }
+      // if ( isset( $_POST['bot-source-url'] ) && !empty( $_POST['bot-source-url'] ) ){
+      //   array_push( $bot_tags, 'opensource' );
+      // }
 
       $post_data = array(
         'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),

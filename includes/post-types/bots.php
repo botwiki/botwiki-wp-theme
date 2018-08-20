@@ -246,7 +246,6 @@ class BotsPostType {
       <tr>
         <td>
           <p>If this bot's code is opensource, select the programing language(s) in the sidebar and provide a link to the source code below.</p>
-          <p>Be sure to also add the <code>opensource</code> tag.</p>
         </td>
       </tr>
       <tr>
