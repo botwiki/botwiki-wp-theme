@@ -13,6 +13,9 @@
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
       <h1><?php echo "All posts tagged " . implode( ' ', $tag_links ); ?></h1>
+      <?php if ( in_array( 'opensource', $tags ) ){ ?>
+        <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+      <?php } ?>      
 			<?php get_template_part('loop'); ?>
 			<?php get_template_part('pagination'); ?>
 		</div>

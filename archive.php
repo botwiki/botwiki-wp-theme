@@ -90,6 +90,11 @@
       else{ ?>
         <h1>Archives</h1>
       <?php } ?>
+
+      <?php if( !empty( $_GET['tags'] ) && in_array( 'opensource', explode( ',', $_GET['tags'] ) ) ){ ?>
+        <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+      <?php } ?>
+
 			<?php get_template_part( 'loop' ); ?>
 			<?php get_template_part( 'pagination' ); ?>
 
