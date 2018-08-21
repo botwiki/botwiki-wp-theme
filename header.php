@@ -40,6 +40,8 @@
         }
 
         $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
+        $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
+
       }
       elseif ( is_category() ) {
         // $page_title = 'Posts labeled ' . single_cat_title();
