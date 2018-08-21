@@ -371,11 +371,12 @@ class BotsPostType {
 
         if ($bot_tweets){
           foreach ($bot_tweets as $index=>$tweet_url) {
-            if ( strpos( $tweet_url, 'twitter.com/' ) ){
+            if ( strpos( $tweet_url, 'twitter.com/' ) !== false ){
               $data = file_get_contents($twitter_oembed . urlencode($tweet_url));
               $bot_tweets_html .= json_decode($data)->html;              
             }
-            elseif ( strpos( $tweet_url, 'botsin.space/' ) ) {
+            elseif ( strpos( $tweet_url, 'botsin.space/' ) !== false ||
+                     strpos( $tweet_url, 'mastodon.social/' ) !== false ) {
               $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
             }
           }

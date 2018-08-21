@@ -144,17 +144,14 @@ function load_twitter_js(){
 
 function load_mastodon_js(){
   global $post;
-  $post_content = get_post_field( 'post_content', $post->ID );
-  $bot_tweets_html = get_post_meta( $post_id, 'bot_tweets_html', true );
+  $bot_tweets_html = get_post_meta( $post->ID, 'bot_tweets_html', true );
 
-  if ( strpos( $post_content, 'mastodon-embed' ) !== false ){ 
-    if ( strpos( $bot_tweets_html, 'botsin.space' ) !== false ){ ?>
-      <script src="https://botsin.space/embed.js" async="async"></script>
-    <?php }
-    if ( strpos( $bot_tweets_html, 'mastodon.social' ) !== false ){ ?>
-      <script src="https://mastodon.social/embed.js" async="async"></script>
-    <?php }
-  }
+  if ( strpos( $bot_tweets_html, 'botsin.space' ) !== false ){ ?>
+    <script src="https://botsin.space/embed.js" async="async"></script>
+  <?php }
+  if ( strpos( $bot_tweets_html, 'mastodon.social' ) !== false ){ ?>
+    <script src="https://mastodon.social/embed.js" async="async"></script>
+  <?php }
 }
 
 function load_highlight_js(){
