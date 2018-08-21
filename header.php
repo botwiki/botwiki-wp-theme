@@ -6,10 +6,6 @@
       global $page_title;
       $page_url = home_url( $wp->request );
       $page_thumbnail = get_the_post_thumbnail_url();
-      $page_description = get_the_excerpt();
-      if ( empty( $page_description ) ){
-        $page_description = get_bloginfo('description');        
-      }
 
       if ( empty($page_thumbnail ) ){
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
@@ -41,15 +37,16 @@
 
         $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
         $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
-
       }
       elseif ( is_category() ) {
         // $page_title = 'Posts labeled ' . single_cat_title();
         $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
+        $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
       }
       elseif ( is_post_type_archive() ) {
         $post_type = $wp_query->query['post_type'];          
         $page_title = 'Browsing all ' . $post_type . 's...'; 
+        $page_description = 'Browsing all ' . $post_type . 's on Botwiki...';
       }
       elseif ( is_author() ) {
         $author_id = get_query_var('author');
@@ -68,9 +65,11 @@
 
         if ( !empty($post_type)){
           $page_title = ucfirst($post_type) . 's by ' . $nickname;          
+          $page_description = 'Browsing ' . ucfirst($post_type) . 's by ' . $nickname . ' on Botwiki';          
         }
         else{
           $page_title = $nickname;                    
+          $page_description = $nickname . ' on Botwiki';                    
         }
         $page_thumbnail = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
       }
@@ -79,16 +78,18 @@
         $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
   
         $page_title = "Posts tagged #" . implode( ' #', $tags );
+        $page_description = "Browsing posts tagged #" . implode( ' #', $tags ) . ' on Botwiki';
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_tax() ) {
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
         $page_title = "Posts tagged #" . $term->name;
+        $page_description = "Browsing posts tagged #" . $term->name . " on Botwiki";
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_archive() ) {
         global $wp_query;
-          $page_title = str_replace( 'Archives:', '', get_the_archive_title());
+        $page_title = str_replace( 'Archives:', '', get_the_archive_title());
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_search() ) {
@@ -99,6 +100,10 @@
       }
       else{
         $page_title = get_the_title();
+        $page_description = get_the_excerpt();
+        if ( empty( $page_description ) ){
+          $page_description = get_bloginfo('description');        
+        }
       }
 
       $page_title .=  ' | ' . get_bloginfo('name');
