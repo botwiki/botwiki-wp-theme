@@ -144,9 +144,16 @@ function load_twitter_js(){
 
 function load_mastodon_js(){
   global $post;
-  if ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
-    <script src="https://botsin.space/embed.js" async="async"></script>
-  <?php }
+  $post_content = get_post_field( 'post_content', $post->ID );
+
+  if ( strpos( $post_content, 'mastodon-embed' ) !== false ){ 
+    if ( strpos( $post_content, 'botsin.space' ) !== false ){ ?>
+      <script src="https://botsin.space/embed.js" async="async"></script>
+    <?php }
+    if ( strpos( $post_content, 'mastodon.social' ) !== false ){ ?>
+      <script src="https://mastodon.social/embed.js" async="async"></script>
+    <?php }
+  }
 }
 
 function load_highlight_js(){
