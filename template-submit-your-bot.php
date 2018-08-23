@@ -152,6 +152,10 @@
         }
       }
 
+      if ( $screenshotable_url !== false ){
+        $screenshotable_url = $main_bot_url;
+      }
+
       $screenshotable_url = trim( str_replace( array( "\n", "\r" ), '', $screenshotable_url ) );
 
       $bot_tags = array();
