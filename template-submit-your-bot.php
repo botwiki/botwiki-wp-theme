@@ -218,7 +218,7 @@
         try {
           // TODO: Proper error handling.
 
-          $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=685");
+          $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=700");
 
           $screenshot_data_json = json_decode( $screenshot_data );
   
