@@ -31,6 +31,25 @@ class BW_Helpers {
     return false;
   }
 
+  function get_username_from_url( $url ){
+    $networks = [
+      'twitter.com',
+      'botsin.space',
+      'mastodon.social',
+    ];
+
+    foreach ( $networks as $network ) {
+      if ( strpos( $url, $network . '/') != -1 ){
+        $regex  = '#https?://' . str_replace('.', '\.', $network) . '/(?:\#!/)?(\w+)';
+        if ( preg_match( "/https*:\/\/" . $network . "\/(#!\/)?([^\/]*)/", $url, $match ) ){
+          return trim( str_replace( '@', '', $match[2] ) );
+        }
+      }
+    }
+
+    return false;
+  }
+
   function get_domain_from_url( $url ){
     $domain = $url;
 

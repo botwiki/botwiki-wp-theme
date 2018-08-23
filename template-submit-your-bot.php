@@ -90,24 +90,19 @@
       foreach ($bot_authors as $bot_author) {
         $bot_author_info_arr = explode(',', $bot_author);
 
-
-
         if ( count( $bot_author_info_arr ) === 2 ){
           array_push( $created_by_html_array, '<a href="' . trim( $bot_author_info_arr[1] ) . '">' . trim( $bot_author_info_arr[0] ) . '</a>');
 
-          $twitter_username = $helpers->get_twitter_username_from_url( $bot_author_info_arr[1] );
+          $author_username = $helpers->get_username_from_url( $bot_author_info_arr[1] );
 
-          if ( $twitter_username ){
-            array_push( $author_tags , $twitter_username );
+          if ( $author_username ){
+            array_push( $author_tags , $author_username );
           }
         }
         else{
           array_push( $created_by_html_array, $bot_author_info_arr[0]);          
         }
       }
-
-
-
 
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
