@@ -387,7 +387,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="bot-info-1-network">Network</label>
-                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">
+                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0">
                 <?php
                   $networks = get_terms( 'network', array(
                       'hide_empty' => false,
@@ -440,7 +440,7 @@
               <div class="form-group">
                 <label for="bot-source-language">What language(s) did you use?</label>
 
-                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="1">
+                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0">
                 <?php
                   $languages = get_terms( 'programing_language', array(
                       'hide_empty' => false,
@@ -458,7 +458,7 @@
             <div class="form-group">
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
 
-              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple">
+              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="2">
               <?php
                 $tags = get_tags( array(
                   'hide_empty' => true
