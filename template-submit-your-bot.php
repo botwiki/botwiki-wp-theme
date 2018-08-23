@@ -142,17 +142,14 @@
       $screenshotable_url = false;
 
       foreach ( $bot_urls as $bot_url) {
-        if ( strpos( $bot_url, 'twitter.com/') ){
-          $screenshotable_url = trim( $bot_url );
-        }
-      }
+        if ( strpos( $bot_url, 'twitter.com/') !== false ||
+             strpos( $bot_url, 'botsin.space/') !== false ||
+             strpos( $bot_url, 'mastodon.social/') !== false ||
+             strpos( $bot_url, 'tumblr.com/') ){
 
-      if ( $screenshotable_url === false ){
-        foreach ( $bot_urls as $bot_url) {
-          if ( strpos( $bot_url, 'tumblr.com/') ){
-            $screenshotable_url = trim( $bot_url );
-          }
-        }      
+          $screenshotable_url = trim( $bot_url );
+          break;
+        }
       }
 
       $screenshotable_url = trim( str_replace( array( "\n", "\r" ), '', $screenshotable_url ) );
