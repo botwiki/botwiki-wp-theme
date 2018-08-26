@@ -250,12 +250,12 @@ class BotsPostType {
       </tr>
       <tr>
         <td class="w-100">
-          <label for="bot_source_url">Source code URL</label>
+          <label for="bot_source_url">Source code URL(s)</label>
         </td>
       </tr>
       <tr>
         <td class="w-100">
-          <input type="text" class="w-100" name="bot_source_url" value="<?php echo $bot_meta['bot_source_url'][0]; ?>">
+          <textarea class="w-100" name="bot_source_url"><?php echo $bot_meta['bot_source_url'][0]; ?></textarea>
         </td>
       </tr>
     </table>

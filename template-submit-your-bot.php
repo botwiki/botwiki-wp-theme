@@ -428,9 +428,9 @@
             </div>
             <div id="bot-source-info" class="mt-3 d-none">
               <div class="form-group">
-                <label for="bot-source-url">Link to your bot's source code</label>
-                <input type="url" class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot">
-                <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc.</small>
+                <label for="bot-source-url">Link(s) to your bot's source code</label>
+                <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
+                <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
               </div>
               <div class="form-group">
                 <label for="bot-source-language">What language(s) did you use?</label>

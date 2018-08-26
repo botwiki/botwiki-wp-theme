@@ -71,9 +71,14 @@
 
 	          $bot_languages = wp_get_post_terms($post_id, 'programing_language');
 
-	          if ( array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){ ?>
+	          $bot_source_urls = array();
+	          if (array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){
+							$bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
+	          }
+
+	          if ( count( $bot_source_urls ) === 1 ){ ?>
 	            <li>
-	              <a class="btn view-source" href="<?php echo $post_meta['bot_source_url'][0]; ?>">View source</a>
+	              <a class="btn view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
 	            </li>
 	            <?php
 	              foreach ($bot_languages as $bot_language) {
@@ -116,11 +121,8 @@
             </ul>
         <?php }	      
 
+				the_content(); // Dynamic Content 
 
-
-				the_content(); // Dynamic Content ?>
-
-				<?php
 				if ( $post_type == 'bot' ) { 
 					$networks = get_the_terms($post_id, 'network');
 					function get_network_name($network){
@@ -147,9 +149,24 @@
 				      }
 				      ?>
 				    </div>
-
 					<?php } ?>
 				  </div>
+
+          <?php if ( count( $bot_source_urls ) > 1 ){
+          	global $helpers;
+          	?>
+          	<h5>Source code</h5>
+          	<ul>
+          		<?php
+          		foreach ( $bot_source_urls as $url ) { ?>
+	  	          <li>
+		              <a href="<?php echo $url; ?>">
+		              	<?php echo $helpers->get_domain_from_url($url); ?>
+	              	</a>
+		            </li>
+							<?php } ?>
+          	</ul>
+					<?php } ?>
 
 					<!-- post details -->
 					<p class="post-tags mt-5 mb-5">

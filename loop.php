@@ -64,9 +64,16 @@
           <?php
           if ($post_type == 'bot'){
             $bot_languages = wp_get_post_terms($post_id, 'programing_language');
-            if ( array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){ ?>
+
+            $bot_source_urls = array();
+
+            if (array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){
+              $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
+            }
+
+            if ( count( $bot_source_urls ) === 1 ){ ?>
               <li>
-                <a class="btn mb-0 view-source" href="<?php echo $post_meta['bot_source_url'][0]; ?>">View source</a>
+                <a class="btn mb-0 view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
               </li>
               <?php
               }
