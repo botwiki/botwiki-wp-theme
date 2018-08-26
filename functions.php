@@ -135,10 +135,13 @@ function html5blank_header_scripts(){
   }
 }
 
-function load_twitter_js(){
+function load_social_media_embed_js(){
   global $post;
   if ( strpos( get_post_field( 'post_content', $post->ID ), 'twitter-tweet' ) !== false ){ ?>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <?php }
+  elseif ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
+    <script src="https://mastodon.social/embed.js" async="async"></script>
   <?php }
 }
 
@@ -353,7 +356,7 @@ Actions + Filters + ShortCodes
 // Add Actions
 add_action( 'init', 'html5blank_header_scripts' );
 add_action( 'wp_enqueue_scripts', 'load_styles' );
-add_action( 'wp_enqueue_scripts', 'load_twitter_js' );
+add_action( 'wp_enqueue_scripts', 'load_social_media_embed_js' );
 add_action( 'wp_enqueue_scripts', 'load_mastodon_js' );
 add_action( 'wp_enqueue_scripts', 'load_highlight_js' );
 add_action( 'admin_enqueue_scripts', 'load_admin_js_styles' );
