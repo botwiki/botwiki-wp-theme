@@ -140,7 +140,7 @@ function load_social_media_embed_js(){
   if ( strpos( get_post_field( 'post_content', $post->ID ), 'twitter-tweet' ) !== false ){ ?>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <?php }
-  elseif ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
+  if ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
     <script src="https://mastodon.social/embed.js" async="async"></script>
   <?php }
 }
