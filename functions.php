@@ -29,6 +29,7 @@ require 'includes/profile-page-link.php';
 require 'includes/new-post-instructions.php';
 require 'includes/rss-feed.php';
 require 'includes/archive-page.php';
+require 'includes/simple_html_dom.php';
 
 
 /*------------------------------------*\
@@ -137,11 +138,33 @@ function html5blank_header_scripts(){
 
 function load_social_media_embed_js(){
   global $post;
-  if ( strpos( get_post_field( 'post_content', $post->ID ), 'twitter-tweet' ) !== false ){ ?>
+  $html = get_post_field( 'post_content', $post->ID );
+  $html_obj = str_get_html( $html );
+  
+  if ( strpos( $html, 'twitter-tweet' ) !== false ){
+    // Tweet embeds.
+  ?>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <?php }
-  if ( strpos( get_post_field( 'post_content', $post->ID ), 'mastodon-embed' ) !== false ){ ?>
-    <script src="https://mastodon.social/embed.js" async="async"></script>
+    if ( strpos( $html, 'mastodon-embed' ) !== false ){
+      // Mastodon post embeds. Each domain needs its own script.
+      $domains = array();
+      $iframes = $html_obj->find('iframe');
+      global $helpers;
+
+      foreach( $iframes as $iframe ){
+        $toot_url = $iframe->src;
+        $domain = $helpers->get_domain_from_url( $toot_url );
+
+        if ( !in_array( $domain, $domains ) ){
+          $domains[] = $domain;     
+        }
+      } 
+
+      foreach ( $domains as $domain ) {
+        echo '<script src="https://' . $domain . '/embed.js" async="async"></script>';
+      }
+    ?>
   <?php }
 }
 
