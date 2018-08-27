@@ -155,7 +155,7 @@
           <?php if ( count( $bot_source_urls ) > 1 ){
           	global $helpers;
           	?>
-          	<h5>Source code</h5>
+          	<h3 id="source-code">Source code</h3>
           	<ul>
           		<?php
           		foreach ( $bot_source_urls as $url ) { ?>
@@ -231,7 +231,7 @@
   					$coauthors_count = count( $coauthors );
   					if ($coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2") ){ ?>
   						<?php if ( $post_type === 'bot' ){ ?>
-	  						<h2 id="authors">Created by <a class="pilcrow" href="#authors">¶</a></h2>
+	  						<h3 id="authors">Created by <a class="pilcrow" href="#authors">¶</a></h3>
   						<?php }
 
 							foreach ($coauthors as $coauthor) {
