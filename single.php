@@ -155,7 +155,7 @@
           <?php if ( count( $bot_source_urls ) > 1 ){
           	global $helpers;
           	?>
-          	<h3 id="source-code">Source code</h3>
+          	<h3 id="source-code">Source code <a class="pilcrow" href="#source-code">¶</a></h3>
           	<ul>
           		<?php
           		foreach ( $bot_source_urls as $url ) { ?>
