@@ -314,6 +314,8 @@ video {
 
 .mastodon-embed{
   border: 1px solid #e1e8ed !important;
+  margin-top: 1em;
+  margin-bottom: 1em;
   /* TODO: Temporary fix for iframe size. */
-  min-height: 450px;
+  // min-height: 450px;
 }
