@@ -312,8 +312,8 @@ video {
   }
 }
 
-
 .mastodon-embed{
+  border: 1px solid #e1e8ed !important;
   /* TODO: Temporary fix for iframe size. */
   min-height: 450px;
 }
