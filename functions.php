@@ -189,7 +189,7 @@ function load_highlight_js(){
     wp_register_script( 'highlight', get_template_directory_uri() . '/libs/highlight.js/highlight.pack.js', array( 'jquery' ));
     wp_enqueue_script( 'highlight' );
 
-    wp_add_inline_script( 'highlight', "jQuery(function(){if (hljs){hljs.initHighlighting.called = false;hljs.initHighlighting();}});", 'after' );
+    wp_add_inline_script( 'highlight', "$(function(){if (hljs){hljs.initHighlighting.called = false;hljs.initHighlighting();}});", 'after' );
   }
 }
 
