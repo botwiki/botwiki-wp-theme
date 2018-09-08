@@ -319,7 +319,7 @@
             </div>
             <div class="form-group">
               <label for="resource-type">What kind of a resource would you like to submit?</label>
-              <select class="form-control js-select2" id="resource-type" name="resource-type" placeholder="Library, framework, tutorial,...">
+              <select class="form-control js-select2" id="resource-type" name="resource-type" placeholder="Library, framework, tutorial,..." data-minimum-input-length="0">
               <?php
                 $resource_types = get_terms( 'resource_type', array(
                     'hide_empty' => false,
