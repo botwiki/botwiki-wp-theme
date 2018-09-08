@@ -24,7 +24,7 @@
 
       <!-- footer -->
       <footer class="footer mt-5 background-fff" role="contentinfo">
-        <div class="container-fluid background-alternate p-5">
+        <div class="container-fluid background-alternate pl-5 pr-5 pt-5 pb-1">
           <div class="container share-prompt">
             <h3>Share this <?php echo (is_front_page() ? 'site' : 'page' );?></h3>
             <?php
@@ -61,6 +61,7 @@
             <p>Botwiki is a personal side project that's made possible through donations and hard work and dedication. Huge thanks to everyone who helped us out! 🙌 PS: Here's a <a href="/about/supporters/">list of our supporters</a>.</p>
           </div>
         </div>
+<!--         
         <div class="container">
           <div class="row mt-5 mb-5">
             <div class="col-sm-12 col-md-4">
@@ -77,7 +78,8 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid background-alternate p-5">
+ -->
+        <div class="container-fluid background-alternate pl-5 pr-5 pt-1">
           <div class="container">
             <div class="row mt-5 mb-5">
               <div class="col-sm-12 col-md-4">
