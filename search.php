@@ -26,11 +26,11 @@
           }
 
           if ( term_exists( $tag_singular, 'post_tag' ) ){
-            $tags_html[] = "<a href='/tag/$tag_singular'>#$tag_singular</a> ";
+            $tags_html[] = "<a href='/tag/$tag_singular'>$tag_singular</a> ";
           }
 
           if ( term_exists( $tag_plural, 'post_tag' ) ){
-            $tags_html[] = "<a href='/tag/$tag_plural'>#$tag_plural</a> ";
+            $tags_html[] = "<a href='/tag/$tag_plural'>$tag_plural</a> ";
           }
         }
         
