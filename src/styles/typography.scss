@@ -358,8 +358,8 @@ div.bottom-page-links{
       transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
     }
     &:hover {
-      transform: translate(0, -2px) rotate(2deg);    
-      box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+      transform: translate(0, -2px);    
+      box-shadow: 4px 6px 0 rgba(0,0,0,0.5);
     }
 
     &#back-to-top{
@@ -367,7 +367,7 @@ div.bottom-page-links{
       line-height: 1em;
     }
     &#twitter-link{
-      padding: 12px;
+      padding: 8px;
       @media (min-width: $site-width-small){
         width: auto;      
       }
