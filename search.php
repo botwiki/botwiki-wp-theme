@@ -26,15 +26,15 @@
           }
 
           if ( term_exists( $tag_singular, 'post_tag' ) ){
-            $tags_html[] = "<a class='btn' href='/tag/$tag_singular'>#$tag_singular</a>";
+            $tags_html[] = "<a href='/tag/$tag_singular'>#$tag_singular</a> ";
           }
 
           if ( term_exists( $tag_plural, 'post_tag' ) ){
-            $tags_html[] = "<a class='btn' href='/tag/$tag_plural'>#$tag_plural</a>";
+            $tags_html[] = "<a href='/tag/$tag_plural'>#$tag_plural</a> ";
           }
         }
         
-        echo '<p class="mb-5"><strong class="mr-3">Related tags:</strong>';
+        echo '<p class="mb-5 post-tags"><strong class="mr-3">Related tags:</strong>';
         echo( implode( '', $tags_html ) );
         echo '</p>';
 
