@@ -415,6 +415,7 @@ hr {
       color: #fff; }
 
 a.pilcrow {
+  font-family: "Source Code Pro", monospace;
   font-size: 0.9em;
   vertical-align: top;
   margin-left: 1rem; }
