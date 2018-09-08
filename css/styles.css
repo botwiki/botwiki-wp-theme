@@ -710,12 +710,6 @@ ul.btn-list {
     text-decoration: underline; }
 
 .note .btn, .card .btn {
-  margin-bottom: 0; }
-  @media (max-width: 860px) {
-    .note .btn, .card .btn {
-      margin-bottom: 1em; } }
-
-body.archive .note .btn, body.archive .card .btn {
   margin-bottom: 1em; }
 
 .cursor-pointer {
