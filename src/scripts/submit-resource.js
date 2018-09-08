@@ -108,6 +108,11 @@ $(function() {
 
     $resource_type_select.on('change', function(ev){
       var resource_type_name = $(this).children("option").filter(":selected").text().toLowerCase();
+
+      if (['tutorial', 'tool', 'starter project', 'library/framework'].indexOf(resource_type_name) === -1){
+        resource_type_name = 'resource';
+      }
+
       $resource_type_name.html(resource_type_name);
       $('#resource-name').attr('placeholder', `My ${resource_type_name}...`);
       $('#resource-tagline').attr('placeholder', `A useful ${resource_type_name}.`);
