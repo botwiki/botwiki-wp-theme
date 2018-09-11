@@ -249,6 +249,38 @@ class BotsPostType {
         </td>
       </tr>
       <tr>
+        <td>
+          <p>
+            <button id="output-archive-btn" class="button-secondary">Select output archive</button>
+          </p>
+          <?php
+            $has_archive = ( isset( $bot_meta['output_archive_url'] ) &&
+                             strlen( trim( $bot_meta['output_archive_url'][0] ) ) !== 0 );
+          ?>
+          <p id="output-archive-file-wrapper" class="<?php echo ( $has_archive ? '' : 'hidden' ); ?>">
+            <input hidden
+                   name="output-archive-url"
+                   id="output-archive-url" 
+                   value="<?php echo $bot_meta['output_archive_url'][0] ?>">
+            <input readonly
+                   name="output-archive-filename"
+                   id="output-archive-filename"
+                   class="regular-text code" 
+                   value="<?php echo $bot_meta['output_archive_filename'][0] ?>">
+            <a class="button-secondary"
+               id="output-archive-link"
+               href="<?php echo $bot_meta['output_archive_url'][0] ?>"
+               target="_blank">View archive</a>
+            <button class="button-primary" id="output-archive-remove">Remove</button>
+          </p>
+          <p id="output-archive-date-wrapper" class="<?php echo ( $has_archive ? '' : 'hidden' ); ?>">
+            <label for="output-archive-date"> Archive date</label><br/>
+            <input type="date" name="output-archive-date" id="output-archive-date" class="regular-text" 
+                   value="<?php echo $bot_meta['output_archive_date'][0] ?>">
+          </p>
+        </td>
+      </tr>
+      <tr>
         <td class="w-100">
           <label for="bot_source_url">Source code URL(s)</label>
         </td>
@@ -362,6 +394,10 @@ class BotsPostType {
       update_post_meta($post_id, 'bot_source_url', $_POST['bot_source_url']);
       update_post_meta($post_id, 'botmaker_badge_awarded', $_POST['botmaker_badge_awarded']);
       update_post_meta($post_id, 'bot_tweets', $_POST['bot_tweets']);
+
+      update_post_meta($post_id, 'output_archive_url', $_POST['output-archive-url']);
+      update_post_meta($post_id, 'output_archive_filename', $_POST['output-archive-filename']);
+      update_post_meta($post_id, 'output_archive_date', $_POST['output-archive-date']);
 
       if ($_POST['bot_tweets']){
         $bot_tweets = explode("\n", str_replace("\r", "", $_POST['bot_tweets']));
