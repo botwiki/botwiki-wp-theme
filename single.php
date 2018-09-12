@@ -76,52 +76,25 @@
 							$bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
 	          }
 
-	          if ( count( $bot_source_urls ) === 1 ){ ?>
+	          if ( count( $bot_source_urls ) > 0 ){ ?>
 	            <li>
-	              <a class="btn view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
+	              <a class="btn view-source" href="#source-code">View source</a>
 	            </li>
-	            <?php
-	              foreach ($bot_languages as $bot_language) {
-	                if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'github.com') > -1){ ?>
-	                  <li>
-	                    <a class="btn glitch-remix" href="https://gomix.com/#!/import/<?php echo str_replace('https://github.com/', 'github/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
-	                  </li>
-	                  <li>
-	                    <a href="<?php echo $site_url; ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
-	                  </li>
-	                <?php }
-	                if ($bot_language->name == 'node.js' && strpos($post_meta['bot_source_url'][0], 'glitch.com/edit/#!/') > -1){ ?>
-	                  <li>
-	                    <a class="btn glitch-remix" href="<?php echo str_replace('edit/#!/', 'edit/#!/remix/', $post_meta['bot_source_url'][0]); ?>" target="_blank">Remix on Glitch</a>
-	                  </li>
-	                  <li>
-	                    <a href="<?php echo $site_url; ?>/resource/tutorial/hosting-bots-on-glitch/">What is Glitch?</a>
-	                  </li>
-	                <?php }
-	              } ?>
-							<?php }
+						<?php }
 
-	            if( isset( $post_meta['output_archive_url'] ) && strlen( trim( $post_meta['output_archive_url'][0] ) ) !== 0 ){ ?>
-	              <li>
-	                <a class="btn" href="<?php echo $post_meta['output_archive_url'][0] ?>"
-	                	 target="_blank"
+            if( isset( $post_meta['output_archive_url'] ) && strlen( trim( $post_meta['output_archive_url'][0] ) ) !== 0 ){ ?>
+              <li>
+                <a class="btn" href="<?php echo $post_meta['output_archive_url'][0] ?>"
+                	 target="_blank"
 	            <?php
 								if( isset( $post_meta['output_archive_date'] ) && strlen( trim( $post_meta['output_archive_date'][0] ) ) !== 0 ){ ?>
 									title="Archive created on <?php echo $post_meta['output_archive_date'][0] ?>"
-								<?php }
-	            ?>
-
-
-	                >Download archive</a>
-	              </li>
+								<?php } ?>
+                >Download archive</a>
+              </li>
 	            <?php } ?>
-
-
-
-	              </ul>
-	          <?php }
-
-
+            </ul>
+       		<?php }
 					else if ($post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
 
 							$info = parse_url( $post_meta['resource_url'][0] );
@@ -170,7 +143,7 @@
 					<?php } ?>
 				  </div>
 
-          <?php if ( count( $bot_source_urls ) > 1 ){
+          <?php if ( count( $bot_source_urls ) > 0 ){
           	global $helpers;
           	?>
           	<h3 id="source-code">Source code <a class="pilcrow" href="#source-code">¶</a></h3>

@@ -71,18 +71,18 @@
               $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
             }
 
-            if ( count( $bot_source_urls ) === 1 ){ ?>
+            if ( count( $bot_source_urls ) > 0 ){ ?>
               <li>
-                <a class="btn mb-0 view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
+                <a class="btn mb-0 view-source" href="<?php echo $link_url; ?>#source-code">View source</a>
               </li>
-              <?php
-              }
+            <?php
             }
-            if ( current_user_can('administrator') ){ ?>
-              <li><a class="btn mb-0" href="/wp-admin/post.php?post=<?php echo $post_id; ?>&action=edit">Edit</a></li>
-            <?php } ?>
-          </ul>
 
+          }
+          if ( current_user_can('administrator') ){ ?>
+            <li><a class="btn mb-0" href="/wp-admin/post.php?post=<?php echo $post_id; ?>&action=edit">Edit</a></li>
+          <?php } ?>
+        </ul>
       </div>
 
     <!-- /article -->
