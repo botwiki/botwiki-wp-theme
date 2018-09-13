@@ -71,12 +71,14 @@
               $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
             }
 
-            if ( count( $bot_source_urls ) > 0 ){ ?>
+            // if ( count( $bot_source_urls ) > 0 ){ ?>
+            <!-- 
               <li>
                 <a class="btn mb-0 view-source" href="<?php echo $link_url; ?>#source-code">View source</a>
-              </li>
+              </li> 
+            -->
             <?php
-            }
+            // }
 
           }
           if ( current_user_can('administrator') ){ ?>
