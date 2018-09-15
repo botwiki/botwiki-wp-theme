@@ -159,6 +159,13 @@
         array_push( $bot_tags, $bot_tag );
       }
 
+      foreach ( $bot_urls as $bot_url) {
+        if ( strpos( $bot_url, 'botsin.space/') ){
+          array_push( $bot_tags, 'botsin.space' );
+          break;
+        }
+      }
+
       if ( isset( $_POST['bot-is-interactive'] ) ){
         array_push( $bot_tags, 'interactive' );        
       }
