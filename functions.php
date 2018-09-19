@@ -28,6 +28,7 @@ require 'includes/contributors.php';
 require 'includes/profile-page-link.php';
 require 'includes/new-post-instructions.php';
 require 'includes/rss-feed.php';
+require 'includes/wp-json-api-featured-image.php';
 require 'includes/archive-page.php';
 require 'includes/simple_html_dom.php';
 
