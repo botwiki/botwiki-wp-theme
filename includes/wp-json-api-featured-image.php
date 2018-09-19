@@ -8,7 +8,9 @@ class WP_JSON_API_Featured_Image {
   }
 
   public function register_rest_images() {
-    register_rest_field( array('post', 'bot'),
+    global $wp_post_types;
+
+    register_rest_field( array_keys( $wp_post_types ),
         'featured_image_url',
         array(
             'get_callback'    => array( $this, 'get_rest_featured_image' ),
