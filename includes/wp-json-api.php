@@ -1,13 +1,15 @@
 <?php
 
-/* Add featured image to the JSON API, courtesy of https://github.com/dalenguyen/wordpress-snippets/blob/master/get-featured-image-from-rest-api.php. */
+/* Fixes and enhancements for the WP JSON API. */
 
-class WP_JSON_API_Featured_Image {
+class WP_JSON_API_Fixes_And_Enhancements {
   public function __construct() {
     add_filter( 'rest_api_init', array( $this, 'register_rest_images' ) );
   }
 
   public function register_rest_images() {
+    /* Add featured image to the JSON API, courtesy of https://github.com/dalenguyen/wordpress-snippets/blob/master/get-featured-image-from-rest-api.php. */
+
     global $wp_post_types;
 
     register_rest_field( array_keys( $wp_post_types ),
@@ -30,4 +32,4 @@ class WP_JSON_API_Featured_Image {
 
 }
 
-$wp_json_api_featured_image_init = new WP_JSON_API_Featured_Image();
+$wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
