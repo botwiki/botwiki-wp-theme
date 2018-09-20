@@ -5,6 +5,7 @@
 class WP_JSON_API_Fixes_And_Enhancements {
   public function __construct() {
     add_filter( 'rest_api_init', array( $this, 'register_rest_images' ) );
+    add_filter( 'rest_api_init', array( $this, 'fix_post_tags' ) );
   }
 
   public function register_rest_images() {
@@ -30,6 +31,24 @@ class WP_JSON_API_Fixes_And_Enhancements {
     return false;
   }
 
+  public function fix_post_tags(){
+    foreach (get_post_types(array('show_in_rest' => true), 'objects') as $post_type) {
+      add_filter('rest_' . $post_type->name . '_query', array( $this, 'wp_rest_fix_post_tags' ), 10, 2);
+    }
+    foreach (get_taxonomies(array('show_in_rest' => true), 'objects') as $tax_type) {
+      add_filter('rest_' . $tax_type->name . '_query', array( $this, 'wp_rest_fix_post_tags' ), 10, 2);
+    }
+  }
+
+  public function wp_rest_fix_post_tags( $args, $request ){
+    if ( empty( $request['tag'] ) ) {
+      return $args;
+    }
+
+    $args['tag_slug__and'] = explode( ',', $request['tag'] );
+
+    return $args;
+  }
 }
 
 $wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
