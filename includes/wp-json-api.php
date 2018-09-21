@@ -79,6 +79,15 @@ class WP_JSON_API_Fixes_And_Enhancements {
             'schema'          => null,
         )
     );
+
+    register_rest_field( array_keys( $wp_post_types ),
+        'tags_full',
+        array(
+            'get_callback'    => array( $this, 'get_rest_tags_full' ),
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
   }
 
   public function get_rest_bot_url( $object, $field_name, $request ) {
@@ -110,6 +119,16 @@ class WP_JSON_API_Fixes_And_Enhancements {
   public function get_rest_bot_source_languages( $object, $field_name, $request ) {
     $bot_source_languages = wp_get_post_terms( $object['id'], 'programing_language' );
     return $bot_source_languages;
+  }
+
+  public function get_rest_tags_full( $object, $field_name, $request ) {
+    $tags_array = get_the_tags( $object['id'] );
+
+    $tags_full = array_map(function ($tag) {
+      return $tag->slug;
+    }, $tags_array);
+
+    return $tags_full;
   }
 
   public function get_rest_bot_author_info( $object, $field_name, $request ) {
