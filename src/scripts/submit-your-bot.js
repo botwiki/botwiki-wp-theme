@@ -113,7 +113,6 @@ $(function() {
           ajax_url = $this.data('ajax');
 
       if (ajax_url){
-
         function process_search_results(results){
           var data = [];
 
@@ -128,6 +127,8 @@ $(function() {
         }
 
         $this.select2({
+          tags: true,
+          minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3,
           ajax:{
             url: ajax_url,
             dataType: 'json',
@@ -152,7 +153,6 @@ $(function() {
           placeholder: $(this).attr('placeholder'),
           minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3
         });
-
       }
     });
 
