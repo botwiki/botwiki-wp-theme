@@ -460,17 +460,7 @@
             <div class="form-group">
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
 
-              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="2">
-              <?php
-                $tags = get_tags( array(
-                  'hide_empty' => true
-                ) );
-
-                foreach ($tags as $tag) { ?>
-                  <option value="<?php echo $tag->slug ?>"><?php echo $tag->name ?></option>
-                <?php }
-              ?> 
-              </select>
+              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-ajax="/wp-json/wp/v2/tags?search="></select>
 
               <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it.</small>
             </div>

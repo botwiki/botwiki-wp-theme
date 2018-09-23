@@ -109,11 +109,51 @@ $(function() {
     });
 
     $('.js-select2').each(function(i){
-      $(this).select2({
-        tags: true,
-        placeholder: $(this).attr('placeholder'),
-        minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3
-      });
+      var $this = $(this),
+          ajax_url = $this.data('ajax');
+
+      if (ajax_url){
+
+        function process_search_results(results){
+          var data = [];
+
+          $.each(results, function (k, v) {
+            var tag_name = v.name;
+            data[ k ] = {
+              id: tag_name,
+              text: tag_name
+            };
+          });
+          return data;
+        }
+
+        $this.select2({
+          ajax:{
+            url: ajax_url,
+            dataType: 'json',
+            // delay: 250,
+            data: function (params) {
+              var query = {
+                search: params.term
+              }
+              return query;
+            },
+            processResults: function (data, page, query) {
+              return {
+                results: process_search_results(data)
+              };
+            }
+          }
+        })
+      }
+      else{
+        $this.select2({
+          tags: true,
+          placeholder: $(this).attr('placeholder'),
+          minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3
+        });
+
+      }
     });
 
     $('#submit-bot-form').submit(function(){
