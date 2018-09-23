@@ -140,8 +140,12 @@ $(function() {
               return query;
             },
             processResults: function (data, page, query) {
+              var results = process_search_results(data);
+
               return {
-                results: process_search_results(data)
+                results: results.sort(function(a,b){
+                  return levenshtein_distance(a.text, page.term) - levenshtein_distance(b.text, page.term);
+                })
               };
             }
           }
