@@ -49,7 +49,7 @@
             </div>
         <?php } elseif ( $page !== 1 && $index === 1 ) { ?>
           <div class="row">
-              <div class="col-sm-12 col-md-4 text-center m-0 p-0">
+              <div class="col-sm-12 col-md-4 text-center p-0 pb-3 m-0 p-0">
                 <?php render_post( $page, $index, $post->ID ); ?>
               </div>
         <?php } elseif ( $page === 1 && $index === 2 ) { ?>
@@ -67,16 +67,16 @@
         </div>
         <?php } elseif ( $page === 1 && $index === 4 ) { ?>
           <div class="row">
-            <div class="col-sm-12 col-md-4 text-center m-0 p-0">
+            <div class="col-sm-12 col-md-4 text-center p-0 pb-3 m-0 p-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
         <?php } elseif ( $index === $wp_query->post_count ) { ?>
-            <div class="col-sm-12 col-md-4 text-center m-0 p-0">
+            <div class="col-sm-12 col-md-4 text-center p-0 pb-3 m-0 p-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
           </div>
         <?php } else { ?>
-          <div class="col-sm-12 col-md-4 text-center m-0 p-0">
+          <div class="col-sm-12 col-md-4 text-center p-0 pb-3 m-0 p-0">
             <?php render_post( $page, $index, $post->ID ); ?>
           </div>
         <?php } 

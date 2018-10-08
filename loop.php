@@ -6,7 +6,7 @@
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 col-md-4 text-center">
+            <div class="col-sm-12 col-md-4 text-center p-0 pb-3">
               <!-- post thumbnail -->
               <?php
                 $is_external = false;

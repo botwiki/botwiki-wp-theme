@@ -9,8 +9,11 @@ ul.btn-list{
 }
 
 .btn{
-  font-family: "Oswald ", sans-serif;
-  border: 1px solid #ccc;
+  font-family: $button-font-family;
+  font-weight: bold;
+  border: 2px solid $color-primary;
+  border-radius: 0;
+
 
   padding: 10px;
 
@@ -51,6 +54,17 @@ ul.btn-list{
 
 .note, .card{
   .btn{
-    margin-bottom: 1em;
+    margin-bottom: 0;
+    @media (max-width: $site-width-small){
+      margin-bottom: 1em;
+    }
   }
-}  
+}
+
+body.archive{
+  .note, .card{
+    .btn{
+      margin-bottom: 1em;
+    }
+  }  
+}

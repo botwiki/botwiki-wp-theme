@@ -35,6 +35,7 @@ img {
     margin: initial; }
 
 .card-footer {
+  padding-bottom: 2.25em;
   background: none;
   border-top: none; }
 
@@ -294,8 +295,8 @@ h1 {
 
 h2 {
   font-size: 2.75em;
-  margin-top: 4rem;
-  margin-bottom: 4rem; }
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   @media (max-width: 900px) {
     h2 {
       line-height: 1.2em; } }
@@ -303,13 +304,14 @@ h2 {
   body.search h2 {
     margin-top: 0; }
 
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 2rem;
-  font-size: 2em; }
-
-.card h3 {
-  color: #4d4350; }
+.card {
+  border-radius: 0; }
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2em; }
+  .card h3 {
+    color: #4d4350; }
 
 h3 {
   font-size: 2.5em;
@@ -673,8 +675,10 @@ ul.btn-list {
     display: inline; }
 
 .btn {
-  font-family: "Oswald ", sans-serif;
-  border: 1px solid #ccc;
+  font-family: "Source Code Pro", monospace;
+  font-weight: bold;
+  border: 2px solid #4d4350;
+  border-radius: 0;
   padding: 10px;
   color: #4d4350 !important;
   background-color: #fafafa;
@@ -702,6 +706,12 @@ ul.btn-list {
     text-decoration: underline; }
 
 .note .btn, .card .btn {
+  margin-bottom: 0; }
+  @media (max-width: 860px) {
+    .note .btn, .card .btn {
+      margin-bottom: 1em; } }
+
+body.archive .note .btn, body.archive .card .btn {
   margin-bottom: 1em; }
 
 .cursor-pointer {
