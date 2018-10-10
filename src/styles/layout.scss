@@ -320,3 +320,19 @@ video {
   /* TODO: Temporary fix for iframe size. */
   // min-height: 450px;
 }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.list-content {
+  width: 100%;
+  background-color: #ccc;
+  padding: 10px;
+}
