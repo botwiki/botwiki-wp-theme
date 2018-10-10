@@ -29,11 +29,11 @@ class Blog_Slug {
       global $wp_the_query;
 
       if ( ( ! is_admin() ) && ( $query === $wp_the_query ) ) {
-        if ( in_array ( $query->get('post_type'), array('bot','resource') ) ){
-          $query->set( 'posts_per_page', 24 );
+        if ( in_array ( $query->get('post_type'), array('post') ) ){
+          $query->set( 'posts_per_page', 21 );
         }
         else{
-          $query->set( 'posts_per_page', 21 );
+          $query->set( 'posts_per_page', 24 );
         }
       }
     }
