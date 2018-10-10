@@ -41,7 +41,7 @@
 
           $wp_query = new WP_Query( array(
             'post_type'         => 'bot',
-            'posts_per_page'    => '5',
+            'posts_per_page'    => '6',
             'post_status'       => 'publish',
             'orderby'           => 'publish_date',
             'order'             => 'DESC'
@@ -68,7 +68,7 @@
 
           $wp_query = new WP_Query( array(
             'post_type'         => 'resource',
-            'posts_per_page'    => '5',
+            'posts_per_page'    => '6',
             'post_status'       => 'publish',
             'orderby'           => 'publish_date',
             'order'             => 'DESC',
