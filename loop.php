@@ -82,19 +82,17 @@
         </div>
 
       <?php endwhile; ?>
-      </div>
+  <?php else: ?>
+
+    <!-- article -->
+    <div class="col-sm-12">
+      <article>
+
+        <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
+      </article>
     </div>
-<?php else: ?>
+    <!-- /article -->
 
-  <!-- article -->
-  <div class="col-sm-12">
-    <article>
-
-      <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
-    </article>
+  <?php endif; ?>
   </div>
-  <!-- /article -->
-
-<?php endif; ?>
-</div>
 </div>
