@@ -33,10 +33,13 @@
             $tags_html[] = "<a href='/tag/$tag_plural'>$tag_plural</a> ";
           }
         }
+
+        if ($tags_html){
+          echo '<p class="mb-5 post-tags"><strong class="mr-3">Related tags:</strong>';
+          echo( implode( '', $tags_html ) );
+          echo '</p>';          
+        }
         
-        echo '<p class="mb-5 post-tags"><strong class="mr-3">Related tags:</strong>';
-        echo( implode( '', $tags_html ) );
-        echo '</p>';
 
         get_template_part( 'loop' );
         get_template_part( 'pagination' );

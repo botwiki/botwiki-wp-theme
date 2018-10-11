@@ -87,9 +87,14 @@
 <?php else: ?>
 
   <!-- article -->
-  <article>
-    <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
-  </article>
+  <div class="col-sm-12">
+    <article>
+
+      <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
+    </article>
+  </div>
   <!-- /article -->
 
 <?php endif; ?>
+</div>
+</div>
