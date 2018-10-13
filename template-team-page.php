@@ -5,7 +5,7 @@
   $post_id = get_the_ID();
 
   $admins = get_users( array(
-    'role'         => 'administrator',
+    'role__in'         => array( 'administrator', 'author' ),
     'orderby'      => 'registered',
     'order'        => 'ASC',
     // 'fields'       => 'all',
@@ -39,6 +39,9 @@
 
         <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->
 
+      <div class="container mt-5">
+        <div class="row list">
+
         <?php
           foreach ( $admins as $index=>$admin ) {
 
@@ -71,50 +74,32 @@
               $botwiki_team_role = "Botwiki contributor.";    
             }
 
-            $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
-            $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+            // $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+            // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
             ?>
-            <div class="container mt-5 p-0">
-              <div class="row">
-                <div class="col-sm-12 col-md-2 text-center">
-                  <img class="mr-3 mb-4 u-photo rounded" src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo $full_name; ?>">
+            <div class="col-sm-6 col-md-4 col-lg-4 list-item">
+
+              <div class="card">
+                <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
+                  <img class="card-img-top" src="<?php echo str_replace('?s=96', '?s=512', get_avatar_url($author_id)); ?>" alt="<?php echo $full_name; ?>">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title"><?php echo $nickname; ?></h5>
+                  <p class="card-text"><?php echo $botwiki_team_role; ?></p>
                 </div>
-                <div class="col-sm-12 col-md-10">
-                  <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
-                </div>
-                <div class="col-sm-12">
-                  <div class="card mt-4 mb-4">
-                    <div class="card-body">
-                      <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="p-note">
-                    <?php echo $description; ?>
-                  </div>
-                  <ul class="btn-list mt-4">
-                    <li>
-                      <a class="btn" rel="me" href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                        View profile
-                      </a>                    
-                    </li>
-                    <?php if ( !empty( $twitter_handle )){ ?>
-                      <li>
-                        <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a>
-                      </li>
-                    <?php } ?>
-                    <?php if ( !empty( $website_url )){ ?>
-                      <li>
-                        <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?></a>
-                      </li>
-                    <?php } ?>
-                  </ul>                  
+                <div class="card-footer text-muted">
+                  <a href="<?php echo get_author_posts_url($author_id, $username ); ?>" class="btn btn-primary">View profile</a>
                 </div>
               </div>
             </div>
-            <?php }
+
+            
+            <?php } ?>
+
+            </div>
+          </div>
+          <?php            
 
             $contributors = get_users( array(
               'role__not_in' => ['administrator'],
