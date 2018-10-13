@@ -39,7 +39,7 @@
             <div class="card pt-5 mt-5 mb-2">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 text-center p-0 pb-3">
+                  <div class="col-sm-12 col-md-4 text-center p-l">
                     <!-- post thumbnail -->
                     <?php
 
