@@ -1,17 +1,37 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
-	<head>
+  <head>
     <?php
+      global $helpers;
       global $wp;
+      global $wp_query;
       global $page_title;
+
+      $post_type = $wp_query->query['post_type'];
+
+      if ($helpers->ends_with( $post_type, 's' ) ){
+        $post_type_for_title = $post_type . "'";
+      }
+      else{
+        $post_type_for_title = $post_type . 's';
+      }
+
       $page_url = home_url( $wp->request );
       $page_thumbnail = get_the_post_thumbnail_url();
 
       if ( empty($page_thumbnail ) ){
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
-      
-      if ( !empty( $_GET['networks'] ) || !empty( $_GET['tags'] ) || !empty( $_GET['languages'] ) ) {
+
+
+      if ( is_page() ) {
+        $page_title = get_the_title();
+        $page_description = get_the_excerpt();
+        if ( empty( $page_description ) ){
+          $page_description = get_bloginfo('description');        
+        }
+      }    
+      elseif ( !empty( $_GET['networks'] ) || !empty( $_GET['tags'] ) || !empty( $_GET['languages'] ) ) {
         $page_tags = array();
 
         if ( isset( $_GET['networks'] ) ){
@@ -35,7 +55,7 @@
           );
         }
 
-        $page_title .= 'Pages tagged #' . implode( ' #', $page_tags );
+        $page_title .= ucfirst( $post_type_for_title ) . ' tagged #' . implode( ' #', $page_tags );
         $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
       }
       elseif ( is_category() ) {
@@ -44,14 +64,12 @@
         $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
       }
       elseif ( is_post_type_archive() ) {
-        $post_type = $wp_query->query['post_type'];          
-        $page_title = 'Browsing all ' . $post_type . 's...'; 
-        $page_description = 'Browsing all ' . $post_type . 's on Botwiki...';
+        $page_title = 'Browsing all ' . $post_type_for_title . ' ...'; 
+        $page_description = 'Browsing all ' . $post_type_for_title . ' on Botwiki...';
       }
       elseif ( is_author() ) {
         $author_id = get_query_var('author');
         $nickname = get_the_author_meta('nickname', $author_id);
-        $post_type = $wp_query->query['post_type'];
 
         if ( user_can($author_id, 'administrator') ){  
           $page_description = get_the_author_meta('botwiki-team-role', $author_id);
@@ -63,9 +81,9 @@
           $page_description = "Botwiki contributor.";    
         }
 
-        if ( !empty($post_type)){
-          $page_title = ucfirst($post_type) . 's by ' . $nickname;          
-          $page_description = 'Browsing ' . ucfirst($post_type) . 's by ' . $nickname . ' on Botwiki';          
+        if ( !empty( $post_type_for_title ) ){
+          $page_title = ucfirst($post_type_for_title) . ' by ' . $nickname;          
+          $page_description = 'Browsing ' . ucfirst($post_type_for_title) . ' by ' . $nickname . ' on Botwiki';          
         }
         else{
           $page_title = $nickname;                    
@@ -74,7 +92,6 @@
         $page_thumbnail = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
       }
       elseif ( is_tag() ) {
-        global $wp_query;
         $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
   
         $page_title = "Posts tagged #" . implode( ' #', $tags );
@@ -83,9 +100,15 @@
       }
       elseif ( is_tax() ) {
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
-        $page_title = "Posts tagged #" . $term->name;
+
+        if ( !empty( $term->description ) ){
+          $page_title = str_replace( '.', '', $term->description );
+        } else {
+          $page_title = "Posts tagged #" . $term->name;
+        }
+
         $page_description = "Browsing posts tagged #" . $term->name . " on Botwiki";
-        $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
+        $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );  
       }
       elseif ( is_archive() ) {
         global $wp_query;
@@ -108,8 +131,8 @@
 
       $page_title .=  ' | ' . get_bloginfo('name');
     ?>
-		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php echo $page_title ?></title>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <title><?php echo $page_title ?></title>
     <meta itemprop="name" content="<?php echo $page_title ?>"/>
     <meta itemprop="url" content="<?php echo $page_url; ?>"/>
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
@@ -128,7 +151,7 @@
     <meta name="twitter:site" content="@botwikidotorg" />
     <meta name="twitter:domain" content="https://botwiki.org/" />
     <link type="text/plain" rel="author" href="https://botwiki.org/humans.txt" />
-		<link href="//www.google-analytics.com" rel="dns-prefetch">
+    <link href="//www.google-analytics.com" rel="dns-prefetch">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-72x72.png">
@@ -146,13 +169,13 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#38313a">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki' rel='stylesheet' type='text/css'>
-		<?php wp_head(); ?>
-	</head>
-	<body <?php body_class(); ?>>
+    <?php wp_head(); ?>
+  </head>
+  <body <?php body_class(); ?>>
     <noscript><style type="text/css">.lazy-load{opacity:1;transform:none;}</style></noscript>
     <header id="header">
     <?php if (!is_front_page()){ ?>
@@ -182,4 +205,4 @@
       </nav>
     <?php } ?>
   </header>
-	<!-- header -->
+  <!-- header -->

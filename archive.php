@@ -45,8 +45,14 @@
             tagged <a href="<?php echo $site_url . '/tag/' . $_GET['tags'] ;?>">#<?php echo $_GET['tags']; ?></a><?php } ?>&nbsp;...</h1>
       <?php } elseif ( is_tax() ){
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
+
+        if ( !empty( $term->description ) ){
+          $page_title = str_replace( '.', '', $term->description );
+        } else {
+          $page_title = "Posts tagged #" . $term->name;
+        }
       ?>
-        <h1><?php echo "Posts tagged #" . $term->name; ?></h1>
+        <h1><?php echo $page_title; ?></h1>
       <?php }
       elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
