@@ -134,20 +134,9 @@
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
       $bot_meta['bot_author_email'] = trim( $_POST['bot-author-email'] );      
 
-      $screenshotable_url = false;
+      $screenshotable_url = $helpers->get_screenshotable_url( $bot_urls );
 
-      foreach ( $bot_urls as $bot_url) {
-        if ( strpos( $bot_url, 'twitter.com/') !== false ||
-             strpos( $bot_url, 'botsin.space/') !== false ||
-             strpos( $bot_url, 'mastodon.social/') !== false ||
-             strpos( $bot_url, 'tumblr.com/') ){
-
-          $screenshotable_url = trim( $bot_url );
-          break;
-        }
-      }
-
-      if ( $screenshotable_url !== false ){
+      if ( $screenshotable_url === false ){
         $screenshotable_url = $main_bot_url;
       }
 

@@ -82,7 +82,21 @@ class BW_Helpers {
       return (substr($haystack, -$length) === $needle);
   }
 
-}
+  function get_screenshotable_url( $urls ){
+    $screenshotable_url = false;
+    foreach ( $urls as $url) {
+      if ( strpos( $url, 'twitter.com/') !== false ||
+           strpos( $url, 'botsin.space/') !== false ||
+           strpos( $url, 'mastodon.social/') !== false ||
+           strpos( $url, 'tumblr.com/') ){
 
+        $screenshotable_url = trim( $url );
+        break;
+      }
+    }
+
+    return $screenshotable_url;
+  }
+}
 
 $helpers = new BW_Helpers();
