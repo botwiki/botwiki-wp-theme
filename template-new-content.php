@@ -34,7 +34,7 @@
           </li>
         </ul>
 
-        <h2 id="bots">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
+        <h2 id="blog">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
 
         <?php
           global $wp_query;
