@@ -24,13 +24,35 @@
 
          <ul class="btn-list mt-5">
           <li>
+            <a class="btn" href="/blog/">Botwiki blog</a>
+          </li>
+          <li>
             <a class="btn" href="#bots">New bots</a>
           </li>
           <li>
             <a class="btn" href="#resources">New resources</a>
           </li>
+        </ul>
+
+        <h2 id="bots">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
+
+        <?php
+          global $wp_query;
+
+          $wp_query = new WP_Query( array(
+            'post_type'         => 'post',
+            'posts_per_page'    => '6',
+            'post_status'       => 'publish',
+            'orderby'           => 'publish_date',
+            'order'             => 'DESC'
+          ) );            
+
+          get_template_part('loop');
+        ?>
+
+        <ul class="btn-list">
           <li>
-            <a class="btn" href="/blog/">Our blog</a>
+            <a class="btn" href="/blog/">Visit blog</a>
           </li>
         </ul>
 
