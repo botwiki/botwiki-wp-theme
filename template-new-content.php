@@ -24,7 +24,7 @@
 
          <ul class="btn-list mt-5">
           <li>
-            <a class="btn" href="/blog/">Botwiki blog</a>
+            <a class="btn" href="#blog">Botwiki blog</a>
           </li>
           <li>
             <a class="btn" href="#bots">New bots</a>
