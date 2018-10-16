@@ -64,8 +64,23 @@
         $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
       }
       elseif ( is_post_type_archive() ) {
-        $page_title = 'Browsing all ' . $post_type_for_title . ' ...'; 
-        $page_description = 'Browsing all ' . $post_type_for_title . ' on Botwiki...';
+        if (is_author()){
+          $nickname = get_the_author_meta('nickname', $author_id);
+          $username = get_the_author_meta('user_nicename', $author_id);
+          $post_type = $wp_query->query['post_type'];          
+          $page_title = ( !empty( $_GET['opensource'] ) ? 'open source' : '' ) . $post_type . 's by ' . $nickname;
+
+          if ( !empty( $_GET['tags'] )){ 
+            $page_title .= ' tagged ' . $_GET['tags'];
+          }
+
+          $page_title = ucfirst($page_title);
+          $page_description = 'Browsing ' . lcfirst( $page_title );          
+        }
+        else{
+          $page_title = 'Browsing all ' . $post_type_for_title . ' ...'; 
+          $page_description = 'Browsing all ' . $post_type_for_title . ' on Botwiki...';          
+        }
       }
       elseif ( is_author() ) {
         $author_id = get_query_var('author');
