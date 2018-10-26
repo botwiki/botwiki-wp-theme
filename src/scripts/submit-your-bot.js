@@ -128,6 +128,7 @@ $(function() {
 
         $this.select2({
           tags: true,
+          placeholder: $(this).attr('placeholder'),          
           minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3,
           ajax:{
             url: ajax_url,

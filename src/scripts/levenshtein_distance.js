@@ -1,4 +1,7 @@
 var levenshtein_distance = function(s, t) {
+    if (!s || !t){
+        return;
+    }
   /*
     https://stackoverflow.com/a/11958496/2207606
   */
