@@ -8,12 +8,15 @@
       global $page_title;
 
       $post_type = $wp_query->query['post_type'];
+      $post_type_for_title = '';
 
-      if ($helpers->ends_with( $post_type, 's' ) ){
-        $post_type_for_title = $post_type . "'";
-      }
-      else{
-        $post_type_for_title = $post_type . 's';
+      if ( !empty( $post_type ) ){
+        if ($helpers->ends_with( $post_type, 's' ) ){
+          $post_type_for_title = $post_type . "'";
+        }
+        else{
+          $post_type_for_title = $post_type . 's';
+        }
       }
 
       $page_url = home_url( $wp->request );
@@ -67,11 +70,15 @@
         if (is_author()){
           $nickname = get_the_author_meta('nickname', $author_id);
           $username = get_the_author_meta('user_nicename', $author_id);
-          $post_type = $wp_query->query['post_type'];          
-          $page_title = ( !empty( $_GET['opensource'] ) ? 'open source' : '' ) . $post_type . 's by ' . $nickname;
+          $post_type = $wp_query->query['post_type'];
 
-          if ( !empty( $_GET['tags'] )){ 
+          if (!empty($post_type)){
+            $page_title = ( !empty( $_GET['opensource'] ) ? 'open source' : '' ) . $post_type . 's by ' . $nickname;
+          } elseif ( !empty( $_GET['tags'] )){ 
             $page_title .= ' tagged ' . $_GET['tags'];
+          }
+          else{
+            $page_title = get_the_title();       
           }
 
           $page_title = ucfirst($page_title);
@@ -95,6 +102,8 @@
         else{
           $page_description = "Botwiki contributor.";    
         }
+
+        // $page_title = get_the_title();
 
         if ( !empty( $post_type_for_title ) ){
           $page_title = ucfirst($post_type_for_title) . ' by ' . $nickname;          
