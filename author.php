@@ -156,7 +156,7 @@
 
               sort( $author_tags_bots );
 
-              $posts = array_slice( $posts, 0, 5 )
+              $posts = array_slice( $posts, 0, 5 );
 
               $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
