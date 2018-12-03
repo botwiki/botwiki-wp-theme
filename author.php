@@ -156,9 +156,7 @@
 
               sort( $author_tags_bots );
 
-              if ( $wp_query->post_count > 2 && $wp_query->post_count % 2 !== 0 ){
-                array_pop($posts);
-              }
+              $posts = array_slice( $posts, 0, 5 )
 
               $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
