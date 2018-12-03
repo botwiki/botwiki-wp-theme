@@ -160,53 +160,50 @@
                 array_pop($posts);
               }
 
-              $post_groups = array_chunk( array_slice($posts, 0, 6), 2 );
               $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-              $bot_list_html = '<div class="mt-md-5 mb-md-5">';
+              $bot_list_html = '<div class="container mt-5"><div class="row list">';
 
-              foreach ($post_groups as $posts) {
-                $bot_list_html .= '<div class="card-deck mt-md-4 mb-md-4">';
-                foreach ($posts as $post) {
-                  $post_id = $post->ID;
-                  $post_meta = get_post_meta( $post_id );
-                  if ( get_post_status( $post_id ) === 'publish' ){
-                    $bot_url = post_permalink( $post_id );
-                    $bot_source_url = $post_meta['bot_source_url'][0];
+              foreach ($posts as $post) {
+                $post_id = $post->ID;
+                $post_meta = get_post_meta( $post_id );
+                if ( get_post_status( $post_id ) === 'publish' ){
+                  $bot_url = post_permalink( $post_id );
+                  $bot_source_url = $post_meta['bot_source_url'][0];
 
-                    $bot_title = $post_meta['card_title'];
-                    if ( empty( $bot_title ) ){
-                      $bot_title = get_the_title( $post_id );
-                    }
-
-
-                    $bot_thumbnail_url = get_the_post_thumbnail_url( $post_id );
-
-                    $bot_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
-
-                    $bot_description = get_the_excerpt( $post_id );
-
-                    $bot_list_html .= '    <div class="card">' .
-                                       '      <a href="' . $bot_url . '">' .
-                                       '        <img src="' . $bot_thumbnail_url . '" data-src="' . $bot_thumbnail_url . '" class="card-img-top lazy-load" >' .
-                                       '      </a>' .
-                                       '      <div class="card-body">' .
-                                       '        <h5 class="card-title">' . $bot_title . '</h5>' .
-                                       '        <p class="card-text">' . $bot_description . '</p>' .
-                                       '      </div>' .
-                                       '      <div class="card-footer">' .
-                                       '        <a href="' . $bot_url . '" class="btn mb-0">View bot</a>' .
-                                       ( !empty( $bot_source_url ) ? '<a href="' . $bot_source_url . '" class="btn mb-0">View source</a>' : '' ) .
-                                       '      </div>' .
-                                       '    </div>';
-                    if ( count($posts) === 1 ){
-                      $bot_list_html .= '<div class="card d-none d-sm-block" style="visibility: hidden;"></div>';
-                    }
+                  $bot_title = $post_meta['card_title'];
+                  if ( empty( $bot_title ) ){
+                    $bot_title = get_the_title( $post_id );
                   }
-                }
 
-                $bot_list_html .= '</div>';
+
+                  $bot_thumbnail_url = get_the_post_thumbnail_url( $post_id );
+
+                  $bot_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
+
+                  $bot_description = get_the_excerpt( $post_id );
+
+                  $bot_list_html .= '<div class="col-sm-12 col-md-4 no-pad list-item">' .
+                                     ' <div class="card">' .
+                                     '    <a href="' . $bot_url . '">' .
+                                     '      <img src="' . $bot_thumbnail_url . '" data-src="' . $bot_thumbnail_url . '" class="card-img-top lazy-load" >' .
+                                     '    </a>' .
+                                     '    <div class="card-body">' .
+                                     '      <h5 class="card-title">' . $bot_title . '</h5>' .
+                                     '      <p class="card-text">' . $bot_description . '</p>' .
+                                     '    </div>' .
+                                     '    <div class="card-footer">' .
+                                     '      <a href="' . $bot_url . '" class="btn mb-0">View bot</a>' .
+                                     ( !empty( $bot_source_url ) ? '<a href="' . $bot_source_url . '" class="btn mb-0">View source</a>' : '' ) .
+                                     '    </div>' .
+                                     '  </div>' .
+                                     '</div>';
+                }
               }
+
+              $bot_list_html .= '</div>';
+
+
               $bot_list_html .= '</div>';
               echo $bot_list_html;
 
@@ -236,7 +233,7 @@
         ) );
 
         if ( $wp_query->post_count > 0 ){ ?>
-          <h1 id="bots">My resources</h1>
+          <h1 id="resources">My resources</h1>
           <?php
             $posts = $wp_query->posts;
 

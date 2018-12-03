@@ -167,47 +167,44 @@ class Post_Links {
       }
     }
 
-    $post_id_groups = array_chunk( $post_ids, 2 );
     $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-    $link_list_html = '<div class="mt-md-5 mb-md-5">';
+    $link_list_html = '<div class="container mt-5"><div class="row list">';
 
-    foreach ($post_id_groups as $post_ids) {
-      $link_list_html .= '<div class="card-deck mt-md-4 mb-md-4">';
-      foreach ($post_ids as $post_id) {
-        if ( get_post_status( $post_id ) === 'publish' ){
-          $link_url = get_post_meta( $post_id, 'resource_url', true );
+    foreach ($post_ids as $post_id) {
+      if ( get_post_status( $post_id ) === 'publish' ){
+        $link_url = get_post_meta( $post_id, 'resource_url', true );
 
-          if ( empty( $link_url ) ){
-            $link_url = post_permalink( $post_id );
-          }
-
-          $link_title = get_post_meta( $post_id, 'card_title', true );
-          if ( empty( $link_title ) ){
-            $link_title = get_the_title( $post_id );
-          }
-
-          $link_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
-          $link_description = ( $include_description ? get_the_excerpt( $post_id ) : '');
-
-          $link_list_html .= '    <div class="card">' .
-                             '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_thumbnail . '</a>' .
-                             '      <div class="card-body">' .
-                             '        <h5 class="card-title">' . $link_title . '</h5>' .
-                             '        <p class="card-text">' . $link_description . '</p>' .
-                             '      </div>' .
-                             '      <div class="card-footer">' .
-                             '        <a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">Browse</a>' .
-                             '      </div>' .
-                             '    </div>';
-          if ( count($post_ids) === 1 ){
-            $link_list_html .= '<div class="card d-none d-sm-block" style="visibility: hidden;"></div>';
-          }
+        if ( empty( $link_url ) ){
+          $link_url = post_permalink( $post_id );
         }
-      }
 
-      $link_list_html .= '</div>';
+        $link_title = get_post_meta( $post_id, 'card_title', true );
+        if ( empty( $link_title ) ){
+          $link_title = get_the_title( $post_id );
+        }
+
+        $link_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
+        $link_description = ( $include_description ? get_the_excerpt( $post_id ) : '');
+
+        $link_list_html .= '<div class="col-sm-12 col-md-6 no-pad list-item">' .
+                           '  <div class="card">' .
+                           '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_thumbnail . '</a>' .
+                           '    <div class="card-body">' .
+                           '      <h5 class="card-title">' . $link_title . '</h5>' .
+                           '      <p class="card-text">' . $link_description . '</p>' .
+                           '    </div>' .
+                           '    <div class="card-footer">' .
+                           '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">Browse</a>' .
+                           '    </div>' .
+                           '  </div>' .
+                           '</div>';
+      }
     }
+
+    $link_list_html .= '</div>';
+  
+
     $link_list_html .= '</div>';
 
     return $link_list_html;
