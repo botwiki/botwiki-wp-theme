@@ -114,7 +114,7 @@
             'author'            => $author_id,
             'paged'              =>  (get_query_var('paged')) ? get_query_var('paged') : 1,
             'page'              =>  (get_query_var('paged')) ? get_query_var('paged') : 1,
-            'posts_per_page'    => '5',
+            'posts_per_page'    => '6',
             'post_status'       => 'publish',
             'orderby'           => 'publish_date',
             'order'             => 'DESC'
