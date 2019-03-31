@@ -196,10 +196,6 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s; }
-    @media (max-width: 860px) {
-      .thumbnail-wrapper img {
-        -o-object-fit: cover;
-           object-fit: cover; } }
     .thumbnail-wrapper img.image-expanded {
       height: 100vh;
       max-width: 100vw;
@@ -209,8 +205,8 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 body.single-bot .thumbnail-wrapper {
   text-align: center; }
   body.single-bot .thumbnail-wrapper img {
-    -o-object-fit: none;
-       object-fit: none; }
+    -o-object-fit: cover;
+       object-fit: cover; }
 
 /* Site footer */
 .footer .footer-callout {
