@@ -23,8 +23,8 @@
       </div>
 
       <!-- footer -->
-      <footer class="footer mt-5 mb-5 background-fff" role="contentinfo">
-        <div class="container-fluid background-alternate pl-5 pr-5 pt-5 pb-1">
+      <footer class="footer mt-5 mb-0 background-fff" role="contentinfo">
+        <div class="container-fluid background-alternate pt-5 pb-5">
           <div class="container share-prompt">
             <h3>Share this <?php echo (is_front_page() ? 'site' : 'page' );?></h3>
             <?php
