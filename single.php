@@ -126,7 +126,7 @@
 					$bot_tweets_html = explode( '</blockquote>', get_post_meta( $post_id, 'bot_tweets_html', true ) );
 					?>
 
-				  <div class="row">
+				  <div class="row bot-output-examples">
 
 
 					<?php foreach ($bot_tweets_html as $tweet_html) { ?>

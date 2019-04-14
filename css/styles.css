@@ -19,7 +19,7 @@ body.admin-bar #menu-icon {
 
 body .container {
   width: 100% !important;
-  max-width: 1024px !important; }
+  max-width: 1200px !important; }
 
 img {
   max-width: 100%; }
@@ -286,6 +286,10 @@ video {
   width: 100%;
   background-color: #ccc;
   padding: 10px; }
+
+.bot-output-examples {
+  max-width: 1100px;
+  margin: 0 auto; }
 
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
@@ -587,7 +591,7 @@ div#menu-wrapper {
   z-index: 200; }
   body.home article h1,
   div#menu-wrapper h1 {
-    font-size: 9rem;
+    font-size: 8rem;
     font-weight: bold;
     margin: 2rem 0; }
   body.home article h2,
