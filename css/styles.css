@@ -21,6 +21,12 @@ body .container {
   width: 100% !important;
   max-width: 1200px !important; }
 
+body.home-page .container {
+  max-width: 1024px !important; }
+  body.home-page .container .row {
+    max-width: 1024px !important;
+    margin: 0 auto; }
+
 img {
   max-width: 100%; }
   .card img {
@@ -178,7 +184,8 @@ nav {
   #menu-wrapper .row {
     -ms-flex-item-align: start;
         align-self: flex-start;
-    max-width: 960px;
+    max-width: 1024px;
+    padding: 0;
     margin-left: auto;
     margin-right: auto; }
 

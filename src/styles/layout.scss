@@ -36,7 +36,16 @@ body{
     width: 100% !important;
     max-width: $max-content-width !important;
   }
+}
 
+body.home-page{
+  .container{
+    max-width: $menu-width !important;
+    .row{
+      max-width: $menu-width !important;
+      margin: 0 auto;
+    }
+  }
 }
 
 img{
@@ -178,7 +187,8 @@ nav{
 
   .row{
     align-self: flex-start;
-    max-width: 960px;
+    max-width: $menu-width;
+    padding: 0;
     margin-left: auto;
     margin-right: auto;
   }
