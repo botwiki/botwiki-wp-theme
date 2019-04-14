@@ -45,7 +45,7 @@ class Post_Links {
     $is_external = false;
 
     $post_ids = explode( ',', $atts['ids'] );
-    $link_list_html = '<ul class="btn-list mb-2">';
+    $link_list_html = '<ul class="btn-list mb-4">';
 
     foreach ($post_ids as $post_id) {
       $link_url = get_post_meta( $post_id, 'resource_url', true );
