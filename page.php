@@ -33,7 +33,7 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php the_content(); ?>
 			<?php if (is_front_page()){ ?>
-        <div class="col-sm-12 pt-4 pr-3 pl-3 pb-4">
+        <div class="col-sm-12 pt-4 pr-5 pl-5 pb-4">
           <?php echo get_search_form( false ); ?>
         </div>
 			<?php } ?>
