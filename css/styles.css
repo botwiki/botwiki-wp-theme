@@ -695,7 +695,10 @@ div#menu-wrapper {
 ul.btn-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 1.5rem; }
+  margin: 1.5rem 0; }
+  @media (min-width: 860px) {
+    ul.btn-list {
+      margin: 2.5rem 0; } }
   ul.btn-list li {
     display: inline; }
 

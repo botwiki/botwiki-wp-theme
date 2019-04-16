@@ -1,7 +1,11 @@
 ul.btn-list{
   list-style: none;
   padding: 0;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
+
+  @media (min-width: $site-width-small){
+    margin: 2.5rem 0;
+  }
 
   li{
     display: inline;
