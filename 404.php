@@ -11,10 +11,13 @@
             <p>Would you like to:</p>
             <ul>
               <li>
+                <a href="<?php echo home_url(); ?>/contribute/">Contribute to Botwiki?</a>
+              </li>
+              <li>
                 <a href="<?php echo home_url(); ?>">Go back to the main page?</a>
               </li>
               <li>
-                <a href="<?php echo home_url(); ?>/bots">Look at some cool bots?</a>
+                <a href="<?php echo home_url(); ?>/bots/">Look at some cool bots?</a>
               </li>
               <li>
                 <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email?</a>
