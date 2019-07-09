@@ -46,53 +46,18 @@
 
             </p>
         <!-- /post thumbnail -->
-
-
             </div>
-            <div class="card-footer text-muted">
-              <ul class="btn-list mb-0">
-                <li><a class="btn mb-0 view-article" href="<?php echo $link_url; ?> "><?php echo ( $is_external ? 'View on ' . str_replace('www.', '', parse_url($link_url)['host']) : 'Read more') ?></a></li>
-                <?php
-                if ($post_type == 'bot'){
-                  $bot_languages = wp_get_post_terms($post_id, 'programing_language');
-
-                  $bot_source_urls = array();
-
-                  if (array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0]) ){
-                    $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
-                  }
-
-                  // if ( count( $bot_source_urls ) > 0 ){ ?>
-                  <!-- 
-                    <li>
-                      <a class="btn mb-0 view-source" href="<?php echo $link_url; ?>#source-code">View source</a>
-                    </li> 
-                  -->
-                  <?php
-                  // }
-
-                }
-                if ( current_user_can('administrator') ){ ?>
-                  <li><a class="btn mb-0" href="/wp-admin/post.php?post=<?php echo $post_id; ?>&action=edit">Edit</a></li>
-                <?php } ?>
-              </ul>
-            </div>
-
           </div>
         </div>
-
       <?php endwhile; ?>
   <?php else: ?>
-
     <!-- article -->
     <div class="col-sm-12">
       <article>
-
         <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
       </article>
     </div>
     <!-- /article -->
-
   <?php endif; ?>
   </div>
 </div>
