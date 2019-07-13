@@ -78,7 +78,7 @@
             // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
             ?>
-            <div class="col-sm-6 col-md-4 col-lg-4 list-item">
+            <div class="col-sm-6 col-md-3 list-item">
 
               <div class="card w-100">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
