@@ -466,25 +466,30 @@ function fix_blog_pagination(){
 }
 
 function css_add_rel_preload( $html, $handle, $href, $media ) {
-    if ( is_admin() ){
-        return $html;
+  if ( is_admin() ){
+    return $html;
   }
-     $html = <<<EOT
+  $html = <<<EOT
 <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" id='$handle' href='$href' type='text/css' media='all' />
 <link rel='stylesheet' id='$handle' href='$href' type='text/css' media='all' />
 EOT;
-    return $html;
+  return $html;
 }
 
 add_filter( 'style_loader_tag', 'css_add_rel_preload', 10, 4 );
 
 
 function enqueue_scripts_async( $tag, $handle, $src ) {
-    if ( $handle === '_excluded_script' ){
-        return $tag;
-    } else{
-      return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
-    }
+  $excluded_scripts = array(
+    'jquery-core',
+    'jquery-migrate'
+  );
+
+  if ( in_array( $handle, $excluded_scripts ) ){
+    return $tag;
+  } else{
+    return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+  }
 }
 
 add_filter( 'script_loader_tag', 'enqueue_scripts_async', 10, 3 );
