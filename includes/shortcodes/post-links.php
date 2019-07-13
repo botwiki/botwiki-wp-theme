@@ -187,15 +187,16 @@ class Post_Links {
         $link_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
         $link_description = ( $include_description ? get_the_excerpt( $post_id ) : '');
 
-        $link_list_html .= '<div class="col-sm-12 col-md-6 no-pad list-item">' .
+        $link_list_html .= '<div class="col-sm-12 col-md-6 col-lg-4 list-item">' .
                            '  <div class="card">' .
                            '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_thumbnail . '</a>' .
                            '    <div class="card-body">' .
-                           '      <h5 class="card-title">' . $link_title . '</h5>' .
+                           '      <h5 class="card-title">' .
+                           '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
+                                     $link_title .
+                           '      </a>' .
+                           '      </h5>' .
                            '      <p class="card-text">' . $link_description . '</p>' .
-                           '    </div>' .
-                           '    <div class="card-footer">' .
-                           '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '" class="btn">Browse</a>' .
                            '    </div>' .
                            '  </div>' .
                            '</div>';
