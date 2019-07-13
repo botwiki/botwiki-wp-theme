@@ -195,7 +195,9 @@
     <meta name="theme-color" content="#38313a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Code+Pro&display=auto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Code+Pro&display=auto' rel='stylesheet' type='text/css'>
+    <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=auto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=auto' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
   </head>
