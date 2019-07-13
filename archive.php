@@ -103,11 +103,12 @@
         <a class="btn mb-3" href="/bot/?tags=generative,images">#generative+images</a>
         <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
         <a class="btn mb-3" href="/bot/?tags=generative,emoji">#generative+emoji</a>
+      <?php } elseif( !empty( $_GET['tags'] ) && in_array( 'iot', explode( ',', $_GET['tags'] ) ) ){ ?>
+        <a class="btn mb-3" href="/bot/?tags=iot,webcam">#iot+webcam</a>
       <?php } ?>
 
 			<?php get_template_part( 'loop' ); ?>
 			<?php get_template_part( 'pagination' ); ?>
-
 
       <?php if(is_author()){
 
