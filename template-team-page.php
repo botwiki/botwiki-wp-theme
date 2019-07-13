@@ -80,7 +80,7 @@
             ?>
             <div class="col-sm-6 col-md-4 col-lg-4 list-item">
 
-              <div class="card">
+              <div class="card w-100">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
                   <img class="card-img-top" src="<?php echo str_replace('?s=96', '?s=512', get_avatar_url($author_id)); ?>" alt="<?php echo $full_name; ?>">
                 </a>

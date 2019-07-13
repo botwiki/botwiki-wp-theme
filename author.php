@@ -181,8 +181,8 @@
 
                   $bot_description = get_the_excerpt( $post_id );
 
-                  $bot_list_html .= '<div class="col-sm-12 col-md-4 no-pad list-item">' .
-                                     ' <div class="card">' .
+                  $bot_list_html .= '<div class="col-sm-12 col-md-6 col-lg-4 no-pad list-item">' .
+                                     ' <div class="card w-100">' .
                                      '    <a href="' . $bot_url . '">' .
                                      '      <img src="' . $bot_thumbnail_url . '" data-src="' . $bot_thumbnail_url . '" class="card-img-top lazy-load" >' .
                                      '    </a>' .

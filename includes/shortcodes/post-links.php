@@ -188,7 +188,7 @@ class Post_Links {
         $link_description = ( $include_description ? get_the_excerpt( $post_id ) : '');
 
         $link_list_html .= '<div class="col-sm-12 col-md-6 col-lg-4 list-item">' .
-                           '  <div class="card">' .
+                           '  <div class="card w-100">' .
                            '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_thumbnail . '</a>' .
                            '    <div class="card-body">' .
                            '      <h5 class="card-title">' .
