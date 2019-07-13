@@ -33,12 +33,12 @@ ul.btn-list{
     // box-shadow: 1px 1px 0 $color-primary + #222;
     color: $color-primary;
     text-decoration: none;
-    background-color: #fafafa;
+    background-color: #dedede;
   }
 
   &,
   &:hover{
-    transition: background-color 0.2s;
+    transition: background-color 0.1s;
     text-decoration: none;
   }
 

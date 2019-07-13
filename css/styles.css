@@ -717,11 +717,11 @@ ul.btn-list {
   .btn:hover {
     color: #4d4350;
     text-decoration: none;
-    background-color: #fafafa; }
+    background-color: #dedede; }
   .btn, .btn:hover {
-    -webkit-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
+    transition: background-color 0.1s;
     text-decoration: none; }
   .btn, .btn-link {
     white-space: nowrap;
