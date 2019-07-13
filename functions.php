@@ -477,3 +477,14 @@ EOT;
 }
 
 add_filter( 'style_loader_tag', 'css_add_rel_preload', 10, 4 );
+
+
+function enqueue_polar_scripts_async( $tag, $handle, $src ) {
+    if ( $handle === '_excluded_script' ){
+        return $tag;
+    } else{
+      return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+    }
+}
+
+add_filter( 'script_loader_tag', 'enqueue_scripts_async', 10, 3 );
