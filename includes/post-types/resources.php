@@ -145,6 +145,7 @@ class ResourcesPostType {
       'labels'                     => $labels,
       'hierarchical'               => false,
       'public'                     => true,
+      'show_in_rest'               => true,
       'show_ui'                    => true,
       'show_admin_column'          => true,
       'show_in_nav_menus'          => true,

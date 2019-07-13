@@ -178,6 +178,7 @@ class BotsPostType {
       'labels'                     => $labels,
       'hierarchical'               => false,
       'public'                     => true,
+      'show_in_rest'               => true,
       'show_ui'                    => true,
       'show_admin_column'          => true,
       'show_in_nav_menus'          => true,
@@ -216,6 +217,7 @@ class BotsPostType {
       'public'                     => true,
       'show_ui'                    => true,
       'show_admin_column'          => true,
+      'show_in_rest'               => true,
       'show_in_nav_menus'          => true,
       'rewrite' =>  array('slug' => 'languages', 'with_front' => false),
       'show_tagcloud'              => true
