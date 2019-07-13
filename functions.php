@@ -485,7 +485,7 @@ function enqueue_scripts_async( $tag, $handle, $src ) {
     'jquery-migrate'
   );
 
-  if ( in_array( $handle, $excluded_scripts ) ){
+  if ( is_admin() || in_array( $handle, $excluded_scripts ) ){
     return $tag;
   } else{
     return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
