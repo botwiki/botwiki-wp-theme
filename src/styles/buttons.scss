@@ -26,14 +26,14 @@ ul.btn-list{
   }
   
   color: $color-primary !important;
-  background-color: #fafafa;
+  background-color: #fff;
   font-size: 0.9em;
 
   &:hover{
     // box-shadow: 1px 1px 0 $color-primary + #222;
     color: $color-primary;
     text-decoration: none;
-    background-color: #fafafa - #111;
+    background-color: #fafafa;
   }
 
   &,
