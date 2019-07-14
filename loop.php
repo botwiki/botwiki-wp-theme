@@ -3,7 +3,7 @@
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
       <div class="col-sm-12 col-md-6 col-lg-4 list-item">
 
-        <div class="card mb-3">
+        <div class="card mb-3 w-100">
         <!-- article -->
         <?php
           $is_external = false;
