@@ -120,6 +120,26 @@
             <p>For attributions, see the <a href="<?php echo site_url(); ?>/about/attributions">Attributions page</a>.</p>
           </div>
         </div>
+        <div class="container">
+          <div class="row mt-5 mb-5">
+            <div class="col-sm-6 col-md-3">
+              <p class="text-center">
+                <a href="http://fascist.republican/">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
+                </a>
+              </p>              
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <p class="text-center">
+                <a href="https://indieweb.org/">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
+                </a>
+              </p>              
+            </div>
+            <div class="col-sm-6 col-md-3">
+            </div>
+          </div>
+        </div>
       </footer>
       <!-- /footer -->
     <?php wp_footer(); ?>
