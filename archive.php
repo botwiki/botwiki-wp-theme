@@ -79,13 +79,13 @@
           }
 
           if ( !empty( $_GET['tags'] ) ){
-            $tags = implode( ' ', array_map( 'tag_links', explode( ',', $_GET['tags'] ) ) );
+            $tag_links = implode( ' ', array_map( 'tag_links', explode( ',', $_GET['tags'] ) ) );
           }
 
           ?>
           <h1>Browsing <?php 
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
-          ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tags ); ?>&nbsp;...</h1>
+          ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
         <?php }
         else {?>
           <h1>Browsing all <?php
@@ -97,21 +97,44 @@
         <h1>Archives</h1>
       <?php } ?>
 
-      <?php if( !empty( $_GET['tags'] ) && in_array( 'opensource', explode( ',', $_GET['tags'] ) ) ){ ?>
-        <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
-      <?php } elseif( !empty( $_GET['tags'] ) && in_array( 'generative', explode( ',', $_GET['tags'] ) ) ){ ?>
-        <a class="btn mb-3" href="/bot/?tags=generative,images">#generative+images</a>
-        <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
-        <a class="btn mb-3" href="/bot/?tags=generative,emoji">#generative+emoji</a>
-      <?php } elseif( !empty( $_GET['tags'] ) && in_array( 'iot', explode( ',', $_GET['tags'] ) ) ){ ?>
-        <a class="btn mb-3" href="/bot/?tags=iot,images">#iot+images</a>
-      <?php } ?>
+      <?php
+      if ( !empty( $_GET['tags'] ) ){
+        $tags = explode( ',', $_GET['tags'] );
+
+        if ( in_array( 'opensource', $tags ) ) { ?>
+          <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+        <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
+          <a class="btn mb-3" href="/bot/?tags=generative,images">#generative+images</a>
+          <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
+          <a class="btn mb-3" href="/bot/?tags=generative,emoji">#generative+emoji</a>
+        <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
+          <a class="btn mb-3" href="/bot/?tags=iot,images">#iot+images</a>
+        <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
+          <div class="card pt-5 mt-5 mb-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-4 text-center p-l">
+                    <img src="https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
+                </div>
+                <div class="col-sm-12 col-md-8">
+                  <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
+                  <p>Monthly Bot Challenge is a recurring community event dedicated to showcasing friendly, useful, artistic online bots.</p>
+                  <p><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        <?php }
+      } ?>
 
 			<?php get_template_part( 'loop' ); ?>
 			<?php get_template_part( 'pagination' ); ?>
 
       <?php if(is_author()){
-
         if ( user_can($author_id, 'administrator') ){  
           $botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
           if ( empty( $botwiki_team_role ) ){
