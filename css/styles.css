@@ -699,8 +699,9 @@ ul.btn-list {
   @media (min-width: 860px) {
     ul.btn-list {
       margin: 2.5rem 0; } }
-  ul.btn-list li {
-    display: inline; }
+  @media (min-width: 860px) {
+    ul.btn-list li {
+      display: inline; } }
 
 .btn {
   font-family: "Source Code Pro", monospace;

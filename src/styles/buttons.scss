@@ -8,7 +8,9 @@ ul.btn-list{
   }
 
   li{
-    display: inline;
+    @media (min-width: $site-width-small){
+      display: inline;
+    }
   }
 }
 
