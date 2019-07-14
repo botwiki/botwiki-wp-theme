@@ -125,14 +125,14 @@
             <div class="col-sm-6 col-md-3">
               <p class="text-center">
                 <a href="http://fascist.republican/">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
+                  <img alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
                 </a>
               </p>              
             </div>
             <div class="col-sm-6 col-md-3">
               <p class="text-center">
                 <a href="https://indieweb.org/">
-                  <img src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
+                  <img alt="IndieWeb" title="Support #indieweb!" src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
                 </a>
               </p>              
             </div>
