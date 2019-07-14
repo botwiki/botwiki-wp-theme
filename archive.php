@@ -86,11 +86,16 @@
           <h1>Browsing <?php 
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
           ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
-        <?php }
-        else {?>
+        <?php } else {?>
           <h1>Browsing all <?php
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
           ?> bots...</h1>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
+            <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
+            <li><a class="btn" href="/random-bot">Random bot</a></li>
+            <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
+          </ul>
         <?php } ?>
       <?php }
       else{ ?>
