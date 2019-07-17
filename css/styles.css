@@ -194,7 +194,10 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 
 /* Site thumbnail */
 .thumbnail-wrapper {
-  text-align: center; }
+  text-align: center;
+  margin: 0 auto;
+  width: 100% !important;
+  max-width: 1200px !important; }
   .thumbnail-wrapper img {
     height: 45vh;
     -o-object-fit: cover;
