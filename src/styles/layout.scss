@@ -212,6 +212,10 @@ ul.navbar-nav{
 
   width: 100% !important;
   max-width: $max-content-width !important;
+
+  &.image-expanded{
+    max-width: 100vw !important;
+  }
   
   img{
     height: 45vh;
@@ -222,7 +226,7 @@ ul.navbar-nav{
     &.image-expanded{
       height: 100vh;
       max-width: 100vw;
-      object-fit: none;
+      object-fit: contain;
     }
   }
 }
