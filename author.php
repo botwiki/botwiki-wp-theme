@@ -66,42 +66,9 @@
 
 	<main role="main" class="container">
     <div class="mt-5">
-      <div class="row">
-        <div class="col-sm-12 col-md-2 text-center">
-          <img class="mr-3 mb-4 u-photo rounded" src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
-        </div>
-        <div class="col-sm-12 col-md-10">
-          <h1 class="mt-0 mb-3"><?php echo $nickname; ?></h1>
-        </div>
-        <div class="col-sm-12">
-          <div class="card mt-4 mb-4">
-            <div class="card-body">
-              <p class="card-text font-weight-bold"><?php echo $botwiki_team_role; ?></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12">
-          <div class="p-note">
-            <?php echo $description; ?>
-          </div>
-          <div>
-          <ul class="btn-list mt-5">
-            <?php if ( !empty( $website_url )){ ?> 
-              <li> 
-                <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?>
-                </a>  
-              </li> 
-            <?php } ?>  
-            <?php if ( !empty( $twitter_handle )){ ?> 
-              <li>  
-                <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a> 
-              </li> 
-            <?php } ?>  
-          </ul>            
-          </div>
-        </div>
-      </div>
-
+      <?php
+        include( locate_template( 'author-card.php', false, false ) );
+      ?>
 			<?php if ( count_user_posts( $author_id ) > 0 ) {  ?> 
 
 				<h1 id="blog">My blog posts</h1>
