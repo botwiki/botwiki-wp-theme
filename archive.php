@@ -108,6 +108,9 @@
 
         if ( in_array( 'opensource', $tags ) ) { ?>
           <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+        <?php } elseif ( in_array( 'images', $tags ) ) { ?>          
+          <a class="btn mb-3" href="/bot/?tags=images,generative">#images+generative</a>
+          <a class="btn mb-3" href="/bot/?tags=images,iot">#images+iot</a>
         <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
           <a class="btn mb-3" href="/bot/?tags=generative,images">#generative+images</a>
           <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
