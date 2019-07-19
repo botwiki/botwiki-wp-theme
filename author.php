@@ -59,7 +59,7 @@
 
   if ( !empty( $background_img_url ) ){ ?>
 		<div class="thumbnail-wrapper" style="<?php echo $background_img_dominant_color_css; ?>">
-			<img src="<?php echo $background_img_url; ?>">
+			<img src="<?php echo $background_img_url; ?>" class="expand-image">
 		</div>
   <?php }
 ?>

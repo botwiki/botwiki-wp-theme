@@ -21,7 +21,7 @@
     <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
       <?php
         $post_thumbnail_id = get_post_thumbnail_id();
-        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load', 'title' => get_post($post_thumbnail_id)->post_title ]);
+        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
       ?>
     </div>
     <div class="container">
@@ -41,17 +41,19 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-4 text-center p-l">
                     <!-- post thumbnail -->
+                    <a href="<?php echo get_permalink( $child->ID ); ?>">
                     <?php
-
-                    $post_thumbnail_id = get_post_thumbnail_id( $child->ID );
-                    the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load mb-5', 'title' => get_post($post_thumbnail_id)->post_title ]);
+                      $post_thumbnail_id = get_post_thumbnail_id( $child->ID );
+                      the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load mb-5', 'title' => get_post($post_thumbnail_id)->post_title ]);
                     ?>
+                    </a>
                     <!-- /post thumbnail -->
                   </div>
                   <div class="col-sm-12 col-md-8">
-                    <h2 id="<?php echo $slug; ?>"><?php echo $page_title; ?></h2>
+                    <h2 id="<?php echo $slug; ?>">
+                      <a href="<?php echo get_permalink( $child->ID ); ?>"><?php echo $page_title; ?></a>
+                    </h2>
                     <p><?php echo get_the_excerpt( $child->ID ); ?></p>
-                    <p><a class="btn" href="<?php echo get_permalink( $child->ID ); ?>">Read more</a></p>
                   </div>
                 </div>
               </div>
