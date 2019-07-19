@@ -73,30 +73,23 @@
             else{
               $botwiki_team_role = "Botwiki contributor.";    
             }
-
             // $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
             // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
-
             ?>
             <div class="col-sm-6 col-md-3 list-item">
-
               <div class="card w-100">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
                   <img class="card-img-top" src="<?php echo str_replace('?s=96', '?s=512', get_avatar_url($author_id)); ?>" alt="<?php echo $full_name; ?>">
                 </a>
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo $nickname; ?></h5>
+                  <h5 class="card-title">
+                      <a href="<?php echo get_author_posts_url($author_id, $username ); ?>"><?php echo $nickname; ?></a>  
+                    </h5>
                   <p class="card-text"><?php echo $botwiki_team_role; ?></p>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="<?php echo get_author_posts_url($author_id, $username ); ?>" class="btn btn-primary">View profile</a>
                 </div>
               </div>
             </div>
-
-            
             <?php } ?>
-
             </div>
           </div>
           <?php            

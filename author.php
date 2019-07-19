@@ -187,12 +187,10 @@
                                      '      <img src="' . $bot_thumbnail_url . '" data-src="' . $bot_thumbnail_url . '" class="card-img-top lazy-load" >' .
                                      '    </a>' .
                                      '    <div class="card-body">' .
-                                     '      <h5 class="card-title">' . $bot_title . '</h5>' .
+                                     '      <h5 class="card-title">' .
+                                     '      <a href="' . $bot_url . '" class="mb-0">' . $bot_title  . '</a>' .
+                                     '      </h5>' .
                                      '      <p class="card-text">' . $bot_description . '</p>' .
-                                     '    </div>' .
-                                     '    <div class="card-footer">' .
-                                     '      <a href="' . $bot_url . '" class="btn mb-0">View bot</a>' .
-                                     ( !empty( $bot_source_url ) ? '<a href="' . $bot_source_url . '" class="btn mb-0">View source</a>' : '' ) .
                                      '    </div>' .
                                      '  </div>' .
                                      '</div>';
@@ -200,30 +198,27 @@
               }
 
               $bot_list_html .= '</div>';
-
-
               $bot_list_html .= '</div>';
               echo $bot_list_html;
-
               ?>
+              <?php
+                if ( count( $author_tags_bots ) ){ ?>
+                  <h2 id="bot-tags">Bot tags</h2>
+                  <p class="post-tags mt-5 mb-5"><?php
+                    foreach ( $author_tags_bots as $tag ) {
+                      $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
+                    }
+                    echo join( ' ', $author_tags_bots_html );
+                  ?></p>
+                <?php } ?>
               <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
-
-              <p class="post-tags mt-5 mb-5"><?php
-
-                foreach ( $author_tags_bots as $tag ) {
-                  $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
-                }
-
-                echo join( ' ', $author_tags_bots_html );
-              ?></p>
-          <?php }
-        ?>
+          <?php } ?>
       <?php
         global $wp_query;
 
         $wp_query = new WP_Query( array(
           'post_type'         => 'resource',
-          'posts_per_page'    => '5',
+          'posts_per_page'    => '6',
           'author'            => $author_id,
           'post_status'       => 'publish',
           'orderby'           => 'publish_date',
@@ -247,16 +242,19 @@
 
             get_template_part('loop');
           ?>
-          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>
-          <p class="post-tags mt-5 mb-5"><?php
-            foreach ( $author_tags_resources as $tag ) {
-              $author_tags_resources_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=resource&tags=' . $tag . '">' . $tag . '</a> ';
-            }
+          <?php
+          if ( count( $author_tags_resources ) ){ ?>
+            <h2 id="resource-tags">Resource tags</h2>
+            <p class="post-tags mt-5 mb-5"><?php
+              foreach ( $author_tags_resources as $tag ) {
+                $author_tags_resources_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=resource&tags=' . $tag . '">' . $tag . '</a> ';
+              }
 
-            echo join( ' ', $author_tags_resources_html );
-          ?></p>
-        <?php }        
-      ?>
+              echo join( ' ', $author_tags_resources_html );
+            ?></p>
+          <?php } ?>
+          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
+        <?php } ?>
 		</div>
 	</main>
 
