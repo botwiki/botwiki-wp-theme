@@ -204,7 +204,12 @@ ul.navbar-nav{
 
 .thumbnail-wrapper{
   text-align: center;
-  margin: 0 auto;
+  margin: 2em auto 0;
+
+  @media(max-width: $site-width-small){
+    margin-top: 1em;
+  }
+
   width: 100% !important;
   max-width: $max-content-width !important;
   

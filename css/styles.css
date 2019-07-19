@@ -195,9 +195,12 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 /* Site thumbnail */
 .thumbnail-wrapper {
   text-align: center;
-  margin: 0 auto;
+  margin: 2em auto 0;
   width: 100% !important;
   max-width: 1200px !important; }
+  @media (max-width: 860px) {
+    .thumbnail-wrapper {
+      margin-top: 1em; } }
   .thumbnail-wrapper img {
     height: 45vh;
     -o-object-fit: cover;
