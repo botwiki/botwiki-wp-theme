@@ -390,12 +390,11 @@
             </div>
             <div id="botmaker-badge-application" class="mt-3 d-none">
               <div class="form-group">
-                <input type="email" class="form-control" id="resource-author-email" name="resource-author-email" placeholder="coolresourceauthor@email.com">
-                <small id="resource-author-email-help" class="form-text text-muted">We will send your badge to this email. No spam, ever!</small>
+                <label for="resource-author-email">List of email addresses of all authors</label>
+                <textarea class="form-control" id="resource-author-email" name="resource-author-email" rows="3" placeholder="coolbotresourceauthor@email.com"></textarea>
+                <small id="resource-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
               </div>
             </div>
-
-
             <button id="resource-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
           </form>
         </article>

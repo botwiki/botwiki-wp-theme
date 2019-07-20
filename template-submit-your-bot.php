@@ -430,42 +430,35 @@
               </div>
               <div class="form-group">
                 <label for="bot-source-language">What language(s) did you use?</label>
-
                 <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0">
                 <?php
                   $languages = get_terms( 'programing_language', array(
                       'hide_empty' => false,
                   ) );
-
                   foreach ($languages as $language) { ?>
                     <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
                   <?php }
                 ?> 
                 </select>
-
                 <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
               </div>
             </div>
             <div class="form-group">
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
-
               <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search..."></select>
-
               <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it.</small>
             </div>
-
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
               <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
             </div>
             <div id="botmaker-badge-application" class="mt-3 d-none">
               <div class="form-group">
-                <input type="email" class="form-control" id="bot-author-email" name="bot-author-email" placeholder="coolbotauthor@email.com">
-                <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to this email. No spam, ever!</small>
+                <label for="bot-author-email">List of email addresses of all authors</label>
+                <textarea class="form-control" id="bot-author-email" name="bot-author-email" rows="3" placeholder="coolbotauthor@email.com"></textarea>                
+                <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
               </div>
             </div>
-
-
             <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
           </form>
         </article>

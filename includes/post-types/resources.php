@@ -190,10 +190,11 @@ class ResourcesPostType {
     <?php
     if ( isset( $resource_meta['resource_author_email'] ) && strlen( $resource_meta['resource_author_email'][0] ) > 0 ){
       $botmaker_badge_awarded = ( array_key_exists('botmaker_badge_awarded', $resource_meta ) && $resource_meta['botmaker_badge_awarded'][0] == "on" );
+      $bot_resource_author_emails = implode( ', ', preg_split('/\s+/', $resource_meta['resource_author_email'][0] ) );
       ?>
       <div class="notice <?php echo ($botmaker_badge_awarded ? "notice-info" : "notice-warning"); ?> inline">
         <p>
-          <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/t93HNcivRduXM8dekI2FIg/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $resource_meta['resource_author_email'][0]; ?></code>.
+          <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/t93HNcivRduXM8dekI2FIg/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_resource_author_emails; ?></code>.
         </p>
         <p>
           <label>
