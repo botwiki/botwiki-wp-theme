@@ -235,7 +235,7 @@
             <div class="col-sm-6 col-md-6 col-lg-3 list-item">
               <div class="card w-100">
                 <a href="/random-bot/">
-                  <img class="card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot">
+                  <img class="card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
