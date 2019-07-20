@@ -116,6 +116,9 @@
           <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
           <a class="btn mb-3" href="/bot/?tags=generative,emoji">#generative+emoji</a>
         <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
+        <?php } elseif ( in_array( 'interactive', $tags ) ) { ?>
+          <a class="btn mb-3" href="/bot/?tags=interactive,game">#interactive+game</a>
+        <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
           <a class="btn mb-3" href="/bot/?tags=iot,images">#iot+images</a>
         <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
           <div class="card pt-5 mt-5 mb-2">
