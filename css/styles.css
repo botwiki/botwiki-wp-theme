@@ -94,6 +94,7 @@ nav {
     top: 10px;
     color: #fff;
     text-shadow: 0 0 5px #000;
+    text-shadow: 0 1px 2px #000, 0 0 1px #000;
     pointer-events: all; }
     @media (max-width: 860px) {
       nav #menu-icon {
