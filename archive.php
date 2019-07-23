@@ -100,14 +100,35 @@
       <?php }
       else{ ?>
         <h1>Archives</h1>
-      <?php } ?>
+      <?php }
 
-      <?php
       if ( !empty( $_GET['tags'] ) ){
         $tags = explode( ',', $_GET['tags'] );
 
         if ( in_array( 'opensource', $tags ) ) { ?>
           <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+        <?php } elseif ( in_array( 'cheapbotsdonequick', $tags ) ) { ?>          
+          <div class="card pt-5 mt-5 mb-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-4 text-center p-l">
+                    <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/08/cheap-bots-done-quick.png 1920w, /wp-content/uploads/2018/08/cheap-bots-done-quick-250x110.png 250w, /wp-content/uploads/2018/08/cheap-bots-done-quick-768x339.png 768w, /wp-content/uploads/2018/08/cheap-bots-done-quick-700x309.png 700w, /wp-content/uploads/2018/08/cheap-bots-done-quick-120x53.png 120w" />
+                </div>
+                <div class="col-sm-12 col-md-8">
+                  <h2 id="monthly-bot-challenge">Cheap Bots, Done Quick!</h2>
+                  <p>An open-source website that lets you create Twitter bots using a text-generating language called Tracery.</p>
+                  <ul class="btn-list">
+                    <li>
+                      <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
+                    </li>
+                    <li>
+                      <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with author</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         <?php } elseif ( in_array( 'images', $tags ) ) { ?>          
           <a class="btn mb-3" href="/bot/?tags=images,generative">#images+generative</a>
           <a class="btn mb-3" href="/bot/?tags=images,iot">#images+iot</a>
@@ -125,7 +146,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-12 col-md-4 text-center p-l">
-                    <img src="https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, https://botwiki.org/wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
+                    <img src="/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, /wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, /wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, /wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, /wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
                 </div>
                 <div class="col-sm-12 col-md-8">
                   <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
@@ -135,10 +156,6 @@
               </div>
             </div>
           </div>
-
-
-
-
         <?php }
       } ?>
 
