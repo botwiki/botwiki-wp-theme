@@ -129,6 +129,28 @@
               </div>
             </div>
           </div>
+        <?php } elseif ( in_array( 'botsin.space', $tags ) || in_array( 'botsin-space', $tags ) ) { ?>          
+          <div class="card pt-5 mt-5 mb-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-4 text-center p-l">
+                    <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/09/botsin-space-bots-glitch.png 603w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-250x114.png 250w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-120x55.png 120w" />
+                </div>
+                <div class="col-sm-12 col-md-8">
+                  <h2 id="monthly-bot-challenge">botsin.space</h2>
+                  <p>A Mastodon instance for hosting friendly bots.</p>
+                  <ul class="btn-list">
+                    <li>
+                      <a class="btn" href="https://botsin.space/">Visit site</a>
+                    </li>
+                    <li>
+                      <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with author</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         <?php } elseif ( in_array( 'images', $tags ) ) { ?>          
           <a class="btn mb-3" href="/bot/?tags=images,generative">#images+generative</a>
           <a class="btn mb-3" href="/bot/?tags=images,iot">#images+iot</a>
