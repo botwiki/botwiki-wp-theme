@@ -177,7 +177,6 @@
             <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
             <?php echo $glitch_link; ?>            
           </ul>
-        <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
         <?php } elseif ( in_array( 'interactive', $tags ) ) { ?>
           <ul class="btn-list">
             <li><a class="btn" href="/bot/?tags=interactive,game<?php echo $filter_opensource;?>">#interactive+game</a></li>
