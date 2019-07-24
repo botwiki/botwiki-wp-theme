@@ -411,8 +411,20 @@ class BotsPostType {
         if ($bot_tweets){
           foreach ($bot_tweets as $index=>$tweet_url) {
             if ( strpos( $tweet_url, 'twitter.com/' ) !== false ){
-              $data = file_get_contents($twitter_oembed . urlencode($tweet_url));
+              $data = file_get_contents($twitter_oembed . urlencode( $tweet_url ));
               $bot_tweets_html .= json_decode($data)->html;              
+            }
+            elseif ( strpos( $tweet_url, 'youtube.com/' ) !== false ){
+              $data = file_get_contents( 'https://www.youtube.com/oembed?url=' . urlencode( $tweet_url ) . '&format=json' );
+              $bot_tweets_html .= json_decode($data)->html;
+            }
+            elseif ( strpos( $tweet_url, 'twitch.tv/' ) !== false ){
+              $data = file_get_contents( 'https://api.twitch.tv/v5/oembed?url=' . urlencode( $tweet_url ) );
+              $bot_tweets_html .= json_decode($data)->html;
+            }
+            elseif ( strpos( $tweet_url, 'tumblr.com/post/' ) !== false ){
+              $data = file_get_contents( 'https://www.tumblr.com/oembed/1.0?url=' . urlencode( $tweet_url ) );
+              $bot_tweets_html .= json_decode($data)->html;
             }
             elseif ( strpos( $tweet_url, 'botsin.space/' ) !== false ||
                      strpos( $tweet_url, 'mastodon.social/' ) !== false ) {

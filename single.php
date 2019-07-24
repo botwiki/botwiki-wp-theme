@@ -116,33 +116,44 @@
 
         if ( $post_type == 'bot' ) { 
           $networks = get_the_terms($post_id, 'network');
-          function get_network_name($network){
+          function get_network_name( $network ){
             return $network->name;
           }
 
-          $network_names = array_map("get_network_name", $networks);
+          $network_names = array_map( 'get_network_name', $networks);
+          $bot_tweets_html_meta = get_post_meta( $post_id, 'bot_tweets_html', true );
 
-          // $bot_tweets_html = get_post_meta( $post_id, 'bot_tweets_html', true );
-          $bot_tweets_html = explode( '</blockquote>', get_post_meta( $post_id, 'bot_tweets_html', true ) );
+          $tumblr_script = '<script async src="https://assets.tumblr.com/post.js"></script>';
+
+          $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
           ?>
-
           <div class="row social-embeds">
+          <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
 
-
-          <?php foreach ($bot_tweets_html as $tweet_html) { ?>
+            <?php log_this( '$tweet_html', $tweet_html ); ?>
             <div class="col-sm-12 col-md-6">
               <?php
-              if ( strpos($tweet_html, 'twitter-tweet')){
+              if ( strpos( $tweet_html, 'twitter-tweet' ) !== false ){
                 echo $tweet_html . '</blockquote>';
               }
-              elseif ( strpos($tweet_html, 'mastodon-embed')){
-                echo str_replace( '<blockquote>', '', $tweet_html) ;
+              elseif ( strpos( $tweet_html, 'mastodon-embed' ) !== false ){
+                echo str_replace( '<blockquote>', '', $tweet_html ) ;
+              }
+              elseif ( strpos( $tweet_html, 'player.twitch.tv' ) !== false ){ ?>
+                <div class="video-background">
+                  <div class="video-wrapper"><?php echo $tweet_html . '</iframe>'; ?></div>
+                </div>
+              <?php }
+              elseif ( strpos( $tweet_html, 'tumblr-post' ) !== false ){
+                echo $tweet_html . $tumblr_script;
+              }
+              else {
+                echo $tweet_html;
               }
               ?>
             </div>
           <?php } ?>
           </div>
-
           <?php if ( count( $bot_source_urls ) > 0 ){
             global $helpers;
             ?>
@@ -158,19 +169,15 @@
               <?php } ?>
             </ul>
           <?php } ?>
-
           <!-- post details -->
           <p class="post-tags mt-5 mb-5">
             <?php 
-
               $network_tags = array();
-
               if ($networks){
                 foreach ( $networks as $network ) {
                   $network_tags[] = '<a href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->slug . '</a> ';
                 }               
               }
-
 
               echo join( ' ', $network_tags );
 
@@ -196,7 +203,6 @@
               }
 
               echo join( ' ', $tags_array );
-
               // the_tags('', ' ', '<br>');
             ?>
           </p>
@@ -327,8 +333,6 @@
                 }
               }
             }
-
-
         if ( get_post_type() == 'post' ) { ?>
           <!-- post details -->
           <?php
