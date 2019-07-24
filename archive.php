@@ -237,7 +237,7 @@
                   <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
                   <p>Monthly Bot Challenge is a recurring community event dedicated to showcasing friendly, useful, artistic online bots.</p>
                   <ul class="btn-list">
-                    <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></p></li>
+                    <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></li>
                     <?php
                       echo $glitch_link;
                       echo $narrow_opensource_link;
