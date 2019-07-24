@@ -80,7 +80,7 @@
 
         if ( $_GET['networks'] || $_GET['languages'] || $_GET['tags'] ){
           function network_links( $network ){
-            return "<a href='" . get_site_url() . "/networks/$network'>#$network</a> ";
+            return "<a href='" . get_site_url() . "/bot/?networks=$network'>#$network</a> ";
           }
 
           if ( !empty( $_GET['networks'] ) ){
@@ -89,7 +89,7 @@
 
 
           function language_links( $language ){
-            return "<a href='" . get_site_url() . "/languages/$language'>#$language</a> ";
+            return "<a href='" . get_site_url() . "/bot/?languages=$language'>#$language</a> ";
           }
 
           if ( !empty( $_GET['languages'] ) ){
@@ -108,6 +108,12 @@
           <h1>Browsing <?php 
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
           ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
+          <ul class="btn-list">
+            <?php
+              echo $glitch_link;
+              echo $narrow_opensource_link;
+            ?>
+          </ul>          
         <?php } else {?>
           <h1>Browsing all <?php
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );

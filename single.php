@@ -167,7 +167,7 @@
 
               if ($networks){
                 foreach ( $networks as $network ) {
-                  $network_tags[] = '<a href="' . $site_url . '/networks/' . $network->slug . '">' . $network->slug . '</a> ';
+                  $network_tags[] = '<a href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->slug . '</a> ';
                 }               
               }
 
