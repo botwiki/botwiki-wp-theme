@@ -110,10 +110,10 @@
           ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
           <ul class="btn-list">
             <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-              $glitch_link = '';
-              $narrow_opensource_link = '';
+              // echo $glitch_link;
+              // echo $narrow_opensource_link;
+              // $glitch_link = '';
+              // $narrow_opensource_link = '';
             ?>
           </ul>
         <?php } else {?>
@@ -126,8 +126,10 @@
             <li><a class="btn" href="/random-bot">Random bot</a></li>
             <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
             <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
+              // echo $glitch_link;
+              // echo $narrow_opensource_link;
+              // $glitch_link = '';
+              // $narrow_opensource_link = '';              
             ?>
           </ul>
         <?php } ?>
