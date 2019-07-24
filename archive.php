@@ -1,6 +1,14 @@
 <?php get_header();
   $site_url = get_site_url();
 
+  if ( !empty( $_GET['opensource'] ) ){
+    $glitch_link = '<li><a class="btn" href="https://glitch.com/@botwiki">Botwiki on Glitch🎏</a></li>';
+    $filter_opensource = '&opensource=true';
+  } else {
+    $glitch_link = '';
+    $filter_opensource = '';
+  }
+
   if(is_author()){
     $author_id = get_query_var('author');
 
@@ -75,7 +83,7 @@
           }
 
           function tag_links( $tag ){
-            return "<a href='" . get_site_url() . "/tag/$tag'>#$tag</a> ";
+            return "<a href='" . get_site_url() . "/bot/?tags=$tag'>#$tag</a> ";
           }
 
           if ( !empty( $_GET['tags'] ) ){
@@ -95,6 +103,7 @@
             <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
             <li><a class="btn" href="/random-bot">Random bot</a></li>
             <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
+            <?php echo $glitch_link; ?>
           </ul>
         <?php } ?>
       <?php }
@@ -106,7 +115,10 @@
         $tags = explode( ',', $_GET['tags'] );
 
         if ( in_array( 'opensource', $tags ) ) { ?>
-          <a class="btn mb-3" href="/bot/?opensource=true">Browse opensource bots</a>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?opensource=true">Browse opensource bots</a></li>
+            <?php echo $glitch_link; ?>
+          </ul>
         <?php } elseif ( in_array( 'cheapbotsdonequick', $tags ) ) { ?>          
           <div class="card pt-5 mt-5 mb-2">
             <div class="container">
@@ -124,6 +136,7 @@
                     <li>
                       <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with author</a>
                     </li>
+                    <?php echo $glitch_link; ?>
                   </ul>
                 </div>
               </div>
@@ -151,18 +164,30 @@
               </div>
             </div>
           </div>
-        <?php } elseif ( in_array( 'images', $tags ) ) { ?>          
-          <a class="btn mb-3" href="/bot/?tags=images,generative">#images+generative</a>
-          <a class="btn mb-3" href="/bot/?tags=images,iot">#images+iot</a>
+        <?php } elseif ( in_array( 'images', $tags ) ) { ?>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=images,generative<?php echo $filter_opensource;?>">#images+generative</a></li>
+            <li><a class="btn" href="/bot/?tags=images,iot<?php echo $filter_opensource;?>">#images+iot</a></li>
+            <?php echo $glitch_link; ?>
+          </ul>
         <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
-          <a class="btn mb-3" href="/bot/?tags=generative,images">#generative+images</a>
-          <a class="btn mb-3" href="/bot/?tags=generative,text">#generative+text</a>
-          <a class="btn mb-3" href="/bot/?tags=generative,emoji">#generative+emoji</a>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=generative,images<?php echo $filter_opensource;?>">#generative+images</a></li>
+            <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
+            <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
+            <?php echo $glitch_link; ?>            
+          </ul>
         <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
         <?php } elseif ( in_array( 'interactive', $tags ) ) { ?>
-          <a class="btn mb-3" href="/bot/?tags=interactive,game">#interactive+game</a>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=interactive,game<?php echo $filter_opensource;?>">#interactive+game</a></li>
+            <?php echo $glitch_link; ?>
+          </ul>
         <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
-          <a class="btn mb-3" href="/bot/?tags=iot,images">#iot+images</a>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=iot,images<?php echo $filter_opensource;?>">#iot+images</a></li>
+            <?php echo $glitch_link; ?>            
+          </ul>
         <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
           <div class="card pt-5 mt-5 mb-2">
             <div class="container">
@@ -173,7 +198,10 @@
                 <div class="col-sm-12 col-md-8">
                   <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
                   <p>Monthly Bot Challenge is a recurring community event dedicated to showcasing friendly, useful, artistic online bots.</p>
-                  <p><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></p>
+                  <ul class="btn-list">
+                    <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></p></li>
+                    <?php echo $glitch_link; ?>                    
+                  </ul>
                 </div>
               </div>
             </div>
