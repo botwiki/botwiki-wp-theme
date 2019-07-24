@@ -19,7 +19,7 @@
     global $wp;
     $narrow_opensource_url = $current_url . ( strpos( $current_url, '?' ) === false ? '?' : '&' ) . 'opensource=true';
 
-    $narrow_opensource_link = '<li><a class="btn" href="' . $narrow_opensource_url . '">Filter open source</a></li>';
+    $narrow_opensource_link = '<li><a class="btn" href="' . $narrow_opensource_url . '">Open source bots</a></li>';
 
   }
 
@@ -182,6 +182,10 @@
                     <li>
                       <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with author</a>
                     </li>
+                    <?php
+                      echo $glitch_link;
+                      echo $narrow_opensource_link;
+                    ?>
                   </ul>
                 </div>
               </div>
@@ -270,8 +274,6 @@
 
         include( locate_template( 'author-card.php', false, false ) );
       } ?>
-
-
 		</div>
 	</main>
 <?php get_footer(); ?>
