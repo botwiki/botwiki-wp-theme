@@ -200,6 +200,14 @@
               echo $narrow_opensource_link;
             ?>
           </ul>
+        <?php } elseif ( in_array( 'text', $tags ) ) { ?>
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=text,generative<?php echo $filter_opensource;?>">#text+generative</a></li>
+            <?php
+              echo $glitch_link;
+              echo $narrow_opensource_link;
+            ?>
+          </ul>
         <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
           <ul class="btn-list">
             <li><a class="btn" href="/bot/?tags=generative,images<?php echo $filter_opensource;?>">#generative+images</a></li>
