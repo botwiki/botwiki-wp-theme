@@ -112,8 +112,10 @@
             <?php
               echo $glitch_link;
               echo $narrow_opensource_link;
+              $glitch_link = '';
+              $narrow_opensource_link = '';
             ?>
-          </ul>          
+          </ul>
         <?php } else {?>
           <h1>Browsing all <?php
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
