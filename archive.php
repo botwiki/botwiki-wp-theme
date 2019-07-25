@@ -221,8 +221,9 @@
         <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
           <ul class="btn-list">
             <li><a class="btn" href="/bot/?tags=generative,images<?php echo $filter_opensource;?>">#generative+images</a></li>
-            <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
+            <li><a class="btn" href="/bot/?tags=generative,gif<?php echo $filter_opensource;?>">#generative+gif</a></li>
             <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
+            <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
             <?php
               echo $glitch_link;
               echo $narrow_opensource_link;
