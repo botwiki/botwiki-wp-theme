@@ -302,7 +302,6 @@
   else { ?>
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
-    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/css/select2.min.css' media='all' />
     <main role="main" class="container-fluid m-0 p-0">
       <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
         <?php
@@ -378,7 +377,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="bot-info-1-network">Network</label>
-                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0">
+                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
                 <?php
                   $networks = get_terms( 'network', array(
                       'hide_empty' => false,
@@ -430,7 +429,7 @@
               </div>
               <div class="form-group">
                 <label for="bot-source-language">What language(s) did you use?</label>
-                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0">
+                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
                 <?php
                   $languages = get_terms( 'programing_language', array(
                       'hide_empty' => false,
@@ -445,7 +444,7 @@
             </div>
             <div class="form-group">
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
-              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search..."></select>
+              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search..."></select>
               <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it.</small>
             </div>
             <div class="form-check mb-2">
@@ -464,7 +463,6 @@
         </article>
       </div>
     </main>
-    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/js/select2.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>

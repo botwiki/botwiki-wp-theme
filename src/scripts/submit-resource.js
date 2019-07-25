@@ -88,59 +88,6 @@ $(function() {
       return false;
     });
 
-    $('.js-select2').each(function(i){
-      var $this = $(this),
-          ajax_url = $this.data('ajax');
-
-      if (ajax_url){
-        function process_search_results(results){
-          var data = [];
-
-          $.each(results, function (k, v) {
-            var tag_name = v.name;
-            data[ k ] = {
-              id: tag_name,
-              text: tag_name
-            };
-          });
-          return data;
-        }
-
-        $this.select2({
-          tags: true,
-          placeholder: $(this).attr('placeholder'),          
-          minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3,
-          ajax:{
-            url: ajax_url,
-            dataType: 'json',
-            // delay: 250,
-            data: function (params) {
-              var query = {
-                search: params.term
-              }
-              return query;
-            },
-            processResults: function (data, page, query) {
-              var results = process_search_results(data);
-
-              return {
-                results: results.sort(function(a,b){
-                  return levenshtein_distance(a.text, page.term) - levenshtein_distance(b.text, page.term);
-                })
-              };
-            }
-          }
-        })
-      }
-      else{
-        $this.select2({
-          tags: true,
-          placeholder: $(this).attr('placeholder'),
-          minimumInputLength: parseInt($(this).data('minimum-input-length')) || 3
-        });
-      }
-    });
-
     $('#submit-resource-form').submit(function(){
       $form_submit_button.attr('disabled', 'disabled').html('Please wait...');
       setTimeout(function(){

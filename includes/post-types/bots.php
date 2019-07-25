@@ -43,7 +43,7 @@ class BotsPostType {
   function filter_query($query){
     $tax_query = array();
 
-    if ( isset( $_GET['networks'] ) ){
+    if ( isset( $_GET['networks'] ) && !empty( $_GET['networks'] ) ){
       foreach (explode(',', $_GET['networks']) as $network) {
         array_push($tax_query, array(
           'taxonomy' => 'network',
@@ -54,7 +54,7 @@ class BotsPostType {
     }
 
 
-    if ( isset( $_GET['languages'] ) ){
+    if ( isset( $_GET['languages'] ) && !empty( $_GET['languages'] ) ){
       foreach (explode(',', $_GET['languages']) as $language) {
         array_push($tax_query, array(
           'taxonomy' => 'programing_language',
@@ -65,7 +65,7 @@ class BotsPostType {
     }
 
 
-    if ( isset( $_GET['tags'] ) ){
+    if ( isset( $_GET['tags'] ) && !empty( $_GET['tags'] ) ){
       foreach (explode(',', $_GET['tags']) as $tag) {
         array_push($tax_query, array(
           'taxonomy' => 'post_tag',

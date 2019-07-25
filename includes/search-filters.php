@@ -27,7 +27,7 @@ class Search_Filters {
           $post_types[] = 'bot';
         }
 
-        $wp_query->set( 'post_type', $post_types );        
+        $wp_query->set( 'post_type', $post_types );
       }
     }
 

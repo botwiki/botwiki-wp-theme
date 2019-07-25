@@ -199,6 +199,7 @@
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Code+Pro&display=auto' rel='stylesheet' type='text/css'>
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=auto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=auto' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/css/select2.min.css' media='all' />    
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
