@@ -129,8 +129,6 @@
           ?>
           <div class="row social-embeds">
           <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
-
-            <?php log_this( '$tweet_html', $tweet_html ); ?>
             <div class="col-sm-12 col-md-6">
               <?php
               if ( strpos( $tweet_html, 'twitter-tweet' ) !== false ){
