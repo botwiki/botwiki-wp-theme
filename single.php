@@ -137,7 +137,7 @@
                 echo $tweet_html . '</blockquote>';
               }
               elseif ( strpos( $tweet_html, 'mastodon-embed' ) !== false ){
-                echo str_replace( '<blockquote>', '', $tweet_html ) ;
+                echo str_replace( '<blockquote>', '', $tweet_html ) . '</iframe>' ;
               }
               elseif ( strpos( $tweet_html, 'player.twitch.tv' ) !== false ){ ?>
                 <div class="video-background">
