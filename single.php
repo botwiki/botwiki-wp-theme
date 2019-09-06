@@ -145,6 +145,11 @@
               elseif ( strpos( $tweet_html, 'tumblr-post' ) !== false ){
                 echo $tweet_html . $tumblr_script;
               }
+              elseif ( strpos( $tweet_html, 'fb-root' ) !== false ){
+                $tweet_html = str_replace( '<blockquote>', '<div class="mt-5">', $tweet_html );
+                $tweet_html .= '</div>';
+                echo $tweet_html;
+              }
               else {
                 echo $tweet_html;
               }

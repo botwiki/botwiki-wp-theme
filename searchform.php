@@ -18,6 +18,27 @@
       <input class="form-check-input" type="radio" id="search-filters-everything" name="search-filters-options[]" value="everything"<?php if ( ( !empty($_GET['search-filters-options']) && in_array('everything', $_GET['search-filters-options'] ) ) || empty( $_GET['search-filters-options'] ) ){ echo ' checked'; } ?>>
       <label class="form-check-label" for="search-filters-everything">Everything</label>
     </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="bot-info-1-network">Network</label>
+        <select class="form-control js-select2" name="networks" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-clear="true" data-multiple="true" data-tags="false">
+        <?php
+          $networks = get_terms( 'network', array(
+              'hide_empty' => false,
+          ) );
+          foreach ($networks as $network) { ?>
+            <option <?php if ( in_array($network->slug, explode( ',', $_GET['networks'] )) ){
+              echo 'selected ';
+            } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
+          <?php }
+        ?> 
+        </select>
+      </div>
+    </div>
+
+
     <div class="text-left mt-4">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" role="button">Search</button>
     </div>

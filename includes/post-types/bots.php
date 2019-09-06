@@ -355,7 +355,7 @@ class BotsPostType {
   function add_bot_tweets(){
     add_meta_box(
       'bot-tweets-meta',
-      esc_html__( 'Selected tweets' ),
+      esc_html__( 'Example output' ),
       array($this, 'bot_tweet_fields' ),
       'bot',
       'normal',
@@ -425,6 +425,24 @@ class BotsPostType {
             elseif ( strpos( $tweet_url, 'tumblr.com/post/' ) !== false ){
               $data = file_get_contents( 'https://www.tumblr.com/oembed/1.0?url=' . urlencode( $tweet_url ) );
               $bot_tweets_html .= json_decode($data)->html;
+            }
+            elseif ( strpos( $tweet_url, 'facebook.com/' ) !== false ){
+              $bot_tweets_html .= '<blockquote><div id="fb-root"></div><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id))  return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs);}(document, \'script\', \'facebook-jssdk\'));</script><div class="fb-post" data-href="' . $tweet_url . '"></div></blockquote>';
+              // $browser = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.16 (KHTML, like Gecko) \Chrome/24.0.1304.0 Safari/537.16';
+              // curl_setopt($ch, CURLOPT_USERAGENT, $browser);
+
+              // $options = array(
+              //   'http'=>array(
+              //     'method'=>"GET",
+              //     'header'=>"Accept-language: en\r\n" .
+              //               "User-Agent: Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.102011-10-16 20:23:10\r\n" // i.e. An iPad 
+              //   )
+              // );
+
+              // $context = stream_context_create($options);
+              // $json_post = @file_get_contents('https://www.facebook.com/plugins/video/oembed.json/?url=' . urlencode( $tweet_url ), false, $context);
+              // $data = json_decode($json_post);
+              // $bot_tweets_html .= $data->html;
             }
             elseif ( strpos( $tweet_url, 'botsin.space/' ) !== false ||
                      strpos( $tweet_url, 'mastodon.social/' ) !== false ) {

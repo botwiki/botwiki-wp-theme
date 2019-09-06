@@ -153,6 +153,18 @@ iframe,
   margin: 2em auto !important;
 }
 
+
+.fb-post.fb_iframe_widget{
+  span{
+    max-width: 100% !important;
+    width: 100%;
+    iframe{
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
 hr{
   border-top: solid 1px #dfdfdf;
   border-bottom: none;
