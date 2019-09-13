@@ -124,7 +124,7 @@
           <div class="row mt-5 mb-5">
             <div class="col-sm-6 col-md-3">
               <p class="text-center">
-                <a href="http://fascist.republican/">
+                <a href="https://fightfascism.glitch.me/">
                   <img alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
                 </a>
               </p>              
