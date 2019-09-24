@@ -292,8 +292,31 @@ class BotsPostType {
           <textarea class="w-100" name="bot_source_url"><?php echo $bot_meta['bot_source_url'][0]; ?></textarea>
         </td>
       </tr>
+      <tr>
+        <td class="w-100">
+          <h4>Additional details</h4>
+        </td>
+      </tr>      
+      <?php
+        $bot_is_featured = ( array_key_exists('bot_is_featured', $bot_meta ) && $bot_meta['bot_is_featured'][0] === "on" );
+        $bot_is_nsfw = ( array_key_exists('bot_is_nsfw', $bot_meta ) && $bot_meta['bot_is_nsfw'][0] === "on" );
+      ?>
+      <tr>
+        <td class="w-100">
+          <label>
+            <input type="checkbox" class="w-100" id name="bot-is-featured" <?php echo ($bot_is_featured ? "checked" : ""); ?>> Featured
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td class="w-100">
+          <label>
+            <input type="checkbox" class="w-100" id name="bot-is-nsfw" <?php echo ($bot_is_nsfw ? "checked" : ""); ?>> NSFW
+          </label>
+        </td>
+      </tr>
     </table>
-  <?php }   
+  <?php }
 
    function bot_tweet_fields(){
     $id = get_the_id();
@@ -397,6 +420,9 @@ class BotsPostType {
       update_post_meta($post_id, 'bot_source_url', $_POST['bot_source_url']);
       update_post_meta($post_id, 'botmaker_badge_awarded', $_POST['botmaker_badge_awarded']);
       update_post_meta($post_id, 'bot_tweets', $_POST['bot_tweets']);
+
+      update_post_meta($post_id, 'bot_is_featured', $_POST['bot-is-featured']);
+      update_post_meta($post_id, 'bot_is_nsfw', $_POST['bot-is-nsfw']);
 
       update_post_meta($post_id, 'output_archive_url', $_POST['output-archive-url']);
       update_post_meta($post_id, 'output_archive_filename', $_POST['output-archive-filename']);
