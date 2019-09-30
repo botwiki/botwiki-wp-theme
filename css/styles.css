@@ -406,6 +406,11 @@ blockquote {
         -webkit-transform: translate(-10px, 0);
             -ms-transform: translate(-10px, 0);
                 transform: translate(-10px, 0); } }
+  blockquote ul, blockquote ol {
+    padding: 0 1em 0 4em; }
+    @media (min-width: 900px) {
+      blockquote ul, blockquote ol {
+        padding: 0 1em 0 3em; } }
 
 blockquote.instagram-media,
 iframe.instagram-media {

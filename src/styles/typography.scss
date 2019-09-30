@@ -131,6 +131,12 @@ blockquote{
       transform: translate(-10px, 0);
     }
   }
+  ul, ol{
+    padding: 0 1em 0 4em;
+    @media (min-width: $site-width-medium){
+      padding: 0 1em 0 3em;
+    }
+  }  
 }
 
 blockquote.instagram-media,
