@@ -58,7 +58,7 @@
               </li>
             </ul>
             <p class="ssbg-attribution">Sharing buttons by <a href="https://simplesharingbuttons.com/">simplesharingbuttons.com</a>.</p>
-            <p>Botwiki is a personal side project that's made possible <a href="/about/support-us/">through donations</a> and hard work and dedication. Huge thanks to <a href="/about/supporters/">everyone who helped us out</a>! 🙌</p>
+            <p>Botwiki is a personal side project that's made possible <a href="/about/support-us/">through donations</a> and <a href="/about/team/">hard work and dedication</a>. Huge thanks to <a href="/about/supporters/">everyone who helped us out</a>! 🙌</p>
           </div>
         </div>
 <!--         
