@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="form-row">
+    <div class="form-row mt-3">
       <div class="form-group col-md-6">
         <label for="bot-info-1-network">Network</label>
         <select class="form-control js-select2" name="networks" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-clear="true" data-multiple="true" data-tags="false">
