@@ -25,7 +25,6 @@ class WP_JSON_API_Fixes_And_Enhancements {
 
     register_rest_field( array_keys( $wp_post_types ),
         /* Add featured image to the JSON API, courtesy of https://github.com/dalenguyen/wordpress-snippets/blob/master/get-featured-image-from-rest-api.php. */
-
         'featured_image_url',
         array(
             'get_callback'    => array( $this, 'get_rest_featured_image' ),
@@ -153,11 +152,12 @@ class WP_JSON_API_Fixes_And_Enhancements {
     foreach (get_post_types(array('show_in_rest' => true), 'objects') as $post_type) {
       add_filter('rest_' . $post_type->name . '_query', array( $this, 'wp_rest_fix_post_tags' ), 10, 2);
       add_filter('rest_' . $post_type->name . '_query', array( $this, 'wp_rest_filter_opensource' ), 10, 2);
-
+      add_filter('rest_' . $post_type->name . '_query', array( $this, 'wp_rest_query_bot_url' ), 10, 2);
     }
     foreach (get_taxonomies(array('show_in_rest' => true), 'objects') as $tax_type) {
       add_filter('rest_' . $tax_type->name . '_query', array( $this, 'wp_rest_fix_post_tags' ), 10, 2);
       add_filter('rest_' . $tax_type->name . '_query', array( $this, 'wp_rest_filter_opensource' ), 10, 2);
+      add_filter('rest_' . $tax_type->name . '_query', array( $this, 'wp_rest_query_bot_url' ), 10, 2);
     }
   }
 
@@ -179,6 +179,18 @@ class WP_JSON_API_Fixes_And_Enhancements {
     $args['meta_key'] = 'bot_source_url';
     $args['meta_value'] = array('');
     $args['meta_compare'] = 'NOT IN';
+
+    return $args;
+  }
+
+  public function wp_rest_query_bot_url( $args, $request ){
+    if ( empty( $request['bot_url'] ) ) {
+      return $args;
+    }
+
+    $args['meta_key'] = 'bot_url';
+    $args['meta_value'] = $request['bot_url'];
+    $args['meta_compare'] = 'LIKE';
 
     return $args;
   }
