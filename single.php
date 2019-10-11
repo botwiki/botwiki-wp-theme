@@ -157,22 +157,6 @@
             </div>
           <?php } ?>
           </div>
-          <?php if ( count( $bot_source_urls ) > 0 ){
-            global $helpers;
-            ?>
-            <h3 id="source-code">Source code</h3>
-            <ul>
-              <?php
-              foreach ( $bot_source_urls as $url ) { ?>
-                <li>
-                  <a href="<?php echo $url; ?>">
-                    <?php echo $helpers->get_domain_from_url($url); ?>
-                  </a>
-                </li>
-              <?php } ?>
-            </ul>
-          <?php } ?>
-          <!-- post details -->
           <p class="post-tags mt-5 mb-5">
             <?php 
               $network_tags = array();
@@ -208,8 +192,22 @@
               echo join( ' ', $tags_array );
               // the_tags('', ' ', '<br>');
             ?>
-          </p>
-          <?php
+          </p>          
+          <?php if ( count( $bot_source_urls ) > 0 ){
+            global $helpers;
+            ?>
+            <h3 id="source-code">Source code</h3>
+            <ul>
+              <?php
+              foreach ( $bot_source_urls as $url ) { ?>
+                <li>
+                  <a href="<?php echo $url; ?>">
+                    <?php echo $helpers->get_domain_from_url($url); ?>
+                  </a>
+                </li>
+              <?php } ?>
+            </ul>
+          <?php }
             global $coauthors_plus;
 
             $coauthors = get_coauthors();
