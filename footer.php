@@ -86,8 +86,8 @@
                 <ul class="footer-list">
                   <li class="list-header">About</li>
                   <li><a href="<?php echo site_url(); ?>/about/">About Botwiki</a></li>
-                  <li><a href="<?php echo site_url(); ?>/about/team/">The Botwiki team</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/projects/">Our projects</a></li>
+                  <li><a href="<?php echo site_url(); ?>/about/team/">Browser Extension</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/press/">Press</a></li>
                   <li><a href="<?php echo site_url(); ?>/coc/">Code of Conduct</a></li>
                 </ul>                
@@ -98,7 +98,7 @@
                   <li><a class="h-card" rel="me" href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
                   <li><a class="u-email" rel="me" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Email us</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/feedback">Give feedback</a></li>
-                  <li><a href="<?php echo site_url(); ?>/contribute/" title="Add your bot, tutorial, and other botmaking resources to Botwiki">Contribute to Botwiki</a></li>
+                  <li><a href="<?php echo site_url(); ?>/contribute/" title="Add your bot, tutorial, and other botmaking resources to Botwiki">Contribute</a></li>
                   <li><a href="https://botmakers.org/">Join Botmakers</a></li>
                 </ul>                
               </div>
