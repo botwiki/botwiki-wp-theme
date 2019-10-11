@@ -160,7 +160,7 @@
           <?php if ( count( $bot_source_urls ) > 0 ){
             global $helpers;
             ?>
-            <h3 id="source-code">Source code <a class="pilcrow" href="#source-code">¶</a></h3>
+            <h3 id="source-code">Source code</h3>
             <ul>
               <?php
               foreach ( $bot_source_urls as $url ) { ?>
@@ -209,98 +209,7 @@
               // the_tags('', ' ', '<br>');
             ?>
           </p>
-
-          <h3 id="related-bots">More bots <a class="pilcrow" href="#related-bots">¶</a></h3>
-          <div id="related-bots-wrapper" class="row list">
           <?php
-
-          $related_bots = get_posts( array(
-            'posts_per_page' => 3,
-            'orderby' => 'rand',
-            'order' => 'ASC',
-            'exclude' => array( $post_id ),
-            'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, $tags ),
-            'post_type' => 'bot',
-            'post_status' => 'publish',
-            'suppress_filters' => true
-           ) );
-
-          foreach ( $related_bots as $related_bot ) {
-            ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
-                  <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $related_bot->ID ); ?>" alt="<?php echo $related_bot->post_title; ?>">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="<?php echo get_permalink( $related_bot->ID ); ?>"><?php echo $related_bot->post_title; ?></a>  
-                  </h5>
-                  <p class="card-text"><?php echo $related_bot->post_excerpt; ?></p>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="/random-bot/">
-                  <img class="card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="/random-bot/">????</a>  
-                  </h5>
-                  <p class="card-text">??????????</p>
-                </div>
-              </div>
-            </div>          
-          </div>
-          <p><a class="btn" href="/bots/">See more</a></p>
-
-          <h3 id="blog">Latest from our blog <a class="pilcrow" href="#blog">¶</a></h3>
-          <div id="blog-latest-wrapper" class="row list">
-          <?php
-
-          $latest_blog_posts = get_posts( array(
-            'posts_per_page' => 4,
-            'post_type' => 'post',
-            'post_status' => 'publish'
-           ) );
-
-          foreach ( $latest_blog_posts as $blog_post ) {
-            ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                  <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $blog_post->ID ); ?>" alt="<?php echo $blog_post->post_title; ?>">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
-                  </h5>
-                  <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
-          </div>
-          <p><a class="btn" href="/blog/">See more</a></p>
- 
-          <!-- /post details -->
-        <?php } elseif ($post_type == 'post') {
-          $post_date = get_the_time('F j, Y');
-          $post_date_full = $post_date . ' ' . get_the_time('g:i a');
-          $m = new \Moment\Moment($post_date);
-          $post_date_ago = $m->fromNow()->getRelative();
-        ?>
-
-          <p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-            by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a> in <?php the_category(', '); ?></em></p>
-          <p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
-        <?php }
-
-
-
             global $coauthors_plus;
 
             $coauthors = get_coauthors();
@@ -308,7 +217,7 @@
             $coauthors_count = count( $coauthors );
             if ($coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2") ){ ?>
               <?php if ( $post_type === 'bot' ){ ?>
-                <h3 id="authors">Created by <a class="pilcrow" href="#authors">¶</a></h3>
+                <h3 id="authors">Created by</h3>
               <?php }
 
               foreach ($coauthors as $coauthor) {
@@ -364,8 +273,99 @@
                  //  $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
                   include( locate_template( 'author-card.php', false, false ) );  
                 }
-              }
+              } 
             }
+          ?>
+
+          <h3 id="related-bots">More bots</h3>
+          <div id="related-bots-wrapper" class="row list">
+          <?php
+
+          $related_bots = get_posts( array(
+            'posts_per_page' => 3,
+            'orderby' => 'rand',
+            'order' => 'ASC',
+            'exclude' => array( $post_id ),
+            'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, $tags ),
+            'post_type' => 'bot',
+            'post_status' => 'publish',
+            'suppress_filters' => true
+           ) );
+
+          foreach ( $related_bots as $related_bot ) {
+            ?>
+            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+              <div class="card w-100">
+                <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
+                  <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $related_bot->ID ); ?>" alt="<?php echo $related_bot->post_title; ?>">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="<?php echo get_permalink( $related_bot->ID ); ?>"><?php echo $related_bot->post_title; ?></a>  
+                  </h5>
+                  <p class="card-text"><?php echo $related_bot->post_excerpt; ?></p>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+              <div class="card w-100">
+                <a href="/random-bot/">
+                  <img class="card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="/random-bot/">????</a>  
+                  </h5>
+                  <p class="card-text">??????????</p>
+                </div>
+              </div>
+            </div>          
+          </div>
+          <p><a class="btn" href="/bots/">See more</a></p>
+
+          <h3 id="blog">Latest from our blog</h3>
+          <div id="blog-latest-wrapper" class="row list">
+          <?php
+
+          $latest_blog_posts = get_posts( array(
+            'posts_per_page' => 4,
+            'post_type' => 'post',
+            'post_status' => 'publish'
+           ) );
+
+          foreach ( $latest_blog_posts as $blog_post ) {
+            ?>
+            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+              <div class="card w-100">
+                <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
+                  <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $blog_post->ID ); ?>" alt="<?php echo $blog_post->post_title; ?>">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
+                  </h5>
+                  <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+          </div>
+          <p><a class="btn" href="/blog/">See more</a></p>
+ 
+          <!-- /post details -->
+        <?php } elseif ($post_type == 'post') {
+          $post_date = get_the_time('F j, Y');
+          $post_date_full = $post_date . ' ' . get_the_time('g:i a');
+          $m = new \Moment\Moment($post_date);
+          $post_date_ago = $m->fromNow()->getRelative();
+        ?>
+
+          <p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+            by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a> in <?php the_category(', '); ?></em></p>
+          <p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
+        <?php }
+
         if ( get_post_type() == 'post' ) { ?>
           <!-- post details -->
           <?php
