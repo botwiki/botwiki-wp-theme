@@ -109,7 +109,7 @@
 
         <ul class="btn-list">
           <li>
-            <a class="btn" href="/?post_type=resource">Browse all</a>
+            <a class="btn" href="/resources/">Browse all</a>
           </li>
           <li>
             <a class="btn" href="/submit-resource/">Add your resource</a>
