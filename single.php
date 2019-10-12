@@ -333,8 +333,7 @@
           <p><a class="btn" href="/bots/">See more</a></p>
         <?php }
 
-
-        if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' || $post_type === 'page' ) { ?>
+        if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
           <h3 id="blog">Latest from our blog</h3>
           <div id="blog-latest-wrapper" class="row list">
           <?php
