@@ -334,7 +334,7 @@
         <?php }
 
 
-        if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
+        if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' || $post_type === 'page' ) { ?>
           <h3 id="blog">Latest from our blog</h3>
           <div id="blog-latest-wrapper" class="row list">
           <?php
