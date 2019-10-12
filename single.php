@@ -222,15 +222,14 @@
           global $coauthors_plus;
 
           $coauthors = get_coauthors();
-
           $coauthors_count = count( $coauthors );
+
           if ( $coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2" ) ){ ?>
             <?php if ( $post_type === 'bot' ){ ?>
               <h3 id="authors">Created by</h3>
             <?php }
 
             foreach ( $coauthors as $coauthor ) {
-
               $author_id = $coauthor->data->ID;
               if ( $author_id != 2 ){
                 $author_data = get_userdata( intval( $author_id ) );
@@ -265,27 +264,25 @@
                 }
 
                 $botwiki_profile_page_url = $site_url . '/author/' . $username;
+                $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
 
-                  $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
+                    $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+                    $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
-                      $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
-                      $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+                if ( empty( $profile_img_url ) ){
+                  $profile_img_url = get_avatar_url( $author_id );
+                }
 
-                  if ( empty( $profile_img_url ) ){
-                    $profile_img_url = get_avatar_url( $author_id );
-                  }
+              // $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
+              // $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
 
-                // $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
-                // $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
-
-               //  $background_img_dominant_color_css = str_replace( '[', 'background-color:rgb( ', $background_img_dominant_color );
-               //  $background_img_dominant_color_css = str_replace( ']', ' )', $background_img_dominant_color_css );
-                include( locate_template( 'author-card.php', false, false ) );  
-              }
-            } 
-          ?>
-
-          <?php if ( $post_type === 'bot' ) { ?>
+             //  $background_img_dominant_color_css = str_replace( '[', 'background-color:rgb( ', $background_img_dominant_color );
+             //  $background_img_dominant_color_css = str_replace( ']', ' )', $background_img_dominant_color_css );
+              include( locate_template( 'author-card.php', false, false ) );  
+            }
+          } ?>
+        <?php }
+        if ( $post_type === 'bot' ) { ?>
 
 
           <h3 id="related-bots">More bots</h3>
@@ -301,7 +298,7 @@
             'post_type' => 'bot',
             'post_status' => 'publish',
             'suppress_filters' => true
-           ) );
+          ) );
 
           foreach ( $related_bots as $related_bot ) {
             ?>
@@ -334,8 +331,10 @@
             </div>          
           </div>
           <p><a class="btn" href="/bots/">See more</a></p>
-        <?php } ?>
-        <?php } if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
+        <?php }
+
+
+        if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
           <h3 id="blog">Latest from our blog</h3>
           <div id="blog-latest-wrapper" class="row list">
           <?php
