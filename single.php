@@ -122,10 +122,9 @@
 
           $network_names = array_map( 'get_network_name', $networks );
           $bot_tweets_html_meta = get_post_meta( $post_id, 'bot_tweets_html', true );
-
           $tumblr_script = '<script async src="https://assets.tumblr.com/post.js"></script>';
 
-          $bot_tweets_html = preg_split( '/( <\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ' )/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
+          $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
           ?>
           <div class="row social-embeds">
           <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
