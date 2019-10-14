@@ -121,22 +121,27 @@
           </div>
         </div>
         <div class="container mb-5 pb-3">
-          <div class="row mt-5 mb-5">
-            <div class="col-sm-6 col-md-3">
+          <div class="row align-items-center mt-5 mb-5">
+            <div class="col-sm-6 col-md-3 mx-auto">
               <p class="text-center">
                 <a href="https://fightfascism.glitch.me/">
                   <img alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
                 </a>
               </p>              
             </div>
-            <div class="col-sm-6 col-md-3">
+            <div class="col-sm-6 col-md-3 mx-auto">
+              <p class="text-center">
+                <a href="https://blacklivesmatter.com/">
+                  <img alt="Black Lives Matter" title="Black Lives Matter logo" src="<?php echo get_template_directory_uri(); ?>/images/other/blm.jpg">
+                </a>
+              </p>              
+            </div>
+            <div class="col-sm-6 col-md-3 mx-auto">
               <p class="text-center">
                 <a href="https://indieweb.org/">
                   <img alt="IndieWeb" title="Support #indieweb!" src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
                 </a>
               </p>              
-            </div>
-            <div class="col-sm-6 col-md-3">
             </div>
           </div>
         </div>
