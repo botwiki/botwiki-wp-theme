@@ -54,36 +54,37 @@
 					</p>
 				<?php }
 			?>
-        <h3 id="blog">Latest from our blog</h3>
-        <div id="blog-latest-wrapper" class="row list">
-        <?php
+            <?php if ( !is_front_page() ){ ?>
+                <h3 id="blog">Latest from our blog</h3>
+                <div id="blog-latest-wrapper" class="row list">
+                <?php
 
-        $latest_blog_posts = get_posts( array( 
-          'posts_per_page' => 4,
-          'exclude' => array( $post_id ),            
-          'post_type' => 'post',
-          'post_status' => 'publish'
-         ) );
+                $latest_blog_posts = get_posts( array( 
+                  'posts_per_page' => 4,
+                  'exclude' => array( $post_id ),            
+                  'post_type' => 'post',
+                  'post_status' => 'publish'
+                 ) );
 
-        foreach ( $latest_blog_posts as $blog_post ) {
-          ?>
-          <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-            <div class="card w-100">
-              <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $blog_post->ID ); ?>" alt="<?php echo $blog_post->post_title; ?>">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
-                </h5>
-                <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
-              </div>
-            </div>
-          </div>
-        <?php } ?>
-        </div>
-        <p><a class="btn" href="/blog/">See more</a></p>
-        <!-- /post details -->			
+                foreach ( $latest_blog_posts as $blog_post ) {
+                  ?>
+                  <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                    <div class="card w-100">
+                      <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
+                        <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $blog_post->ID ); ?>" alt="<?php echo $blog_post->post_title; ?>">
+                      </a>
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
+                        </h5>
+                        <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
+                      </div>
+                    </div>
+                  </div>
+                <?php } ?>
+                </div>
+                <p><a class="btn" href="/blog/">See more</a></p>
+            <?php } ?>
 		</article>
 		<!-- /article -->
 	<?php endwhile; ?>
