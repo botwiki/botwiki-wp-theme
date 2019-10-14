@@ -183,14 +183,16 @@ function load_mastodon_js(){
 
 function load_highlight_js(){
   global $post;
+  log_this( array(
+    'post_ID' => $post->ID,
+    'has code?' => strpos( get_post_field( 'post_content', $post->ID ), '<code>' ) !== false ? strpos( get_post_field( 'post_content', $post->ID ), '<code>' ) : 'no'
+  ) );
+
   if ( strpos( get_post_field( 'post_content', $post->ID ), '<code>' ) !== false ){
     wp_register_style( 'highlight-monokai-sublime', get_template_directory_uri() . '/libs/highlight.js/styles/monokai-sublime.css' );
     wp_enqueue_style( 'highlight-monokai-sublime' );
-
     wp_register_script( 'highlight', get_template_directory_uri() . '/libs/highlight.js/highlight.pack.js', array( 'jquery' ));
     wp_enqueue_script( 'highlight' );
-
-    wp_add_inline_script( 'highlight', "$(function(){if (hljs){hljs.initHighlighting.called = false;hljs.initHighlighting();}});", 'after' );
   }
 }
 

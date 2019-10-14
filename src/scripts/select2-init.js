@@ -4,10 +4,8 @@ $(function() {
     var $this = $( this ),
         ajax_url = $this.data( 'ajax' );
 
-    console.log( $this );
-
     if (ajax_url){
-      function process_search_results(results){
+      window.processSearchResults = function(results){
         var data = [];
 
         $.each(results, function (k, v) {
@@ -18,13 +16,9 @@ $(function() {
           };
         });
         return data;
-      }
-
-      let options = {
-
       };
 
-      console.log( 'required?', $this.attr( 'required' ) );
+      let options = {};
 
       $this.select2({
         tags: true,
@@ -37,23 +31,22 @@ $(function() {
           data: function (params) {
             var query = {
               search: params.term
-            }
+            };
             return query;
           },
           processResults: function (data, page, query) {
-            var results = process_search_results(data);
+            var results = window.processSearchResults(data);
 
             return {
               results: results.sort(function(a,b){
-                return levenshtein_distance(a.text, page.term) - levenshtein_distance(b.text, page.term);
+                return window.levenshteinDistance(a.text, page.term) - window.levenshteinDistance(b.text, page.term);
               })
             };
           }
         }
-      })
+      });
     }
     else{
-
       let options = {
         tags: $( this ).data( 'tags' ),
         multiple: $( this ).data( 'multiple' ),
@@ -69,9 +62,7 @@ $(function() {
 
       if ( $this.data( 'clear' ) ){
         $this.val(null).trigger( 'change' );
-
       }
     }
   });
-
 });

@@ -264,10 +264,10 @@
                 }
 
                 $botwiki_profile_page_url = $site_url . '/author/' . $username;
-                $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
+                $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
-                    $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
-                    $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+                $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+                $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
                 if ( empty( $profile_img_url ) ){
                   $profile_img_url = get_avatar_url( $author_id );

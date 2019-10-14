@@ -21,4 +21,4 @@ $.fn.waitUntilExists = function (handler, shouldRunHandlerOnce, isChild) {
   }
   
   return $this;
-}
+};
