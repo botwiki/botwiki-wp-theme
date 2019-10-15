@@ -30,7 +30,7 @@
                 'hide_empty' => false,
             ) );
             foreach ($networks as $network) { ?>
-              <option <?php if ( in_array($network->slug, explode( ',', $_GET['networks'] )) ){
+              <option <?php if ( isset( $_GET['networks'] ) && in_array($network->slug, explode( ',', $_GET['networks'] )) ){
                 echo 'selected ';
               } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
             <?php }

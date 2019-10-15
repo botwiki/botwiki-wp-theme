@@ -298,7 +298,6 @@ video {
   }
 }
 
-
 /* Notes */
 
 .note{
@@ -309,6 +308,14 @@ video {
 }
 
 /* Search */
+
+#menu-wrapper{
+  #search-filters{
+    &.container{
+      padding: 0 !important;
+    }
+  }
+}
 
 #search-filters{
   .form-check{

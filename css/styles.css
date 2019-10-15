@@ -266,6 +266,9 @@ video {
   padding: 1em 1em 0.5em; }
 
 /* Search */
+#menu-wrapper #search-filters.container {
+  padding: 0 !important; }
+
 @media (max-width: 860px) {
   #search-filters .form-check {
     margin-top: 1rem;

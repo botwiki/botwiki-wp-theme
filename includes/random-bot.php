@@ -7,7 +7,7 @@ class Random_Bot_Redirect {
 
   public function show_random_bot( $content ) { 
     global $wp_query;
-    if ($wp_query->query['name'] === 'random-bot'){
+    if ( isset( $wp_query->query['name'] ) && $wp_query->query['name'] === 'random-bot'){
       $random_bot = new WP_Query(array(
         'post_type' => 'bot',
         'post_status' => 'publish',
