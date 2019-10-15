@@ -1,6 +1,6 @@
 $(function() {
   'use strict';
-  if ( hljs ){
+  if ( typeof hljs !== 'undefined' ){
     hljs.initHighlighting.called = false;
     hljs.initHighlighting();
   }
