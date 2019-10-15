@@ -20,7 +20,7 @@ class ResourcesPostType {
 
   function external_resource_redirect() {
     global $wp_query;
-    if ($wp_query->query['post_type'] === 'resource'){
+    if ( isset( $wp_query->query['post_type'] ) && $wp_query->query['post_type'] === 'resource' ){
       $external_resource_url = get_post_meta( $wp_query->posts[0]->ID, 'resource_url', true );
       $content = get_post_field( 'post_content', $wp_query->posts[0]->ID );
 

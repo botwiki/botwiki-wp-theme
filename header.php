@@ -7,7 +7,12 @@
       global $wp_query;
       global $page_title;
 
-      $post_type = $wp_query->query['post_type'];
+      if ( isset( $wp_query->query['post_type'] ) ){
+        $post_type = $wp_query->query['post_type'];
+      } else {
+        $post_type = false;
+      }
+
       $post_type_for_title = '';
 
       if ( !empty( $post_type ) ){
@@ -21,11 +26,11 @@
 
       $page_url = home_url( $wp->request );
       $page_thumbnail = get_the_post_thumbnail_url();
+      $page_description = get_bloginfo('description');
 
       if ( empty($page_thumbnail ) ){
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
-
 
       if ( is_page() ) {
         $page_title = get_the_title();
@@ -148,9 +153,6 @@
       else{
         $page_title = get_the_title();
         $page_description = get_the_excerpt();
-        if ( empty( $page_description ) ){
-          $page_description = get_bloginfo('description');        
-        }
       }
 
       $page_title .=  ' | ' . get_bloginfo('name');
