@@ -337,7 +337,7 @@
                   <div class="row">
                     <div class="col-sm-2">
                       <a href="<?php echo $botwiki_profile_page_url; ?>">
-                        <img class="img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>">
+                        <img class="lazy-load img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>">
                       </a>
                     </div>
                     <div class="col-sm-10">
@@ -397,6 +397,11 @@
             <div class="form-group">
               <button id="add-bot-info-fields" class="btn">Add more networks</button>
             </div>            
+            <div id="bot-submitted-notice" class="d-none alert alert-warning" role="alert">
+              <p><strong>Heads up, it looks like someone already added this bot.</strong></p>
+              <div id="bot-submitted-output"></div>
+              <p>If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
+            </div>
             <div class="form-group">
               <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
               <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."></textarea>
