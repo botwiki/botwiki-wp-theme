@@ -14,7 +14,7 @@
     <div class="post-thumbnail post-thumbnail-<?php echo $page; ?>-<?php echo $index; ?>">
       <a href="<?php echo $link_url; ?>" title="<?php get_the_title(); ?>">
         <div class="post-thumbnail-img" style="background-image:url('<?php
-          echo get_the_post_thumbnail_url( $post_thumbnail_id );
+          echo get_the_post_thumbnail_url( $post_thumbnail_id, 'medium_large' );
         ?>');">
         </div>
         <!-- post title -->

@@ -67,7 +67,7 @@
                  ) );
 
                 foreach ( $latest_blog_posts as $blog_post ) {
-                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID );
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
                   ?>
                   <div class="col-sm-6 col-md-6 col-lg-3 list-item">
                     <div class="card w-100">
