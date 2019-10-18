@@ -54,9 +54,7 @@
 					</p>
 				<?php }
 			?>
-            <?php if ( !is_front_page() ){
-                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID );
-            ?>
+            <?php if ( !is_front_page() ){ ?>
                 <h3 id="blog">Latest from our blog</h3>
                 <div id="blog-latest-wrapper" class="row list">
                 <?php
@@ -69,6 +67,7 @@
                  ) );
 
                 foreach ( $latest_blog_posts as $blog_post ) {
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID );
                   ?>
                   <div class="col-sm-6 col-md-6 col-lg-3 list-item">
                     <div class="card w-100">
