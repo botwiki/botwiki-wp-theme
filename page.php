@@ -54,7 +54,9 @@
 					</p>
 				<?php }
 			?>
-            <?php if ( !is_front_page() ){ ?>
+            <?php if ( !is_front_page() ){
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID );
+            ?>
                 <h3 id="blog">Latest from our blog</h3>
                 <div id="blog-latest-wrapper" class="row list">
                 <?php
@@ -71,7 +73,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-3 list-item">
                     <div class="card w-100">
                       <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                        <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $blog_post->ID ); ?>" alt="<?php echo $blog_post->post_title; ?>">
+                        <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>"  data-src="<?php echo $post_thumbnail_url; ?>" alt="<?php echo $blog_post->post_title; ?>">
                       </a>
                       <div class="card-body">
                         <h5 class="card-title">
