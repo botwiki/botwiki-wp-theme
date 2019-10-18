@@ -301,11 +301,12 @@
           ) );
 
           foreach ( $related_bots as $related_bot ) {
+            $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID );
             ?>
             <div class="col-sm-6 col-md-6 col-lg-3 list-item">
               <div class="card w-100">
                 <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
-                  <img class="card-img-top" src="<?php echo get_the_post_thumbnail_url( $related_bot->ID ); ?>" alt="<?php echo $related_bot->post_title; ?>">
+                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url;  ?>" alt="<?php echo $related_bot->post_title; ?>">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
@@ -319,7 +320,7 @@
             <div class="col-sm-6 col-md-6 col-lg-3 list-item">
               <div class="card w-100">
                 <a href="/random-bot/">
-                  <img class="card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
+                  <img class="lazy-load card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" data-src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
