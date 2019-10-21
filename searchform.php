@@ -40,7 +40,10 @@
       </div>
       <div class="col-sm-12 mt-4 pl-1 pr-0">
         <div class="form-row">        
-          <label><input id="search-filter-opensource" name="opensource" type="checkbox" value="true" <?php checked( $_GET['opensource'], 'true' ); ?>> Open-source</label>
+          <label><input id="search-filter-opensource" name="opensource" type="checkbox" value="true" <?php
+            if ( isset( $_GET['opensource'] ) ){
+              checked( $_GET['opensource'], 'true' ); 
+            } ?>> Open-source</label>
         </div>
       </div>
     </div>

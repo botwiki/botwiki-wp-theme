@@ -7,14 +7,13 @@
   $post_id = get_the_ID();
 
   $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
-  $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
-  $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+  $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
+  $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
 
   if ( !empty( $_POST ) ){
-
     // error_log( print_r( $_POST, true ) );
 
-    if (
+    if ( 
       ( isset( $_POST['bot-name'] ) && !empty( $_POST['bot-name'] ) ) &&
       ( isset( $_POST['bot-description'] ) && !empty( $_POST['bot-description'] ) ) &&
       ( isset( $_POST['bot-networks'] ) && !empty( $_POST['bot-networks'] ) ) &&
@@ -23,8 +22,8 @@
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
 
-      if (get_current_user_id() !== 1){
-        if (
+      if ( get_current_user_id() !== 1 ){
+        if ( 
           ( isset( $_POST['apply-for-botmaker-badge'] ) && !empty( $_POST['apply-for-botmaker-badge'] ) ) &&
           ( isset( $_POST['bot-author-email'] ) && !empty( $_POST['bot-author-email'] ) )
         ){
@@ -33,39 +32,45 @@
         else{
           $email_subject = 'New bot submission';          
         }
-        wp_mail( get_the_author_meta('user_email', 1), $email_subject, print_r( $_POST, true ) );      
+        wp_mail( get_the_author_meta( 'user_email', 1 ), $email_subject, print_r( $_POST, true ) );      
       }
 
       function add_post_thumbnail( $post_id, $image_path, $description ){
         $upload_dir = wp_upload_dir();
-        $image_data = file_get_contents($image_path);
-        $filename = basename($image_path);
-        if(wp_mkdir_p($upload_dir['path']))     $file = $upload_dir['path'] . '/' . $filename;
-        else                                    $file = $upload_dir['basedir'] . '/' . $filename;
-        file_put_contents($file, $image_data);
+        $image_data = file_get_contents( $image_path );
+        $filename = basename( $image_path );
 
-        $wp_filetype = wp_check_filetype($filename, null );
-        $attachment = array(
+        if ( wp_mkdir_p( $upload_dir['path'] ) ){
+          $file = $upload_dir['path'] . '/' . $filename;
+        }
+        else{
+          $file = $upload_dir['basedir'] . '/' . $filename;
+        }
+
+        file_put_contents( $file, $image_data );
+        $wp_filetype = wp_check_filetype( $filename, null );
+
+        $attachment = array( 
           'post_mime_type' => $wp_filetype['type'],
           // 'post_title' => $description,
           'post_title' => $_POST['bot-name'],
           'post_content' => '',
           'post_status' => 'inherit'
         );
+
         $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        require_once( ABSPATH . 'wp-admin/includes/image.php' );
         $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
         $res1 = wp_update_attachment_metadata( $attach_id, $attach_data );
         $res2 = set_post_thumbnail( $post_id, $attach_id );
       }
 
-
       $bot_authors = array();
 
       if ( !empty( $_POST['author-names'] ) ){
-        foreach ($_POST['author-names'] as $index => $author_name) {
-          if (!empty( $_POST['author-names'][$index] )){
-            array_push($bot_authors, trim( $author_name ) . 
+        foreach ( $_POST['author-names'] as $index => $author_name ) {
+          if ( !empty( $_POST['author-names'][$index] ) ){
+            array_push( $bot_authors, trim( $author_name ) . 
                       ( array_key_exists( $index, $_POST['author-urls']  ) && !empty( $_POST['author-urls'][$index] )
                       ? ', ' . trim( $_POST['author-urls'][$index] ) : '' ) );
           }
@@ -74,7 +79,7 @@
 
       $bot_author_info = implode( "\n", $bot_authors );
 
-      $bot_description = trim($_POST['bot-description'] );
+      $bot_description = trim( $_POST['bot-description'] );
       $bot_urls = $_POST['bot-urls'];
 
       $post_content = '';
@@ -87,11 +92,11 @@
       $created_by_html_array = array();
       $author_tags = array();
 
-      foreach ($bot_authors as $bot_author) {
-        $bot_author_info_arr = explode(',', $bot_author);
+      foreach ( $bot_authors as $bot_author ) {
+        $bot_author_info_arr = explode( ',', $bot_author );
 
         if ( count( $bot_author_info_arr ) === 2 ){
-          array_push( $created_by_html_array, '<a href="' . trim( $bot_author_info_arr[1] ) . '">' . trim( $bot_author_info_arr[0] ) . '</a>');
+          array_push( $created_by_html_array, '<a href="' . trim( $bot_author_info_arr[1] ) . '">' . trim( $bot_author_info_arr[0] ) . '</a>' );
 
           $author_username = $helpers->get_username_from_url( $bot_author_info_arr[1] );
 
@@ -100,7 +105,7 @@
           }
         }
         else{
-          array_push( $created_by_html_array, $bot_author_info_arr[0]);          
+          array_push( $created_by_html_array, $bot_author_info_arr[0] );          
         }
       }
 
@@ -109,7 +114,7 @@
         $post_content .= '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
                       . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
                       . " bot" 
-                      . ( count( $bot_authors) > 0 ? " created by " : "" )
+                      . ( count( $bot_authors ) > 0 ? " created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";
       }
@@ -120,13 +125,13 @@
         }
 
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
-                      . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks']) )
-                      . ( count( $bot_authors) > 0 ? " bot created by " : "" )
+                      . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks'] ) )
+                      . ( count( $bot_authors ) > 0 ? " bot created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
                       . $bot_description . "</p>";        
       }
 
-      $post_content = str_replace("</p></p>", "</p>", $post_content);
+      $post_content = str_replace( "</p></p>", "</p>", $post_content );
 
       $bot_meta = array();
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
@@ -144,12 +149,12 @@
 
       $bot_tags = array();
 
-      foreach ($_POST['bot-tags'] as $bot_tag) {
+      foreach ( $_POST['bot-tags'] as $bot_tag ) {
         array_push( $bot_tags, $bot_tag );
       }
 
-      foreach ( $bot_urls as $bot_url) {
-        if ( strpos( $bot_url, 'botsin.space/') ){
+      foreach ( $bot_urls as $bot_url ) {
+        if ( strpos( $bot_url, 'botsin.space/' ) ){
           array_push( $bot_tags, 'botsin.space' );
           break;
         }
@@ -159,8 +164,8 @@
         array_push( $bot_tags, 'interactive' );        
       }
 
-      if ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ){
-        $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
+      if ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ){
+        $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
 
         if ( !empty( $twitter_handle ) ){
           array_push( $bot_tags, $twitter_handle );
@@ -175,31 +180,31 @@
       //   array_push( $bot_tags, 'opensource' );
       // }
 
-      $post_data = array(
-        'post_author' => ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
+      $post_data = array( 
+        'post_author' => ( ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
         'post_content' => $post_content,
         'post_title' => $_POST['bot-name'],
         'post_excerpt' => $_POST['bot-tagline'],
         'post_status' => 'draft',
         'post_type' => 'bot',
         'post_category' => '',
-        // 'tax_input' => array(
+        // 'tax_input' => array( 
         //   'post_tag' => $bot_tags
         // ),
         'meta_input' => $bot_meta
       );
 
-      $new_post_id = wp_insert_post($post_data);
+      $new_post_id = wp_insert_post( $post_data );
 
-      wp_set_object_terms($new_post_id, $bot_tags, 'post_tag');
-      update_post_meta($new_post_id, 'bot_author_info', $bot_author_info);
+      wp_set_object_terms( $new_post_id, $bot_tags, 'post_tag' );
+      update_post_meta( $new_post_id, 'bot_author_info', $bot_author_info );
 
-      foreach ($bot_meta as $key => $value) {
+      foreach ( $bot_meta as $key => $value ) {
         update_post_meta( $new_post_id, $key, $value );
       }
 
-      if ( count( array_intersect( $_POST['bot-networks'], array('mastodon', 'gnu-social') ) ) > 0 ){
-        array_push($_POST['bot-networks'], 'fediverse');      
+      if ( count( array_intersect( $_POST['bot-networks'], array( 'mastodon', 'gnu-social' ) ) ) > 0 ){
+        array_push( $_POST['bot-networks'], 'fediverse' );      
       }
 
       wp_set_object_terms( $new_post_id, $_POST['bot-networks'], 'network' );
@@ -209,14 +214,14 @@
         try {
           // TODO: Proper error handling.
 
-          $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=700");
+          $screenshot_data = file_get_contents( "https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=700" );
 
           $screenshot_data_json = json_decode( $screenshot_data );
   
-          $image_path = ABSPATH . 'temp/' . preg_replace("/[^a-z0-9\.]/", "-", strtolower( trim( $_POST['bot-name'] ) ) ) . '.png';
+          $image_path = ABSPATH . 'temp/' . preg_replace( "/[^a-z0-9\.]/", "-", strtolower( trim( $_POST['bot-name'] ) ) ) . '.png';
 
           if ( !file_exists(  ABSPATH . 'temp/' ) ) {
-            mkdir( ABSPATH . 'temp/' , 0777, true);
+            mkdir( ABSPATH . 'temp/' , 0777, true );
           }
 
           // if ( !file_exists( $image_path ) ) {
@@ -228,19 +233,19 @@
           fclose( $ifp ); 
 
           try {
-            $dominant_color = ColorThief::getColor($image_path);
-            update_post_meta($new_post_id, 'dominant_color', json_encode($dominant_color));
-          } catch (Exception $e) { /* NOOP */ }
+            $dominant_color = ColorThief::getColor( $image_path );
+            update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+          } catch ( Exception $e ) { /* NOOP */ }
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
 
           if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
             global $wpdb;
             $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
-            $wpdb->query($query);
+            $wpdb->query( $query );
           }
 
-        } catch (Exception $e) {
+        } catch ( Exception $e ) {
           /* NOOP */
         }
       }
@@ -249,7 +254,7 @@
         <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
           <?php
             $post_thumbnail_id = get_post_thumbnail_id();
-            the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ]);
+            the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
           ?>
         </div>
         <div class="container">
@@ -275,7 +280,7 @@
               </li>
             </ul>
             <div class="text-center mt-5">
-              <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 (@botwikidotorg) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
+              <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 ( @botwikidotorg ) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
               <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
           </article>
@@ -287,7 +292,7 @@
         <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
           <?php
             $post_thumbnail_id = get_post_thumbnail_id();
-            the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ]);
+            the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
           ?>
         </div>
         <div class="container">
@@ -300,13 +305,13 @@
     <?php }
   }
   else { ?>
-    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
-    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
+    <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
+    <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
     <main role="main" class="container-fluid m-0 p-0">
       <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
         <?php
           $post_thumbnail_id = get_post_thumbnail_id();
-          the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ]);
+          the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
         ?>
       </div>
       <div class="container">
@@ -319,15 +324,15 @@
               </li>
             </ul>
           <?php } ?>
-          <?php echo do_shortcode( get_post_field('post_content', $post_id) ); ?>
+          <?php echo do_shortcode( get_post_field( 'post_content', $post_id ) ); ?>
           <form id="submit-bot-form" method="post" class="mt-5">
           <?php if ( is_user_logged_in() ) {
             $author_id = get_current_user_id();
-            $username = get_the_author_meta('user_nicename', get_current_user_id() );
+            $username = get_the_author_meta( 'user_nicename', get_current_user_id() );
             $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
-            if ( empty( $profile_img_url )){
-              $profile_img_url = get_avatar_url($author_id);
+            if ( empty( $profile_img_url ) ){
+              $profile_img_url = get_avatar_url( $author_id );
             }
             $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
           ?>
@@ -379,11 +384,11 @@
                 <label for="bot-info-1-network">Network</label>
                 <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
                 <?php
-                  $networks = get_terms( 'network', array(
+                  $networks = get_terms( 'network', array( 
                       'hide_empty' => false,
                   ) );
 
-                  foreach ($networks as $network) { ?>
+                  foreach ( $networks as $network ) { ?>
                     <option <?php if ( $network->name === 'Twitter' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
                   <?php }
                 ?> 
@@ -428,18 +433,18 @@
             </div>
             <div id="bot-source-info" class="mt-3 d-none">
               <div class="form-group">
-                <label for="bot-source-url">Link(s) to your bot's source code</label>
+                <label for="bot-source-url">Link( s ) to your bot's source code</label>
                 <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
                 <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
               </div>
               <div class="form-group">
-                <label for="bot-source-language">What language(s) did you use?</label>
+                <label for="bot-source-language">What language( s ) did you use?</label>
                 <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
                 <?php
-                  $languages = get_terms( 'programing_language', array(
+                  $languages = get_terms( 'programing_language', array( 
                       'hide_empty' => false,
                   ) );
-                  foreach ($languages as $language) { ?>
+                  foreach ( $languages as $language ) { ?>
                     <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
                   <?php }
                 ?> 
@@ -468,7 +473,7 @@
         </article>
       </div>
     </main>
-    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>
 <?php get_footer(); ?>
