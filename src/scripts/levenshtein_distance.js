@@ -1,4 +1,4 @@
-var levenshtein_distance = function( s, t ) {
+var levenshteinDistance = function( s, t ) {
     if ( !s || !t ){
         return;
     }
