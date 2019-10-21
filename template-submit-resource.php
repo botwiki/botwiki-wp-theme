@@ -251,7 +251,7 @@
   else { ?>
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
-    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/css/select2.min.css' media='all' />
+    <link rel='stylesheet' href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' media='all' />
     <main role="main" class="container-fluid m-0 p-0">
       <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
         <?php
@@ -400,7 +400,7 @@
         </article>
       </div>
     </main>
-    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/js/select2.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>
