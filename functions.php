@@ -492,6 +492,24 @@ function enqueue_scripts_async( $tag, $handle, $src ) {
 
 add_filter( 'script_loader_tag', 'enqueue_scripts_async', 10, 3 );
 
+
+
+// add_filter('image_downsize', function( $data ){
+//   log_this( 'image_downsize', array(
+//     'data' => $data
+//   ) );
+// });
+
+
+add_filter('intermediate_image_sizes', function( $default_image_sizes) {
+    log_this( 'intermediate_image_sizes', $default_image_sizes );
+    return $default_image_sizes;
+  }
+);
+ 
+
+
+
 /*
     Helper dev functions.
 */
