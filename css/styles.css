@@ -769,6 +769,12 @@ div#menu-wrapper {
   color: #6c757d !important;
   font-style: normal !important; }
 
+#bot-tags-help {
+  font-size: 0.8em; }
+  #bot-tags-help p {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+
 ul.btn-list {
   list-style: none;
   padding: 0;

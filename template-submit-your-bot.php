@@ -452,13 +452,15 @@
                 <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
               <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
               </select>
-              <small id="bot-tags-help" class="form-text text-muted">Add as many relevant tags as you can, this will make it easier for others to find it.</small>
+              <div id="bot-tags-help" class="form-text text-muted mt-3">
+                <p>Add as many relevant tags as you can, this will make it easier for others to find it.</p>
+                <p>Note that <strong>you don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
             </div>
-            <div class="form-check mb-2">
+            <div class="form-check mt-3 mb-2">
               <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
               <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
             </div>
