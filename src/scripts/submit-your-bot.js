@@ -49,7 +49,9 @@ $( function() {
 
     /* Disassociate bot author to allow logged in users to submit other people's bots. */
 
-    $( '#disassociate-author' ).click( function( ev ){
+    let $disassociateAuthorBtn = $( '#disassociate-author' );
+
+    $disassociateAuthorBtn.click( function( ev ){
       ev.preventDefault();
       $( '#logged-in-author' ).remove();
       $( '#disassociate-author-input' ).val( 'true' );
@@ -62,6 +64,7 @@ $( function() {
 
     $( '#test' ).click( function( ev ){
       ev.preventDefault();
+      $disassociateAuthorBtn.click();
 
       $( '#add-author-fields' ).before( '<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>' );
 
@@ -69,8 +72,8 @@ $( function() {
       $( '#author-1-name' ).val( 'Stefan' );
       $( '#author-1-url' ).val( 'https://twitter.com/fourtonfish' );
       $( '#author-2-name' ).val( 'John Doe' );
-      // $( '#author-2-url' ).val( 'https://twitter.com/jd' );
-      $( '#bot-description' ).val( 'generates random images.' );
+
+      window.bot_description_editor.setContent('generates random images.');
 
       let bot_info_network_select_html = $( '#bot-info-1-network' ).html();
 
@@ -81,25 +84,25 @@ $( function() {
         placeholder: $( this ).attr( 'placeholder' )
       } );
 
-      $( '#bot-info-1-network' ).val( 'twitter-bots' );
-      $( '#bot-info-1-network' ).trigger( 'change' );
+      $( '#bot-info-1-network' ).val( 'twitter-bots' ).trigger( 'change' );
 
-      $( '#bot-info-2-network' ).val( 'tumblr-bots' );
-      $( '#bot-info-2-network' ).trigger( 'change' );
+      $( '#bot-info-2-network' ).val( 'tumblr-bots' ).trigger( 'change' );
 
       $( '#bot-info-1-url' ).val( 'https://twitter.com/coolbot' );
       $( '#bot-info-2-url' ).val( 'https://coolbot.tumblr.com/' );
 
       $( '#bot-selected-tweets' ).val( 'https://twitter.com/mycoolbot/status/123456789\nhttps://twitter.com/mycoolbot/status/987654321' );
       $( '#bot-tagline' ).val( 'This is a cool bot.' );
-      $( '#bot-tags' ).val( ['generative', 'images', 'nodejs'] );
-      $( '#bot-tags' ).trigger( 'change' );
+
+      $( '#bot-tags' ).append(
+        `<option value="generative">generative</option>
+         <option value="images">images</option>`
+       ).val( ['generative', 'images'] ).trigger( 'change' );
 
       $( '#bot-is-opensource' ).click();
 
       $( '#bot-source-url' ).val( 'https://github.com/botwiki/botwiki.org' );
-      $( '#bot-source-language' ).val( 'nodejs' );
-      $( '#bot-source-language' ).trigger( 'change' );
+      $( '#bot-source-language' ).val( 'nodejs' ).trigger( 'change' );
 
       $( 'html, body' ).animate( {
           scrollTop: $form_submit_button.offset().top - 500
@@ -265,7 +268,7 @@ $( function() {
     enable_selected_tweets_field();
   }
   if ( typeof MediumEditor !== "undefined" ){
-    let bot_description_editor = new MediumEditor( '#bot-description', {
+    window.bot_description_editor = new MediumEditor( '#bot-description', {
       placeholder: {
         text: 'This bot makes...',
         hideOnClick: true
@@ -273,6 +276,6 @@ $( function() {
       toolbar: {
         buttons: ['anchor', 'pre', 'quote']
       }
-    } );    
+    } );
   }
 } );
