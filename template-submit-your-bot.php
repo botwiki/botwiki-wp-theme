@@ -456,9 +456,10 @@
               <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
               <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
               </select>
-              <div id="bot-tags-help" class="form-text text-muted mt-3">
-                <p>Add as many relevant tags as you can, this will make it easier for others to find it.</p>
+              <div id="bot-tags-help" class="form-text form-help-text text-muted mt-3">
+                <p>Add as many relevant tags as you can, this will make it easier for others to find your submission.</p>
                 <p>Note that <strong>you don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
+              </div>
             </div>
             <div class="form-check mt-3 mb-2">
               <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
