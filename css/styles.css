@@ -387,7 +387,7 @@ ul, ol {
 blockquote {
   /* Courtesy of css-tricks.com. */
   background: #f9f9f9;
-  border-left: 10px solid #ccc;
+  border-left: none !important;
   margin: 2em auto;
   padding: 0.5em 1em 1em 0;
   quotes: "“" "”" "‘" "’"; }
