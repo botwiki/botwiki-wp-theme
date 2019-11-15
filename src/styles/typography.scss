@@ -224,15 +224,15 @@ p.post-tags{
   a{
     font-family: monospace;
     font-size: 1.2em;
-    background-color: #6a6a6a;
-    color: #fff;
+    color: $color-primary;
+    background-color: rgba(0, 0, 0, 0.125);
     line-height: 2em;
     padding: 5px;
     white-space: nowrap;
 
     &:hover{
       text-decoration: none;
-      background-color: #999;
+      background-color: rgba(0, 0, 0, 0.2);
     }
 
     &, &:hover{
