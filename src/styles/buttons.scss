@@ -17,9 +17,8 @@ ul.btn-list{
 .btn{
   font-family: $button-font-family;
   font-weight: bold;
-  border: 2px solid #6a6a6a;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0;
-
 
   padding: 10px;
 
@@ -35,7 +34,8 @@ ul.btn-list{
     // box-shadow: 1px 1px 0 $color-primary + #222;
     color: $color-primary;
     text-decoration: none;
-    background-color: #dedede;
+    background-color: rgba(0, 0, 0, 0.125);
+    border: 1px solid rgba(0, 0, 0, 0);
   }
 
   &,
