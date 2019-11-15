@@ -37,8 +37,9 @@ img {
     display: block;
     margin: 3rem auto; }
   .card.author-card img {
+    display: block;
     height: auto;
-    margin: initial; }
+    margin: 0 auto; }
 
 .card-footer {
   padding-bottom: 2.25em;

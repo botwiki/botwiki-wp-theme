@@ -277,7 +277,7 @@
             $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
             if ( empty( $profile_img_url )){
-              $profile_img_url = get_avatar_url($author_id);
+              $profile_img_url = get_avatar_url( $author_id, array( 'size' => 120 ) );
             }
             $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
           ?>

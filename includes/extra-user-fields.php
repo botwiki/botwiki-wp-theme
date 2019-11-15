@@ -48,7 +48,7 @@ class Extra_User_Fields {
         $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
 
         if ( empty( $profile_img_url )){
-          $profile_img_url = get_avatar_url($user->ID);
+          $profile_img_url = get_avatar_url( $user->ID, array( 'size' => 120 ) );
         }
 
         ?>
@@ -128,7 +128,7 @@ class Extra_User_Fields {
         $('#clear-profile-img').click(function(e) {
           e.preventDefault();
           $('#profile-img-url').val('');
-          $('#profile-img-preview').attr('src', '<?php echo get_avatar_url($author_id); ?>');
+          $('#profile-img-preview').attr('src', '<?php echo get_avatar_url( $author_id, array( 'size' => 120 ) ); ?>');
         });
       });
     </script>

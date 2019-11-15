@@ -62,8 +62,9 @@ img{
   }
 
   .card.author-card &{
+    display: block;
     height: auto;
-    margin: initial;
+    margin: 0 auto;
   }
 }
 

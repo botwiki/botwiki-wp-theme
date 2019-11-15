@@ -1,3 +1,7 @@
+<?php
+  $profile_img_url = str_replace( '?s=96&', '?s=130&', $profile_img_url );
+?>
+
 <div class="container mt-5">
   <div class="card mt-4 mb-4 author-card">
     <div class="card-body mt-4">
