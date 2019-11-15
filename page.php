@@ -50,8 +50,8 @@
 						by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em>.</p>
 					<p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
 					<div class="note">
-						<p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a>
-					</p>
+						<p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a></p>
+                    </div>
 				<?php }
 			?>
             <?php if ( !is_front_page() ){ ?>
