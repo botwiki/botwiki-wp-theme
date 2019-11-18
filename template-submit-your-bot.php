@@ -134,6 +134,7 @@
       $post_content = str_replace( "</p></p>", "</p>", $post_content );
 
       $bot_meta = array();
+      $bot_meta['bot_is_featured'] = "on";
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
