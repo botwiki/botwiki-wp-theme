@@ -11,7 +11,12 @@ class BotsPostType {
     add_filter( 'enter_title_here', array( $this, 'change_post_title_placeholder' ) );
     add_action( 'pre_get_posts', array( $this, 'filter_query' ) );
     add_action( 'admin_bar_menu', array( $this, 'add_pending_bots_link' ), 100 );
+    add_shortcode( 'bot_count', array( $this, 'get_bot_count' ) );
 
+  }
+
+  function get_bot_count( $atts ) {
+    return number_format( wp_count_posts( 'bot' )->publish );
   }
 
   function add_pending_bots_link($wp_admin_bar) {
