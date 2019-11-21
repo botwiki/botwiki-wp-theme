@@ -118,7 +118,7 @@
           </ul>
         <?php } else {?>
           <h1>Browsing all <?php
-            echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
+            echo ( !empty( $_GET['opensource'] ) ? 'open source' : number_format( wp_count_posts( 'bot' )->publish ) );
           ?> bots...</h1>
           <ul class="btn-list">
             <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
