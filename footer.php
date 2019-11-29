@@ -87,7 +87,7 @@
                   <li class="list-header">About</li>
                   <li><a href="<?php echo site_url(); ?>/about/">About Botwiki</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/projects/">Our projects</a></li>
-                  <li><a href="<?php echo site_url(); ?>/about/team/">Browser Extension</a></li>
+                  <li><a href="<?php echo site_url(); ?>/projects/botwiki-browser-extension/">Browser Extension</a></li>
                   <li><a href="<?php echo site_url(); ?>/about/press/">Press</a></li>
                   <li><a href="<?php echo site_url(); ?>/coc/">Code of Conduct</a></li>
                 </ul>                
