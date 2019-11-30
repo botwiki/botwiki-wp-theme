@@ -324,9 +324,9 @@
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
-                    <a href="/random-bot/">????</a>  
+                    <a href="/random-bot/">?????????</a>
                   </h5>
-                  <p class="card-text">??????????</p>
+                  <p class="card-text">Explore the wonderful world of online bots, one random bot at a time.</p>
                 </div>
               </div>
             </div>          
