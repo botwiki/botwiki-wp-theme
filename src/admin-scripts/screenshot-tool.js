@@ -1,6 +1,5 @@
-$(function() {
+( function( $ ) {
   'use strict';
-
   $(document).on('click', '#get-screenshot', function(ev){
     var $get_screenshot_btn = $(this),
         screenshot_btn_txt = $get_screenshot_btn.html(),
@@ -36,4 +35,4 @@ $(function() {
       alert('You forgot the URL!');
     }
   });
-});
+} )( jQuery );

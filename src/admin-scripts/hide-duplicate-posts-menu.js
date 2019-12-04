@@ -1,4 +1,4 @@
-$(function() {
+( function( $ ) {
   'use strict';
 
   function wait_for_el(selector, callback) {
@@ -21,5 +21,4 @@ $(function() {
       $menu_posts.first().hide();  
     }
   });
-
-});
+} )( jQuery );

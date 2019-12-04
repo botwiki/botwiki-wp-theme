@@ -68,5 +68,3 @@
     archive_select_frame.open();
   });
 } )( jQuery );
-
-
