@@ -1,4 +1,4 @@
-$(function() {
+( function( $ ) {
   'use strict';
 
   var $archive_btn = $('#output-archive-btn'),
@@ -67,5 +67,6 @@ $(function() {
 
     archive_select_frame.open();
   });
+} )( jQuery );
 
-});
+
