@@ -1,19 +1,19 @@
 ( function( $ ) {
     'use strict';
     $(window).load(function() {
-      function waitForElement(selector, callback) {
+      window.waitForElement = function(selector, callback) {
         if ($(selector).length) {
           callback();
         } else {
           var helpers = this;
 
           setTimeout(function() {
-            helpers.wait_for_el(selector, callback);
+            window.waitForElement(selector, callback);
           }, 100);
         }
       };
 
-      waitForElement('[id="menu-posts"]', function() {
+      window.waitForElement('[id="menu-posts"]', function() {
         /* Quick fix for duplicate Posts appearing in admin, after modifying default post slug. */
         var $menu_posts = $('[id="menu-posts"]');
 
