@@ -150,6 +150,9 @@
       elseif ( is_home()) {
         $page_title = 'Latest posts from our blog';
       }
+      elseif ( is_404()) {
+        $page_title = 'Oh no, 404!';
+      }
       else{
         $page_title = get_the_title();
         $page_description = get_the_excerpt();
