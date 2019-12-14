@@ -118,10 +118,11 @@ class New_On_Botwiki {
                                 ->setPostfields( $post_fields )
                                 ->performRequest()
                       );
-
-          try{
+          try {
             $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
-            update_post_meta( $post_id, 'published_tweet_url', TWEET_URL  );
+            update_post_meta( $post_id, 'published_tweet_url', TWEET_URL  );            
+          } catch (Exception $e) {
+            /* noop */
           }
         }
       }
