@@ -96,6 +96,9 @@ class New_On_Botwiki {
               $tweet_text .= ' via ' .  $twitter_handles;           
             }
           }
+        } elseif ( $post->post_type === 'post' ){
+          $blog_post_url = 'botwiki.org/blog/' . $post->post_name; 
+          $tweet_text = 'New blog post was posted on Botwiki! ' . $blog_post_url;
         }
 
         if ( !empty( $tweet_text ) ){
