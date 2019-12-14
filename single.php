@@ -196,7 +196,7 @@
             global $helpers;
             ?>
             <h3 id="source-code">Source code</h3>
-            <ul>
+            <ul class="list-style-circle">
               <?php
               foreach ( $bot_source_urls as $url ) { ?>
                 <li>

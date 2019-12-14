@@ -621,6 +621,9 @@ div.bottom-page-links {
           div.bottom-page-links a#twitter-link span {
             display: none; } }
 
+.list-style-circle {
+  list-style-type: circle; }
+
 @-webkit-keyframes img-pop {
   0% {
     -webkit-transform: scale(1) translate(0, 0);
@@ -808,7 +811,7 @@ ul.btn-list {
     color: #4d4350;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.125);
-    border: 1px solid rgba(0, 0, 0, 0); }
+    border: 1px solid transparent; }
   .btn, .btn:hover {
     -webkit-transition: background-color 0.1s;
     -o-transition: background-color 0.1s;

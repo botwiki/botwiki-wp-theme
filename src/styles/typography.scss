@@ -397,6 +397,10 @@ div.bottom-page-links{
   }
 }
 
+.list-style-circle{
+  list-style-type: circle;
+}
+
 @keyframes img-pop {
   0% {
       transform: scale( 1 ) translate(0, 0);    
