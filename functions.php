@@ -31,6 +31,7 @@ require 'includes/rss-feed.php';
 require 'includes/wp-json-api.php';
 require 'includes/archive-page.php';
 require 'includes/simple_html_dom.php';
+require 'includes/newonbotwiki-twitter.php';
 
 
 /*------------------------------------*\
