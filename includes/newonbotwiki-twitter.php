@@ -123,7 +123,7 @@ class New_On_Botwiki {
                       );
           try {
             $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
-            update_post_meta( $post_id, 'published_tweet_url', TWEET_URL  );            
+            update_post_meta( $post_id, 'published_tweet_url', $tweet_url  );            
           } catch (Exception $e) {
             /* noop */
           }
