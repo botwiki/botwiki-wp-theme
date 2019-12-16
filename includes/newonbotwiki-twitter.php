@@ -3,7 +3,6 @@
 class New_On_Botwiki {
   public function __construct() {
     add_filter( 'publish_post', array( $this, 'tweet' ) );
-    add_filter( 'post_updated', array( $this, 'tweet' ) );
   }
 
   public static function get_twitter_handles( $author_info ){
