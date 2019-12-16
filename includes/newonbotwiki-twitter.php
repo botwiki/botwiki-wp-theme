@@ -96,7 +96,7 @@ class New_On_Botwiki {
               $tweet_text .= ' via ' .  $twitter_handles;           
             }
           }
-        } elseif ( $post->post_type === 'post' ){
+        } elseif ( $post->post_type === 'post' && get_post_status( $post ) === 'publish' ){
           $tweet_text = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
         }
 
