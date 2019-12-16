@@ -245,6 +245,10 @@
               echo $narrow_opensource_link;
             ?>
           </ul>
+        <?php } elseif ( in_array( 'non-english', $tags ) && count( $tags ) > 1 ) { ?>          
+          <ul class="btn-list">
+            <li><a class="btn" href="/bot/?tags=iot,images<?php echo $filter_opensource;?>">Browse all non-English bots</a></li>
+          </ul>
         <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
           <div class="card pt-5 mt-5 mb-2">
             <div class="container">
