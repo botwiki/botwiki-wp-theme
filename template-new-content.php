@@ -32,6 +32,9 @@
           <li>
             <a class="btn" href="#resources">New resources</a>
           </li>
+          <li>
+            <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
+          </li>
         </ul>
 
         <h2 id="blog">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>

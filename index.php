@@ -29,8 +29,9 @@
       <h3>Wait, there's more!</h3>
       <ul>
         <li>follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
+        <li>keep up with new bots and blog updates via <a href="https://twitter.com/newonbotwiki">@newonbotwiki</a></li>
         <li>check out our <a href="/learn/#blogs-and-websites">blogroll</a></li>
-        <li>meet <a href="/about/team">the team</a></li>
+        <li><a href="/about/team">meet the team</a></li>
       </ul>
 		</div>
 	</main>

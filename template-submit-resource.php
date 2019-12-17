@@ -207,7 +207,8 @@
             <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
               <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=resource&author=<?php echo get_current_user_id(); ?>">submit your resource for review</a>.</p> 
             <?php } else { ?>
-              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p>
+              <p>You can follow <a href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a> to see when the site gets updated.</p>
             <?php } ?>
             <ul class="btn-list mt-4">
               <li>
@@ -223,9 +224,14 @@
                 <a class="btn" href="<?php echo get_site_url(); ?>">Back to home page</a>
               </li>
             </ul>
-            <div class="text-center mt-5">
-              <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 (@botwikidotorg) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
-              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <div class="row mt-5">
+                <div class="col-sm-12 col-md-6">
+                  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 ( @botwikidotorg ) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New bot was added to Botwiki! <a href="https://t.co/RUepf5f8Im">https://t.co/RUepf5f8Im</a></p>&mdash; New on Botwiki ✨ (@newonbotwiki) <a href="https://twitter.com/newonbotwiki/status/1206599872016719877?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote>                    
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
             </div>
           </article>
         </div>
@@ -262,13 +268,16 @@
       <div class="container">
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
           <h1><?php the_title(); ?></h1>
-          <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
             <ul class="btn-list">
+              <li>
+                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a>
+              </li>
+              <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
               <li>
                 <button class="btn" id="test" href="#">Test submission</button>
               </li>
+              <?php } ?>
             </ul>
-          <?php } ?>
           <?php echo do_shortcode( get_post_field( 'post_content', $post_id ) ); ?>
           <form id="submit-resource-form" method="post" class="mt-5">
           <?php if ( is_user_logged_in() ) {
