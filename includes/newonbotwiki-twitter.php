@@ -2,7 +2,7 @@
 
 class New_On_Botwiki {
   public function __construct() {
-    add_filter( 'transition_post_status', array( $this, 'tweet' ) );
+    add_filter( 'transition_post_status', array( $this, 'tweet' ), 10, 3 );
   }
 
   public static function get_twitter_handles( $author_info ){
