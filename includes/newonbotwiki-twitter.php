@@ -2,8 +2,7 @@
 
 class New_On_Botwiki {
   public function __construct() {
-    add_filter( 'publish_post', array( $this, 'tweet' ) );
-    add_filter( 'post_updated', array( $this, 'tweet' ) );
+    add_filter( 'transition_post_status', array( $this, 'tweet' ) );
   }
 
   public static function get_twitter_handles( $author_info ){
@@ -39,7 +38,7 @@ class New_On_Botwiki {
     return $twitter_handles; 
   }
 
-  public function tweet( $post_id ) {
+  public function tweet( $new_status, $old_status, $post ) {
     if ( empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN ) ||
          empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN_SECRET ) ||
          empty( NEWONBOTWIKI_TWITTER_API_KEY ) ||
@@ -47,9 +46,7 @@ class New_On_Botwiki {
       return false;
     }
 
-    $post = get_post( $post_id );
-
-    if ( !empty( $post ) ){
+    if ( !empty( $post ) && $new_status === 'publish' && $old_status !== 'publish' ){
       $published_tweet_url = get_post_meta( $post_id, 'published_tweet_url', true );
       
       if ( empty( $published_tweet_url ) && !wp_is_post_revision( $post_id ) ) {
