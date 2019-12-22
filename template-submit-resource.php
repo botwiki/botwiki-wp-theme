@@ -270,7 +270,7 @@
           <h1><?php the_title(); ?></h1>
             <ul class="btn-list">
               <li>
-                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a>
+                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">Follow @newonbotwiki</a>
               </li>
               <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
               <li>
