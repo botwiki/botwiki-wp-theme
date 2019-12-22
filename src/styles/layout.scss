@@ -227,7 +227,7 @@ ul.navbar-nav{
   }
   
   img{
-    height: 45vh;
+    height: 55vh;
     object-fit: cover;
     width: 100%;
     transition: all 0.3s;
@@ -242,10 +242,46 @@ ul.navbar-nav{
 
 body.single-bot{
   .thumbnail-wrapper{
+    position: relative;
     text-align: center;
     img{
       object-fit: cover;
     }
+
+    .expand-image-hint{
+      transition: transform 0.3s, opacity 0.2s;
+      opacity: 0;
+      transform: translateY(10px);
+      display: inline-block;
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      pointer-events: none;
+      background-color: #3a3a3a;
+      color: #fff;
+      padding: 5px;
+      p{
+        font-style: italic;
+        padding: 5px;
+        padding-right: 10px;
+        margin: 0;
+      }
+    }    
+
+    &:hover{
+      .expand-image-hint{
+        transition: transform 0.3s, opacity 0.2s;
+        opacity: 1;
+        transform: translateY(0);
+      }      
+    }
+
+    &.image-expanded{
+      .expand-image-hint{
+        display: none !important;
+      }
+    }
+
   }  
 }
 

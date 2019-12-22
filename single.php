@@ -26,6 +26,7 @@
           ?>
           <?php if ( $post_type == 'bot' ){ ?>
           </a>
+          <div class="expand-image-hint"><p>Click the image to expand</p></div>
         <?php } ?>
 
       </div>
