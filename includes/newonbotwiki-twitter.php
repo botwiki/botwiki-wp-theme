@@ -21,7 +21,9 @@ class New_On_Botwiki {
 
             $twitter_handle = $helpers->get_username_from_url( $author_url );
 
-            if ( !empty( $twitter_handle ) ){
+            if ( !empty( $twitter_handle ) && !in_array( $twitter_handle, array(
+              'tinysubversions'
+            ) ) ){
               array_push( $twitter_handles, $twitter_handle );
             }
           }
