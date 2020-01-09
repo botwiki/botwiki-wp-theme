@@ -15,7 +15,9 @@ class BW_Helpers {
     ) );
     $admin_emails = array();
     foreach ( $admins as $admin ) {
-      $admin_emails[] = get_the_author_meta('user_email', $admin->data->ID);        
+      if ( get_the_author_meta( 'botwiki-unlisted-email', $admin->data->ID ) !== 'on' ){
+        $admin_emails[] = get_the_author_meta( 'user_email', $admin->data->ID );
+      }
     }
     return implode( ',', $admin_emails );
 	}

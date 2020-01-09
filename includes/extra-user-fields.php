@@ -33,6 +33,15 @@ class Extra_User_Fields {
         <span class="description"><?php _e("What do you do at Botwiki?"); ?></span>
       </td>
     </tr>
+    <tr>
+      <th><label for="botwiki-unlisted-email">Unlisted admin email</label></th>
+      <td>
+        <input type="hidden" name="extra_user_fields" value="true" />
+        <input type="checkbox" name="botwiki-unlisted-email" id="botwiki-unlisted-email"
+               <?php checked( get_the_author_meta( 'botwiki-unlisted-email', $user->ID ), 'on' ); ?> />
+        <span class="description"><?php _e("Hide my email from the <strong>Contact Us</strong> page"); ?></span><br />
+      </td>
+    </tr>
     <?php } ?>
     <tr>
       <th><label for="twitter-handle">Twitter handle</label></th>
@@ -141,6 +150,7 @@ class Extra_User_Fields {
 
     if (isset($_POST['extra_user_fields'])) {
       update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
+      update_user_meta( $user_id, 'botwiki-unlisted-email', $_POST['botwiki-unlisted-email'] );
       update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
       update_user_meta( $user_id, 'profile-img-url', $_POST['profile-img-url'] );
       update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
