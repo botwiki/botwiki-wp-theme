@@ -265,7 +265,7 @@
               <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
             <?php } else { ?>
               <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-              <p>You can follow <a href="https://twitter.com/newonbotwiki" target="_blank">Follow @newonbotwiki</a> to see when the site gets updated.</p>
+              <p>You can <a href="https://twitter.com/newonbotwiki" target="_blank">follow @newonbotwiki</a> to see when the site gets updated.</p>
             <?php } ?>
             <ul class="btn-list mt-4">
               <li>
