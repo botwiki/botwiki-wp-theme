@@ -47,9 +47,9 @@ Short codes
 \*------------------------------------*/
 
 require 'includes/shortcodes/shortcodes-list.php';
-
 require 'includes/shortcodes/post-links.php';
 require 'includes/shortcodes/admin-emails.php';
+require 'includes/shortcodes/botmaker-badges-count.php';
 
 /*------------------------------------*\
 Tools
