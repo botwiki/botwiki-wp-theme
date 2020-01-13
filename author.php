@@ -168,6 +168,7 @@
               $bot_list_html .= '</div>';
               echo $bot_list_html;
               ?>
+              <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
               <?php
                 if ( count( $author_tags_bots ) ){ ?>
                   <h2 id="bot-tags">Bot tags</h2>
@@ -178,7 +179,6 @@
                     echo join( ' ', $author_tags_bots_html );
                   ?></p>
                 <?php } ?>
-              <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
           <?php } ?>
       <?php
         global $wp_query;
@@ -209,6 +209,7 @@
 
             get_template_part('loop');
           ?>
+          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
           <?php
           if ( count( $author_tags_resources ) ){ ?>
             <h2 id="resource-tags">Resource tags</h2>
@@ -220,7 +221,6 @@
               echo join( ' ', $author_tags_resources_html );
             ?></p>
           <?php } ?>
-          <a class="btn mt-2" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
         <?php } ?>
 		</div>
 	</main>
