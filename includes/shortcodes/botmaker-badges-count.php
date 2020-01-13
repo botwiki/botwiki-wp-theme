@@ -7,7 +7,7 @@ class Botmaker_Badges_Count {
 
   public function get_botmaker_badges_count() {
     global $helpers;
-    $offset = 45;
+    $offset = 46;
 
     $args = array(
         'posts_per_page' => -1,
