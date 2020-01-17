@@ -369,7 +369,7 @@ class BotsPostType {
       ?>
       <div class="notice <?php echo ($botmaker_badge_awarded ? "notice-info" : "notice-warning"); ?> inline">
         <p>
-          <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/83O0uKlSQzi76AOcOnV8PA/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_author_emails; ?></code>.
+          <a href="https://badgr.com/issuers/5e1fd98146e0fb003395f0b4/badges/5e1fe33c46e0fb0035a12afc/award" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_author_emails; ?></code>.
         </p>
         <p>
           <label>
