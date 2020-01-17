@@ -103,11 +103,11 @@ ul, ol{
 
 blockquote{
   /* Courtesy of css-tricks.com. */
-  background: #f9f9f9;
+  background: #fafafa;
   border-left: none !important;
-  // max-width: $max-content-width;
-  margin: 2em auto;
-  padding: 0.5em 1em 1em 0;
+  font-style: italic;
+  margin: 4rem auto !important;
+  padding: 0.5em 1em 2em 0;
   quotes: "\201C""\201D""\2018""\2019";
 
   .col-md-6 &{
@@ -119,27 +119,31 @@ blockquote{
   }
 
   &:before {
-    color: #ccc;
+    display: inline-block;
+    color: #f1f1f1;
     content: '“';
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.25em;
-    vertical-align: -0.4em;
+    font-family: $code-font-family;
+    font-size: 16em;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 0;
+    margin-bottom: 2rem;
+    margin-left: -1rem;
+    vertical-align: -.5em;
   }
 
-  p {
+  cite, p {
+    font-size: 1.2rem !important;
+    display: block;
     line-height: 1.5em;
     padding: 0 40px;
     @media (min-width: $site-width-medium){
       transform: translate(-10px, 0);
     }
-  }
-  ul, ol{
-    padding: 0 1em 0 4em;
-    @media (min-width: $site-width-medium){
-      padding: 0 1em 0 3em;
+    @media (max-width: $site-width-medium){
+      padding: 0;
     }
-  }  
+  }
 }
 
 blockquote.instagram-media,
