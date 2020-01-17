@@ -444,12 +444,12 @@ blockquote {
     color: #f1f1f1;
     content: '“';
     font-family: "Source Code Pro", monospace;
-    font-size: 16em;
+    font-size: 13em;
     font-style: normal;
     font-weight: bold;
     line-height: 0;
     margin-bottom: 2rem;
-    margin-left: -1rem;
+    margin-left: 0;
     vertical-align: -.5em; }
   blockquote cite, blockquote p {
     font-size: 1.2rem !important;
