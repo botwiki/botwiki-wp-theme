@@ -60,7 +60,7 @@ img {
 /* Site navigation */
 nav {
   pointer-events: none;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Source Serif Pro", serif;
   min-height: 5em; }
   nav #menu-toggle {
     display: none; }
@@ -111,10 +111,10 @@ nav {
     font-size: 2em;
     padding: 0 5px !important;
     line-height: 1.5em;
-    color: #4d4350; }
+    color: #4c4c4c; }
     nav li > a:hover {
       color: #fff;
-      background-color: #4d4350; }
+      background-color: #4c4c4c; }
 
 #menu-wrapper {
   position: absolute;
@@ -245,11 +245,11 @@ body.single-bot .thumbnail-wrapper {
     bottom: 5px;
     left: 5px;
     pointer-events: none;
-    background-color: #3a3a3a;
+    background-color: #6e6e6e;
     color: #fff;
     padding: 5px; }
     body.single-bot .thumbnail-wrapper .expand-image-hint p {
-      font-style: italic;
+      font-weight: bold;
       padding: 5px;
       padding-right: 10px;
       margin: 0; }
@@ -302,7 +302,7 @@ video {
 
 /* Notes */
 .note {
-  background-color: #f3f3f3;
+  background-color: #fdfffd;
   font-weight: bold;
   margin-bottom: 4rem;
   padding: 1em 1em 0.5em; }
@@ -354,10 +354,10 @@ video {
 
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
-  color: #4d4350; }
+  color: #4c4c4c; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Source Serif Pro", serif;
   line-height: 1;
   font-weight: bold; }
 
@@ -390,7 +390,7 @@ h2 {
     margin-bottom: 2rem;
     font-size: 2em; }
   .card h3 {
-    color: #4d4350; }
+    color: #4c4c4c; }
   .card h5 {
     font-size: 1.5em; }
 
@@ -452,7 +452,6 @@ blockquote {
     margin-left: 0;
     vertical-align: -.5em; }
   blockquote cite, blockquote p {
-    font-size: 1.2rem !important;
     display: block;
     line-height: 1.5em;
     padding: 0 40px; }
@@ -513,7 +512,7 @@ a.pilcrow {
   vertical-align: top;
   margin-left: 1rem; }
   a.pilcrow, a.pilcrow:visited {
-    color: #e6dce9;
+    color: #e5e5e5;
     -webkit-transition: color 0.2s;
     -o-transition: color 0.2s;
     transition: color 0.2s; }
@@ -521,7 +520,7 @@ a.pilcrow {
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;
     transition: color 0.3s;
-    color: #6f6572; }
+    color: #6e6e6e; }
   a.pilcrow, a.pilcrow:hover {
     text-decoration: none; }
 
@@ -531,7 +530,7 @@ a.no-underline, a.no-underline:hover {
 p.post-tags a {
   font-family: monospace;
   font-size: 1.2em;
-  color: #4d4350;
+  color: #4c4c4c;
   background-color: rgba(0, 0, 0, 0.125);
   line-height: 2em;
   padding: 5px;
@@ -548,7 +547,7 @@ p.post-tags a {
   margin-top: 1rem;
   font-size: 1.7rem;
   text-transform: uppercase;
-  color: #6f6572; }
+  color: #6e6e6e; }
 
 .share-prompt ul.sharing-is-caring {
   padding-left: 0;
@@ -575,14 +574,14 @@ p.post-tags a {
 
 .share-prompt .ssbg-attribution {
   font-size: 0.7em;
-  padding-top: 10px;
+  padding-top: 0;
   padding-bottom: 10px;
   text-transform: uppercase;
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
 
 .background-alternate {
-  background-color: #f3f3f3; }
+  background-color: #fdfffd; }
 
 .background-fff {
   background-color: #fff; }
@@ -596,16 +595,16 @@ footer ul.footer-list {
   footer ul.footer-list li {
     font-weight: bold; }
     footer ul.footer-list li.list-header {
-      font-family: "Fira Sans", sans-serif;
+      font-family: "Source Serif Pro", serif;
       font-size: 1.8em;
       text-transform: uppercase;
       margin-bottom: 0.6em; }
     footer ul.footer-list li a {
       text-decoration: none;
       text-transform: uppercase;
-      color: #4d4350; }
+      color: #4c4c4c; }
       footer ul.footer-list li a:hover {
-        color: #807683; }
+        color: #7f7f7f; }
 
 div.bottom-page-links {
   position: fixed;
@@ -627,7 +626,7 @@ div.bottom-page-links {
     height: 1.5em;
     text-decoration: none;
     line-height: 1.5em;
-    background-color: #4d4350;
+    background-color: #4c4c4c;
     color: #fff;
     vertical-align: top;
     text-align: center;
@@ -743,7 +742,7 @@ div#menu-wrapper {
   body.home article a, body.home article a:hover,
   div#menu-wrapper a,
   div#menu-wrapper a:hover {
-    color: #4d4350;
+    color: #4c4c4c;
     text-decoration: none; }
 
 .hover-box {
@@ -759,7 +758,7 @@ div#menu-wrapper {
       transition: transform 0.3s;
       transition: transform 0.3s, -webkit-transform 0.3s; }
   .hover-box:hover {
-    background-color: #f3f3f3; }
+    background-color: #fdfffd; }
     .hover-box:hover h2 {
       -webkit-transform: translate(0, -5px);
           -ms-transform: translate(0, -5px);
@@ -843,17 +842,17 @@ ul.btn-list {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0;
   padding: 10px;
-  color: #4d4350 !important;
+  color: #4c4c4c !important;
   background-color: #fff;
   font-size: 0.9em; }
   @media (min-width: 860px) {
     .btn {
       padding: 8px 10px; } }
   .btn:hover {
-    color: #4d4350;
+    color: #4c4c4c;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.125);
-    border: 1px solid rgba(0, 0, 0, 0); }
+    border: 1px solid transparent; }
   .btn, .btn:hover {
     -webkit-transition: background-color 0.1s;
     -o-transition: background-color 0.1s;
@@ -920,10 +919,12 @@ body.archive .note .btn, body.archive .card .btn {
     transition: filter 0.3s, -webkit-filter 0.3s; }
 
 .post-thumbnail-title {
+  font-family: "Source Serif Pro", serif;
+  font-size: 1.4em;
   text-align: left;
   position: absolute;
   bottom: 0;
-  border: 3px solid #4d4350;
+  border: 3px solid #4c4c4c;
   background: #fff;
   padding: 5px;
   color: #000;

@@ -257,11 +257,11 @@ body.single-bot{
       bottom: 5px;
       left: 5px;
       pointer-events: none;
-      background-color: #3a3a3a;
+      background-color: $color-primary + #222;
       color: #fff;
       padding: 5px;
       p{
-        font-style: italic;
+        font-weight: bold;
         padding: 5px;
         padding-right: 10px;
         margin: 0;
