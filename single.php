@@ -36,9 +36,18 @@
     <div class="container">
       <!-- article -->
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php
+          if ( $post_type === 'post' ) {
+            $post_date = get_the_time( 'F j, Y' );
+            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
+            $m = new \Moment\Moment( $post_date );
+            $post_date_ago = $m->fromNow()->getRelative();
+          ?>
+            <p class="mt-5 mb-0"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></em></p>
+        <?php } ?>
 
         <!-- post title -->
-        <h1><?php the_title(); ?></h1>
+        <h1 class="mt-4"><?php the_title(); ?></h1>
         <!-- /post title -->
 
 
@@ -208,18 +217,9 @@
               <?php } ?>
             </ul>
           <?php }
-          }
-
-          if ( $post_type === 'post' ) {
-            $post_date = get_the_time( 'F j, Y' );
-            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
-            $m = new \Moment\Moment( $post_date );
-            $post_date_ago = $m->fromNow()->getRelative();
-          ?>
-            <p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></em></p>
-            <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
-          <?php }
-
+          } ?>
+          <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
+          <?php
           global $coauthors_plus;
 
           $coauthors = get_coauthors();
