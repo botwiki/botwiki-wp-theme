@@ -217,9 +217,12 @@
               <?php } ?>
             </ul>
           <?php }
-          } ?>
-          <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
-          <?php
+          } 
+
+          if ( $post_type === 'single' ){ ?>
+            <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
+          <?php }
+
           global $coauthors_plus;
 
           $coauthors = get_coauthors();
