@@ -84,7 +84,7 @@
                   </div>
                 <?php } ?>
                 </div>
-                <p><a class="btn" href="/blog/">See more</a></p>
+                <p><a class="btn" href="/blog/">Visit the blog</a></p>
             <?php } ?>
 		</article>
 		<!-- /article -->

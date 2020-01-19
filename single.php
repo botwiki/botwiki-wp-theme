@@ -335,7 +335,7 @@
               </div>
             </div>          
           </div>
-          <p><a class="btn" href="/bots/">See more</a></p>
+          <p><a class="btn" href="/bots/">Browse bots</a></p>
         <?php }
 
         if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
@@ -368,7 +368,7 @@
             </div>
           <?php } ?>
           </div>
-          <p><a class="btn" href="/blog/">See more</a></p>
+          <p><a class="btn" href="/blog/">Visit the blog</a></p>
           <!-- /post details -->
         <?php } ?>
       </article>
