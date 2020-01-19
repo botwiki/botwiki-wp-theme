@@ -466,6 +466,8 @@ blockquote {
     @media (max-width: 900px) {
       blockquote cite, blockquote p {
         padding: 0; } }
+  blockquote cite {
+    font-size: 0.9rem; }
 
 blockquote.instagram-media,
 iframe.instagram-media {
