@@ -86,7 +86,11 @@
               $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
             }
 
-            if ( count( $bot_source_urls ) > 0 ){ ?>
+            if ( count( $bot_source_urls ) === 1 ){ ?>
+              <li>
+                <a class="btn view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
+              </li>
+            <?php } elseif ( count( $bot_source_urls ) > 1 ){ ?>
               <li>
                 <a class="btn view-source" href="#source-code">View source</a>
               </li>
@@ -202,7 +206,7 @@
               // the_tags( '', ' ', '<br>' );
             ?>
           </p>          
-          <?php if ( count( $bot_source_urls ) > 0 ){
+          <?php if ( count( $bot_source_urls ) > 1 ){
             global $helpers;
             ?>
             <h3 id="source-code">Source code</h3>
