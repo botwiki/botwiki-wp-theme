@@ -343,7 +343,7 @@
         <?php }
 
         if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
-          <h3 id="blog">Latest from our blog</h3>
+          <h3 id="blog">Latest from the blog</h3>
           <div id="blog-latest-wrapper" class="row list">
           <?php
 

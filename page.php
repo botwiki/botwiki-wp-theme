@@ -55,7 +55,7 @@
 				<?php }
 			?>
             <?php if ( !is_front_page() ){ ?>
-                <h3 id="blog">Latest from our blog</h3>
+                <h3 id="blog">Latest from the blog</h3>
                 <div id="blog-latest-wrapper" class="row list">
                 <?php
 
