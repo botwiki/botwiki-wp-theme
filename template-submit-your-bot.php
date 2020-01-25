@@ -6,6 +6,11 @@
   get_header();
   $post_id = get_the_ID();
 
+  $bot_name_val = !empty( $_REQUEST['bot-name'] ) ? $_REQUEST['bot-name'] : '';
+  $bot_urls_val = !empty( $_REQUEST['bot-urls'] ) ? $_REQUEST['bot-urls'][0] : '';
+  $bot_description_val = !empty( $_REQUEST['bot-description'] ) ? $_REQUEST['bot-description'] : '';
+  $bot_tagline_val = !empty( $_REQUEST['bot-tagline'] ) ? $_REQUEST['bot-tagline'] : '';
+
   $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
   $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
   $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
@@ -384,7 +389,7 @@
             </div>
             <div class="form-group">
               <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
-              <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot">
+              <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot" value="<?php echo $bot_name_val; ?>">
             </div>
             <div class="bot-info-fields form-row">
               <div class="form-group col-md-12 mb-1">
@@ -406,7 +411,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="bot-info-1-url">URL</label>
-                <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot">
+                <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
               </div>
             </div>
             <div class="form-group">
@@ -419,18 +424,26 @@
             </div>
             <div class="form-group">
               <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
-              <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."></textarea>
+              <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."><?php echo $bot_description_val; ?></textarea>
               <small id="bot-description-help" class="form-text text-muted">You can select text to add links.</small>
             </div>
             <div class="form-group">
               <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
-              <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff.">
+              <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff." value="<?php echo $bot_tagline_val; ?>">
               <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
             </div>
             <div id="bot-selected-tweets-field" class="form-group">
               <label for="bot-selected-tweets">Choose two <span id="bot-selected-tweets-label">tweets</span> from your bot that you like</label>
               <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
               <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
+              <?php if ( !empty( $bot_urls_val ) ){
+                global $helpers;
+                $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
+              ?>
+                <p>
+                  <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
+                </p>
+              <?php } ?>
             </div>
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
