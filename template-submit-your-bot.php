@@ -188,7 +188,8 @@
 
       $post_data = array( 
         'post_author' => ( ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
-        'post_content' => $post_content,
+        // 'post_content' => $post_content,
+        'post_content' => '<!-- wp:paragraph -->' . $post_content . '<!-- /wp:paragraph -->',
         'post_title' => $_POST['bot-name'],
         'post_excerpt' => $_POST['bot-tagline'],
         'post_status' => 'draft',
