@@ -129,47 +129,54 @@
         the_content(); // Dynamic Content 
 
         if ( $post_type === 'bot' ) { 
-          $networks = get_the_terms( $post_id, 'network' );
-          function get_network_name( $network ){
-            return $network->name;
-          }
 
-          $network_names = array_map( 'get_network_name', $networks );
-          $bot_tweets_html_meta = get_post_meta( $post_id, 'bot_tweets_html', true );
-          $tumblr_script = '<script async src="https://assets.tumblr.com/post.js"></script>';
+          $bot_tweets_hide = ( array_key_exists('bot_tweets_hide', $post_meta ) && $post_meta['bot_tweets_hide'][0] === "on" );
 
-          $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
-          ?>
-          <div class="row social-embeds">
-          <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
-            <div class="col-sm-12 col-md-6">
-              <?php
-              if ( strpos( $tweet_html, 'twitter-tweet' ) !== false ){
-                echo $tweet_html . '</blockquote>';
-              }
-              elseif ( strpos( $tweet_html, 'mastodon-embed' ) !== false ){
-                echo str_replace( '<blockquote>', '', $tweet_html ) . '</iframe>' ;
-              }
-              elseif ( strpos( $tweet_html, 'player.twitch.tv' ) !== false ){ ?>
-                <div class="video-background">
-                  <div class="video-wrapper"><?php echo $tweet_html . '</iframe>'; ?></div>
-                </div>
-              <?php }
-              elseif ( strpos( $tweet_html, 'tumblr-post' ) !== false ){
-                echo $tweet_html . $tumblr_script;
-              }
-              elseif ( strpos( $tweet_html, 'fb-root' ) !== false ){
-                $tweet_html = str_replace( '<blockquote>', '<div class="mt-5">', $tweet_html );
-                $tweet_html .= '</div>';
-                echo $tweet_html;
-              }
-              else {
-                echo $tweet_html;
-              }
-              ?>
+          if ( !$bot_tweets_hide ){
+            $networks = get_the_terms( $post_id, 'network' );
+            function get_network_name( $network ){
+              return $network->name;
+            }
+
+            $network_names = array_map( 'get_network_name', $networks );
+            $bot_tweets_html_meta = get_post_meta( $post_id, 'bot_tweets_html', true );
+            $tumblr_script = '<script async src="https://assets.tumblr.com/post.js"></script>';
+
+            $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
+            ?>
+            <div class="row social-embeds">
+            <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
+              <div class="col-sm-12 col-md-6">
+                <?php
+                if ( strpos( $tweet_html, 'twitter-tweet' ) !== false ){
+                  echo $tweet_html . '</blockquote>';
+                }
+                elseif ( strpos( $tweet_html, 'mastodon-embed' ) !== false ){
+                  echo str_replace( '<blockquote>', '', $tweet_html ) . '</iframe>' ;
+                }
+                elseif ( strpos( $tweet_html, 'player.twitch.tv' ) !== false ){ ?>
+                  <div class="video-background">
+                    <div class="video-wrapper"><?php echo $tweet_html . '</iframe>'; ?></div>
+                  </div>
+                <?php }
+                elseif ( strpos( $tweet_html, 'tumblr-post' ) !== false ){
+                  echo $tweet_html . $tumblr_script;
+                }
+                elseif ( strpos( $tweet_html, 'fb-root' ) !== false ){
+                  $tweet_html = str_replace( '<blockquote>', '<div class="mt-5">', $tweet_html );
+                  $tweet_html .= '</div>';
+                  echo $tweet_html;
+                }
+                else {
+                  echo $tweet_html;
+                }
+                ?>
+              </div>
+            <?php } ?>
             </div>
-          <?php } ?>
-          </div>
+          <?php }
+
+          ?>
           <p class="post-tags mt-5 mb-5">
             <?php 
               $network_tags = array();

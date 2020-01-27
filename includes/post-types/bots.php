@@ -23,20 +23,87 @@ class BotsPostType {
   function lazyblock_bot_output( $output, $attributes ){
     // log_this( array(
     //   // 'output' => $output,
-    //   'attributes' => $attributes['bot-output']
+    //   // 'attributes' => $attributes,
+    //   'bot-output-layout-style' => $attributes['bot-output-layout-style'],
+    //   'bot-output' => $attributes['bot-output']
     // ) );
 
     $html = '';
 
-    if ( !empty( $attributes['bot-output'] ) ){
-      foreach ( $attributes['bot-output'] as $index => $bot_output ) {
-        log_this( '$bot_output', $bot_output );
+    $bot_output = $attributes['bot-output'];
+    $bot_output_count = count( $bot_output );
 
-        if ( !empty( $bot_output['bot-output-image'] ) ){
-          $html .= <<<HTML
-          <img class="bot-output bot-output-img" src="{$bot_output['bot-output-image']['url']}">
-HTML;
+
+    if ( !empty( $bot_output ) ){
+      if ( !empty( $attributes['bot-output-layout-style'] ) ){
+        $layout_style = $attributes['bot-output-layout-style'];
+      } else {
+        $layout_style = 'layout-1';
+      }
+
+      if ( in_array( $layout_style, [ 'layout-1', 'layout-2' ] ) ){
+        $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
+
+        if ( $layout_style === 'layout-1' ){
+          $first_col = 7;
+        } elseif ( $layout_style === 'layout-2' ){
+          $first_col = 5;
         }
+
+        foreach ( $bot_output as $index => $bot_output_item ) {
+          if ( $index === 0 ){
+            $col_class = 'col-sm-12 col-md-' . $first_col . ' align-self-end p-1';
+          } elseif( $index === 1 ){
+            $col_class = 'col-sm-12 col-md-' . ( 12 - $first_col ) . ' align-self-end p-1';
+          } elseif ( $bot_output_count === 3 ) {
+            $col_class = 'col-sm-12 p-1 text-center';
+          } elseif ( $bot_output_count === 4 ) {
+            $col_class = 'col-sm-12 col-md-6 p-1';
+          } else{
+            $col_class = 'col-sm-12 col-md-4 p-1';
+          }
+
+          $html .= '<div class="' . $col_class . '">';
+
+          if ( !empty( $bot_output_item['bot-output-image'] ) ){
+            $html .= '<a href="' . $bot_output_item['source-url'] . '">';
+            $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
+            $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
+            $html .= '</a';
+          }
+          $html .= '</div>';
+        }
+        $html .= '</div></div>';
+      } elseif ( $layout_style === 'layout-3' ){
+        $bot_output_count_half = floor( $bot_output_count / 2 );
+
+        $bot_output_halved = array(
+          array_slice( $bot_output, 0, $bot_output_count_half ),
+          array_slice( $bot_output, $bot_output_count_half )
+        );
+
+        $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
+
+        foreach ( $bot_output_halved as $group_index => $bot_output_group ) {
+          $html .= '<div class="col-sm-12 col-md-' . ( $group_index === 0 ? '7' : '5' ) . '"><div class="row no-gutters">';
+          foreach ( $bot_output_group as $index => $bot_output_item ) {
+
+            $col_class = 'col-sm-12 p-1';
+            $html .= '<div class="' . $col_class . '">';
+
+            if ( !empty( $bot_output_item['bot-output-image'] ) ){
+              $html .= '<a href="' . $bot_output_item['source-url'] . '">';
+              $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
+              $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
+              $html .= '</a';
+            }
+
+            $html .= '</div>';
+          }
+          $html .= '</div></div>';
+        }
+
+        $html .= '</div></div>';
       }
     }
 
@@ -360,6 +427,7 @@ HTML;
    function bot_tweet_fields(){
     $id = get_the_id();
     $bot_meta = get_post_meta( $id );
+    $bot_tweets_hide = ( array_key_exists('bot_tweets_hide', $bot_meta ) && $bot_meta['bot_tweets_hide'][0] === "on" );
 
     wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
     <table class="w-100">
@@ -373,12 +441,19 @@ HTML;
           <textarea class="w-100" name="bot_tweets" rows="5"><?php echo $bot_meta['bot_tweets'][0]; ?></textarea>
         </td>
       </tr>
+      <tr>
+        <td class="w-100 w-m-100">
+          <label>
+            <input type="checkbox" class="w-100" name="bot-tweets-hide" <?php echo ($bot_tweets_hide ? "checked" : ""); ?>> Hide example output
+          </label>
+        </td>
+      </tr>
     </table>
   <?php }   
 
   function bot_author_info_field(){
     $id = get_the_id();
-    $bot_meta  = get_post_meta( $id );
+    $bot_meta = get_post_meta( $id );
 
     wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
     <table class="w-100">
@@ -460,6 +535,7 @@ HTML;
       update_post_meta($post_id, 'botmaker_badge_awarded', $_POST['botmaker_badge_awarded']);
       update_post_meta($post_id, 'bot_tweets', $_POST['bot_tweets']);
 
+      update_post_meta($post_id, 'bot_tweets_hide', $_POST['bot-tweets-hide']);
       update_post_meta($post_id, 'bot_is_featured', $_POST['bot-is-featured']);
       update_post_meta($post_id, 'bot_is_nsfw', $_POST['bot-is-nsfw']);
 
