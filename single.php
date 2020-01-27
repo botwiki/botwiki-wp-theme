@@ -43,7 +43,7 @@
             $m = new \Moment\Moment( $post_date );
             $post_date_ago = $m->fromNow()->getRelative();
           ?>
-            <p class="mt-5 mb-0"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></em></p>
+            <p class="mt-5 mb-0 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
         <?php } ?>
 
         <!-- post title -->
