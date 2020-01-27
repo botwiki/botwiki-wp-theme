@@ -44,10 +44,15 @@ class BotsPostType {
       if ( in_array( $layout_style, [ 'layout-1', 'layout-2' ] ) ){
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
-        if ( $layout_style === 'layout-1' ){
-          $first_col = 7;
-        } elseif ( $layout_style === 'layout-2' ){
-          $first_col = 5;
+
+        if ( $bot_output_count > 4 ){
+          if ( $layout_style === 'layout-1' ){
+            $first_col = 7;
+          } elseif ( $layout_style === 'layout-2' ){
+            $first_col = 5;
+          }
+        } else {
+            $first_col = 6;
         }
 
         foreach ( $bot_output as $index => $bot_output_item ) {
