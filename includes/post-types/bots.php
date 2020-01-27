@@ -13,7 +13,41 @@ class BotsPostType {
     add_action( 'admin_bar_menu', array( $this, 'add_pending_bots_link' ), 100 );
     add_shortcode( 'bot_count', array( $this, 'get_bot_count' ) );
 
+    add_filter( 'lazyblock/bot-output/frontend_callback', array( $this, 'lazyblock_bot_output' ), 10, 2 );
+    add_filter( 'lazyblock/bot-output/frontend_allow_wrapper', '__return_false' );
+
+    // add_action( 'enqueue_block_editor_assets', array( $this, 'register_gutenberg_blocks' ) );
+
   }
+
+  function lazyblock_bot_output( $output, $attributes ){
+    // log_this( array(
+    //   // 'output' => $output,
+    //   'attributes' => $attributes['bot-output']
+    // ) );
+
+    $html = '';
+
+    if ( !empty( $attributes['bot-output'] ) ){
+      foreach ( $attributes['bot-output'] as $index => $bot_output ) {
+        log_this( '$bot_output', $bot_output );
+
+        if ( !empty( $bot_output['bot-output-image'] ) ){
+          $html .= <<<HTML
+          <img class="bot-output bot-output-img" src="{$bot_output['bot-output-image']['url']}">
+HTML;
+        }
+      }
+    }
+
+    return $html;
+  }
+
+  // function register_gutenberg_blocks(){
+  //   $js_file_path = get_template_directory() . '/includes/post-types/test-block.js';
+  //   wp_register_script( 'test-block', get_template_directory_uri() . '/includes/post-types/test-block.js', array( 'wp-blocks','wp-editor', 'jquery' ), filemtime( $js_file_path ));
+  //   wp_enqueue_script( 'test-block' );
+  // }
 
   function get_bot_count( $atts ) {
     return number_format( wp_count_posts( 'bot' )->publish );
