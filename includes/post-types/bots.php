@@ -52,7 +52,7 @@ class BotsPostType {
 
         foreach ( $bot_output as $index => $bot_output_item ) {
           if ( $index === 0 ){
-            $col_class = 'col-sm-12 col-md-' . $first_col . ' align-self-end p-1';
+            $col_class = 'col-sm-12 col-md-' . $first_col . ' align-self-end p-1 text-right';
           } elseif( $index === 1 ){
             $col_class = 'col-sm-12 col-md-' . ( 12 - $first_col ) . ' align-self-end p-1';
           } elseif ( $bot_output_count === 3 ) {
