@@ -83,7 +83,7 @@ class BotsPostType {
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
         foreach ( $bot_output as $index => $bot_output_item ) {
-          $html .= '<div class="col-sm-12 col-md-4 p-1">';
+          $html .= '<div class="col-sm-12 col-md-4 p-1 text-center">';
 
           if ( !empty( $bot_output_item['bot-output-image'] ) ){
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
