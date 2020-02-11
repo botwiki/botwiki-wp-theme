@@ -315,6 +315,23 @@
             'suppress_filters' => true
           ) );
 
+          if ( count( $related_bots ) < 3 ){
+            $used_post_ids = array_map( function( $bot ){
+              return $bot->ID;
+            }, $related_bots);
+
+            $related_bots_fill = get_posts( array( 
+              'posts_per_page' => 3 - count( $related_bots ),
+              'orderby' => 'rand',
+              'order' => 'ASC',
+              'exclude' => $used_post_ids,
+              'post_type' => 'bot',
+              'post_status' => 'publish',
+              'suppress_filters' => true
+            ) );
+            $related_bots = array_merge( $related_bots, $related_bots_fill );
+          }
+
           foreach ( $related_bots as $related_bot ) {
             $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID, 'medium' );
             ?>
