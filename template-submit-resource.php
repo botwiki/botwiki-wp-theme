@@ -157,7 +157,7 @@
 
       try {
         $screenshot = $helpers->make_screenshot( array(
-          'url' => $screenshotable_url,
+          'url' => $resource_url,
           'file_name' => trim( $_POST['bot-name'] )
         ) );
 
