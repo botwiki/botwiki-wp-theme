@@ -218,19 +218,19 @@
 
       if ( $screenshotable_url !== false ){
         try {
-          $image_path = $helpers->make_screenshot( array(
+          $screenshot = $helpers->make_screenshot( array(
             'url' => $screenshotable_url,
             'file_name' => trim( $_POST['bot-name'] )
           ) );
 
           try {
-            $dominant_color = ColorThief::getColor( $image_path );
+            $dominant_color = ColorThief::getColor( $screenshot['image_path'] );
             update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
           } catch (Exception $e) {
             /* noop */            
           }
 
-          add_post_thumbnail( $new_post_id, $image_path, $bot_description );
+          add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
 
           if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
             global $wpdb;
