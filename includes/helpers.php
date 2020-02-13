@@ -20,9 +20,12 @@ class BW_Helpers {
   }
 
   function make_screenshot( $options ){
+    if ( !file_exists(  ABSPATH . 'temp/' ) ) {
+      mkdir( ABSPATH . 'temp/' , 0777, true);
+    }
+        
     $default_width = 1200;
     $default_height = 1000;
-
 
     if ( is_array( $options ) ){
       $url = $options['url'];

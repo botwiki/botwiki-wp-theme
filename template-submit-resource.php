@@ -156,32 +156,25 @@
       wp_set_object_terms( $new_post_id, $_POST['resource-language'], 'programing_language' );
 
       try {
-        // TODO: Proper error handling.
-
-        $screenshot_data = file_get_contents("https://screenshot-beta.glitch.me/?url=" . $resource_url . "&width=1200&height=685");
-
-        $screenshot_data_json = json_decode( $screenshot_data );
-
-        $image_path = ABSPATH . 'temp/' . preg_replace("/[^a-z0-9\.]/", "-", strtolower( trim( $_POST['resource-name'] ) ) ) . '.png';
-
-        if ( !file_exists(  ABSPATH . 'temp/' ) ) {
-          mkdir( ABSPATH . 'temp/' , 0777, true);
-        }
-
-        // if ( !file_exists( $image_path ) ) {
-        //   touch( $image_path );
-        // }
-
-        $ifp = fopen( $image_path, 'w+' ); 
-        fwrite( $ifp, base64_decode( $screenshot_data_json->screenshot->data ) );
-        fclose( $ifp ); 
+        $screenshot = $helpers->make_screenshot( array(
+          'url' => $screenshotable_url,
+          'file_name' => trim( $_POST['bot-name'] )
+        ) );
 
         try {
-          $dominant_color = ColorThief::getColor($image_path);
-          update_post_meta($new_post_id, 'dominant_color', json_encode($dominant_color));
-        } catch (Exception $e) { /* NOOP */ }
+          $dominant_color = ColorThief::getColor( $screenshot['image_path'] );
+          update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+        } catch (Exception $e) {
+          /* noop */            
+        }
 
-        add_post_thumbnail( $new_post_id, $image_path, $resource_description );
+        add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
+
+        if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
+          global $wpdb;
+          $query = "UPDATE " . $wpdb->prefix . "posts SET post_status='pending' WHERE ID = '" . $new_post_id . "'";
+          $wpdb->query( $query );
+        }
 
         if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
           global $wpdb;
@@ -189,8 +182,9 @@
           $wpdb->query($query);
         }
 
-      } catch (Exception $e) {
-        /* NOOP */
+      } catch ( Exception $e ) {
+        // TODO: Proper error handling.
+        log_this( $e->getMessage() );
       }
 
     ?>
