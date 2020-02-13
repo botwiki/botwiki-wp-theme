@@ -143,7 +143,7 @@
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
-      $bot_meta['bot_author_email'] = trim( $_POST['bot-author-email'] );      
+      $bot_meta['bot_author_email'] = trim( $_POST['bot-author-email'] );
 
       $screenshotable_url = $helpers->get_screenshotable_url( $bot_urls );
 
@@ -152,7 +152,6 @@
       }
 
       $screenshotable_url = trim( str_replace( array( "\n", "\r" ), '', $screenshotable_url ) );
-
       $bot_tags = array();
 
       foreach ( $_POST['bot-tags'] as $bot_tag ) {
@@ -219,30 +218,13 @@
 
       if ( $screenshotable_url !== false ){
         try {
-          // TODO: Proper error handling.
+          $image_path = $helpers->make_screenshot( array(
+            'url' => $screenshotable_url,
+            'file_name' => trim( $_POST['bot-name'] )
+          ) );
 
-          $screenshot_data = file_get_contents( "https://screenshot-beta.glitch.me/?url=" . $screenshotable_url . "&width=1200&height=700" );
-
-          $screenshot_data_json = json_decode( $screenshot_data );
-  
-          $image_path = ABSPATH . 'temp/' . preg_replace( "/[^a-z0-9\.]/", "-", strtolower( trim( $_POST['bot-name'] ) ) ) . '.png';
-
-          if ( !file_exists(  ABSPATH . 'temp/' ) ) {
-            mkdir( ABSPATH . 'temp/' , 0777, true );
-          }
-
-          // if ( !file_exists( $image_path ) ) {
-          //   touch( $image_path );
-          // }
-
-          $ifp = fopen( $image_path, 'w+' ); 
-          fwrite( $ifp, base64_decode( $screenshot_data_json->screenshot->data ) );
-          fclose( $ifp ); 
-
-          try {
-            $dominant_color = ColorThief::getColor( $image_path );
-            update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
-          } catch ( Exception $e ) { /* NOOP */ }
+          $dominant_color = ColorThief::getColor( $image_path );
+          update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
 
@@ -253,7 +235,8 @@
           }
 
         } catch ( Exception $e ) {
-          /* NOOP */
+          // TODO: Proper error handling.
+          log_this( $e->getMessage() );
         }
       }
     ?>

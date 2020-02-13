@@ -19,14 +19,15 @@
       });
       $screenshot_hint.addClass('hidden');
 
-      $.ajax({
-        url: `https://screenshot-beta.glitch.me/?url=${page_url}&width=1200&height=685`
+      $.post( ajaxurl, {
+        action: 'make_screenshot',
+        url: page_url
       }).done(function( data ) {
         // console.log(data);
         $screenshot_hint.removeClass('hidden');
         $get_screenshot_btn.html(screenshot_btn_txt).attr('disabled', false);
         $screenshot_img.attr({
-          'src': `data:image/png;base64, ${data.screenshot.data}`,
+          'src': data.image_url,
           'download': download_name
         });
       });

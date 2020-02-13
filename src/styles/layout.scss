@@ -227,13 +227,14 @@ ul.navbar-nav{
   }
   
   img{
-    height: 55vh;
+    max-height: 40vh;
     object-fit: cover;
+    object-position: top center;    
     width: 100%;
-    transition: all 0.3s;
+    // transition: all 0.3s;
 
     &.image-expanded{
-      height: 100vh;
+      max-height: 100%;
       max-width: 100vw;
       object-fit: contain;
     }

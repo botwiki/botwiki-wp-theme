@@ -39,7 +39,9 @@ class Screenshot_Tool {
       <div id="icon-tools" class="icon32"></div>
       <h2>Screenshot tool</h2>
       <label for="page-url"><p>URL of the bot</p></label>
-      <input type="url" id="page-url" class="regular-text" name="page-url" placeholder="https://twitter.com/botwikidotorg" value="<?php echo $_GET['url']; ?>">
+      <input type="url" id="page-url" class="regular-text" name="page-url" placeholder="https://twitter.com/botwikidotorg" value="<?php
+        echo ( isset( $_GET['url'] ) ? $_GET['url'] : '' );
+      ?>">
       <button id="get-screenshot">Fetch screenshot</button>
       <div>
         <img id="screenshot-img" src="" download>

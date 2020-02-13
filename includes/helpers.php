@@ -1,6 +1,86 @@
 <?php
+use Screen\Capture;
 
 class BW_Helpers {
+
+  function __construct(){
+    add_action( 'wp_ajax_make_screenshot', array( $this, 'make_screenshot_ajax' ) );
+    // add_action( 'wp_ajax_nopriv_make_screenshot', array( $this, 'make_screenshot_ajax' ) );
+  }
+
+
+  function make_screenshot_ajax(){
+    $file_name = null;
+
+    if ( isset( $_POST['url'] ) ){
+      $screenshot_data = $this->make_screenshot( $_POST['url'] );
+    }
+
+    wp_send_json( $screenshot_data );
+  }
+
+  function make_screenshot( $options ){
+    $default_width = 1200;
+    $default_height = 1000;
+
+
+    if ( is_array( $options ) ){
+      $url = $options['url'];
+
+      if ( !empty( $options['width'] ) ){
+        $width = $options['width'];
+      } else {
+        $width = $default_width;
+      }
+
+      if ( !empty( $options['height'] ) ){
+        $height = $options['height'];
+      } else {
+        $height = $default_height;
+      }
+
+      if ( !empty( $options['file_name'] ) ){
+        $file_name = $options['file_name'] . '-' . time();
+      } else {
+        $file_name = preg_replace( '/[^a-z0-9]+/', '-', strtolower( $url ) ) . '-' . time();
+      }
+
+    } else {
+      $url = $options;
+      $file_name = preg_replace( '/[^a-z0-9]+/', '-', strtolower( $url ) ) . '-' . time();
+      $width = $default_width;
+      $height = $default_height;
+    }
+
+    $page_screenshot = new Capture( $url );
+    $page_screenshot->setWidth( $width );
+    $page_screenshot->setHeight( $height );
+    $page_screenshot->setClipWidth( $width );
+    $page_screenshot->setClipHeight( $height );
+
+    $page_screenshot->setImageType('png');
+
+    $page_screenshot->includeJs(new \Screen\Injection\LocalPath( get_template_directory() . '/includes/phantomjs/twitter-cleanup.js' ) );
+
+    $file_name = preg_replace( "/[^a-z0-9\.]/", "-", strtolower( $file_name ) ) . '.png';
+
+    $image_path = ABSPATH . 'temp/' . $file_name;
+    $image_url = get_site_url() . '/temp/' . $file_name;
+
+    if ( !file_exists(  ABSPATH . 'temp/' ) ) {
+      mkdir( ABSPATH . 'temp/' , 0777, true );
+    }
+
+    $page_screenshot->save( $image_path );
+
+    $screenshot_data = array(
+      'image_path' => $image_path,
+      'image_url' => $image_url
+    );
+
+    return $screenshot_data;
+  }
+
   function join_with_and( $array ) {
     $oxf_comma = ( count( $array ) > 2 ? ',' : '' );
     return join( $oxf_comma . ' and ', array_filter( array_merge( array( join( ', ', array_slice( $array, 0, -1 ) ) ), array_slice( $array, -1 ) ), 'strlen' ) );
