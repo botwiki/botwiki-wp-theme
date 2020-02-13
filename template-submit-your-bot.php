@@ -223,8 +223,10 @@
             'file_name' => trim( $_POST['bot-name'] )
           ) );
 
-          $dominant_color = ColorThief::getColor( $image_path );
-          update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+          try{
+            $dominant_color = ColorThief::getColor( $image_path );
+            update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+          }
 
           add_post_thumbnail( $new_post_id, $image_path, $bot_description );
 
