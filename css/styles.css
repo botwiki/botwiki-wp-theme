@@ -224,9 +224,6 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
          object-fit: contain; }
 
 .single-bot .thumbnail-wrapper img {
-  max-height: 40vh;
-  -o-object-fit: cover;
-     object-fit: cover;
   -o-object-position: top center;
      object-position: top center; }
 
