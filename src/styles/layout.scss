@@ -229,7 +229,7 @@ ul.navbar-nav{
   img{
     max-height: 40vh;
     object-fit: cover;
-    object-position: top center;    
+    object-position: center center;
     width: 100%;
     // transition: all 0.3s;
 
@@ -237,6 +237,16 @@ ul.navbar-nav{
       max-height: 100%;
       max-width: 100vw;
       object-fit: contain;
+    }
+  }
+}
+
+.single-bot{
+  .thumbnail-wrapper{
+    img{
+      max-height: 40vh;
+      object-fit: cover;
+      object-position: top center;    
     }
   }
 }
