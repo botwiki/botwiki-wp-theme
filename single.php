@@ -334,11 +334,12 @@
 
           foreach ( $related_bots as $related_bot ) {
             $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID, 'medium' );
+            $post_thumbnail_url_full = get_the_post_thumbnail_url( $related_bot->ID );
             ?>
             <div class="col-sm-6 col-md-6 col-lg-3 list-item">
               <div class="card w-100">
                 <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
-                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url;  ?>" alt="<?php echo $related_bot->post_title; ?>">
+                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
@@ -380,11 +381,12 @@
 
           foreach ( $latest_blog_posts as $blog_post ) {
             $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
+            $post_thumbnail_url_full = get_the_post_thumbnail_url( $blog_post->ID );
             ?>
             <div class="col-sm-6 col-md-6 col-lg-3 list-item">
               <div class="card w-100">
                 <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url; ?>" alt="<?php echo $blog_post->post_title; ?>">
+                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
