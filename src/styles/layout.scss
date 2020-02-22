@@ -213,7 +213,7 @@ ul.navbar-nav{
 
 .thumbnail-wrapper{
   text-align: center;
-  margin: 2em auto 0;
+  margin: 4em auto;
 
   @media(max-width: $site-width-small){
     margin-top: 0;
@@ -227,7 +227,8 @@ ul.navbar-nav{
   }
   
   img{
-    max-height: 40vh;
+    max-height: 50vh;
+    min-height: 300px;
     object-fit: cover;
     object-position: center center;
     width: 100%;
