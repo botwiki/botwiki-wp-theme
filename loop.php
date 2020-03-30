@@ -19,7 +19,7 @@
             <a href="<?php echo $link_url; ?>" title="<?php  get_the_title(); ?>">
               <?php 
                 $post_thumbnail_id = get_post_thumbnail_id();
-                echo get_the_post_thumbnail( $post->ID, 'small', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id, 'full' ), 'class' => 'lazy-load card-img-top', 'title' => get_post( $post_thumbnail_id )->post_title ] );
+                echo get_the_post_thumbnail( $post->ID, 'small', ['data-src' => get_the_post_thumbnail_url( $post->ID, 'full' ), 'class' => 'lazy-load card-img-top', 'title' => get_post( $post_thumbnail_id )->post_title ] );
               ?>
             </a>
           <?php } ?>
