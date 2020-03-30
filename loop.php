@@ -18,9 +18,10 @@
           if ( has_post_thumbnail() ){ ?>
             <a href="<?php echo $link_url; ?>" title="<?php  get_the_title(); ?>">
               <?php 
-                $post_thumbnail_id = get_post_thumbnail_id();
-                echo get_the_post_thumbnail( $post->ID, 'small', ['data-src' => get_the_post_thumbnail_url( $post->ID, 'full' ), 'class' => 'lazy-load card-img-top', 'title' => get_post( $post_thumbnail_id )->post_title ] );
+                $post_thumbnail_url = get_the_post_thumbnail_url( $post->ID, 'medium' );
+                $post_thumbnail_url_full = get_the_post_thumbnail_url( $post->ID );
               ?>
+              <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
             </a>
           <?php } ?>
           <div class="card-body" id="post-<?php the_ID(); ?>">
