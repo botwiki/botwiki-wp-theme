@@ -224,6 +224,7 @@
             <li><a class="btn" href="/bot/?tags=generative,gif<?php echo $filter_opensource;?>">#generative+gif</a></li>
             <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
             <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
+            <li><a class="btn" href="/bot/?tags=generative,audio<?php echo $filter_opensource;?>">#generative+audio</a></li>
             <?php
               echo $glitch_link;
               echo $narrow_opensource_link;
