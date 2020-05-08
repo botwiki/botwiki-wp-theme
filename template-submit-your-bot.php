@@ -136,7 +136,17 @@
                       . $bot_description . "</p>";        
       }
 
-      $post_content = str_replace( "</p></p>", "</p>", $post_content );
+      $post_content = str_replace(
+        array(
+          '</p></p>',
+          '</p> <p>'
+        ),
+        array(
+          '</p>',
+          '</p>'
+        ),
+        $post_content
+      );
 
       $bot_meta = array();
       $bot_meta['bot_is_featured'] = 'on';
