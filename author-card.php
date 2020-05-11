@@ -1,5 +1,31 @@
 <?php
   $profile_img_url = str_replace( '?s=96&', '?s=130&', $profile_img_url );
+  function bw_render_author_links( $helpers, $options ){ ?>
+    <ul class="btn-list mt-2 mb-2">
+      <?php if ( !is_author() ){ ?> 
+        <li>
+          <a class="btn" title="Botwiki profile page" rel="me" href="<?php echo $options['botwiki_profile_page_url']; ?>">View profile</a>
+        </li>
+      <?php }
+      if ( !empty( $options['website_url'] ) ){ ?> 
+        <li> 
+          <a class="btn" title="Personal website" rel="me" href="<?php echo $options['website_url']; ?>"><?php echo $helpers->get_domain_from_url( $options['website_url'] ); ?>
+          </a>  
+        </li> 
+      <?php } ?>
+      <?php if ( !empty( $options['twitter_handle'] )){ ?> 
+        <li>  
+          <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $options['twitter_handle']; ?>">@<?php echo $options['twitter_handle']; ?></a> 
+        </li> 
+      <?php } ?>
+    </ul>
+  <?php }
+
+$author_info = array(
+  'botwiki_profile_page_url' => $botwiki_profile_page_url,
+  'website_url' => $website_url,
+  'twitter_handle' => $twitter_handle
+);
 ?>
 
 <div class="container mt-5">
@@ -16,31 +42,21 @@
             <h3 class="mt-0 mb-3"><?php echo $nickname; ?></h3>
           </a>
           <p><strong><?php echo $botwiki_team_role; ?></strong></p>
+          <?php if ( !is_author() ){ bw_render_author_links( $helpers, $author_info ); } ?>
         </div>
         <div class="col-sm-12">
-          <?php if ( is_author() && !empty( $description )){ ?> 
-            <p><?php echo $description; ?></p>
-          <?php } ?>
+          <?php if ( is_author() ){
+            if ( !empty( $description ) ){ ?> 
+              <p><?php echo $description; ?></p>
+            <?php }
+          } ?>
         </div>
         <div class="col-sm-12">
-          <ul class="btn-list mt-2 mb-2">
-            <?php if ( !is_author() ){ ?> 
-              <li>
-                <a class="btn" title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">View profile</a>
-              </li>
-            <?php } ?>
-            <?php if ( !empty( $website_url )){ ?> 
-              <li> 
-                <a class="btn" title="Personal website" rel="me" href="<?php echo $website_url; ?>"><?php echo $helpers->get_domain_from_url($website_url); ?>
-                </a>  
-              </li> 
-            <?php } ?>
-            <?php if ( !empty( $twitter_handle )){ ?> 
-              <li>  
-                <a class="btn" title="Twitter" rel="me" href="https://twitter.com/<?php echo $twitter_handle; ?>">@<?php echo $twitter_handle; ?></a> 
-              </li> 
-            <?php } ?>
-          </ul>
+          <?php
+            if ( is_author() ){
+              bw_render_author_links( $helpers, $author_info );
+            }
+          ?>
         </div>
       </div>
     </div>
