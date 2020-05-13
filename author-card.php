@@ -1,5 +1,5 @@
 <?php
-  $profile_img_url = str_replace( '?s=96&', '?s=130&', $profile_img_url );
+  $profile_img_url = str_replace( '?s=96&', '?s=360&', $profile_img_url );
   function bw_render_author_links( $helpers, $options ){ ?>
     <ul class="btn-list mt-2 mb-2">
       <?php if ( !is_author() ){ ?> 
@@ -28,7 +28,7 @@ $author_info = array(
 );
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5 pl-0 pr-0">
   <div class="card mt-4 mb-4 author-card">
     <div class="card-body mt-4">
       <div class="row">

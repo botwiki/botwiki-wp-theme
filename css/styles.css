@@ -827,6 +827,16 @@ div#menu-wrapper {
 .select2-selection__arrow {
   top: 0.4rem !important; }
 
+.select2-container--default .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px solid #ced4da !important; }
+
+.select2-container .select2-selection__rendered > *:first-child.select2-search--inline {
+  width: 100% !important; }
+
+.select2-container .select2-selection__rendered > *:first-child.select2-search--inline .select2-search__field {
+  width: 100% !important; }
+
 .medium-editor-element {
   min-height: 90px !important; }
 
@@ -847,9 +857,8 @@ ul.btn-list {
   @media (min-width: 860px) {
     ul.btn-list {
       margin: 2.5rem 0; } }
-  @media (min-width: 860px) {
-    ul.btn-list li {
-      display: inline; } }
+  ul.btn-list li {
+    display: inline; }
 
 .btn {
   font-family: "Source Code Pro", monospace;

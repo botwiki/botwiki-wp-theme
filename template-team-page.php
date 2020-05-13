@@ -39,7 +39,7 @@
 
         <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->
 
-      <div class="container mt-5">
+      <div class="container mt-5 ml-n3 mr-n3">
         <div class="row list">
 
         <?php
@@ -104,7 +104,7 @@
 
             if ( count( $contributors ) > 0 ){ ?>
               <h2 id="site-contributors">Site contributors<a class="pilcrow" href="#site-contributors">¶</a></h2>
-              <div class="row">
+              <div class="row ml-n1 mr-n1">
               <?php
 
               foreach ( $contributors as $contributor ) {

@@ -285,7 +285,7 @@
                 $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
                 if ( empty( $profile_img_url ) ){
-                  $profile_img_url = get_avatar_url( $author_id, array( 'size' => 120 ) );
+                  $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360 ) );
                 }
 
               // $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );

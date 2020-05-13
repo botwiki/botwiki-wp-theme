@@ -43,7 +43,7 @@
   $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
   if ( empty( $profile_img_url )){
-    $profile_img_url = get_avatar_url($author_id, array( 'size' => 120 ));
+    $profile_img_url = get_avatar_url($author_id, array( 'size' => 360 ));
   }
 
   $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
@@ -71,7 +71,7 @@
       ?>
 			<?php if ( count_user_posts( $author_id ) > 0 ) {  ?> 
 
-				<h1 id="blog">My blog posts</h1>
+				<h1 id="blog" class="pl-3 pr-3">My blog posts</h1>
 				<?php
 
           global $wp_query;
@@ -88,7 +88,7 @@
           ) );            
 
 					get_template_part('loop', 'author');
-					get_template_part('pagination');
+					?><div class="pl-3 pr-3"><?php get_template_part('pagination'); ?></div><?php
 				?>
 
 			<?php } ?>
@@ -106,7 +106,7 @@
           ) );
 
           if ( $wp_query->post_count > 0 ){ ?>
-            <h1 id="bots">My bots</h1>
+            <h1 id="bots" class="pl-3 pr-3">My bots</h1>
 
 
             <?php
@@ -168,10 +168,11 @@
               $bot_list_html .= '</div>';
               echo $bot_list_html;
               ?>
-              <a class="btn mt-2 mb-5" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
+              <div class="pl-3 pr-3">
+              <a class="btn mt-2 mb-0" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
               <?php
                 if ( count( $author_tags_bots ) ){ ?>
-                  <a class="btn mt-2 mb-5" data-toggle="collapse" href="#bot-tags-list" role="button" aria-expanded="false" aria-controls="bot-tags-list">
+                  <a class="btn mt-2 mb-0" data-toggle="collapse" href="#bot-tags-list" role="button" aria-expanded="false" aria-controls="bot-tags-list">
                     View bot tags
                   </a>
                   <div class="collapse" id="bot-tags-list">
@@ -184,7 +185,7 @@
                       ?></p>
                     </div>
                   </div>
-                <?php } ?>
+                <?php } ?></div>
           <?php } ?>
       <?php
         global $wp_query;
@@ -199,7 +200,7 @@
         ) );
 
         if ( $wp_query->post_count > 0 ){ ?>
-          <h1 id="resources">My resources</h1>
+          <h1 id="resources" class="pl-3 pr-3">My resources</h1>
           <?php
             $posts = $wp_query->posts;
 
@@ -215,10 +216,11 @@
 
             get_template_part('loop');
           ?>
-          <a class="btn mt-2 mb-5" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
+          <div class="pl-3 pr-3">
+          <a class="btn mt-2 mb-0" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
           <?php
           if ( count( $author_tags_resources ) ){ ?>
-              <a class="btn mt-2 mb-5" data-toggle="collapse" href="#resource-tags-list" role="button" aria-expanded="false" aria-controls="resource-tags-list">
+              <a class="btn mt-2 mb-0" data-toggle="collapse" href="#resource-tags-list" role="button" aria-expanded="false" aria-controls="resource-tags-list">
                 View resource tags
               </a>
               <div class="collapse" id="resource-tags-list">
@@ -232,7 +234,7 @@
                   ?></p>
                 </div>
               </div>
-          <?php } ?>
+          <?php } ?></div>
         <?php } ?>
 		</div>
 	</main>
