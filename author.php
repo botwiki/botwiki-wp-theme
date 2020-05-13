@@ -171,13 +171,19 @@
               <a class="btn mt-2 mb-5" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
               <?php
                 if ( count( $author_tags_bots ) ){ ?>
-                  <h2 id="bot-tags">Bot tags</h2>
-                  <p class="post-tags mt-5 mb-5"><?php
-                    foreach ( $author_tags_bots as $tag ) {
-                      $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
-                    }
-                    echo join( ' ', $author_tags_bots_html );
-                  ?></p>
+                  <a class="btn mt-2 mb-5" data-toggle="collapse" href="#bot-tags-list" role="button" aria-expanded="false" aria-controls="bot-tags-list">
+                    View bot tags
+                  </a>
+                  <div class="collapse" id="bot-tags-list">
+                    <div class="card card-body">
+                      <p class="post-tags mt-2 mb-2"><?php
+                        foreach ( $author_tags_bots as $tag ) {
+                          $author_tags_bots_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=bot&tags=' . $tag . '">' . $tag . '</a> ';
+                        }
+                        echo join( ' ', $author_tags_bots_html );
+                      ?></p>
+                    </div>
+                  </div>
                 <?php } ?>
           <?php } ?>
       <?php
@@ -212,14 +218,20 @@
           <a class="btn mt-2 mb-5" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
           <?php
           if ( count( $author_tags_resources ) ){ ?>
-            <h2 id="resource-tags">Resource tags</h2>
-            <p class="post-tags mt-5 mb-5"><?php
-              foreach ( $author_tags_resources as $tag ) {
-                $author_tags_resources_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=resource&tags=' . $tag . '">' . $tag . '</a> ';
-              }
+              <a class="btn mt-2 mb-5" data-toggle="collapse" href="#resource-tags-list" role="button" aria-expanded="false" aria-controls="resource-tags-list">
+                View resource tags
+              </a>
+              <div class="collapse" id="resource-tags-list">
+                <div class="card card-body">
+                  <p class="post-tags mt-2 mb-2"><?php
+                    foreach ( $author_tags_resources as $tag ) {
+                      $author_tags_resources_html[] = '<a href="' . $site_url . '/author/' . $username . '/?post_type=resource&tags=' . $tag . '">' . $tag . '</a> ';
+                    }
 
-              echo join( ' ', $author_tags_resources_html );
-            ?></p>
+                    echo join( ' ', $author_tags_resources_html );
+                  ?></p>
+                </div>
+              </div>
           <?php } ?>
         <?php } ?>
 		</div>
