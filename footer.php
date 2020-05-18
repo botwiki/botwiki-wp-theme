@@ -126,7 +126,7 @@
             <div class="col-sm-6 col-md-3 mx-auto">
               <p class="text-center">
                 <a href="https://fightfascism.glitch.me/">
-                  <img class="lazy-load" alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg">
+                  <img class="lazy-load" alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism-block.jpg">
                 </a>
               </p>              
             </div>
