@@ -569,9 +569,6 @@ p.post-tags a {
   list-style: none; }
   @media (max-width: 860px) {
     .share-prompt ul.sharing-is-caring {
-      margin: 10px; } }
-  @media (max-width: 860px) {
-    .share-prompt ul.sharing-is-caring {
       padding-left: 0; } }
   .share-prompt ul.sharing-is-caring li {
     display: inline; }

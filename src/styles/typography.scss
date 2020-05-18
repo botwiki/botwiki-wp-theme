@@ -271,10 +271,6 @@ p.post-tags{
   }
 
   ul.sharing-is-caring{
-    @media (max-width: $site-width-small){
-      margin: 10px;
-    }
-
     padding-left: 0;
 
     @media (max-width: $site-width-small){
