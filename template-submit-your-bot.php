@@ -120,8 +120,8 @@
                       . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
                       . " bot" 
                       . ( count( $bot_authors ) > 0 ? " created by " : "" )
-                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
-                      . $bot_description . "</p>";
+                      . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
+                      . $bot_description;
       }
       else{
 
@@ -132,8 +132,8 @@
         $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
                       . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks'] ) )
                       . ( count( $bot_authors ) > 0 ? " bot created by " : "" )
-                      . $helpers->join_with_and( $created_by_html_array ) . " that\n\n"
-                      . $bot_description . "</p>";        
+                      . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
+                      . $bot_description;        
       }
 
       $post_content = str_replace(
