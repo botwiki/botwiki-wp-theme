@@ -188,9 +188,26 @@ class WP_JSON_API_Fixes_And_Enhancements {
       return $args;
     }
 
+    $bot_url = $request['bot_url'];
+
+    $info = parse_url($bot_url);
+
+    $host = $info['host'];
+    $host_names = explode(".", $host);
+    $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+    $path = $info['path'];
+
+    $url_variations = array(
+      $bot_url,
+      'http://' . $domain . $path,
+      'https://' . $domain . $path,
+      'http://www.' . $domain . $path,
+      'https://www.' . $domain . $path
+    );
+
     $args['meta_key'] = 'bot_url';
-    $args['meta_value'] = $request['bot_url'];
-    $args['meta_compare'] = 'LIKE';
+    $args['meta_value'] = $url_variations;
+    $args['meta_compare'] = 'IN';
 
     return $args;
   }
