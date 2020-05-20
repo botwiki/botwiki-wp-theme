@@ -87,7 +87,7 @@
       $bot_description = trim( $_POST['bot-description'] );
       $bot_urls = $_POST['bot-urls'];
 
-      $post_content = '<!-- wp:paragraph -->';
+      // $post_content = '<!-- wp:paragraph -->';
 
       global $helpers;
 
@@ -116,12 +116,12 @@
 
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
-        $post_content .= '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
+        $post_content = '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
                       . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
                       . " bot" 
                       . ( count( $bot_authors ) > 0 ? " created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
-                      . $bot_description;
+                      . wpautop( $bot_description );
       }
       else{
 
@@ -129,24 +129,14 @@
           return get_term_by( 'slug', $network_term_slug, 'network' )->name;
         }
 
-        $post_content .= '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
+        $post_content = '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
                       . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks'] ) )
                       . ( count( $bot_authors ) > 0 ? " bot created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
-                      . $bot_description;        
+                      . wpautop( $bot_description );
       }
 
-      $post_content = str_replace(
-        array(
-          '</p></p>',
-          '</p> <p>'
-        ),
-        array(
-          '</p>',
-          '</p>'
-        ),
-        $post_content
-      );
+
 
       $bot_meta = array();
       $bot_meta['bot_is_featured'] = 'on';
