@@ -71,7 +71,7 @@
       ?>
 			<?php if ( count_user_posts( $author_id ) > 0 ) {  ?> 
 
-				<h1 id="blog" class="pl-3 pr-3">My blog posts</h1>
+				<h1 id="blog">My blog posts</h1>
 				<?php
 
           global $wp_query;
@@ -88,7 +88,7 @@
           ) );            
 
 					get_template_part('loop', 'author');
-					?><div class="pl-3 pr-3"><?php get_template_part('pagination'); ?></div><?php
+					?><div><?php get_template_part('pagination'); ?></div><?php
 				?>
 
 			<?php } ?>
@@ -106,7 +106,7 @@
           ) );
 
           if ( $wp_query->post_count > 0 ){ ?>
-            <h1 id="bots" class="pl-3 pr-3">My bots</h1>
+            <h1 id="bots">My bots</h1>
 
 
             <?php
@@ -127,7 +127,7 @@
 
               $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-              $bot_list_html = '<div class="container mt-5"><div class="row list">';
+              $bot_list_html = '<div class="container mt-5"><div class="row list ml-n4 mr-n4">';
 
               foreach ($posts as $post) {
                 $post_id = $post->ID;
@@ -168,7 +168,6 @@
               $bot_list_html .= '</div>';
               echo $bot_list_html;
               ?>
-              <div class="pl-3 pr-3">
               <a class="btn mt-2 mb-0" href="<?php echo '/author/' . $username . '/?post_type=bot' ?>">View all bots</a>
               <?php
                 if ( count( $author_tags_bots ) ){ ?>
@@ -185,7 +184,7 @@
                       ?></p>
                     </div>
                   </div>
-                <?php } ?></div>
+                <?php } ?>
           <?php } ?>
       <?php
         global $wp_query;
@@ -200,7 +199,7 @@
         ) );
 
         if ( $wp_query->post_count > 0 ){ ?>
-          <h1 id="resources" class="pl-3 pr-3">My resources</h1>
+          <h1 id="resources">My resources</h1>
           <?php
             $posts = $wp_query->posts;
 
@@ -216,7 +215,6 @@
 
             get_template_part('loop');
           ?>
-          <div class="pl-3 pr-3">
           <a class="btn mt-2 mb-0" href="<?php echo '/author/' . $username . '/?post_type=resource' ?>">View all resources</a>          
           <?php
           if ( count( $author_tags_resources ) ){ ?>
@@ -234,7 +232,7 @@
                   ?></p>
                 </div>
               </div>
-          <?php } ?></div>
+          <?php } ?>
         <?php } ?>
 		</div>
 	</main>

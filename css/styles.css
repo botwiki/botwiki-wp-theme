@@ -19,7 +19,7 @@ body.admin-bar #menu-icon {
 
 body .container {
   width: 100% !important;
-  max-width: 1200px !important; }
+  max-width: 1000px !important; }
 
 body.home-page .container {
   max-width: 1024px !important; }
@@ -53,7 +53,7 @@ img {
   margin-top: 0.75rem; }
 
 .site-width {
-  max-width: 1500px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -204,7 +204,7 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
   text-align: center;
   margin: 4em auto;
   width: 100% !important;
-  max-width: 1200px !important; }
+  max-width: 1000px !important; }
   @media (max-width: 860px) {
     .thumbnail-wrapper {
       margin-top: 0; } }
@@ -356,8 +356,8 @@ video {
   padding: 10px; }
 
 .social-embeds {
-  max-width: 1100px;
-  margin: 0 auto; }
+  max-width: 1000px;
+  margin: 0 -1rem; }
 
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
