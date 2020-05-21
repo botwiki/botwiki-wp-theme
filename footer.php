@@ -82,7 +82,7 @@
  -->
         <div class="container-fluid background-alternate pt-1 pb-5">
           <div class="container">
-            <div class="row mt-5 mb-5">
+            <div class="row mt-5 mb-5 ml-n3 mr-n3">
               <div class="col-sm-12 col-md-4">
                 <ul class="footer-list">
                   <li class="list-header">About</li>
