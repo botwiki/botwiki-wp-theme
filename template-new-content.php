@@ -53,7 +53,7 @@
           get_template_part('loop');
         ?>
 
-        <ul class="btn-list">
+        <ul class="btn-list mt-0">
           <li>
             <a class="btn" href="/blog/">Visit blog</a>
           </li>
@@ -75,7 +75,7 @@
           get_template_part('loop');
         ?>
 
-        <ul class="btn-list">
+        <ul class="btn-list mt-0">
           <li>
             <a class="btn" href="/bots/">Browse all</a>
           </li>
@@ -110,7 +110,7 @@
           get_template_part('loop');
          ?>
 
-        <ul class="btn-list">
+        <ul class="btn-list mt-0">
           <li>
             <a class="btn" href="/resources/">Browse all</a>
           </li>
