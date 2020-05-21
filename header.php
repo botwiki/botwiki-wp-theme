@@ -224,16 +224,7 @@
         </div>
         <input type="checkbox" id="menu-toggle">
         <div id="menu-wrapper" class="container-fluid">
-          <div class="row w-100">
-            <div class="col-sm-12">
-              <?php botwiki_site_nav(); ?>
-            </div>
-            <?php if (!is_search()){ ?>
-            <div class="col-sm-12 pt-4 pr-5 pl-5 pb-4">
-              <?php echo get_search_form( false ); ?>
-            </div>
-            <?php } ?>
-          </div>
+          <?php botwiki_site_nav(); ?>
         </div>
       </nav>
     <?php } ?>

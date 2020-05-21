@@ -96,7 +96,9 @@ img{
 
 nav{
   pointer-events: none;
-  font-family: $title-font-family;
+  h2{
+    font-family: $title-font-family;    
+  }
   min-height: 5em;
   #menu-toggle{
     display: none;
@@ -175,11 +177,15 @@ nav{
   right: 0;
   padding-top: 60px;
   background-color: $background-primary;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-5%) scale(1.02);
-  transition: transform 0.5s, opacity 0.1s;
   min-height: 100vh;
+
+  &:not( .menu-visible ){
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-5%) scale(1.02);
+    transition: transform 0.5s, opacity 0.1s;
+
+  }
 
   li{
     text-transform: uppercase;

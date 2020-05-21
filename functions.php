@@ -116,11 +116,21 @@ Functions
 //   ) );
 // }
 
-function botwiki_site_nav(){
-  $frontpage_id = get_option( 'page_on_front' );
-  echo get_post_field( 'post_content', $frontpage_id);
-
-}
+function botwiki_site_nav(){ ?>
+  <div class="row w-100">
+    <div class="col-sm-12 pl-0 pr-0">
+      <?php
+        $frontpage_id = get_option( 'page_on_front' );
+        echo get_post_field( 'post_content', $frontpage_id);
+      ?>
+    </div>
+    <?php if (!is_search()){ ?>
+    <div class="col-sm-12 pt-4 pr-4 pl-4 pb-4">
+      <?php echo get_search_form( false ); ?>
+    </div>
+    <?php } ?>
+  </div>
+<?php }
 
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts(){

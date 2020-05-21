@@ -28,32 +28,32 @@
 		<?php } ?>
   </div>
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+			<?php if ( is_front_page()){ ?>
+                <div id="menu-wrapper" class="menu-visible container-fluid">
+                    <?php botwiki_site_nav(); ?>
+                </div>
+            <?php } else { ?>
+            <!-- article -->
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <?php the_content(); ?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<?php the_content(); ?>
-			<?php if (is_front_page()){ ?>
-        <div class="col-sm-12 pt-4 pr-5 pl-5 pb-4">
-          <?php echo get_search_form( false ); ?>
-        </div>
-			<?php } ?>
-			<br class="clear">
-			<?php
-				if ( strpos( get_the_title(), 'Botwiki Interview:' ) !== false ){
+            <br class="clear">
+            <?php
+                if ( strpos( get_the_title(), 'Botwiki Interview:' ) !== false ){
 
-					$post_date = get_the_time('F j, Y');
-					$post_date_full = $post_date . ' ' . get_the_time('g:i a');
-					$m = new \Moment\Moment($post_date);
-					$post_date_ago = $m->fromNow()->getRelative();
-				?>
-					<p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-						by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em>.</p>
-					<p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
-					<div class="note">
-						<p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a></p>
+                    $post_date = get_the_time('F j, Y');
+                    $post_date_full = $post_date . ' ' . get_the_time('g:i a');
+                    $m = new \Moment\Moment($post_date);
+                    $post_date_ago = $m->fromNow()->getRelative();
+                ?>
+                    <p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+                        by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em>.</p>
+                    <p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
+                    <div class="note">
+                        <p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a></p>
                     </div>
-				<?php }
-			?>
+                <?php }
+            ?>
             <?php if ( !is_front_page() ){ ?>
                 <h3 id="blog">Latest from the blog</h3>
                 <div id="blog-latest-wrapper" class="row list">
@@ -87,8 +87,9 @@
                 </div>
                 <p><a class="btn" href="/blog/">Visit the blog</a></p>
             <?php } ?>
-		</article>
-		<!-- /article -->
+        </article>
+        <!-- /article -->
+        <?php } ?>
 	<?php endwhile; ?>
 	<?php else: ?>
 		<!-- article -->

@@ -60,8 +60,9 @@ img {
 /* Site navigation */
 nav {
   pointer-events: none;
-  font-family: "Source Serif Pro", serif;
   min-height: 5em; }
+  nav h2 {
+    font-family: "Source Serif Pro", serif; }
   nav #menu-toggle {
     display: none; }
     nav #menu-toggle:checked + #menu-wrapper {
@@ -126,17 +127,18 @@ nav {
   right: 0;
   padding-top: 60px;
   background-color: #fff;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transform: translateY(-5%) scale(1.02);
-      -ms-transform: translateY(-5%) scale(1.02);
-          transform: translateY(-5%) scale(1.02);
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.5s;
-  transition: opacity 0.1s, -webkit-transform 0.5s;
-  -o-transition: transform 0.5s, opacity 0.1s;
-  transition: transform 0.5s, opacity 0.1s;
-  transition: transform 0.5s, opacity 0.1s, -webkit-transform 0.5s;
   min-height: 100vh; }
+  #menu-wrapper:not(.menu-visible) {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transform: translateY(-5%) scale(1.02);
+        -ms-transform: translateY(-5%) scale(1.02);
+            transform: translateY(-5%) scale(1.02);
+    -webkit-transition: opacity 0.1s, -webkit-transform 0.5s;
+    transition: opacity 0.1s, -webkit-transform 0.5s;
+    -o-transition: transform 0.5s, opacity 0.1s;
+    transition: transform 0.5s, opacity 0.1s;
+    transition: transform 0.5s, opacity 0.1s, -webkit-transform 0.5s; }
   #menu-wrapper li {
     text-transform: uppercase;
     -webkit-transform: translateY(-55%);
@@ -389,6 +391,9 @@ h2 {
   body.archive h2,
   body.search h2 {
     margin-top: 0; }
+
+.search-form {
+  font-family: "Open Sans", sans-serif; }
 
 .card {
   border-radius: 0; }
