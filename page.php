@@ -7,16 +7,17 @@
     $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
     $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 	?>
-		<div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php
-				if ( !is_front_page() ){
-					$post_thumbnail_id = get_post_thumbnail_id();
-					the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post($post_thumbnail_id)->post_title ]);
-				}
-				?>
-			</a>
-		</div>
+				if ( !is_front_page() ){ ?>
+          <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <?php
+                $post_thumbnail_id = get_post_thumbnail_id();
+                the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post($post_thumbnail_id)->post_title ]);
+              ?>
+            </a>
+          </div>
+			<?php	} ?>
 	<?php } ?>
 	<!-- /post thumbnail -->
 	<main role="main" class="container">
