@@ -29,7 +29,7 @@
   </div>
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 			<?php if ( is_front_page()){ ?>
-                <div id="menu-wrapper" class="menu-visible container-fluid">
+                <div id="menu-wrapper" class="menu-visible container-fluid pl-0 pr-0">
                     <?php botwiki_site_nav(); ?>
                 </div>
             <?php } else { ?>
