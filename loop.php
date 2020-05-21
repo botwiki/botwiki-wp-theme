@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="mt-5">
   <div class="row list">
     <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
       <div class="col-sm-12 col-md-6 col-lg-4 list-item">
