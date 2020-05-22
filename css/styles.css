@@ -310,7 +310,7 @@ video {
 
 /* Notes */
 .note {
-  background-color: #eee;
+  background-color: #f5f8fb;
   font-weight: bold;
   border: 2px solid #b2b2b2;
   padding: 1em;
@@ -442,7 +442,7 @@ ul, ol {
 
 blockquote {
   /* Courtesy of css-tricks.com. */
-  background: #fafafa;
+  background: #f5f8fb;
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
@@ -455,7 +455,7 @@ blockquote {
       padding: 1em; } }
   blockquote:before {
     display: inline-block;
-    color: #f1f1f1;
+    color: #bdc6d2;
     content: '“';
     font-family: "Source Code Pro", monospace;
     font-size: 13em;
@@ -552,14 +552,17 @@ a.no-underline, a.no-underline:hover {
 p.post-tags a {
   font-family: monospace;
   font-size: 1.2em;
-  color: #4c4c4c;
-  background-color: rgba(0, 0, 0, 0.125);
+  color: #42474e;
+  background-color: #eaf2fb;
   line-height: 2em;
   padding: 5px;
   white-space: nowrap; }
+  p.post-tags a:before {
+    content: '#';
+    color: #bdc6d2; }
   p.post-tags a:hover {
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.2); }
+    background-color: #c8d0d9; }
   p.post-tags a, p.post-tags a:hover {
     -webkit-transition: background-color 0.3s;
     -o-transition: background-color 0.3s;
@@ -600,7 +603,7 @@ p.post-tags a {
   margin-bottom: 0 !important; }
 
 .background-alternate {
-  background-color: #eee; }
+  background-color: #f5f8fb; }
 
 .background-fff {
   background-color: #fff; }
@@ -777,7 +780,7 @@ div#menu-wrapper {
       transition: transform 0.3s;
       transition: transform 0.3s, -webkit-transform 0.3s; }
   .hover-box:hover {
-    background-color: #eee; }
+    background-color: #f5f8fb; }
     .hover-box:hover h2 {
       -webkit-transform: translate(0, -5px);
           -ms-transform: translate(0, -5px);
@@ -879,8 +882,8 @@ ul.btn-list {
   .btn:hover {
     color: #4c4c4c;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.125);
-    border: 1px solid rgba(0, 0, 0, 0); }
+    background-color: #eaf2fb;
+    border: 1px solid #eaf2fb; }
   .btn, .btn:hover {
     -webkit-transition: background-color 0.1s;
     -o-transition: background-color 0.1s;

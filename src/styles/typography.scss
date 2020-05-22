@@ -107,7 +107,7 @@ ul, ol{
 
 blockquote{
   /* Courtesy of css-tricks.com. */
-  background: #fafafa;
+  background: #f5f8fb;
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
@@ -124,7 +124,7 @@ blockquote{
 
   &:before {
     display: inline-block;
-    color: #f1f1f1;
+    color: #bdc6d2;
     content: '“';
     font-family: $code-font-family;
     font-size: 13em;
@@ -249,15 +249,20 @@ p.post-tags{
   a{
     font-family: monospace;
     font-size: 1.2em;
-    color: $color-primary;
-    background-color: rgba(0, 0, 0, 0.125);
+    color: #42474e;
+    background-color: #eaf2fb;
     line-height: 2em;
     padding: 5px;
     white-space: nowrap;
 
+    &:before{
+      content: '#';
+      color: #bdc6d2;
+    }
+
     &:hover{
       text-decoration: none;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: #eaf2fb - #222;
     }
 
     &, &:hover{
