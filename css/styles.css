@@ -769,7 +769,8 @@ div#menu-wrapper {
     text-decoration: none; }
 
 .hover-box {
-  position: relative; }
+  position: relative;
+  padding-bottom: 1em; }
   .hover-box, .hover-box:hover {
     -webkit-transition: background-color 0.7s;
     -o-transition: background-color 0.7s;
