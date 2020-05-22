@@ -23,7 +23,7 @@
       </div>
 
       <!-- footer -->
-      <footer class="footer mb-0 pt-3" role="contentinfo">
+      <footer class="footer mt-3 mb-0 pt-3" role="contentinfo">
         <div class="container-fluid pt-5 pb-1 pl-0 pr-0 background-alternate">
           <div class="container">
             <div class="row">

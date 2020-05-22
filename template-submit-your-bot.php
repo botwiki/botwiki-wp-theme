@@ -87,8 +87,6 @@
       $bot_description = trim( $_POST['bot-description'] );
       $bot_urls = $_POST['bot-urls'];
 
-      // $post_content = '<!-- wp:paragraph -->';
-
       global $helpers;
 
       $main_bot_url = $bot_urls[0];
@@ -116,12 +114,15 @@
 
       if ( count( $_POST['bot-networks'] ) == 1 ){
 
-        $post_content = '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
+        $post_content = '<!-- wp:paragraph -->'
+                      . '<p><a href="' . $main_bot_url . '">' . trim( $_POST['bot-name'] ) . '</a> is a '
                       . get_term_by( 'slug', $_POST['bot-networks'][0], 'network' )->name
                       . " bot" 
                       . ( count( $bot_authors ) > 0 ? " created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
-                      . wpautop( $bot_description );
+                      . '<!-- /wp:paragraph -->'
+                      . wpautop( $bot_description )
+                      . '<!-- /wp:paragraph -->';
       }
       else{
 
@@ -129,11 +130,15 @@
           return get_term_by( 'slug', $network_term_slug, 'network' )->name;
         }
 
-        $post_content = '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
+        $post_content = '<!-- wp:paragraph -->' 
+                      . '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
                       . $helpers->join_with_and( array_map( 'get_network_name', $_POST['bot-networks'] ) )
                       . ( count( $bot_authors ) > 0 ? " bot created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
-                      . wpautop( $bot_description );
+                      . '<!-- /wp:paragraph -->'
+                      . '<!-- wp:paragraph -->'
+                      . wpautop( $bot_description )
+                      . '<!-- /wp:paragraph -->';
       }
 
 
@@ -187,8 +192,7 @@
 
       $post_data = array( 
         'post_author' => ( ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ) ? get_current_user_id() : 2 ),
-        // 'post_content' => $post_content,
-        'post_content' => $post_content . '<!-- /wp:paragraph -->',
+        'post_content' => $post_content,
         'post_title' => $_POST['bot-name'],
         'post_excerpt' => $_POST['bot-tagline'],
         'post_status' => 'draft',
