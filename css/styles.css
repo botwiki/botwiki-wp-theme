@@ -310,7 +310,7 @@ video {
 
 /* Notes */
 .note {
-  background-color: #fdfffd;
+  background-color: #eee;
   font-weight: bold;
   border: 2px solid #b2b2b2;
   padding: 1em;
@@ -600,7 +600,7 @@ p.post-tags a {
   margin-bottom: 0 !important; }
 
 .background-alternate {
-  background-color: #fdfffd; }
+  background-color: #eee; }
 
 .background-fff {
   background-color: #fff; }
@@ -777,7 +777,7 @@ div#menu-wrapper {
       transition: transform 0.3s;
       transition: transform 0.3s, -webkit-transform 0.3s; }
   .hover-box:hover {
-    background-color: #fdfffd; }
+    background-color: #eee; }
     .hover-box:hover h2 {
       -webkit-transform: translate(0, -5px);
           -ms-transform: translate(0, -5px);
