@@ -102,6 +102,7 @@ a{
 }
 
 ul, ol{
+  margin-left: 3px;
   padding: 0 1em;
 }
 
@@ -249,7 +250,7 @@ p.post-tags{
   a{
     font-family: monospace;
     font-size: 1.2em;
-    color: #42474e;
+    color: #42474e  ;
     background-color: #eaf2fb;
     line-height: 2em;
     padding: 5px;

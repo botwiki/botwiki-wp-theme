@@ -438,6 +438,7 @@ a {
     transition: color 0.3s; }
 
 ul, ol {
+  margin-left: 3px;
   padding: 0 1em; }
 
 blockquote {
