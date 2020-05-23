@@ -60,7 +60,7 @@
           $username = get_the_author_meta('user_nicename', $author_id);
           $post_type = $wp_query->query['post_type'];          
         ?>
-          <h1>Browsing <?php
+          <h1 class="post-title">Browsing <?php
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
           ?> <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a><?php
           if ( !empty( $_GET['tags'] ) ){ ?>
@@ -74,7 +74,7 @@
           $page_title = "Posts tagged #" . $term->name;
         }
       ?>
-        <h1><?php echo $page_title; ?></h1>
+        <h1 class="post-title"><?php echo $page_title; ?></h1>
       <?php }
       elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
@@ -105,7 +105,7 @@
           }
 
           ?>
-          <h1>Browsing <?php 
+          <h1 class="post-title">Browsing <?php 
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
           ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
           <ul class="btn-list">
@@ -117,7 +117,7 @@
             ?>
           </ul>
         <?php } else {?>
-          <h1>Browsing all <?php
+          <h1 class="post-title">Browsing all <?php
             echo ( !empty( $_GET['opensource'] ) ? 'open source' : number_format( wp_count_posts( 'bot' )->publish ) );
           ?> bots...</h1>
           <ul class="btn-list">
@@ -135,7 +135,7 @@
         <?php } ?>
       <?php }
       else{ ?>
-        <h1>Archives</h1>
+        <h1 class="post-title">Archives</h1>
       <?php }
 
       if ( !empty( $_GET['tags'] ) ){

@@ -17,108 +17,109 @@
     </div>
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-        <h1><?php the_title(); ?></h1>
-        <?php
-          echo get_post_field( 'post_content', $post_id);
-        ?>
+        <h1 class="post-title"><?php the_title(); ?></h1>
+        <div class="post-content">
+          <?php
+            echo get_post_field( 'post_content', $post_id);
+          ?>
 
-         <ul class="btn-list mt-5">
-          <li>
-            <a class="btn" href="#blog">Botwiki blog</a>
-          </li>
-          <li>
-            <a class="btn" href="#bots">New bots</a>
-          </li>
-          <li>
-            <a class="btn" href="#resources">New resources</a>
-          </li>
-          <li>
-            <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
-          </li>
-        </ul>
+           <ul class="btn-list mt-5">
+            <li>
+              <a class="btn" href="#blog">Botwiki blog</a>
+            </li>
+            <li>
+              <a class="btn" href="#bots">New bots</a>
+            </li>
+            <li>
+              <a class="btn" href="#resources">New resources</a>
+            </li>
+            <li>
+              <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
+            </li>
+          </ul>
 
-        <h2 id="blog">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
+          <h2 id="blog">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
 
-        <?php
-          global $wp_query;
+          <?php
+            global $wp_query;
 
-          $wp_query = new WP_Query( array(
-            'post_type'         => 'post',
-            'posts_per_page'    => '6',
-            'post_status'       => 'publish',
-            'orderby'           => 'publish_date',
-            'order'             => 'DESC'
-          ) );            
+            $wp_query = new WP_Query( array(
+              'post_type'         => 'post',
+              'posts_per_page'    => '6',
+              'post_status'       => 'publish',
+              'orderby'           => 'publish_date',
+              'order'             => 'DESC'
+            ) );            
 
-          get_template_part('loop');
-        ?>
+            get_template_part('loop');
+          ?>
 
-        <ul class="btn-list mt-0">
-          <li>
-            <a class="btn" href="/blog/">Visit blog</a>
-          </li>
-        </ul>
+          <ul class="btn-list mt-0">
+            <li>
+              <a class="btn" href="/blog/">Visit blog</a>
+            </li>
+          </ul>
 
-        <h2 id="bots">New bots<a class="pilcrow" href="#bots">¶</a></h2>
+          <h2 id="bots">New bots<a class="pilcrow" href="#bots">¶</a></h2>
 
-        <?php
-          global $wp_query;
+          <?php
+            global $wp_query;
 
-          $wp_query = new WP_Query( array(
-            'post_type'         => 'bot',
-            'posts_per_page'    => '6',
-            'post_status'       => 'publish',
-            'orderby'           => 'publish_date',
-            'order'             => 'DESC'
-          ) );            
+            $wp_query = new WP_Query( array(
+              'post_type'         => 'bot',
+              'posts_per_page'    => '6',
+              'post_status'       => 'publish',
+              'orderby'           => 'publish_date',
+              'order'             => 'DESC'
+            ) );            
 
-          get_template_part('loop');
-        ?>
+            get_template_part('loop');
+          ?>
 
-        <ul class="btn-list mt-0">
-          <li>
-            <a class="btn" href="/bots/">Browse all</a>
-          </li>
-          <li>
-            <a class="btn" href="/random-bot/">Random bot</a>
-          </li>
-          <li>
-            <a class="btn" href="/submit-your-bot/">Add your bot</a>
-          </li>
-        </ul>
+          <ul class="btn-list mt-0">
+            <li>
+              <a class="btn" href="/bots/">Browse all</a>
+            </li>
+            <li>
+              <a class="btn" href="/random-bot/">Random bot</a>
+            </li>
+            <li>
+              <a class="btn" href="/submit-your-bot/">Add your bot</a>
+            </li>
+          </ul>
 
-        <h2 id="resources">New resources<a class="pilcrow" href="#resources">¶</a></h2>
-        <?php
-          global $wp_query;
+          <h2 id="resources">New resources<a class="pilcrow" href="#resources">¶</a></h2>
+          <?php
+            global $wp_query;
 
-          $wp_query = new WP_Query( array(
-            'post_type'         => 'resource',
-            'posts_per_page'    => '6',
-            'post_status'       => 'publish',
-            'orderby'           => 'publish_date',
-            'order'             => 'DESC',
-            // 'tax_query' => array(
-            //     array(
-            //         'taxonomy' => 'resource_type',
-            //         'field'    => 'slug',
-            //         'terms'    => array('tutorial'),
-            //         'operator' => 'NOT IN'
-            //     )
-            // )
-          ) );            
+            $wp_query = new WP_Query( array(
+              'post_type'         => 'resource',
+              'posts_per_page'    => '6',
+              'post_status'       => 'publish',
+              'orderby'           => 'publish_date',
+              'order'             => 'DESC',
+              // 'tax_query' => array(
+              //     array(
+              //         'taxonomy' => 'resource_type',
+              //         'field'    => 'slug',
+              //         'terms'    => array('tutorial'),
+              //         'operator' => 'NOT IN'
+              //     )
+              // )
+            ) );            
 
-          get_template_part('loop');
-         ?>
+            get_template_part('loop');
+           ?>
 
-        <ul class="btn-list mt-0">
-          <li>
-            <a class="btn" href="/resources/">Browse all</a>
-          </li>
-          <li>
-            <a class="btn" href="/submit-resource/">Add your resource</a>
-          </li>
-        </ul>
-
+          <ul class="btn-list mt-0">
+            <li>
+              <a class="btn" href="/resources/">Browse all</a>
+            </li>
+            <li>
+              <a class="btn" href="/submit-resource/">Add your resource</a>
+            </li>
+          </ul>
+        </div>
       </article>
     </div>
   </main>

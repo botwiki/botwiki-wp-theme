@@ -3,6 +3,10 @@ body, .hover-box p {
   color: $color-primary;
 }
 
+body.page-template-template-showcase{
+  background: #f5f8fb;
+}
+
 h1, h2, h3, h4, h5, h6{
   font-family: $title-font-family;
   line-height: 1;

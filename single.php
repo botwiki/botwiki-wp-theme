@@ -47,8 +47,9 @@
         <?php } ?>
 
         <!-- post title -->
-        <h1 class="mt-4"><?php the_title(); ?></h1>
+        <h1 class="post-title mt-4"><?php the_title(); ?></h1>
         <!-- /post title -->
+        <div class="post-content">
 
 
           <?php
@@ -177,6 +178,7 @@
           <?php }
 
           ?>
+          </div>
           <p class="post-tags mt-5 mb-5">
             <?php 
               $network_tags = array();

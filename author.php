@@ -64,7 +64,7 @@
   <?php }
 ?>
 
-	<main role="main" class="container">
+	<main role="main" class="container post-content">
     <div class="mt-5">
       <?php
         include( locate_template( 'author-card.php', false, false ) );

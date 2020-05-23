@@ -21,12 +21,12 @@ class BotsPostType {
   }
 
   function lazyblock_bot_output( $output, $attributes ){
-    // log_this( array(
-    //   // 'output' => $output,
-    //   // 'attributes' => $attributes,
-    //   'bot-output-layout-style' => $attributes['bot-output-layout-style'],
-    //   'bot-output' => $attributes['bot-output']
-    // ) );
+    log_this( array(
+      // 'output' => $output,
+      // 'attributes' => $attributes,
+      'bot-output-layout-style' => $attributes['bot-output-layout-style'],
+      'bot-output' => $attributes['bot-output']
+    ) );
 
     $html = '';
 
@@ -74,7 +74,7 @@ class BotsPostType {
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
             $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
             $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
-            $html .= '</a';
+            $html .= '</a>';
           }
           $html .= '</div>';
         }
@@ -89,7 +89,7 @@ class BotsPostType {
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
             $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
             $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
-            $html .= '</a';
+            $html .= '</a>';
           }
           $html .= '</div>';
         }
@@ -117,7 +117,7 @@ class BotsPostType {
               $html .= '<a href="' . $bot_output_item['source-url'] . '">';
               $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
               $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
-              $html .= '</a';
+              $html .= '</a>';
             }
 
             $html .= '</div>';

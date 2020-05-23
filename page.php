@@ -24,7 +24,7 @@
   <div class="mt-5">
 		<?php if ( !is_front_page() ) { ?>
 		<!-- post title -->
-		<h1><?php the_title(); ?></h1>
+		<h1 class="post-title"><?php the_title(); ?></h1>
 		<!-- /post title -->
 		<?php } ?>
   </div>
@@ -35,7 +35,7 @@
                 </div>
             <?php } else { ?>
             <!-- article -->
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-content' ); ?>>
             <?php the_content(); ?>
 
             <br class="clear">
