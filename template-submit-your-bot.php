@@ -257,35 +257,37 @@
         </div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1>Thank you</h1>
-            <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
-              <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
-            <?php } else { ?>
-              <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-              <p>You can <a href="https://twitter.com/newonbotwiki" target="_blank">follow @newonbotwiki</a> to see when the site gets updated.</p>
-            <?php } ?>
-            <ul class="btn-list mt-4">
-              <li>
-                <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
-              </li>
-              <li>
-                <a class="btn" href="/submit-resource/">Add a resource</a>
-              </li>
-              <li>
-                <a class="btn" href="/bots/#browse-bots-by-category">Browse bots</a>
-              </li>
-              <li>
-                <a class="btn" href="<?php echo get_site_url(); ?>">Back to home page</a>
-              </li>
-            </ul>
-            <div class="row mt-5">
-                <div class="col-sm-12 col-md-6">
-                  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 ( @botwikidotorg ) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New bot was added to Botwiki! <a href="https://t.co/RUepf5f8Im">https://t.co/RUepf5f8Im</a></p>&mdash; New on Botwiki ✨ (@newonbotwiki) <a href="https://twitter.com/newonbotwiki/status/1206599872016719877?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote>                    
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
+            <h1 class="post-title">Thank you</h1>
+            <div class="post-content">
+              <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
+                <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
+              <?php } else { ?>
+                <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+                <p>You can <a href="https://twitter.com/newonbotwiki" target="_blank">follow @newonbotwiki</a> to see when the site gets updated.</p>
+              <?php } ?>
+              <ul class="btn-list mt-4">
+                <li>
+                  <a class="btn" href="<?php echo get_permalink(); ?>">Add one more</a>
+                </li>
+                <li>
+                  <a class="btn" href="/submit-resource/">Add a resource</a>
+                </li>
+                <li>
+                  <a class="btn" href="/bots/#browse-bots-by-category">Browse bots</a>
+                </li>
+                <li>
+                  <a class="btn" href="<?php echo get_site_url(); ?>">Back to home page</a>
+                </li>
+              </ul>
+              <div class="row mt-5">
+                  <div class="col-sm-12 col-md-6">
+                    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 ( @botwikidotorg ) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New bot was added to Botwiki! <a href="https://t.co/RUepf5f8Im">https://t.co/RUepf5f8Im</a></p>&mdash; New on Botwiki ✨ (@newonbotwiki) <a href="https://twitter.com/newonbotwiki/status/1206599872016719877?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote>                    
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </div>
+              </div>
             </div>
           </article>
         </div>
@@ -301,8 +303,10 @@
         </div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1><?php the_title(); ?></h1>
-            <p>Please <a href="<?php echo get_permalink(); ?>">return to the previous page</a> and make sure all required fields are filled out. <strong>Thank you!</strong></p>
+            <h1 class="post-title"><?php the_title(); ?></h1>
+            <div class="post-content">
+              <p>Please <a href="<?php echo get_permalink(); ?>">return to the previous page</a> and make sure all required fields are filled out. <strong>Thank you!</strong></p>
+            </div>
           </article>
         </div>
       </main>
@@ -320,175 +324,177 @@
       </div>
       <div class="container">
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-          <h1><?php the_title(); ?></h1>
-          <ul class="btn-list">
-            <li>
-              <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">Follow @newonbotwiki</a>
-            </li>
-            <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
-            <li>
-              <button class="btn" id="test" href="#">Test submission</button>
-            </li>
-            <?php } ?>
-          </ul>
-          <?php echo do_shortcode( get_post_field( 'post_content', $post_id ) ); ?>
-          <form id="submit-bot-form" method="post" class="mt-5">
-          <?php if ( is_user_logged_in() ) {
-            $author_id = get_current_user_id();
-            $username = get_the_author_meta( 'user_nicename', get_current_user_id() );
-            $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+          <h1 class="post-title"><?php the_title(); ?></h1>
+          <div class="post-content">
+            <ul class="btn-list">
+              <li>
+                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">Follow @newonbotwiki</a>
+              </li>
+              <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
+              <li>
+                <button class="btn" id="test" href="#">Test submission</button>
+              </li>
+              <?php } ?>
+            </ul>
+            <?php echo do_shortcode( get_post_field( 'post_content', $post_id ) ); ?>
+            <form id="submit-bot-form" method="post" class="mt-5">
+            <?php if ( is_user_logged_in() ) {
+              $author_id = get_current_user_id();
+              $username = get_the_author_meta( 'user_nicename', get_current_user_id() );
+              $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
-            if ( empty( $profile_img_url ) ){
-              $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360 ) );
-            }
-            $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
-          ?>
-            <div id="logged-in-author" class="card mb-5">
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-2">
-                      <a href="<?php echo $botwiki_profile_page_url; ?>">
-                        <img class="lazy-load img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>">
-                      </a>
-                    </div>
-                    <div class="col-sm-10">
-                      <h5 class="card-title mt-1">You are logged in</h5>
-                      <p class="card-text">This bot will be added to <a href="<?php echo $botwiki_profile_page_url; ?>">your profile</a>.</p>
-                      <p>
-                        <a id="disassociate-author" href="#"><em>This is not my bot.</em></a>
-                        <input type="hidden" name="disassociate-author-input" value="false">
-                      </p>
+              if ( empty( $profile_img_url ) ){
+                $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360 ) );
+              }
+              $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+            ?>
+              <div id="logged-in-author" class="card mb-5">
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <a href="<?php echo $botwiki_profile_page_url; ?>">
+                          <img class="lazy-load img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>">
+                        </a>
+                      </div>
+                      <div class="col-sm-10">
+                        <h5 class="card-title mt-1">You are logged in</h5>
+                        <p class="card-text">This bot will be added to <a href="<?php echo $botwiki_profile_page_url; ?>">your profile</a>.</p>
+                        <p>
+                          <a id="disassociate-author" href="#"><em>This is not my bot.</em></a>
+                          <input type="hidden" name="disassociate-author-input" value="false">
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <?php } else { ?>
-            <div class="author-fields form-row">
-              <div class="form-group col-md-6">
-                <label for="author-1-name">Author's name</label>
-                <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
+            <?php } else { ?>
+              <div class="author-fields form-row">
+                <div class="form-group col-md-6">
+                  <label for="author-1-name">Author's name</label>
+                  <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="author-1-url">Author's URL</label>
+                  <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="author-1-url">Author's URL</label>
-                <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
+            <?php } ?>
+              <div class="form-group">
+                <button id="add-author-fields" class="btn">Add more authors</button>
               </div>
-            </div>
-          <?php } ?>
-            <div class="form-group">
-              <button id="add-author-fields" class="btn">Add more authors</button>
-            </div>
-            <div class="form-group">
-              <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
-              <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot" value="<?php echo $bot_name_val; ?>">
-            </div>
-            <div class="bot-info-fields form-row">
-              <div class="form-group col-md-12 mb-1">
-                <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
+              <div class="form-group">
+                <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
+                <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot" value="<?php echo $bot_name_val; ?>">
               </div>
-              <div class="form-group col-md-6">
-                <label for="bot-info-1-network">Network</label>
-                <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
-                <?php
-                  $networks = get_terms( 'network', array( 
-                      'hide_empty' => false,
-                  ) );
+              <div class="bot-info-fields form-row">
+                <div class="form-group col-md-12 mb-1">
+                  <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="bot-info-1-network">Network</label>
+                  <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
+                  <?php
+                    $networks = get_terms( 'network', array( 
+                        'hide_empty' => false,
+                    ) );
 
-                  foreach ( $networks as $network ) { ?>
-                    <option <?php if ( $network->name === 'Twitter' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
-                  <?php }
-                ?> 
+                    foreach ( $networks as $network ) { ?>
+                      <option <?php if ( $network->name === 'Twitter' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
+                    <?php }
+                  ?> 
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="bot-info-1-url">URL</label>
+                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
+                </div>
+              </div>
+              <div class="form-group">
+                <button id="add-bot-info-fields" class="btn">Add more networks</button>
+              </div>            
+              <div id="bot-submitted-notice" class="d-none alert alert-warning" role="alert">
+                <p><strong>Heads up, it looks like someone already added this bot.</strong></p>
+                <div id="bot-submitted-output"></div>
+                <p>If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
+              </div>
+              <div class="form-group">
+                <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
+                <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."><?php echo $bot_description_val; ?></textarea>
+                <small id="bot-description-help" class="form-text text-muted">You can select text to add links.</small>
+              </div>
+              <div class="form-group">
+                <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
+                <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff." value="<?php echo $bot_tagline_val; ?>">
+                <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
+              </div>
+              <div id="bot-selected-tweets-field" class="form-group">
+                <label for="bot-selected-tweets">Choose two <span id="bot-selected-tweets-label">tweets</span> from your bot that you like</label>
+                <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
+                <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
+                <?php if ( !empty( $bot_urls_val ) ){
+                  global $helpers;
+                  $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
+                ?>
+                  <p>
+                    <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
+                  </p>
+                <?php } ?>
+              </div>
+              <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
+                <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
+                <small id="bot-is-interactive-help" class="form-text text-muted">This bot responds to messages, applies effects to images, etc.</small>
+              </div>
+              <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
+                <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
+              </div>
+              <div id="bot-source-info" class="mt-3 d-none">
+                <div class="form-group">
+                  <label for="bot-source-url">Link( s ) to your bot's source code</label>
+                  <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
+                  <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
+                </div>
+                <div class="form-group">
+                  <label for="bot-source-language">What language( s ) did you use?</label>
+                  <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
+                  <?php
+                    $languages = get_terms( 'programing_language', array( 
+                        'hide_empty' => false,
+                    ) );
+                    foreach ( $languages as $language ) { ?>
+                      <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
+                    <?php }
+                  ?> 
+                  </select>
+                  <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
+                <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
                 </select>
+                <div id="bot-tags-help" class="form-text form-help-text text-muted mt-3">
+                  <p>Add as many relevant tags as you can, this will make it easier for others to find your submission.</p>
+                  <p>Note that <strong>you don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="bot-info-1-url">URL</label>
-                <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
+              <div class="form-check mt-3 mb-2">
+                <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
+                <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
               </div>
-            </div>
-            <div class="form-group">
-              <button id="add-bot-info-fields" class="btn">Add more networks</button>
-            </div>            
-            <div id="bot-submitted-notice" class="d-none alert alert-warning" role="alert">
-              <p><strong>Heads up, it looks like someone already added this bot.</strong></p>
-              <div id="bot-submitted-output"></div>
-              <p>If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
-            </div>
-            <div class="form-group">
-              <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
-              <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."><?php echo $bot_description_val; ?></textarea>
-              <small id="bot-description-help" class="form-text text-muted">You can select text to add links.</small>
-            </div>
-            <div class="form-group">
-              <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
-              <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff." value="<?php echo $bot_tagline_val; ?>">
-              <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
-            </div>
-            <div id="bot-selected-tweets-field" class="form-group">
-              <label for="bot-selected-tweets">Choose two <span id="bot-selected-tweets-label">tweets</span> from your bot that you like</label>
-              <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
-              <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
-              <?php if ( !empty( $bot_urls_val ) ){
-                global $helpers;
-                $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
-              ?>
-                <p>
-                  <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
-                </p>
-              <?php } ?>
-            </div>
-            <div class="form-check mb-2">
-              <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
-              <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
-              <small id="bot-is-interactive-help" class="form-text text-muted">This bot responds to messages, applies effects to images, etc.</small>
-            </div>
-            <div class="form-check mb-2">
-              <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
-              <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
-            </div>
-            <div id="bot-source-info" class="mt-3 d-none">
-              <div class="form-group">
-                <label for="bot-source-url">Link( s ) to your bot's source code</label>
-                <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
-                <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
+              <div id="botmaker-badge-application" class="mt-3 d-none">
+                <div class="form-group">
+                  <label for="bot-author-email">List of email addresses of all authors</label>
+                  <textarea class="form-control" id="bot-author-email" name="bot-author-email" rows="3" placeholder="coolbotauthor@email.com"></textarea>                
+                  <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="bot-source-language">What language( s ) did you use?</label>
-                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
-                <?php
-                  $languages = get_terms( 'programing_language', array( 
-                      'hide_empty' => false,
-                  ) );
-                  foreach ( $languages as $language ) { ?>
-                    <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
-                  <?php }
-                ?> 
-                </select>
-                <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
-              <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
-              </select>
-              <div id="bot-tags-help" class="form-text form-help-text text-muted mt-3">
-                <p>Add as many relevant tags as you can, this will make it easier for others to find your submission.</p>
-                <p>Note that <strong>you don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
-              </div>
-            </div>
-            <div class="form-check mt-3 mb-2">
-              <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
-              <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
-            </div>
-            <div id="botmaker-badge-application" class="mt-3 d-none">
-              <div class="form-group">
-                <label for="bot-author-email">List of email addresses of all authors</label>
-                <textarea class="form-control" id="bot-author-email" name="bot-author-email" rows="3" placeholder="coolbotauthor@email.com"></textarea>                
-                <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
-              </div>
-            </div>
-            <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
-          </form>
+              <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
+            </form>
+          </div>
         </article>
       </div>
     </main>
