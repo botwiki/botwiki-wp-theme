@@ -65,6 +65,7 @@
           ?> <?php echo $post_type; ?>s by <a href="/author/<?php echo $username ?>"><?php echo $nickname ?></a><?php
           if ( !empty( $_GET['tags'] ) ){ ?>
             tagged <a href="<?php echo $site_url . '/tag/' . $_GET['tags'] ;?>">#<?php echo $_GET['tags']; ?></a><?php } ?>&nbsp;...</h1>
+            <div class="post-content">
       <?php } elseif ( is_tax() ){
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 
@@ -75,229 +76,234 @@
         }
       ?>
         <h1 class="post-title"><?php echo $page_title; ?></h1>
-      <?php }
-      elseif ( $wp_query->query['post_type'] == 'bot' ) {
-
-        if ( $_GET['networks'] || $_GET['languages'] || $_GET['tags'] ){
-          function network_links( $network ){
-            return "<a href='" . get_site_url() . "/bot/?networks=$network'>#$network</a> ";
-          }
-
-          if ( !empty( $_GET['networks'] ) ){
-            $networks = implode( ' ', array_map( 'network_links', explode( ',', $_GET['networks'] ) )  );
-          }
-
-
-          function language_links( $language ){
-            return "<a href='" . get_site_url() . "/bot/?languages=$language'>#$language</a> ";
-          }
-
-          if ( !empty( $_GET['languages'] ) ){
-            $languages = implode( ' ', array_map( 'language_links', explode( ',', $_GET['languages'] ) )  );
-          }
-
-          function tag_links( $tag ){
-            return "<a href='" . get_site_url() . "/bot/?tags=$tag'>#$tag</a> ";
-          }
-
-          if ( !empty( $_GET['tags'] ) ){
-            $tag_links = implode( ' ', array_map( 'tag_links', explode( ',', $_GET['tags'] ) ) );
-          }
-
-          ?>
-          <h1 class="post-title">Browsing <?php 
-            echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
-          ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
-          <ul class="btn-list">
-            <?php
-              // echo $glitch_link;
-              // echo $narrow_opensource_link;
-              // $glitch_link = '';
-              // $narrow_opensource_link = '';
-            ?>
-          </ul>
-        <?php } else {?>
-          <h1 class="post-title">Browsing all <?php
-            echo ( !empty( $_GET['opensource'] ) ? 'open source' : number_format( wp_count_posts( 'bot' )->publish ) );
-          ?> bots...</h1>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
-            <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
-            <li><a class="btn" href="/random-bot">Random bot</a></li>
-            <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
-            <?php
-              // echo $glitch_link;
-              // echo $narrow_opensource_link;
-              // $glitch_link = '';
-              // $narrow_opensource_link = '';              
-            ?>
-          </ul>
-        <?php } ?>
-      <?php }
-      else{ ?>
-        <h1 class="post-title">Archives</h1>
-      <?php }
-
-      if ( !empty( $_GET['tags'] ) ){
-        $tags = explode( ',', $_GET['tags'] );
-
-        if ( in_array( 'opensource', $tags ) ) { ?>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?opensource=true">Browse opensource bots</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'cheapbotsdonequick', $tags ) ) { ?>          
-          <div class="card pt-5 mt-5 mb-2">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-4 text-center p-l">
-                    <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/08/cheap-bots-done-quick.png 1920w, /wp-content/uploads/2018/08/cheap-bots-done-quick-250x110.png 250w, /wp-content/uploads/2018/08/cheap-bots-done-quick-768x339.png 768w, /wp-content/uploads/2018/08/cheap-bots-done-quick-700x309.png 700w, /wp-content/uploads/2018/08/cheap-bots-done-quick-120x53.png 120w" />
-                </div>
-                <div class="col-sm-12 col-md-8">
-                  <h2 id="monthly-bot-challenge">Cheap Bots, Done Quick!</h2>
-                  <p>An open-source website that lets you create Twitter bots using a text-generating language called Tracery.</p>
-                  <ul class="btn-list">
-                    <li>
-                      <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
-                    </li>
-                    <li>
-                      <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with author</a>
-                    </li>
-                    <?php
-                      echo $glitch_link;
-                      echo $narrow_opensource_link;
-                    ?>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } elseif ( in_array( 'botsin.space', $tags ) || in_array( 'botsin-space', $tags ) ) { ?>          
-          <div class="card pt-5 mt-5 mb-2">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-4 text-center p-l">
-                    <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/09/botsin-space-bots-glitch.png 603w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-250x114.png 250w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-120x55.png 120w" />
-                </div>
-                <div class="col-sm-12 col-md-8">
-                  <h2 id="monthly-bot-challenge">botsin.space</h2>
-                  <p>A Mastodon instance for hosting friendly bots.</p>
-                  <ul class="btn-list">
-                    <li>
-                      <a class="btn" href="https://botsin.space/">Visit site</a>
-                    </li>
-                    <li>
-                      <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with author</a>
-                    </li>
-                    <?php
-                      echo $glitch_link;
-                      echo $narrow_opensource_link;
-                    ?>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } elseif ( in_array( 'images', $tags ) ) { ?>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?tags=images,generative<?php echo $filter_opensource;?>">#images+generative</a></li>
-            <li><a class="btn" href="/bot/?tags=images,iot<?php echo $filter_opensource;?>">#images+iot</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'text', $tags ) ) { ?>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?tags=text,generative<?php echo $filter_opensource;?>">#text+generative</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?tags=generative,images<?php echo $filter_opensource;?>">#generative+images</a></li>
-            <li><a class="btn" href="/bot/?tags=generative,gif<?php echo $filter_opensource;?>">#generative+gif</a></li>
-            <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
-            <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
-            <li><a class="btn" href="/bot/?tags=generative,audio<?php echo $filter_opensource;?>">#generative+audio</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'interactive', $tags ) ) { ?>
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?tags=interactive,game<?php echo $filter_opensource;?>">#interactive+game</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
-          <ul class="btn-list">
-            <li><a class="btn" href="/bot/?tags=iot,images<?php echo $filter_opensource;?>">#iot+images</a></li>
-            <?php
-              echo $glitch_link;
-              echo $narrow_opensource_link;
-            ?>
-          </ul>
-        <?php } elseif ( in_array( 'non-english', $tags ) && count( $tags ) > 1 ) { ?>          
-          <ul class="btn-list">
-            <li><a class="btn" href="/bots/non-english/">Browse all non-English bots</a></li>
-          </ul>
-        <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
-          <div class="card pt-5 mt-5 mb-2">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-4 text-center p-l">
-                    <img src="/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, /wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, /wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, /wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, /wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
-                </div>
-                <div class="col-sm-12 col-md-8">
-                  <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
-                  <p>Monthly Bot Challenge is a recurring community event dedicated to showcasing friendly, useful, artistic online bots.</p>
-                  <ul class="btn-list">
-                    <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></li>
-                    <?php
-                      echo $glitch_link;
-                      echo $narrow_opensource_link;
-                    ?>                  
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } else { ?>
-          <ul class="btn-list">
-          <?php 
-            echo $glitch_link;
-            echo $narrow_opensource_link;
-            ?>
-          </ul>
+        <div class="post-content">
         <?php }
-      } ?>
+        elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
-			<?php get_template_part( 'loop' ); ?>
-			<?php get_template_part( 'pagination' ); ?>
+          if ( $_GET['networks'] || $_GET['languages'] || $_GET['tags'] ){
+            function network_links( $network ){
+              return "<a href='" . get_site_url() . "/bot/?networks=$network'>#$network</a> ";
+            }
 
-      <?php if(is_author()){
-        if ( user_can($author_id, 'administrator') ){  
-          $botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
-          if ( empty( $botwiki_team_role ) ){
-            $botwiki_team_role = "Botwiki team member.";
+            if ( !empty( $_GET['networks'] ) ){
+              $networks = implode( ' ', array_map( 'network_links', explode( ',', $_GET['networks'] ) )  );
+            }
+
+
+            function language_links( $language ){
+              return "<a href='" . get_site_url() . "/bot/?languages=$language'>#$language</a> ";
+            }
+
+            if ( !empty( $_GET['languages'] ) ){
+              $languages = implode( ' ', array_map( 'language_links', explode( ',', $_GET['languages'] ) )  );
+            }
+
+            function tag_links( $tag ){
+              return "<a href='" . get_site_url() . "/bot/?tags=$tag'>#$tag</a> ";
+            }
+
+            if ( !empty( $_GET['tags'] ) ){
+              $tag_links = implode( ' ', array_map( 'tag_links', explode( ',', $_GET['tags'] ) ) );
+            }
+
+            ?>
+            <h1 class="post-title">Browsing <?php 
+              echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
+            ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
+            <div class="post-content">
+            <ul class="btn-list">
+              <?php
+                // echo $glitch_link;
+                // echo $narrow_opensource_link;
+                // $glitch_link = '';
+                // $narrow_opensource_link = '';
+              ?>
+            </ul>
+          <?php } else {?>
+            <h1 class="post-title">Browsing all <?php
+              echo ( !empty( $_GET['opensource'] ) ? 'open source' : number_format( wp_count_posts( 'bot' )->publish ) );
+            ?> bots...</h1>
+            <div class="post-content">
+            <ul class="btn-list">
+              <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
+              <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
+              <li><a class="btn" href="/random-bot">Random bot</a></li>
+              <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
+              <?php
+                // echo $glitch_link;
+                // echo $narrow_opensource_link;
+                // $glitch_link = '';
+                // $narrow_opensource_link = '';              
+              ?>
+            </ul>
+          <?php } ?>
+        <?php }
+        else{ ?>
+          <h1 class="post-title">Archives</h1>
+          <div class="post-content">        
+        <?php }
+
+        if ( !empty( $_GET['tags'] ) ){
+          $tags = explode( ',', $_GET['tags'] );
+
+          if ( in_array( 'opensource', $tags ) ) { ?>
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?opensource=true">Browse opensource bots</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'cheapbotsdonequick', $tags ) ) { ?>          
+            <div class="card pt-5 mt-5 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 text-center p-l">
+                      <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/08/cheap-bots-done-quick.png 1920w, /wp-content/uploads/2018/08/cheap-bots-done-quick-250x110.png 250w, /wp-content/uploads/2018/08/cheap-bots-done-quick-768x339.png 768w, /wp-content/uploads/2018/08/cheap-bots-done-quick-700x309.png 700w, /wp-content/uploads/2018/08/cheap-bots-done-quick-120x53.png 120w" />
+                  </div>
+                  <div class="col-sm-12 col-md-8">
+                    <h2 id="monthly-bot-challenge">Cheap Bots, Done Quick!</h2>
+                    <p>An open-source website that lets you create Twitter bots using a text-generating language called Tracery.</p>
+                    <ul class="btn-list">
+                      <li>
+                        <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
+                      </li>
+                      <li>
+                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with author</a>
+                      </li>
+                      <?php
+                        echo $glitch_link;
+                        echo $narrow_opensource_link;
+                      ?>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } elseif ( in_array( 'botsin.space', $tags ) || in_array( 'botsin-space', $tags ) ) { ?>          
+            <div class="card pt-5 mt-5 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 text-center p-l">
+                      <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/09/botsin-space-bots-glitch.png 603w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-250x114.png 250w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-120x55.png 120w" />
+                  </div>
+                  <div class="col-sm-12 col-md-8">
+                    <h2 id="monthly-bot-challenge">botsin.space</h2>
+                    <p>A Mastodon instance for hosting friendly bots.</p>
+                    <ul class="btn-list">
+                      <li>
+                        <a class="btn" href="https://botsin.space/">Visit site</a>
+                      </li>
+                      <li>
+                        <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with author</a>
+                      </li>
+                      <?php
+                        echo $glitch_link;
+                        echo $narrow_opensource_link;
+                      ?>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } elseif ( in_array( 'images', $tags ) ) { ?>
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?tags=images,generative<?php echo $filter_opensource;?>">#images+generative</a></li>
+              <li><a class="btn" href="/bot/?tags=images,iot<?php echo $filter_opensource;?>">#images+iot</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'text', $tags ) ) { ?>
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?tags=text,generative<?php echo $filter_opensource;?>">#text+generative</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'generative', $tags ) ) { ?>
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?tags=generative,images<?php echo $filter_opensource;?>">#generative+images</a></li>
+              <li><a class="btn" href="/bot/?tags=generative,gif<?php echo $filter_opensource;?>">#generative+gif</a></li>
+              <li><a class="btn" href="/bot/?tags=generative,emoji<?php echo $filter_opensource;?>">#generative+emoji</a></li>
+              <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
+              <li><a class="btn" href="/bot/?tags=generative,audio<?php echo $filter_opensource;?>">#generative+audio</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'interactive', $tags ) ) { ?>
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?tags=interactive,game<?php echo $filter_opensource;?>">#interactive+game</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'iot', $tags ) ) { ?>          
+            <ul class="btn-list">
+              <li><a class="btn" href="/bot/?tags=iot,images<?php echo $filter_opensource;?>">#iot+images</a></li>
+              <?php
+                echo $glitch_link;
+                echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php } elseif ( in_array( 'non-english', $tags ) && count( $tags ) > 1 ) { ?>          
+            <ul class="btn-list">
+              <li><a class="btn" href="/bots/non-english/">Browse all non-English bots</a></li>
+            </ul>
+          <?php } elseif ( in_array( 'mbc-winner', $tags ) ) { ?>
+            <div class="card pt-5 mt-5 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 text-center p-l">
+                      <img src="/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, /wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, /wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, /wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, /wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
+                  </div>
+                  <div class="col-sm-12 col-md-8">
+                    <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
+                    <p>Monthly Bot Challenge is a recurring community event dedicated to showcasing friendly, useful, artistic online bots.</p>
+                    <ul class="btn-list">
+                      <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></li>
+                      <?php
+                        echo $glitch_link;
+                        echo $narrow_opensource_link;
+                      ?>                  
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } else { ?>
+            <ul class="btn-list">
+            <?php 
+              echo $glitch_link;
+              echo $narrow_opensource_link;
+              ?>
+            </ul>
+          <?php }
+        } ?>
+
+  			<?php get_template_part( 'loop' ); ?>
+  			<?php get_template_part( 'pagination' ); ?>
+
+        <?php if(is_author()){
+          if ( user_can($author_id, 'administrator') ){  
+            $botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
+            if ( empty( $botwiki_team_role ) ){
+              $botwiki_team_role = "Botwiki team member.";
+            }
           }
-        }
-        else{
-          $botwiki_team_role = "Botwiki contributor.";    
-        }
-        $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+          else{
+            $botwiki_team_role = "Botwiki contributor.";    
+          }
+          $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
 
-        include( locate_template( 'author-card.php', false, false ) );
-      } ?>
+          include( locate_template( 'author-card.php', false, false ) );
+        } ?>
+      </div>      
 		</div>
 	</main>
 <?php get_footer(); ?>

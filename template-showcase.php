@@ -11,6 +11,8 @@
         <div class="post-content">
           <?php
             echo get_post_field( 'post_content', $post_id );
+
+            // TODO: Get a list of specific bots by ID
       
             global $wpdb;
             $result = $wpdb->get_results( "SELECT * FROM wp_posts WHERE post_content LIKE '%wp:lazyblock/bot-output%' AND post_type = 'bot' AND post_status = 'publish'" );
