@@ -1052,6 +1052,7 @@ body.archive .note .btn, body.archive .card .btn {
 .post-content,
 .post-tags,
 .author-card,
+.thumbnail-wrapper,
 body.home #menu-wrapper {
   -webkit-animation-duration: .3s;
           animation-duration: .3s;
