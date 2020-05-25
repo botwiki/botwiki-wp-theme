@@ -104,7 +104,6 @@ body:not( .home-page ){
     .hover-box{
       opacity: 1;
       transform: translateY(0);
-      transition: transform 0.6s, opacity 0.6s;
       transition: transform 0.6s 0.25s, opacity 0.5s 0.25s;
 
       &:nth-child(2) {

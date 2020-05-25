@@ -74,11 +74,6 @@ body:not(.home-page) .hover-box {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
-  -webkit-transition: opacity 0.6s, -webkit-transform 0.6s;
-  transition: opacity 0.6s, -webkit-transform 0.6s;
-  -o-transition: transform 0.6s, opacity 0.6s;
-  transition: transform 0.6s, opacity 0.6s;
-  transition: transform 0.6s, opacity 0.6s, -webkit-transform 0.6s;
   -webkit-transition: opacity 0.5s 0.25s, -webkit-transform 0.6s 0.25s;
   transition: opacity 0.5s 0.25s, -webkit-transform 0.6s 0.25s;
   -o-transition: transform 0.6s 0.25s, opacity 0.5s 0.25s;
@@ -1098,7 +1093,8 @@ body.archive .note .btn, body.archive .card .btn {
 .post-tags,
 .author-card,
 .thumbnail-wrapper,
-body.home #menu-wrapper {
+body.home #menu-wrapper,
+body.home .hover-box {
   -webkit-animation-duration: .3s;
           animation-duration: .3s;
   -webkit-animation-fill-mode: both;
@@ -1117,6 +1113,19 @@ body.home #menu-wrapper {
 .post-tags {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s; }
+
+.hover-box {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s; }
+  .hover-box:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+  .hover-box:nth-child(3) {
+    -webkit-animation-delay: 0.15s;
+            animation-delay: 0.15s; }
+  .hover-box:nth-child(4) {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
 
 @-webkit-keyframes fade-in-up {
   from {
