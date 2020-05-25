@@ -514,6 +514,11 @@ function dequeue_jquery_migrate( $scripts ) {
 
 add_action( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
+function add_feedly_featured_image( $content ) {
+  return str_replace( 'attachment-post-thumbnail', 'attachment-post-thumbnail webfeedsFeaturedVisual', $content );
+}
+
+add_action( 'the_content_feed', 'add_feedly_featured_image' );
 
 /*
     Helper dev functions.
