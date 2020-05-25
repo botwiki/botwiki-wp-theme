@@ -26,8 +26,8 @@
     </div>
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-        <h1><?php the_title(); ?></h1>
-
+        <h1 class="post-title"><?php the_title(); ?></h1>
+        <div class="post-content">
         <?php
           echo get_post_field( 'post_content', $post_id);
 
@@ -58,8 +58,8 @@
                 </div>
               </div>
             </div>
-          <?php }
-        ?>
+          <?php } ?>
+        </div>
       </article>
     </div>
   </main>
