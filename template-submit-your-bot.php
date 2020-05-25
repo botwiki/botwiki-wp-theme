@@ -121,6 +121,7 @@
                       . ( count( $bot_authors ) > 0 ? " created by " : "" )
                       . $helpers->join_with_and( $created_by_html_array ) . " that</p>"
                       . '<!-- /wp:paragraph -->'
+                      . '<!-- wp:paragraph -->'
                       . wpautop( $bot_description )
                       . '<!-- /wp:paragraph -->';
       }
