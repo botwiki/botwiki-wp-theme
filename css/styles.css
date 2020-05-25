@@ -164,6 +164,7 @@ body:not(.home-page) #menu-wrapper {
 
 #menu-wrapper {
   padding-bottom: 2em;
+  overflow-x: hidden;
   overflow-y: auto;
   top: 0;
   left: 0;
