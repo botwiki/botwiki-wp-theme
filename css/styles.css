@@ -74,29 +74,29 @@ body:not(.home-page) .hover-box {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
-  -webkit-transition: opacity 0.5s 0.25s, -webkit-transform 0.6s 0.25s;
-  transition: opacity 0.5s 0.25s, -webkit-transform 0.6s 0.25s;
-  -o-transition: transform 0.6s 0.25s, opacity 0.5s 0.25s;
-  transition: transform 0.6s 0.25s, opacity 0.5s 0.25s;
-  transition: transform 0.6s 0.25s, opacity 0.5s 0.25s, -webkit-transform 0.6s 0.25s; }
+  -webkit-transition: opacity 0.2s 0.25s, -webkit-transform 0.2s 0.25s;
+  transition: opacity 0.2s 0.25s, -webkit-transform 0.2s 0.25s;
+  -o-transition: transform 0.2s 0.25s, opacity 0.2s 0.25s;
+  transition: transform 0.2s 0.25s, opacity 0.2s 0.25s;
+  transition: transform 0.2s 0.25s, opacity 0.2s 0.25s, -webkit-transform 0.2s 0.25s; }
   #menu-toggle:checked + #menu-wrapper .hover-box:nth-child(2) {
-    -webkit-transition: opacity 0.5s 0.1s, -webkit-transform 0.6s 0.1s;
-    transition: opacity 0.5s 0.1s, -webkit-transform 0.6s 0.1s;
-    -o-transition: transform 0.6s 0.1s, opacity 0.5s 0.1s;
-    transition: transform 0.6s 0.1s, opacity 0.5s 0.1s;
-    transition: transform 0.6s 0.1s, opacity 0.5s 0.1s, -webkit-transform 0.6s 0.1s; }
+    -webkit-transition: opacity 0.2s 0.1s, -webkit-transform 0.2s 0.1s;
+    transition: opacity 0.2s 0.1s, -webkit-transform 0.2s 0.1s;
+    -o-transition: transform 0.2s 0.1s, opacity 0.2s 0.1s;
+    transition: transform 0.2s 0.1s, opacity 0.2s 0.1s;
+    transition: transform 0.2s 0.1s, opacity 0.2s 0.1s, -webkit-transform 0.2s 0.1s; }
   #menu-toggle:checked + #menu-wrapper .hover-box:nth-child(3) {
-    -webkit-transition: opacity 0.5s 0.15s, -webkit-transform 0.6s 0.15s;
-    transition: opacity 0.5s 0.15s, -webkit-transform 0.6s 0.15s;
-    -o-transition: transform 0.6s 0.15s, opacity 0.5s 0.15s;
-    transition: transform 0.6s 0.15s, opacity 0.5s 0.15s;
-    transition: transform 0.6s 0.15s, opacity 0.5s 0.15s, -webkit-transform 0.6s 0.15s; }
+    -webkit-transition: opacity 0.2s 0.15s, -webkit-transform 0.2s 0.15s;
+    transition: opacity 0.2s 0.15s, -webkit-transform 0.2s 0.15s;
+    -o-transition: transform 0.2s 0.15s, opacity 0.2s 0.15s;
+    transition: transform 0.2s 0.15s, opacity 0.2s 0.15s;
+    transition: transform 0.2s 0.15s, opacity 0.2s 0.15s, -webkit-transform 0.2s 0.15s; }
   #menu-toggle:checked + #menu-wrapper .hover-box:nth-child(4) {
-    -webkit-transition: opacity 0.5s 0.2s, -webkit-transform 0.6s 0.2s;
-    transition: opacity 0.5s 0.2s, -webkit-transform 0.6s 0.2s;
-    -o-transition: transform 0.6s 0.2s, opacity 0.5s 0.2s;
-    transition: transform 0.6s 0.2s, opacity 0.5s 0.2s;
-    transition: transform 0.6s 0.2s, opacity 0.5s 0.2s, -webkit-transform 0.6s 0.2s; }
+    -webkit-transition: opacity 0.2s 0.2s, -webkit-transform 0.2s 0.2s;
+    transition: opacity 0.2s 0.2s, -webkit-transform 0.2s 0.2s;
+    -o-transition: transform 0.2s 0.2s, opacity 0.2s 0.2s;
+    transition: transform 0.2s 0.2s, opacity 0.2s 0.2s;
+    transition: transform 0.2s 0.2s, opacity 0.2s 0.2s, -webkit-transform 0.2s 0.2s; }
 
 nav {
   pointer-events: none;

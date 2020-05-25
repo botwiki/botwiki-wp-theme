@@ -104,18 +104,18 @@ body:not( .home-page ){
     .hover-box{
       opacity: 1;
       transform: translateY(0);
-      transition: transform 0.6s 0.25s, opacity 0.5s 0.25s;
+      transition: transform 0.2s 0.25s, opacity 0.2s 0.25s;
 
       &:nth-child(2) {
-        transition: transform 0.6s 0.1s, opacity 0.5s 0.1s;
+        transition: transform 0.2s 0.1s, opacity 0.2s 0.1s;
       }
 
       &:nth-child(3) {
-        transition: transform 0.6s 0.15s, opacity 0.5s 0.15s;
+        transition: transform 0.2s 0.15s, opacity 0.2s 0.15s;
       }
 
       &:nth-child(4) {
-        transition: transform 0.6s 0.2s, opacity 0.5s 0.2s;
+        transition: transform 0.2s 0.2s, opacity 0.2s 0.2s;
       }
     }
   }
