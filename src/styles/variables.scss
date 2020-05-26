@@ -17,10 +17,13 @@ $button-font-family: 'Source Code Pro', monospace;
 
 /* Colors */
 
-$color-primary: #4c4c4c;
+$color-primary: #3c3c3c;
 $color-secondary: $color-primary + #666;
+$color-ternary: #bdc6d2;
+$background-ternary: #f5f8fb;
+
 $background-primary: #fff;
-$background-alternate: #f5f8fb;
+$background-alternate: $background-ternary;
 
 $link-color: #4A89DC;
 $link-color-hover: $link-color + #111;

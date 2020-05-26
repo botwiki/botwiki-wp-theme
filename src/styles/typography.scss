@@ -4,7 +4,7 @@ body, .hover-box p {
 }
 
 body.page-template-template-showcase{
-  background: #f5f8fb;
+  background: $background-ternary;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -112,7 +112,7 @@ ul, ol{
 
 blockquote{
   /* Courtesy of css-tricks.com. */
-  background: #f5f8fb;
+  background: $background-ternary;
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
@@ -129,7 +129,7 @@ blockquote{
 
   &:before {
     display: inline-block;
-    color: #bdc6d2;
+    color: $color-ternary;
     content: '“';
     font-family: $code-font-family;
     font-size: 13em;
@@ -262,7 +262,7 @@ p.post-tags{
 
     &:before{
       content: '#';
-      color: #bdc6d2;
+      color: $color-ternary;
     }
 
     &:hover{

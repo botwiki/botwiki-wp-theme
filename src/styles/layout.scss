@@ -267,7 +267,7 @@ ul.navbar-nav{
   
   img{
     max-height: 50vh;
-    min-height: 300px;
+    min-height: 400px;
     object-fit: cover;
     object-position: center center;
     width: 100%;
@@ -396,7 +396,7 @@ video {
 .note{
   background-color: $background-alternate;
   font-weight: bold;
-  border: 2px solid $color-secondary;
+  border: 2px solid $color-ternary;
   padding: 1em;
   margin-bottom: 2em;
   p{
