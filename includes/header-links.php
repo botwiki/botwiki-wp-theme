@@ -32,29 +32,52 @@ class Anchor_Header {
 		$doc->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 		libxml_clear_errors();
 		libxml_use_internal_errors( $libxml_previous_state );
+
 		foreach ( array( 'h2', 'h3', 'h4', 'h5', 'h6' ) as $h ) {
 			$headings = $doc->getElementsByTagName( $h );
+
 			foreach ( $headings as $heading ) {
 				$heading_id = $heading->getAttribute( 'id' );
-				if ($heading_id){
-					$slug = $tmpslug = sanitize_title( $heading_id );
+				if ( $heading_id ){
+					$slug = sanitize_title( $heading_id );
 					$a = $doc->createElement( 'a' );
-					$a->nodeValue = '¶';
+                    $a->setAttribute( 'class', 'pilcrow-link' );
+
+
+                    $span_link = $doc->createElement( 'span' );
+                    $span_link->setAttribute( 'class', 'link' );
+                    $span_link->nodeValue = $heading->nodeValue;
+
+					$heading->nodeValue = '';
+
+
+                    $span_pilcrow = $doc->createElement( 'span' );
+                    $span_pilcrow->setAttribute( 'class', 'pilcrow' );
+                    $span_pilcrow->nodeValue = '¶';
+
 					$newnode = $heading->appendChild( $a );
-					$newnode->setAttribute( 'class', 'pilcrow' );
+
+				    $a->appendChild( $span_link );
+				    $a->appendChild( $span_pilcrow );
+
 					$i = 2;
+
 					while ( false !== in_array( $slug, $anchors ) ) {
-						$slug = sprintf( '%s-%d', $tmpslug, $i++ );
+						$slug = sprintf( '%s-%d', $slug, $i++ );
 					}
+					
 					$anchors[] = $slug;
+
 					$heading->setAttribute( 'id', $slug );
-					$newnode->setAttribute( 'href', '#' . $slug );					
+					$newnode->setAttribute( 'href', '#' . $slug );	
+
+				    // $heading->parentNode->replaceChild( $a, $heading );
+				    // $a->appendChild( $heading );
 				}
 			}
 		}
 		return $doc->saveHTML();
 	}
 }
-
 
 // $header_links = new Anchor_Header();

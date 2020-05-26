@@ -573,23 +573,35 @@ hr {
     .botwiki-logo.navbar-brand, .botwiki-logo.navbar-brand:hover {
       color: #fff; }
 
-a.pilcrow {
-  font-family: "Source Code Pro", monospace;
-  font-size: 0.9em;
-  vertical-align: top;
-  margin-left: 1rem; }
-  a.pilcrow, a.pilcrow:visited {
-    color: #d5d5d5;
-    -webkit-transition: color 0.2s;
-    -o-transition: color 0.2s;
-    transition: color 0.2s; }
-  a.pilcrow:hover {
-    -webkit-transition: color 0.3s;
-    -o-transition: color 0.3s;
-    transition: color 0.3s;
-    color: #5e5e5e; }
-  a.pilcrow, a.pilcrow:hover {
-    text-decoration: none; }
+a.pilcrow-link, a.pilcrow-link:hover {
+  text-decoration: none; }
+  a.pilcrow-link .pilcrow, a.pilcrow-link:hover .pilcrow {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.3s;
+    transition: opacity 0.2s, -webkit-transform 0.3s;
+    -o-transition: transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s; }
+
+a.pilcrow-link .link:hover {
+  text-decoration: underline; }
+
+a.pilcrow-link .pilcrow {
+  position: absolute;
+  margin-left: 1rem;
+  opacity: 0;
+  -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.25s;
+  transition: opacity 0.2s, -webkit-transform 0.25s;
+  -o-transition: transform 0.25s, opacity 0.2s;
+  transition: transform 0.25s, opacity 0.2s;
+  transition: transform 0.25s, opacity 0.2s, -webkit-transform 0.25s;
+  color: #bdc6d2; }
 
 a.no-underline, a.no-underline:hover {
   text-decoration: none !important; }

@@ -224,25 +224,55 @@ hr{
   }
 }
 
-a{
-  &.pilcrow{
-    font-family: $code-font-family;
-    font-size: 0.9em;
-    vertical-align: top;
-    margin-left: 1rem;
+a.pilcrow-link{
+  &, &:hover{
+    text-decoration: none;
+    .pilcrow{
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.3s, opacity 0.2s;    
 
-    &, &:visited{
-      color: $color-primary + #999;
-      transition: color 0.2s;    
-    }
-    &:hover{
-      transition: color 0.3s;
-      color: $color-primary + #222;
-    }
-    &, &:hover{
-      text-decoration: none;    
     }
   }
+
+  .link{
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  .pilcrow{
+    position: absolute;
+    margin-left: 1rem;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: transform 0.25s, opacity 0.2s;    
+
+    color: $color-ternary; 
+  }
+}
+
+a{
+  // &.pilcrow > *{
+  //   &:hover{
+  //     &:after{
+  //       opacity: 1;
+  //       transition: opacity 0.2s;
+  //       text-decoration: none;
+
+  //     }
+  //   }
+  //   &:after{
+  //     content: '¶';
+  //     font-family: $code-font-family;
+  //     font-size: 0.9em;
+  //     vertical-align: top;
+  //     margin-left: 1rem;
+  //     opacity: 0;
+  //     transition: opacity 0.2s;    
+  //   }
+  // }
+
   &.no-underline,
   &.no-underline:hover{
     text-decoration: none !important;
