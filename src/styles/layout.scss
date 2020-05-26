@@ -298,7 +298,7 @@ body.single-bot{
     }
 
     .expand-image-hint{
-      transition: transform 0.3s, opacity 0.2s;
+      transition: transform 0.3s ease-out, opacity 0.2s ease-out;
       opacity: 0;
       transform: translateY(10px);
       display: inline-block;

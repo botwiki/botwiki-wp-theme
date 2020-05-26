@@ -60,7 +60,8 @@ body.home #menu-wrapper,
 body.home .hover-box{
     animation-duration: .3s;
     animation-fill-mode: both;
-    animation-name: fade-in-up
+    animation-name: fade-in-up;
+    animation-timing-function: ease-out;
 }
 
 
