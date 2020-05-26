@@ -37,9 +37,14 @@
           <?php
             echo do_shortcode( get_post_field('post_content', $post_id) );
           ?>
-
-          <!-- <h2 id="admins">Site administrators<a class="pilcrow" href="#admins">¶</a></h2> -->
-
+<!-- 
+        <h2 id="admins">
+            <a class="pilcrow-link" href="#admins">
+                <span class="link">Site administrators</span>
+                <span class="pilcrow">¶</span>
+            </a>
+        </h2>
+ -->
         <div class="container mt-5 ml-n3 mr-n3">
           <div class="row list">
 
@@ -104,7 +109,14 @@
               ) );
 
               if ( count( $contributors ) > 0 ){ ?>
-                <h2 id="site-contributors">Site contributors<a class="pilcrow" href="#site-contributors">¶</a></h2>
+                <h2 id="site-contributors">
+                    <a class="pilcrow-link" href="#site-contributors">
+                        <span class="link">Site contributors</span>
+                        <span class="pilcrow">¶</span>
+                    </a>
+                </h2>
+
+
                 <div class="row ml-n1 mr-n1">
                 <?php
 

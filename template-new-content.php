@@ -38,7 +38,12 @@
             </li>
           </ul>
 
-          <h2 id="blog">Botwiki blog<a class="pilcrow" href="#blog">¶</a></h2>
+          <h2 id="blog">
+              <a class="pilcrow-link" href="#blog">
+                  <span class="link">Botwiki blog</span>
+                  <span class="pilcrow">¶</span>
+              </a>
+          </h2>
 
           <?php
             global $wp_query;
@@ -60,7 +65,12 @@
             </li>
           </ul>
 
-          <h2 id="bots">New bots<a class="pilcrow" href="#bots">¶</a></h2>
+          <h2 id="bots">
+              <a class="pilcrow-link" href="#bots">
+                  <span class="link">New bots</span>
+                  <span class="pilcrow">¶</span>
+              </a>
+          </h2>
 
           <?php
             global $wp_query;
@@ -88,7 +98,13 @@
             </li>
           </ul>
 
-          <h2 id="resources">New resources<a class="pilcrow" href="#resources">¶</a></h2>
+          <h2 id="resources">
+              <a class="pilcrow-link" href="#resources">
+                  <span class="link">New resources</span>
+                  <span class="pilcrow">¶</span>
+              </a>
+          </h2>
+
           <?php
             global $wp_query;
 
