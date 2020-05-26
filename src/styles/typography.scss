@@ -232,6 +232,7 @@ hr{
 
 a.pilcrow-link{
   &, &:hover{
+    color: $color-primary;
     text-decoration: none;
     .pilcrow{
       opacity: 1;

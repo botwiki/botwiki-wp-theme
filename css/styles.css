@@ -582,6 +582,7 @@ hr {
       color: #fff; }
 
 a.pilcrow-link, a.pilcrow-link:hover {
+  color: #3c3c3c;
   text-decoration: none; }
   a.pilcrow-link .pilcrow, a.pilcrow-link:hover .pilcrow {
     opacity: 1;
