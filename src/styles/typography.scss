@@ -50,6 +50,12 @@ h2{
 
 .card{
   border-radius: 0;
+  transition: border-color 0.3s;
+
+  &:hover{
+    border-color: $color-ternary;
+    transition: border-color 0.3s;
+  }
 
   h2{
     margin-top: 0;
