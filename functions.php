@@ -190,6 +190,9 @@ function load_mastodon_js(){
   if ( strpos( $bot_tweets_html, 'mastodon.social' ) !== false ){ ?>
     <script src="https://mastodon.social/embed.js" async="async"></script>
   <?php }
+  if ( strpos( $bot_tweets_html, 'beeping.town' ) !== false ){ ?>
+    <script src="https://beeping.town/embed.js" async="async"></script>
+  <?php }
 }
 
 function load_highlight_js(){

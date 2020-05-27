@@ -608,6 +608,7 @@ class BotsPostType {
               // $bot_tweets_html .= $data->html;
             }
             elseif ( strpos( $tweet_url, 'botsin.space/' ) !== false ||
+                     strpos( $tweet_url, 'beeping.town/' ) !== false ||
                      strpos( $tweet_url, 'mastodon.social/' ) !== false ) {
               $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
             }

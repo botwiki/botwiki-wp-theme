@@ -120,6 +120,7 @@ class BW_Helpers {
     $networks = [
       'twitter.com',
       'botsin.space',
+      'beeping.town',
       'mastodon.social',
     ];
 
@@ -172,6 +173,7 @@ class BW_Helpers {
     foreach ( $urls as $url) {
       if ( strpos( $url, 'twitter.com/') !== false ||
            strpos( $url, 'botsin.space/') !== false ||
+           strpos( $url, 'beeping.town/') !== false ||
            strpos( $url, 'mastodon.social/') !== false ||
            strpos( $url, 'tumblr.com/') ){
 
