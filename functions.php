@@ -491,7 +491,8 @@ add_filter( 'style_loader_tag', 'css_add_rel_preload', 10, 4 );
 function enqueue_scripts_async( $tag, $handle, $src ) {
   $excluded_scripts = array(
     'jquery-core',
-    'jquery-migrate'
+    'jquery-migrate',
+    'bootstrap-js'
   );
 
   if ( is_admin() || in_array( $handle, $excluded_scripts ) ){
