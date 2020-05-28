@@ -161,7 +161,7 @@
       $bot_tags = array();
 
       foreach ( $_POST['bot-tags'] as $bot_tag ) {
-        array_push( $bot_tags, $bot_tag );
+        array_push( $bot_tags, ltrim( trim( $bot_tag ), '#' ) );
       }
 
       foreach ( $bot_urls as $bot_url ) {

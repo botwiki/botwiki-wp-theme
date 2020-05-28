@@ -108,7 +108,7 @@
       $resource_tags = array();
 
       foreach ($_POST['resource-tags'] as $resource_tag) {
-        array_push( $resource_tags, $resource_tag );
+        array_push( $resource_tags, ltrim( trim( $resource_tag ), '#' ) );
       }
 
       if ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ){
