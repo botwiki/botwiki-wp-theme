@@ -37,16 +37,6 @@ $( function() {
 
   if ( $body.hasClass( 'page-template-template-submit-your-bot' ) ){
 
-    /* Wake up the screenshot service on Glitch. */
-
-    $.get( {
-      url: 'https://screenshot-beta.glitch.me'
-    } ).done( function( data ) {
-      /* noop */
-    } );
-
-
-
     /* Disassociate bot author to allow logged in users to submit other people's bots. */
 
     let $disassociateAuthorBtn = $( '#disassociate-author' );

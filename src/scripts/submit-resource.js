@@ -27,17 +27,6 @@ $( function() {
   }
 
   if ( $body.hasClass( 'page-template-template-submit-resource' ) ){
-
-    /* Wake up the screenshot service on Glitch. */
-
-    $.get( {
-      url: 'https://screenshot-beta.glitch.me'
-    } ).done( function( data ) {
-      /* noop */
-    } );
-
-
-
     /* Disassociate resource author to allow logged in users to submit other people's resources. */
 
     let $disassociateAuthorBtn = $( '#disassociate-author' );
@@ -49,7 +38,6 @@ $( function() {
       $( '#add-author-fields' ).click();
       return false;
     } );
-    
 
     /* Test submission, only available to admins. */
 
