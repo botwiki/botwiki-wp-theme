@@ -122,21 +122,21 @@
             <div class="row">
               <div class="col-12 pt-4 pb-3">
                 <div class="row align-items-center mt-3 mb-5 pb-5">
-                  <div class="col-sm-6 col-md-3 mx-auto">
+                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
                     <p class="text-center">
                       <a href="https://fightfascism.glitch.me/">
                         <img class="lazy-load" alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism-block.jpg">
                       </a>
                     </p>              
                   </div>
-                  <div class="col-sm-6 col-md-3 mx-auto">
+                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
                     <p class="text-center">
                       <a href="https://blacklivesmatter.com/">
                         <img class="lazy-load" alt="Black Lives Matter" title="Black Lives Matter logo" src="<?php echo get_template_directory_uri(); ?>/images/other/blm.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/blm.jpg">
                       </a>
                     </p>              
                   </div>
-                  <div class="col-sm-6 col-md-3 mx-auto">
+                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
                     <p class="text-center">
                       <a href="https://indieweb.org/">
                         <img class="lazy-load" alt="IndieWeb" title="Support #indieweb!" src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png" data-src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
