@@ -394,6 +394,10 @@
                   <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
                 </div>
                 <div class="form-group col-md-6">
+                  <label for="bot-info-1-url">URL</label>
+                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
+                </div>
+                <div class="form-group col-md-6">
                   <label for="bot-info-1-network">Network</label>
                   <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
                   <?php
@@ -406,10 +410,6 @@
                     <?php }
                   ?> 
                   </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="bot-info-1-url">URL</label>
-                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
                 </div>
               </div>
               <div class="form-group">

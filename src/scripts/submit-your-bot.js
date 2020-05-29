@@ -77,7 +77,7 @@ $( function() {
 
       let bot_info_network_select_html = $( '#bot-info-1-network' ).html();
 
-      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row"><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot2"></div></div>` );
+      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row"><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot2"></div><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div></div>` );
 
       $( '#bot-info-2-network' ).select2( {
         tags: true,
@@ -216,8 +216,23 @@ $( function() {
 
     $( document ).on( 'change', '[name="bot-urls[]"]', function( ev ){
       let $inputField = $( this ),
+          $networkField = $inputField.parents( '.bot-info-fields' ).find( '[name="bot-networks[]"]'),
           inputFieldId = $inputField.attr( 'id' ),
           inputFieldValue = $inputField.val().trim();
+
+      if ( inputFieldValue.indexOf( 'twitter.com' ) !== -1 ){
+        $networkField.val( 'twitter-bots' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'tumblr.com' ) !== -1 ){
+        $networkField.val( 'tumblr-bots' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'mastodon.social' ) !== -1 ){
+        $networkField.val( 'mastodon' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'botsin.space' ) !== -1 ){
+        $networkField.val( 'mastodon' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'reddit.com' ) !== -1 ){
+        $networkField.val( 'reddit-bots' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'youtube.com' ) !== -1 ){
+        $networkField.val( 'youtube-bots' ).trigger( 'change' );
+      }
 
       if ( inputFieldId.indexOf( 'bot-' ) !== -1 && inputFieldId.indexOf( '-url' ) !== -1  ){
         if ( inputFieldValue && inputFieldValue.length > 5 && inputFieldValue.indexOf( 'http' ) !== -1 ){
