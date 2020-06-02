@@ -299,12 +299,14 @@ p.post-tags{
 
     &:before{
       content: '#';
-      color: $color-ternary;
     }
 
     &:hover{
       text-decoration: none;
       background-color: #eaf2fb - #222;
+
+      &:before{
+      }
     }
 
     &, &:hover{

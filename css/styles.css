@@ -624,8 +624,7 @@ p.post-tags a {
   padding: 5px;
   white-space: nowrap; }
   p.post-tags a:before {
-    content: '#';
-    color: #bdc6d2; }
+    content: '#'; }
   p.post-tags a:hover {
     text-decoration: none;
     background-color: #c8d0d9; }
