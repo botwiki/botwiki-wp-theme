@@ -289,8 +289,8 @@ a{
 
 p.post-tags{
   a{
-    font-family: monospace;
-    font-size: 1.2em;
+    font-family: $button-font-family;
+    font-size: 1rem;
     color: #42474e  ;
     background-color: #eaf2fb;
     line-height: 2em;

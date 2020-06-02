@@ -616,8 +616,8 @@ a.no-underline, a.no-underline:hover {
   text-decoration: none !important; }
 
 p.post-tags a {
-  font-family: monospace;
-  font-size: 1.2em;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
   color: #42474e;
   background-color: #eaf2fb;
   line-height: 2em;
