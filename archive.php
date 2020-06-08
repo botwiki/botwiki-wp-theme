@@ -3,7 +3,7 @@
   $current_url = home_url( add_query_arg( array( $_GET ), $wp->request ) );
 
   if ( !empty( $_GET['opensource'] ) ){
-    $glitch_link = '<li><a class="btn" href="https://glitch.com/@botwiki">Botwiki on Glitch🎏</a></li>';
+    $glitch_link = '<li><a class="btn" href="https://glitch.com/@botwiki">Botwiki on Glitch 🎏</a></li>';
     $filter_opensource = '&opensource=true';
     $narrow_opensource_link = '';
   } else {
