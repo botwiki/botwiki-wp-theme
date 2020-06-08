@@ -77,18 +77,18 @@ body.home .hover-box{
 
 
 .hover-box{
-  animation-delay: 0.25s;
+  animation-delay: 0.2s;
   
   &:nth-child(2) {
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
   }
 
   &:nth-child(3) {
-    animation-delay: 0.15s;
+    animation-delay: 0.1s;
   }
 
   &:nth-child(4) {
-    animation-delay: 0.2s;
+    animation-delay: 0.15s;
   }
 }
 

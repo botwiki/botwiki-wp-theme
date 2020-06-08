@@ -95,8 +95,8 @@ img{
 body:not( .home-page ){
   .hover-box{
     opacity: 0;
-    transform: translateY(-20px);
-    transition: transform 0.3s, opacity 0.1s;
+    transform: translateY(-20px) scale(1.05);
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out;
   }
 }
 #menu-toggle{

@@ -60,14 +60,14 @@ img {
 /* Site navigation */
 body:not(.home-page) .hover-box {
   opacity: 0;
-  -webkit-transform: translateY(-20px);
-      -ms-transform: translateY(-20px);
-          transform: translateY(-20px);
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.3s;
-  transition: opacity 0.1s, -webkit-transform 0.3s;
-  -o-transition: transform 0.3s, opacity 0.1s;
-  transition: transform 0.3s, opacity 0.1s;
-  transition: transform 0.3s, opacity 0.1s, -webkit-transform 0.3s; }
+  -webkit-transform: translateY(-20px) scale(1.05);
+      -ms-transform: translateY(-20px) scale(1.05);
+          transform: translateY(-20px) scale(1.05);
+  -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.5s ease-out;
+  transition: opacity 0.3s ease-out, -webkit-transform 0.5s ease-out;
+  -o-transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.3s ease-out, -webkit-transform 0.5s ease-out; }
 
 #menu-toggle:checked + #menu-wrapper .hover-box {
   opacity: 1;
@@ -1139,17 +1139,17 @@ body.home .hover-box {
           animation-delay: 0.15s; }
 
 .hover-box {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s; }
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
   .hover-box:nth-child(2) {
+    -webkit-animation-delay: 0.05s;
+            animation-delay: 0.05s; }
+  .hover-box:nth-child(3) {
     -webkit-animation-delay: 0.1s;
             animation-delay: 0.1s; }
-  .hover-box:nth-child(3) {
+  .hover-box:nth-child(4) {
     -webkit-animation-delay: 0.15s;
             animation-delay: 0.15s; }
-  .hover-box:nth-child(4) {
-    -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s; }
 
 @-webkit-keyframes fade-in-up {
   from {
