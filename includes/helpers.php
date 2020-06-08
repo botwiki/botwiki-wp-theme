@@ -56,6 +56,11 @@ class BW_Helpers {
     }
 
     $page_screenshot = new Capture( $url );
+    
+    $page_screenshot->setUserAgentString( 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.125' );
+    $page_screenshot->setDelay( 5000 );
+
+
     $page_screenshot->setWidth( $width );
     $page_screenshot->setHeight( $height );
     $page_screenshot->setClipWidth( $width );
