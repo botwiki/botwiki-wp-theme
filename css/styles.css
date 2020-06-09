@@ -315,6 +315,45 @@ body.single-bot .thumbnail-wrapper {
   body.single-bot .thumbnail-wrapper.image-expanded .expand-image-hint {
     display: none !important; }
 
+#robots {
+  max-width: 1000px;
+  width: 100%;
+  height: 300px;
+  max-height: 50vh;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.robot {
+  max-width: 100px;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: fade-in-up;
+          animation-name: fade-in-up;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out; }
+
+@-webkit-keyframes fade-in-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
 /* Site footer */
 .footer .footer-callout {
   max-width: 300px;
@@ -1150,16 +1189,6 @@ body.home .hover-box {
   .hover-box:nth-child(4) {
     -webkit-animation-delay: 0.15s;
             animation-delay: 0.15s; }
-
-@-webkit-keyframes fade-in-up {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px); }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
 
 @keyframes fade-in-up {
   from {

@@ -250,12 +250,7 @@
       }
     ?>
       <main role="main" class="container-fluid m-0 p-0">
-        <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-          <?php
-            $post_thumbnail_id = get_post_thumbnail_id();
-            the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
-          ?>
-        </div>
+        <div id="robots" class="mt-5 text-center"></div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <h1 class="post-title">Thank you</h1>
@@ -296,12 +291,7 @@
     <?php }
     else{ ?>
       <main role="main" class="container-fluid m-0 p-0">
-        <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-          <?php
-            $post_thumbnail_id = get_post_thumbnail_id();
-            the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
-          ?>
-        </div>
+        <div id="robots" class="mt-5 text-center"></div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <h1 class="post-title"><?php the_title(); ?></h1>
@@ -317,12 +307,7 @@
     <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
     <main role="main" class="container-fluid m-0 p-0">
-      <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-        <?php
-          $post_thumbnail_id = get_post_thumbnail_id();
-          the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load', 'title' => get_post( $post_thumbnail_id )->post_title ] );
-        ?>
-      </div>
+      <div id="robots" class="mt-5 text-center"></div>
       <div class="container">
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
           <h1 class="post-title"><?php the_title(); ?></h1>

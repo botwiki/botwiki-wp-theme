@@ -334,6 +334,34 @@ body.single-bot{
   }  
 }
 
+
+  #robots{
+    max-width: $max-content-width;
+    width: 100%;
+    height: 300px;
+    max-height: 50vh;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .robot{
+      max-width: 100px;
+      animation-duration: .3s;
+      animation-fill-mode: both;
+      animation-name: fade-in-up;
+      animation-timing-function: ease-out;
+  }
+
+  @keyframes fade-in-up {
+      from {
+          opacity: 0;
+          transform: translateY(10px)
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0)
+      }
+  }
 /* Site footer */
 
 .footer{
