@@ -68,7 +68,7 @@ class BotsPostType {
             $col_class = 'col-sm-12 col-md-4 p-1';
           }
 
-          $html .= '<div class="' . $col_class . '">';
+          $html .= '<div class="' . $col_class . ' mb-5 mb-md-0">';
 
           if ( !empty( $bot_output_item['bot-output-image'] ) ){
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
@@ -83,7 +83,7 @@ class BotsPostType {
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
         foreach ( $bot_output as $index => $bot_output_item ) {
-          $html .= '<div class="col-sm-12 col-md-4 p-1 text-center">';
+          $html .= '<div class="col-sm-12 col-md-4 p-1 text-center mb-5 mb-md-0">';
 
           if ( !empty( $bot_output_item['bot-output-image'] ) ){
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
@@ -110,7 +110,7 @@ class BotsPostType {
           $html .= '<div class="col-sm-12 col-md-' . ( $group_index === 0 ? '7' : '5' ) . '"><div class="row no-gutters">';
           foreach ( $bot_output_group as $index => $bot_output_item ) {
 
-            $col_class = 'col-sm-12 p-1';
+            $col_class = 'col-sm-12 p-1 mb-5 mb-md-0';
             $html .= '<div class="' . $col_class . '">';
 
             if ( !empty( $bot_output_item['bot-output-image'] ) ){
