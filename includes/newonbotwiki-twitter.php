@@ -100,6 +100,17 @@ class New_On_Botwiki {
           $tweet_text = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
         }
 
+        $bot_urls = preg_split( '/\n|\r\n?/', get_post_meta( $post_id, 'bot_tweets', true ) );
+
+        if ( $bot_urls ){
+          foreach ( $bot_urls as $url ) {
+            if ( strpos( $url, 'twitter.com' ) !== -1 ){
+              $tweet_text .= ' ' . $url;
+              break;
+            }
+          }
+        }
+
         if ( !empty( $tweet_text ) ){
           if ( ENVIRONMENT === 'production' ){
             $api_keys = array(

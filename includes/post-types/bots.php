@@ -21,12 +21,12 @@ class BotsPostType {
   }
 
   function lazyblock_bot_output( $output, $attributes ){
-    log_this( array(
-      // 'output' => $output,
-      // 'attributes' => $attributes,
-      'bot-output-layout-style' => $attributes['bot-output-layout-style'],
-      'bot-output' => $attributes['bot-output']
-    ) );
+    // log_this( array(
+    //   // 'output' => $output,
+    //   // 'attributes' => $attributes,
+    //   'bot-output-layout-style' => $attributes['bot-output-layout-style'],
+    //   'bot-output' => $attributes['bot-output']
+    // ) );
 
     $html = '';
 

@@ -184,7 +184,7 @@
 
       } catch ( Exception $e ) {
         // TODO: Proper error handling.
-        log_this( $e->getMessage() );
+        // log_this( $e->getMessage() );
       }
 
     ?>
