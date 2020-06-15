@@ -131,11 +131,6 @@ class WP_JSON_API_Fixes_And_Enhancements {
       $tags_full = $tags_array;
     }
 
-    log_this( 'get_rest_tags_full', array(
-      'object' => $object,
-      'tags_array' => $tags_array,
-    ) );
-
     return $tags_full;
   }
 
@@ -222,4 +217,4 @@ class WP_JSON_API_Fixes_And_Enhancements {
   }
 }
 
-// $wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
+$wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
