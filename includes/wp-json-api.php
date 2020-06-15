@@ -123,9 +123,13 @@ class WP_JSON_API_Fixes_And_Enhancements {
   public function get_rest_tags_full( $object, $field_name, $request ) {
     $tags_array = get_the_tags( $object['id'] );
 
-    $tags_full = array_map(function ($tag) {
-      return $tag->slug;
-    }, $tags_array);
+    if ( $tags_array ){
+      $tags_full = array_map(function ($tag) {
+        return $tag->slug;
+      }, $tags_array);
+    } else {
+      $tags_full = $tags_array;
+    }
 
     log_this( 'get_rest_tags_full', array(
       'object' => $object,
