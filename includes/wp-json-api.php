@@ -222,4 +222,4 @@ class WP_JSON_API_Fixes_And_Enhancements {
   }
 }
 
-$wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
+// $wp_json_api_fixes_and_enhancements_init = new WP_JSON_API_Fixes_And_Enhancements();
