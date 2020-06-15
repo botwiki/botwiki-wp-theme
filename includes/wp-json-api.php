@@ -127,6 +127,11 @@ class WP_JSON_API_Fixes_And_Enhancements {
       return $tag->slug;
     }, $tags_array);
 
+    log_this( 'get_rest_tags_full', array(
+      'object' => $object,
+      'tags_array' => $tags_array,
+    ) );
+
     return $tags_full;
   }
 
