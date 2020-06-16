@@ -59,8 +59,22 @@ class New_On_Botwiki {
         if ( $post->post_type === 'bot' ){
           // $bot_is_featured = get_post_meta( $post_id, 'bot_is_featured' );
           // $bot_is_nsfw = get_post_meta( $post_id, 'bot_is_nsfw' );
+
+          $tweet_text = 'New bot was added to Botwiki!';
           $bot_url = 'botwiki.org/bot/' . $post->post_name; 
-          $tweet_text = 'New bot was added to Botwiki! ' . $bot_url;
+          $bot_urls = preg_split( '/\n|\r\n?/', get_post_meta( $post_id, 'bot_tweets', true ) );
+
+          $example_tweet_url = false;
+          $via_text = '';
+
+          if ( $bot_urls ){
+            foreach ( $bot_urls as $url ) {
+              if ( strpos( $url, 'twitter.com' ) !== -1 ){
+                $example_tweet_url = $url;
+                break;
+              }
+            }
+          }
 
           $bot_author_info = get_post_meta( $post_id, 'bot_author_info', true );
 
@@ -68,9 +82,16 @@ class New_On_Botwiki {
             $twitter_handles = self::get_twitter_handles( $bot_author_info );
 
             if ( !empty( $twitter_handles ) ){
-              $tweet_text .= ' via ' .  $twitter_handles;           
+              $via_text .= ' via ' .  $twitter_handles;           
             }
           }
+
+          if ( $example_tweet_url !== false ){
+            $tweet_text .= $via_text . "\n🤖 " . $bot_url . "\n" . $example_tweet_url ;
+          } else {
+            $tweet_text .= ' ' . $bot_url . $via_text;
+          }
+
         } elseif ( $post->post_type === 'resource' ){
 
           $post_terms = wp_get_post_terms( $post->ID, 'resource_type' );
@@ -98,17 +119,6 @@ class New_On_Botwiki {
           }
         } elseif ( $post->post_type === 'post' && get_post_status( $post ) === 'publish' ){
           $tweet_text = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
-        }
-
-        $bot_urls = preg_split( '/\n|\r\n?/', get_post_meta( $post_id, 'bot_tweets', true ) );
-
-        if ( $bot_urls ){
-          foreach ( $bot_urls as $url ) {
-            if ( strpos( $url, 'twitter.com' ) !== -1 ){
-              $tweet_text .= ' ' . $url;
-              break;
-            }
-          }
         }
 
         if ( !empty( $tweet_text ) ){
@@ -140,7 +150,7 @@ class New_On_Botwiki {
             }
           } else {
             log_this( '@newonbotwiki', array(
-              'tweet_text', $tweet_text
+              'tweet_text' => $tweet_text
             ) );
           }
         }
