@@ -36,66 +36,68 @@ $( function() {
   let robotsContainer = document.getElementById( 'robots' );
   let firstRobot = document.querySelector( '.robot-1' );
 
-  robotsContainer.innerHTML = `<img class="robot robot-1" src="${ images[0] }">`; 
+  if ( robotsContainer ){
+    robotsContainer.innerHTML = `<img class="robot robot-1" src="${ images[0] }">`; 
 
-  let index = 1,
-      totalCount = 1,
-      colSize = Math.floor( robotsContainer.offsetHeight / 100 ),
-      rowSize = Math.floor( robotsContainer.offsetWidth / 100 ),
-      totalCountFinal = rowSize * colSize;
+    let index = 1,
+        totalCount = 1,
+        colSize = Math.floor( robotsContainer.offsetHeight / 100 ),
+        rowSize = Math.floor( robotsContainer.offsetWidth / 100 ),
+        totalCountFinal = rowSize * colSize;
 
-  let css = '',
-      head = document.head || document.getElementsByTagName('head')[0],
-      style = document.createElement( 'style' );
+    let css = '',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement( 'style' );
 
-  for ( let i = 0; i <= totalCountFinal; i++ ) {
-    css += `.robot:nth-child(${ i }) { animation-delay: ${ 60/totalCountFinal/200 * i }s; }`;
-  }
-
-  head.appendChild( style );
-  style.type = 'text/css';
-  style.appendChild( document.createTextNode( css ) );
-
-
-  while ( totalCount < totalCountFinal ){
-    document.getElementById( 'robots' ).innerHTML = document.getElementById( 'robots' ).innerHTML + `<img class="robot robot-${ totalCount }" src="${ images[index] }">`;
-    if ( index < images.length - 1 ){
-      index++;
-    } else {
-      index = 0;
+    for ( let i = 0; i <= totalCountFinal; i++ ) {
+      css += `.robot:nth-child(${ i }) { animation-delay: ${ 60/totalCountFinal/200 * i }s; }`;
     }
-    totalCount++;
+
+    head.appendChild( style );
+    style.type = 'text/css';
+    style.appendChild( document.createTextNode( css ) );
+
+
+    while ( totalCount < totalCountFinal ){
+      document.getElementById( 'robots' ).innerHTML = document.getElementById( 'robots' ).innerHTML + `<img class="robot robot-${ totalCount }" src="${ images[index] }">`;
+      if ( index < images.length - 1 ){
+        index++;
+      } else {
+        index = 0;
+      }
+      totalCount++;
+    }
+
+
+    // let imageEls = document.querySelectorAll( '.robot img' );
+
+    // let mouseenterIntervals = [];
+
+    // imageEls.forEach( function( img, i ){
+    //   img.addEventListener( 'mouseenter', function( event ) {
+    //     event.target.src = randomFromArray( images );
+
+    //     mouseenterIntervals.push(
+    //       setInterval( function() {
+    //         event.target.src = randomFromArray( images );
+    //       }, 100 ) );
+    //     }, false )
+
+    //   img.addEventListener( 'mouseleave', function( event ) {
+    //     clearInterval( mouseenterIntervals[i] );
+    //   }, false )
+
+    // } );
+
+    setTimeout( function(){
+      [300, 750, 1250].forEach( function( interval ){
+        setInterval( function(){
+          let robots = document.querySelectorAll('.robot');
+          let robot = randomFromArray( robots );
+          robot.src = randomFromArray( images );
+        }, interval );
+      } );
+    }, 1000 );
   }
-
-
-  // let imageEls = document.querySelectorAll( '.robot img' );
-
-  // let mouseenterIntervals = [];
-
-  // imageEls.forEach( function( img, i ){
-  //   img.addEventListener( 'mouseenter', function( event ) {
-  //     event.target.src = randomFromArray( images );
-
-  //     mouseenterIntervals.push(
-  //       setInterval( function() {
-  //         event.target.src = randomFromArray( images );
-  //       }, 100 ) );
-  //     }, false )
-
-  //   img.addEventListener( 'mouseleave', function( event ) {
-  //     clearInterval( mouseenterIntervals[i] );
-  //   }, false )
-
-  // } );
-
-  setTimeout( function(){
-    [300, 750, 1250].forEach( function( interval ){
-      setInterval( function(){
-        let robots = document.querySelectorAll('.robot');
-        let robot = randomFromArray( robots );
-        robot.src = randomFromArray( images );
-      }, interval );
-    } );
-  }, 1000 );
 
 } );
