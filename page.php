@@ -16,6 +16,7 @@
                 the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post($post_thumbnail_id)->post_title ]);
               ?>
             </a>
+            <div class="image-border-shadow"></div>            
           </div>
 			<?php	} ?>
 	<?php } ?>
