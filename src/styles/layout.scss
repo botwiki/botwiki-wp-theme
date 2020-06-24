@@ -90,6 +90,9 @@ img{
   margin-right: auto;
 }
 
+.card-img-top{
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
 
 /* Site navigation */
 body:not( .home-page ){
