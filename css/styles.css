@@ -583,6 +583,11 @@ blockquote {
         padding: 0; } }
   blockquote cite {
     font-size: 0.9rem; }
+  blockquote ul, blockquote ol {
+    padding: 0 50px; }
+    @media (max-width: 900px) {
+      blockquote ul, blockquote ol {
+        padding: 0 20px; } }
 
 blockquote.instagram-media,
 iframe.instagram-media {
