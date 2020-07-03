@@ -9,35 +9,34 @@
   $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
   <main role="main" class="container-fluid m-0 p-0">
-    <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
+    <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
+
+    <!-- <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>"> -->
       <?php
-        $post_thumbnail_id = get_post_thumbnail_id();
-        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
+        // $post_thumbnail_id = get_post_thumbnail_id();
+        // the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
       ?>
-    </div>
+    <!-- </div> -->
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-        <h1 class="post-title"><?php the_title(); ?></h1>
+         <ul class="btn-list mt-5 text-center">
+          <li>
+            <a class="btn" href="#blog">Botwiki blog</a>
+          </li>
+          <li>
+            <a class="btn" href="#bots">New bots</a>
+          </li>
+          <li>
+            <a class="btn" href="#resources">New resources</a>
+          </li>
+          <li>
+            <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
+          </li>
+        </ul>        
         <div class="post-content">
           <?php
             echo get_post_field( 'post_content', $post_id);
           ?>
-
-           <ul class="btn-list mt-5">
-            <li>
-              <a class="btn" href="#blog">Botwiki blog</a>
-            </li>
-            <li>
-              <a class="btn" href="#bots">New bots</a>
-            </li>
-            <li>
-              <a class="btn" href="#resources">New resources</a>
-            </li>
-            <li>
-              <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
-            </li>
-          </ul>
-
           <h2 id="blog">
               <a class="pilcrow-link" href="#blog">
                   <span class="link">Botwiki blog</span>
