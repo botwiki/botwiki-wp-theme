@@ -5,54 +5,40 @@
   $post_meta = get_post_meta( $post_id ); 
   $site_url = get_site_url();
 ?>
-  <main role="main" class="container-fluid m-0 p-0">
+  <main role="main" class="container-fluid m-0 p-0 pt-3">
 
   <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
-    <!-- post thumbnail -->
-    <?php if ( has_post_thumbnail() ) { ?>
-
-    <?php
-      $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
-      $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
-      $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
-    ?>
-      <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-        <?php if ( $post_type == 'bot' ){ ?>
-        <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
-        <?php } ?>
-          <?php
-            $post_thumbnail_id = get_post_thumbnail_id();
-            the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post( $post_thumbnail_id )->post_title ] );
-          ?>
-          <?php if ( $post_type == 'bot' ){ ?>
-          </a>
-          <div class="image-border-shadow"></div>
-          <div class="expand-image-hint"><p>Click the image to expand</p></div>
-        <?php } ?>
-
-      </div>
-    <?php } ?>
-    <!-- /post thumbnail -->
-
-    <div class="container">
+    <div class="container mt-5">
       <!-- article -->
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <?php
-          if ( $post_type === 'post' ) {
-            $post_date = get_the_time( 'F j, Y' );
-            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
-            $m = new \Moment\Moment( $post_date );
-            $post_date_ago = $m->fromNow()->getRelative();
-          ?>
-            <p class="mt-5 mb-0 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
-        <?php } ?>
 
         <!-- post title -->
-        <h1 class="post-title mt-4"><?php the_title(); ?></h1>
+        <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
         <!-- /post title -->
         <div class="post-content">
+          <p class="text-center lead mb-5"><?php echo get_the_excerpt(); ?></p>
 
-
+          <!-- post thumbnail -->
+          <?php if ( has_post_thumbnail() ) {
+            $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
+            $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
+            $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
+          ?>
+          <?php if ( $post_type == 'bot' ){ ?>
+            <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
+              <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
+              <?php } ?>
+                <?php
+                  $post_thumbnail_id = get_post_thumbnail_id();
+                  the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post( $post_thumbnail_id )->post_title ] );
+                ?>
+                <?php if ( $post_type == 'bot' ){ ?>
+                </a>
+                <div class="image-border-shadow"></div>
+              </div>
+            <?php } ?>
+          <?php } ?>
+          <!-- /post thumbnail -->
           <?php
           if ( $post_type == 'bot' ){ ?>
             <ul class="btn-list">
@@ -126,10 +112,18 @@
             <?php        
           ?>
             </ul>
-        <?php }       
-
-        the_content(); // Dynamic Content 
-
+        <?php } ?>
+        <div class="<?php
+        if ( $post_type === 'bot' ) {
+          echo "mt-3";
+        }
+        if ( $post_type === 'post' ) {
+          echo "mt-5";
+        }
+        ?>">
+          <?php the_content(); ?>
+        </div>
+        <?php
         if ( $post_type === 'bot' ) { 
 
           $bot_tweets_hide = ( array_key_exists('bot_tweets_hide', $post_meta ) && $post_meta['bot_tweets_hide'][0] === "on" );
@@ -235,6 +229,14 @@
 
           if ( $post_type === 'single' ){ ?>
             <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
+          <?php }
+          if ( $post_type === 'post' ) {
+            $post_date = get_the_time( 'F j, Y' );
+            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
+            $m = new \Moment\Moment( $post_date );
+            $post_date_ago = $m->fromNow()->getRelative();
+          ?>
+            <p class="mt-5 mb-5 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
           <?php }
 
           global $coauthors_plus;

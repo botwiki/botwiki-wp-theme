@@ -268,20 +268,20 @@ ul.navbar-nav{
     max-width: 100vw !important;
   }
   
-  img{
-    max-height: 50vh;
-    min-height: 400px;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-    // transition: all 0.3s;
+  // img{
+  //   max-height: 50vh;
+  //   min-height: 400px;
+  //   object-fit: cover;
+  //   object-position: center center;
+  //   width: 100%;
+  //   // transition: all 0.3s;
 
-    &.image-expanded{
-      max-height: 100%;
-      max-width: 100vw;
-      object-fit: contain;
-    }
-  }
+  //   &.image-expanded{
+  //     max-height: 100%;
+  //     max-width: 100vw;
+  //     object-fit: contain;
+  //   }
+  // }
 }
 
 .single-bot{

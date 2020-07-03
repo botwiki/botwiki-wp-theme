@@ -40,9 +40,9 @@ $author_info = array(
         </div>
         <div class="col-sm-12 col-md-10">
           <a class="no-underline" title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">
-            <h3 class="mt-0 mb-3"><?php echo $nickname; ?></h3>
+            <h3 class="mt-0 mb-3 d-inline"><?php echo $nickname; ?></h3>
           </a>
-          <p><strong><?php echo $botwiki_team_role; ?></strong></p>
+          <p class="mt-3"><strong><?php echo $botwiki_team_role; ?></strong></p>
           <?php if ( !is_author() ){ bw_render_author_links( $helpers, $author_info ); } ?>
         </div>
         <div class="col-sm-12">
