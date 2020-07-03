@@ -310,7 +310,7 @@
           <?php
 
           $related_bots = get_posts( array( 
-            'posts_per_page' => 3,
+            'posts_per_page' => 4,
             'orderby' => 'rand',
             'order' => 'ASC',
             'exclude' => array( $post_id ),
@@ -320,13 +320,13 @@
             'suppress_filters' => true
           ) );
 
-          if ( count( $related_bots ) < 3 ){
+          if ( count( $related_bots ) < 4 ){
             $used_post_ids = array_map( function( $bot ){
               return $bot->ID;
             }, $related_bots);
 
             $related_bots_fill = get_posts( array( 
-              'posts_per_page' => 3 - count( $related_bots ),
+              'posts_per_page' => 4 - count( $related_bots ),
               'orderby' => 'rand',
               'order' => 'ASC',
               'exclude' => $used_post_ids,
@@ -355,21 +355,8 @@
               </div>
             </div>
           <?php } ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="/random-bot/">
-                  <img class="lazy-load card-img-top" src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" data-src="https://botwiki.org/wp-content/uploads/2019/07/robot-face-emoji-one.png" alt="Random bot" title="Go to a random bot page">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="/random-bot/">?????????</a>
-                  </h5>
-                  <p class="card-text">Explore the wonderful world of online bots, one random bot at a time.</p>
-                </div>
-              </div>
-            </div>          
           </div>
-          <p><a class="btn" href="/bots/">Browse bots</a></p>
+          <p><a class="btn" href="/bots/">Browse bots</a><a class="btn" href="/random-bot/" title="Explore the wonderful world of online bots, one random bot at a time">See a random bot</a></p>
         <?php }
 
         if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
