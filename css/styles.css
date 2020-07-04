@@ -33,7 +33,7 @@ body.author main {
 img {
   max-width: 100%; }
   .card img {
-    height: 200px;
+    max-height: 400px;
     -o-object-fit: cover;
        object-fit: cover; }
   img.aligncenter {
