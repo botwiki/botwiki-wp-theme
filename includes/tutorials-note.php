@@ -15,7 +15,7 @@ class Tutorials_Note {
 
       foreach ( $post_terms as $term ) {
         if ( $term->slug === 'tutorial' ){
-          $content = '<div class="note"><p>Before you start making bots, consider reading <a href="'
+          $content = '<div class="note mt-5"><p>Before you start making bots, consider reading <a href="'
                    . get_site_url()
                    . '/learn/#essays">these essays and articles</a>. Also worth browsing: <a href="'
                    . get_site_url()
