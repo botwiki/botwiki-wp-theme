@@ -58,7 +58,10 @@ img{
   max-width: 100%;
 
   .card &{
-    max-height: 400px;
+    height: 360px;
+    @media(min-width: $site-width-small){
+      height: 250px;
+    }
     object-fit: cover;
   }
 
@@ -156,7 +159,7 @@ nav{
       top: 5px;
       left: 5px;
       font-size: 2.5em;
-    }     
+    }
   }
 
   #menu-icon{
