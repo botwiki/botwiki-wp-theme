@@ -261,6 +261,13 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
       margin-top: 0; } }
   .thumbnail-wrapper.image-expanded {
     max-width: 100vw !important; }
+  .thumbnail-wrapper img {
+    min-height: 360px;
+    -o-object-fit: cover;
+       object-fit: cover; }
+    @media (min-width: 860px) {
+      .thumbnail-wrapper img {
+        min-height: 460px; } }
 
 .single-bot .thumbnail-wrapper img {
   -o-object-position: top center;

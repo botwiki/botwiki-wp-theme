@@ -270,6 +270,14 @@ ul.navbar-nav{
   &.image-expanded{
     max-width: 100vw !important;
   }
+
+  img{
+    min-height: 360px;
+    object-fit: cover;
+    @media(min-width: $site-width-small){
+      min-height: 460px;
+    }
+  }
   
   // img{
   //   max-height: 50vh;

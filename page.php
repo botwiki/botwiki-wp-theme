@@ -21,11 +21,13 @@
         <?php
         if ( !is_front_page() ){ ?>
           <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-            <?php
-              $post_thumbnail_id = get_post_thumbnail_id();
-              the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post($post_thumbnail_id)->post_title ]);
-            ?>
-            <div class="image-border-shadow"></div>            
+            <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
+              <?php
+                $post_thumbnail_id = get_post_thumbnail_id();
+                the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post($post_thumbnail_id)->post_title ]);
+              ?>
+              <div class="image-border-shadow"></div>
+            </a>
           </div>
       <?php } ?>
   <?php } ?>

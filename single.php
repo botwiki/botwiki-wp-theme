@@ -16,7 +16,7 @@
         <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
         <!-- /post title -->
         <div class="post-content">
-          <p class="text-center lead mb-5"><?php echo get_the_excerpt(); ?></p>
+          <p class="text-center lead mb-5 mt-n3"><?php echo get_the_excerpt(); ?></p>
 
           <!-- post thumbnail -->
           <?php if ( has_post_thumbnail() ) {
@@ -24,19 +24,15 @@
             $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
             $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
           ?>
-          <?php if ( $post_type == 'bot' ){ ?>
             <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
               <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
-              <?php } ?>
                 <?php
                   $post_thumbnail_id = get_post_thumbnail_id();
                   the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post( $post_thumbnail_id )->post_title ] );
                 ?>
-                <?php if ( $post_type == 'bot' ){ ?>
                 </a>
                 <div class="image-border-shadow"></div>
               </div>
-            <?php } ?>
           <?php } ?>
           <!-- /post thumbnail -->
           <?php
