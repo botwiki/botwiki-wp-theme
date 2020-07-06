@@ -19,21 +19,22 @@
     <!-- </div> -->
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-         <ul class="btn-list mt-5 text-center">
-          <li>
-            <a class="btn" href="#blog">Botwiki blog</a>
-          </li>
-          <li>
-            <a class="btn" href="#bots">New bots</a>
-          </li>
-          <li>
-            <a class="btn" href="#resources">New resources</a>
-          </li>
-          <li>
-            <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
-          </li>
-        </ul>        
         <div class="post-content">
+           <ul class="btn-list mt-5 text-center">
+            <li>
+              <a class="btn" href="#blog">Botwiki blog</a>
+            </li>
+            <li>
+              <a class="btn" href="#bots">New bots</a>
+            </li>
+            <li>
+              <a class="btn" href="#resources">New resources</a>
+            </li>
+            <li>
+              <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
+            </li>
+          </ul>        
+
           <?php
             echo get_post_field( 'post_content', $post_id);
           ?>
