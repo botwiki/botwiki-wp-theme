@@ -79,8 +79,11 @@
               'post_type'         => 'bot',
               'posts_per_page'    => '6',
               'post_status'       => 'publish',
+              'meta_key'          => 'bot_is_featured',
+              'meta_value'        => 'on',
+              'meta_compare'      => 'IN',
               'orderby'           => 'publish_date',
-              'order'             => 'DESC'
+              'order'             => 'DESC',
             ) );            
 
             get_template_part('loop');
