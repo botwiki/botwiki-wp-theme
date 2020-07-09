@@ -27,9 +27,6 @@ body.home-page .container {
     max-width: 1024px !important;
     margin: 0 auto; }
 
-body.author main {
-  margin-top: -6em; }
-
 img {
   max-width: 100%; }
   .card img {
