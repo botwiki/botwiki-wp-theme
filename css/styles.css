@@ -1100,15 +1100,15 @@ body.archive .note .btn, body.archive .card .btn {
 
 .lazy-load {
   opacity: 0;
-  -webkit-transform: translate(0, 30px) scale(1.05);
-      -ms-transform: translate(0, 30px) scale(1.05);
-          transform: translate(0, 30px) scale(1.05); }
+  -webkit-transform: translate(0, 30px) scale(1.05) rotate(1deg);
+      -ms-transform: translate(0, 30px) scale(1.05) rotate(1deg);
+          transform: translate(0, 30px) scale(1.05) rotate(1deg); }
 
 .lazy-loaded {
   opacity: 1;
-  -webkit-transform: translate(0, 0) scale(1);
-      -ms-transform: translate(0, 0) scale(1);
-          transform: translate(0, 0) scale(1); }
+  -webkit-transform: translate(0, 0) scale(1) rotate(0);
+      -ms-transform: translate(0, 0) scale(1) rotate(0);
+          transform: translate(0, 0) scale(1) rotate(0); }
 
 .lazy-load,
 .lazy-loaded {
