@@ -8,22 +8,22 @@
         <h1><?php _e( 'Page not found', 'botwiki' ); ?></h1>
         <div class="row mt-5 mb-5">
           <div class="col-sm-12 col-md-6">
-            <p>Would you like to:</p>
+            <p>Sorry about that!</p>            
             <ul>
               <li>
-                <a href="<?php echo home_url(); ?>/contribute/">Contribute to Botwiki?</a>
+                <a href="<?php echo home_url(); ?>">Go back to the main page</a>
               </li>
               <li>
-                <a href="<?php echo home_url(); ?>">Go back to the main page?</a>
+                <a href="<?php echo home_url(); ?>/contribute/">Contribute to Botwiki</a>
               </li>
               <li>
-                <a href="<?php echo home_url(); ?>/bots/">Look at some cool bots?</a>
+                <a href="<?php echo home_url(); ?>/bots/">Look at some cool bots</a>
               </li>
               <li>
-                <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email?</a>
+                <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
               </li>
               <li>
-                <a href="https://twitter.com/botwikidotorg">Complain about this in public?</a>
+                <a href="https://twitter.com/botwikidotorg">Complain about this in public</a>
               </li>
             </ul>
           </div>
