@@ -29,7 +29,7 @@
           </div>
           <div class="col-sm-12 col-md-6">
             <p class="text-center">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/other/gear.jpg">
+              <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/other/gear.jpg"> -->
             </p>
           </div>
         </div>
