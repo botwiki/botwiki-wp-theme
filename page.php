@@ -19,7 +19,7 @@
       $dominant_color_css = str_replace(']', ')', $dominant_color_css);
     ?>
         <?php
-        if ( !is_front_page() && get_post_meta( get_the_id(), 'hide_featured_image', true ) !== 'on' ){ ?>
+        if ( !is_front_page() && get_post_meta( $post_id, 'hide_featured_image', true ) !== 'on' ){ ?>
           <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
             <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
               <?php
