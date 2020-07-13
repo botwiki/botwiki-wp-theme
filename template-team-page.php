@@ -17,16 +17,19 @@
   $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
   <main role="main" class="container-fluid m-0 p-0">
-    <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-      <?php
-        $post_thumbnail_id = get_post_thumbnail_id();
-        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
-      ?>
-    </div>
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-        <h1 class="post-title"><?php the_title(); ?></h1>
-        <div class="post-content">        
+        <h1 class="post-title text-center"><?php the_title(); ?></h1>
+        <div class="post-content">
+          <p class="text-center lead mb-5 mt-n3"><?php echo get_the_excerpt(); ?></p>
+          <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) !== 'on' ){ ?>
+            <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
+              <?php
+                $post_thumbnail_id = get_post_thumbnail_id();
+                the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
+              ?>
+            </div>
+          <?php } ?>
           <ul class="btn-list">
             <li>
               <a class="btn" target="_blank" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Get in touch</a>
