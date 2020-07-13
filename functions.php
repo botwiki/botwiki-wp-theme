@@ -524,6 +524,37 @@ function add_feedly_featured_image( $content ) {
 
 add_action( 'the_content_feed', 'add_feedly_featured_image' );
 
+
+add_action( 'add_meta_boxes', 'add_hide_featured_image_option' );
+add_action( 'save_post', 'save_hide_featured_image_option' );
+
+function add_hide_featured_image_option(){
+  add_meta_box( 'hide_featured', 'Hide Featured Image', 'render_hide_featured_image_option_metabox',['page'], 'side', 'default' );
+}
+
+function render_hide_featured_image_option_metabox( $post ){
+    $hide_featured_image = get_post_meta( $post->ID, 'hide_featured_image', true ); ?>
+    <label>
+      <input type="checkbox" name="hide_featured_image" <?php checked( $hide_featured_image, 'on' ); ?>> Hide featured image
+    </label>
+  <?php }
+
+function save_hide_featured_image_option( $post_id ){
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ){
+    return;
+  }
+
+  if ( !current_user_can( 'edit_page', $post_id ) ){
+      return;
+  }
+
+  if ( isset( $_POST['hide_featured_image'] ) ){
+    update_post_meta( $post_id, 'hide_featured_image', $_POST['hide_featured_image'] );
+  } else {
+    delete_post_meta( $post_id, 'hide_featured_image' );
+  }
+}
+
 /*
     Helper dev functions.
 */

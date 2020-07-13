@@ -14,12 +14,12 @@
 
   <?php
     if ( has_post_thumbnail()) {
-      $dominant_color  = get_post_meta( get_the_id(), 'dominant_color', true );
+      $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );
       $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
       $dominant_color_css = str_replace(']', ')', $dominant_color_css);
     ?>
         <?php
-        if ( !is_front_page() ){ ?>
+        if ( !is_front_page() && get_post_meta( get_the_id(), 'hide_featured_image', true ) !== 'on' ){ ?>
           <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
             <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
               <?php
