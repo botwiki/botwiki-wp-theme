@@ -30,13 +30,18 @@
               ?>
             </div>
           <?php } ?>
-          <ul class="btn-list">
-            <li>
-              <a class="btn" target="_blank" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Get in touch</a>
-              <a class="btn" href="https://twitter.com/botwikidotorg">Tweet at us</a>
-            </li>
-          </ul>
-
+          <div
+          <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) !== 'on' ){ ?>
+          class="text-center"
+          <?php } ?>
+          >
+            <ul class="btn-list">
+              <li>
+                <a class="btn" target="_blank" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Get in touch</a>
+                <a class="btn" href="https://twitter.com/botwikidotorg">Tweet at us</a>
+              </li>
+            </ul>
+          </div>
           <?php
             echo do_shortcode( get_post_field('post_content', $post_id) );
           ?>
