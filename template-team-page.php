@@ -31,7 +31,7 @@
             </div>
           <?php } ?>
           <div
-          <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) !== 'on' ){ ?>
+          <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) === 'on' ){ ?>
           class="text-center"
           <?php } ?>
           >
