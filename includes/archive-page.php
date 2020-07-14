@@ -2,7 +2,7 @@
 
 class Archive_This_Page {
   public function __construct() {
-    // add_action( 'save_post', array( $this, 'archive_page' ), 10, 3 );
+    add_action( 'save_post', array( $this, 'archive_page' ), 10, 3 );
   }
 
   public function archive_page( $post_id, $post, $update ) {

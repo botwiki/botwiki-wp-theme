@@ -29,7 +29,8 @@ require 'includes/profile-page-link.php';
 require 'includes/new-post-instructions.php';
 require 'includes/rss-feed.php';
 require 'includes/wp-json-api.php';
-require 'includes/archive-page.php';
+// Disabled for performance reasons.
+// require 'includes/archive-page.php'; 
 require 'includes/simple_html_dom.php';
 require 'includes/newonbotwiki-twitter.php';
 
