@@ -32,7 +32,7 @@
           <?php } ?>
           <div
           <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) === 'on' ){ ?>
-          class="text-center"
+          class="text-sm-left text-md-center"
           <?php } ?>
           >
             <ul class="btn-list">
