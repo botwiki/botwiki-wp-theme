@@ -184,12 +184,14 @@ class Post_Links {
           $link_title = get_the_title( $post_id );
         }
 
-        $link_thumbnail = get_the_post_thumbnail( $post_id, 'full', array( 'class' => 'card-img-top' ) );
+        $link_thumbnail_url = get_the_post_thumbnail_url( $post_id, 'full', array( 'class' => 'card-img-top lazy-load' ) );
         $link_description = ( $include_description ? get_the_excerpt( $post_id ) : '');
 
         $link_list_html .= '<div class="col-sm-12 col-md-6 col-lg-4 list-item">' .
                            '  <div class="card w-100">' .
-                           '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_thumbnail . '</a>' .
+                           '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
+                           '      <img class="lazy-load" src="' . $link_thumbnail_url . '" data-src="' . $link_thumbnail_url . '">' .
+                           '    </a>' .
                            '    <div class="card-body">' .
                            '      <h5 class="card-title">' .
                            '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
