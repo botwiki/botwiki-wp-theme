@@ -4,6 +4,7 @@
   $post_type = get_post_type();
   $post_meta = get_post_meta( $post_id ); 
   $site_url = get_site_url();
+  $prompt_donation = true;
 ?>
   <main role="main" class="container-fluid m-0 p-0 pt-3">
 
@@ -297,6 +298,31 @@
               include( locate_template( 'author-card.php', false, false ) );  
             }
           } ?>
+        <?php }
+        if ( $post_type === 'resource' && $prompt_donation ) { ?>
+          <div class="container mt-5 pl-0 pr-0">
+            <div class="card mt-4 mb-4">
+              <div class="card-body mt-4">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h3 class="mt-0 mb-3 d-inline">Enjoyed the tutorial?</h3>
+                    <p class="mt-3"><strong>Consider supporting Botwiki!</strong></p>
+                    <ul class="btn-list mt-2 mb-2">
+                      <li>
+                        <a class="btn" title="Donate via Patreon" rel="me" href="https://www.patreon.com/botwiki">Donate</a>
+                      </li>
+                      <li> 
+                        <a class="btn" title="View list of supporters" rel="me" href="https://botwiki.org/about/supporters/">See our supporters</a>  
+                      </li> 
+                      <li>  
+                        <a class="btn" title="Twitter" rel="me" href="https://twitter.com/botwikidotorg">Follow @botwikidotorg</a> 
+                      </li> 
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
         <?php }
         if ( $post_type === 'bot' ) { ?>
 
