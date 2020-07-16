@@ -545,7 +545,7 @@ blockquote {
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
-  padding: 0.5em 1em 2em 0;
+  padding: 4em 1em 2em 0;
   quotes: "“" "”" "‘" "’"; }
   .col-md-6 blockquote {
     padding: 1em; }
