@@ -1,11 +1,28 @@
 .blog-title{
   text-align: center;
   text-transform: uppercase;
+  position: relative;
   &:before{
     display: block;
     content: 'latest posts from the';
     margin-bottom: 0.5rem;
     font-size: 1rem;
+  }
+  &:after{
+    display: block;
+    content: '🤖';
+
+    @media(min-width: $site-width-small){
+      display: block;
+      position: relative;
+      content: '🤖';
+      right: -200px;
+      top: -80px;
+      font-size: 4rem;
+      margin-bottom: -4rem;
+      transform: rotate(15deg);
+    }
+
   }
 }
 
@@ -19,30 +36,28 @@
   // }
 
   &, & .post-thumbnail-img{
-    min-height: 250px;
+    min-height: 320px;
   }  
+
+  &:hover{
+    .post-thumbnail-img{
+        filter: brightness(40%) opacity(1);
+        transition: filter 0.3s;
+    }
+  }
 
   overflow: hidden;
 }
 
 .post-thumbnail-img{
   position: absolute;
+  object-fit: cover;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  filter: brightness(30%);
-  opacity: 0.8;
-
-  &:hover{
-    filter: brightness(20%);
-  }
-
-  &, &:hover{
-    transition: filter 0.3s;
-  }
+  filter: brightness(55%) opacity(0.95);
+  transition: filter 0.3s;  
 }
 
 
@@ -52,11 +67,13 @@
   text-align: left;
   position: absolute;
   bottom: 0;
-  border: 3px solid $color-primary;
-  background: #fff;
+  color: #fff;
+  background: rgba(25,25,25,0.8);
   padding: 5px;
+  @media(min-width: $site-width-small){
+    min-height: 8rem;
+  }
 
-  color: #000;
   font-weight: bold;
 
   .post-thumbnail &{
@@ -71,7 +88,7 @@
 
   .post-thumbnail &{
     margin: 5px;
-    padding: 10px 5px;
+    padding: 15px;
   }
 }
 
@@ -79,19 +96,22 @@
 
 
 .post-thumbnail-date{
-  font-family: monospace;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
   display: block;
-  // text-align: right;
 }
 
 .post-thumbnail-1-1{
+  .post-thumbnail-title{
+    font-size: 2rem;
+  }
   &, & .post-thumbnail-img{
-    min-height: 502px;
+    min-height: 649px;
     @media(max-width: $site-width-small){
       // min-height: 606px;
     }
     @media(max-width: 767px){
-      min-height: 250px;
+      min-height: 320px;
     }
   }
 }

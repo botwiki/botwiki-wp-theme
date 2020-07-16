@@ -1031,12 +1031,28 @@ body.archive .note .btn, body.archive .card .btn {
 
 .blog-title {
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  position: relative; }
   .blog-title:before {
     display: block;
     content: 'latest posts from the';
     margin-bottom: 0.5rem;
     font-size: 1rem; }
+  .blog-title:after {
+    display: block;
+    content: '🤖'; }
+    @media (min-width: 860px) {
+      .blog-title:after {
+        display: block;
+        position: relative;
+        content: '🤖';
+        right: -200px;
+        top: -80px;
+        font-size: 4rem;
+        margin-bottom: -4rem;
+        -webkit-transform: rotate(15deg);
+            -ms-transform: rotate(15deg);
+                transform: rotate(15deg); } }
 
 .post-thumbnail {
   padding: 5px;
@@ -1044,28 +1060,31 @@ body.archive .note .btn, body.archive .card .btn {
   position: relative;
   overflow: hidden; }
   .post-thumbnail, .post-thumbnail .post-thumbnail-img {
-    min-height: 250px; }
-
-.post-thumbnail-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  -webkit-filter: brightness(30%);
-          filter: brightness(30%);
-  opacity: 0.8; }
-  .post-thumbnail-img:hover {
-    -webkit-filter: brightness(20%);
-            filter: brightness(20%); }
-  .post-thumbnail-img, .post-thumbnail-img:hover {
+    min-height: 320px; }
+  .post-thumbnail:hover .post-thumbnail-img {
+    -webkit-filter: brightness(40%) opacity(1);
+            filter: brightness(40%) opacity(1);
     -webkit-transition: -webkit-filter 0.3s;
     transition: -webkit-filter 0.3s;
     -o-transition: filter 0.3s;
     transition: filter 0.3s;
     transition: filter 0.3s, -webkit-filter 0.3s; }
+
+.post-thumbnail-img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-filter: brightness(55%) opacity(0.95);
+          filter: brightness(55%) opacity(0.95);
+  -webkit-transition: -webkit-filter 0.3s;
+  transition: -webkit-filter 0.3s;
+  -o-transition: filter 0.3s;
+  transition: filter 0.3s;
+  transition: filter 0.3s, -webkit-filter 0.3s; }
 
 .post-thumbnail-title {
   font-family: "Source Serif Pro", serif;
@@ -1073,27 +1092,33 @@ body.archive .note .btn, body.archive .card .btn {
   text-align: left;
   position: absolute;
   bottom: 0;
-  border: 3px solid #3c3c3c;
-  background: #fff;
+  color: #fff;
+  background: rgba(25, 25, 25, 0.8);
   padding: 5px;
-  color: #000;
   font-weight: bold; }
+  @media (min-width: 860px) {
+    .post-thumbnail-title {
+      min-height: 8rem; } }
   .post-thumbnail .post-thumbnail-title {
     left: 0;
     right: 0; }
   .post-thumbnail .post-thumbnail-title {
     margin: 5px;
-    padding: 10px 5px; }
+    padding: 15px; }
 
 .post-thumbnail-date {
-  font-family: monospace;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
   display: block; }
 
+.post-thumbnail-1-1 .post-thumbnail-title {
+  font-size: 2rem; }
+
 .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
-  min-height: 502px; }
+  min-height: 649px; }
   @media (max-width: 767px) {
     .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
-      min-height: 250px; } }
+      min-height: 320px; } }
 
 .lazy-load {
   opacity: 0;
