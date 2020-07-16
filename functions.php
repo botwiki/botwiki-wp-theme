@@ -307,10 +307,8 @@ function my_remove_recent_comments_style(){
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function botwiki_site_pagination(  \WP_Query $wp_query = null, $echo = true, $params = [] ){
-  if ( null === $wp_query ) {
-      global $wp_query;
-  }
+function botwiki_site_pagination(  $wp_query = null, $echo = true, $params = [] ){
+  global $wp_query;
 
   $big = 999999999;
   $pages = paginate_links( array_merge( array(
