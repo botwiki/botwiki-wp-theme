@@ -545,10 +545,18 @@ blockquote {
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
-  padding: 4em 1em 2em 0;
+  padding: 4rem 1rem 2rem 1rem;
   quotes: "“" "”" "‘" "’"; }
+  @media (max-width: 900px) {
+    blockquote {
+      margin: 2rem auto 1rem !important; } }
   .col-md-6 blockquote {
-    padding: 1em; }
+    padding-left: 1em;
+    padding-right: 1em; }
+    @media (max-width: 900px) {
+      .col-md-6 blockquote {
+        padding-left: 2em;
+        padding-right: 2em; } }
   blockquote:before {
     display: inline-block;
     color: #bdc6d2;
@@ -561,6 +569,9 @@ blockquote {
     margin-bottom: 2rem;
     margin-left: 0;
     vertical-align: -.5em; }
+    @media (max-width: 900px) {
+      blockquote:before {
+        margin-left: -1.5rem; } }
   blockquote cite, blockquote p {
     display: block;
     line-height: 1.5em;

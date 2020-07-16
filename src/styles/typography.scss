@@ -122,11 +122,22 @@ blockquote{
   border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
-  padding: 4em 1em 2em 0;
+
+  @media (max-width: $site-width-medium){
+    margin: 2rem auto 1rem !important;
+  }
+
+  padding: 4rem 1rem 2rem 1rem;
   quotes: "\201C""\201D""\2018""\2019";
 
   .col-md-6 &{
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    @media (max-width: $site-width-medium){
+      padding-left: 2em;
+      padding-right: 2em;
+    }
   }
 
   &:before {
@@ -141,6 +152,9 @@ blockquote{
     margin-bottom: 2rem;
     margin-left: 0;
     vertical-align: -.5em;
+    @media (max-width: $site-width-medium){
+      margin-left: -1.5rem;
+    }
   }
 
   cite, p {
