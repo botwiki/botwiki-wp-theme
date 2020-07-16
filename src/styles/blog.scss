@@ -103,7 +103,9 @@
 
 .post-thumbnail-1-1{
   .post-thumbnail-title{
-    font-size: 2rem;
+    @media(min-width: $site-width-small){
+      font-size: 2rem;
+    }
   }
   &, & .post-thumbnail-img{
     min-height: 649px;

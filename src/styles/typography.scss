@@ -475,6 +475,17 @@ div.bottom-page-links{
   list-style-type: circle;
 }
 
+.pagination{
+  .page-link{
+    color: $color-primary;
+    padding: 10px 20px !important;
+  }
+  .page-item.active .page-link{
+    background: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
 @keyframes img-pop {
   0% {
       transform: scale( 1 ) translate(0, 0);    

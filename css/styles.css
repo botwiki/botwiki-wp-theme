@@ -803,6 +803,14 @@ div.bottom-page-links {
 .list-style-circle {
   list-style-type: circle; }
 
+.pagination .page-link {
+  color: #3c3c3c;
+  padding: 10px 20px !important; }
+
+.pagination .page-item.active .page-link {
+  background: #3c3c3c;
+  border-color: #3c3c3c; }
+
 @-webkit-keyframes img-pop {
   0% {
     -webkit-transform: scale(1) translate(0, 0);
@@ -1111,8 +1119,9 @@ body.archive .note .btn, body.archive .card .btn {
   color: rgba(255, 255, 255, 0.6);
   display: block; }
 
-.post-thumbnail-1-1 .post-thumbnail-title {
-  font-size: 2rem; }
+@media (min-width: 860px) {
+  .post-thumbnail-1-1 .post-thumbnail-title {
+    font-size: 2rem; } }
 
 .post-thumbnail-1-1, .post-thumbnail-1-1 .post-thumbnail-img {
   min-height: 649px; }

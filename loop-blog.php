@@ -85,20 +85,32 @@
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
         <?php } elseif ( $page === 1 && $index === $wp_query->post_count ) { ?>
-            <div class="col-sm-12 col-md-7 text-center p-1 m-0">
+            <div class="col-sm-12 col-md-4 text-center p-1 m-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
           </div>
-        <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 3 ) { ?>
+        <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 6 ) { ?>
             <div class="col-sm-12 col-md-6 text-center p-1 m-0">
+              <?php render_post( $page, $index, $post->ID ); ?>
+            </div>
+        <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 5 ) { ?>
+            <div class="col-sm-12 col-md-6 text-center p-1 m-0">
+              <?php render_post( $page, $index, $post->ID ); ?>
+            </div>
+        <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 4 ) { ?>
+            <div class="col-sm-12 col-md-7 text-center p-1 m-0">
+              <?php render_post( $page, $index, $post->ID ); ?>
+            </div>
+        <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 3 ) { ?>
+            <div class="col-sm-12 col-md-5 text-center p-1 m-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
         <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 2 ) { ?>
-            <div class="col-sm-12 col-md-6 text-center p-1 m-0">
+            <div class="col-sm-12 col-md-4 text-center p-1 m-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
         <?php } elseif ( $page === 1 && $index === $wp_query->post_count - 1 ) { ?>
-            <div class="col-sm-12 col-md-5 text-center p-1 m-0">
+            <div class="col-sm-12 col-md-4 text-center p-1 m-0">
               <?php render_post( $page, $index, $post->ID ); ?>
             </div>
         <?php } elseif ( $page === 1 && $index < 8 ) { ?>
