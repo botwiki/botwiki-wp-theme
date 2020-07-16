@@ -327,7 +327,7 @@ function botwiki_site_pagination(  \WP_Query $wp_query = null, $echo = true, $pa
     'next_text'    => __( 'Next »' ),
     'add_args'     => $add_args,
     'add_fragment' => ''
-  ), $params );
+  ), $params ) );
 
   $pagination = '<div class="pagination"><ul class="pagination">';
   foreach ( $pages as $page ) {
