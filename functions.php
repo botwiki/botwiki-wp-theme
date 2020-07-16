@@ -340,7 +340,7 @@ function botwiki_site_pagination(){
 
   $pagination .= '</ul></div>';
 
-  echo $pagination;
+  return $pagination;
 
 }
 
