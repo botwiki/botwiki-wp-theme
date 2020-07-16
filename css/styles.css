@@ -549,9 +549,6 @@ blockquote {
   quotes: "“" "”" "‘" "’"; }
   .col-md-6 blockquote {
     padding: 1em; }
-  @media (max-width: 900px) {
-    blockquote {
-      padding: 1em; } }
   blockquote:before {
     display: inline-block;
     color: #bdc6d2;
