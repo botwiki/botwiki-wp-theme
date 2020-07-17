@@ -450,6 +450,9 @@ video {
   max-width: 1200px;
   margin: 0 -1rem; }
 
+.hljs {
+  padding: 1em !important; }
+
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
   color: #3c3c3c; }
