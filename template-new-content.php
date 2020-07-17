@@ -20,7 +20,7 @@
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <div class="post-content">
-           <ul class="btn-list mt-5 text-center text-md-left">
+           <ul class="btn-list mt-5 text-sm-left text-md-center">
             <li>
               <a class="btn" href="#blog">Botwiki blog</a>
             </li>
