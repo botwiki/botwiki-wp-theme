@@ -4,7 +4,7 @@
   $post_type = get_post_type();
   $post_meta = get_post_meta( $post_id ); 
   $site_url = get_site_url();
-  $prompt_donation = true;
+  $prompt_donation = false;
 ?>
   <main role="main" class="container-fluid m-0 p-0 pt-3">
 
@@ -259,6 +259,7 @@
                 $username = get_the_author_meta( 'user_nicename', $author_id );
 
                 if ( user_can( $author_id, 'administrator' ) ){  
+                  $prompt_donation = true;
                   $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
                   if ( empty( $botwiki_team_role ) ){
                     $botwiki_team_role = "Botwiki team member.";      
