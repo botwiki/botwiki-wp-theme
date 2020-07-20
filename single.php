@@ -56,9 +56,30 @@
                   $host = $info['host'];
                   $host_names = explode( ".", $host );
                   $domain = $host_names[count( $host_names )-2] . "." . $host_names[count( $host_names )-1];
+                  if ( $domain === 'twitter.com' ){
+                    $label = 'View on Twitter';
+                  } elseif ( $domain === 'tumblr.com' ) {
+                    $label = 'View on Tumblr';
+                  } elseif ( $domain === 'youtube.com' ) {
+                    $label = 'View on YouTube';
+                  } elseif ( $domain === 'twitch.tv' ) {
+                    $label = 'View on Twitch';
+                  } elseif ( $domain === 'instagram.com' ) {
+                    $label = 'View on Instagram';
+                  } elseif ( $domain === 'facebook.com' ) {
+                    $label = 'View on Facebook';
+                  } elseif ( $domain === 'm.me' ) {
+                    $label = 'Chat via Facebook Messenger';
+                  } elseif ( $domain === 'reddit.com' ) {
+                    $label = 'View on Reddit';
+                  } elseif ( $domain === 'discordapp.com' ) {
+                    $label = 'Add to Discord';
+                  } else {
+                    $label = 'View on ' . $domain;
+                  }
                   ?>
                   <li>
-                    <a class="btn" href="<?php echo $url; ?>">View on <?php echo $domain; ?></a>
+                    <a class="btn" href="<?php echo $url; ?>"><?php echo $label; ?></a>
                   </li>
                 <?php }                 
               }
