@@ -86,7 +86,7 @@ class New_On_Botwiki {
             }
           }
 
-          if ( $example_tweet_url !== false ){
+          if ( $example_tweet_url !== false && !empty( $example_tweet_url ) ){
             $tweet_text .= $via_text . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
           } else {
             $tweet_text .= ' ' . $bot_url . $via_text;
