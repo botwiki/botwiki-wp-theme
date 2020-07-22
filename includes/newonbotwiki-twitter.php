@@ -114,7 +114,7 @@ class New_On_Botwiki {
             $twitter_handles = self::get_twitter_handles( $resource_author_info );
 
             if ( !empty( $twitter_handles ) ){
-              $tweet_text .= ' via ' .  $twitter_handles;           
+              $tweet_text .= ' Via ' .  $twitter_handles;           
             }
           }
         } elseif ( $post->post_type === 'post' && get_post_status( $post ) === 'publish' ){
