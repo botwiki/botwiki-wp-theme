@@ -331,10 +331,13 @@
                     <p class="mt-3"><strong>Consider supporting Botwiki!</strong></p>
                     <ul class="btn-list mt-2 mb-2">
                       <li>
-                        <a class="btn" title="Donate via Patreon" rel="me" href="https://www.patreon.com/botwiki">Donate</a>
+                        <a class="btn" title="Support via Patreon" rel="me" href="https://www.patreon.com/botwiki">Become a patron</a>
+                      </li>
+                      <li>
+                        <a class="btn" title="Donate via PayPal" rel="me" href="https://paypal.me/stefanbohacek">Donate</a>
                       </li>
                       <li> 
-                        <a class="btn" title="View list of supporters" rel="me" href="https://botwiki.org/about/supporters/">See our supporters</a>  
+                        <a class="btn" title="View list of supporters" href="https://botwiki.org/about/supporters/">See our supporters</a>  
                       </li> 
                       <li>  
                         <a class="btn" title="Twitter" rel="me" href="https://twitter.com/botwikidotorg">Follow @botwikidotorg</a> 
