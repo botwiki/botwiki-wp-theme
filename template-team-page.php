@@ -89,7 +89,7 @@
               }
               // $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
               // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
-              $avatar_url = str_replace( '?s=96', '?s=512', get_avatar_url( $author_id, array( 'size' => 500 ) ) );
+              $avatar_url = str_replace( '?s=96', '?s=512', get_avatar_url( $author_id, array( 'size' => 500, 'scheme' => 'https' ) ) );
               ?>
               <div class="col-sm-6 col-md-3 list-item">
                 <div class="card w-100">
@@ -152,7 +152,7 @@
                   $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
                   if ( empty( $profile_img_url )){
-                    $profile_img_url = get_avatar_url( $author_id );
+                    $profile_img_url = get_avatar_url( $author_id, array( 'scheme' => 'https' ) );
                   }
 
                   $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
