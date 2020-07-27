@@ -150,6 +150,7 @@
                   }
 
                   $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+                  $profile_img_url = str_replace( 'http://', 'https://', $profile_img_url );
 
                   if ( empty( $profile_img_url )){
                     $profile_img_url = get_avatar_url( $author_id, array( 'scheme' => 'https' ) );
