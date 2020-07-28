@@ -356,95 +356,98 @@
         </div>
         <?php
         if ( $post_type === 'bot' ) { ?>
+          <div class="container">
+            <h3 id="related-bots">More bots</h3>
+            <div id="related-bots-wrapper" class="row list">
+            <?php
 
-
-          <h3 id="related-bots">More bots</h3>
-          <div id="related-bots-wrapper" class="row list">
-          <?php
-
-          $related_bots = get_posts( array( 
-            'posts_per_page' => 4,
-            'orderby' => 'rand',
-            'order' => 'ASC',
-            'exclude' => array( $post_id ),
-            'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, $tags ),
-            'post_type' => 'bot',
-            'post_status' => 'publish',
-            'suppress_filters' => true
-          ) );
-
-          if ( count( $related_bots ) < 4 ){
-            $used_post_ids = array_map( function( $bot ){
-              return $bot->ID;
-            }, $related_bots);
-
-            $related_bots_fill = get_posts( array( 
-              'posts_per_page' => 4 - count( $related_bots ),
+            $related_bots = get_posts( array( 
+              'posts_per_page' => 4,
               'orderby' => 'rand',
               'order' => 'ASC',
-              'exclude' => $used_post_ids,
+              'exclude' => array( $post_id ),
+              'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, $tags ),
               'post_type' => 'bot',
               'post_status' => 'publish',
               'suppress_filters' => true
             ) );
-            $related_bots = array_merge( $related_bots, $related_bots_fill );
-          }
 
-          foreach ( $related_bots as $related_bot ) {
-            $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID, 'medium' );
-            $post_thumbnail_url_full = get_the_post_thumbnail_url( $related_bot->ID );
-            ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
-                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="<?php echo get_permalink( $related_bot->ID ); ?>"><?php echo $related_bot->post_title; ?></a>  
-                  </h5>
-                  <p class="card-text"><?php echo $related_bot->post_excerpt; ?></p>
+            if ( count( $related_bots ) < 4 ){
+              $used_post_ids = array_map( function( $bot ){
+                return $bot->ID;
+              }, $related_bots);
+
+              $related_bots_fill = get_posts( array( 
+                'posts_per_page' => 4 - count( $related_bots ),
+                'orderby' => 'rand',
+                'order' => 'ASC',
+                'exclude' => $used_post_ids,
+                'post_type' => 'bot',
+                'post_status' => 'publish',
+                'suppress_filters' => true
+              ) );
+              $related_bots = array_merge( $related_bots, $related_bots_fill );
+            }
+
+            foreach ( $related_bots as $related_bot ) {
+              $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID, 'medium' );
+              $post_thumbnail_url_full = get_the_post_thumbnail_url( $related_bot->ID );
+              ?>
+              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                <div class="card w-100">
+                  <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
+                    <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="<?php echo get_permalink( $related_bot->ID ); ?>"><?php echo $related_bot->post_title; ?></a>  
+                    </h5>
+                    <p class="card-text"><?php echo $related_bot->post_excerpt; ?></p>
+                  </div>
                 </div>
               </div>
+            <?php } ?>
             </div>
-          <?php } ?>
+            <p><a class="btn" href="/bots/">Browse bots</a><a class="btn" href="/random-bot/" title="Explore the wonderful world of online bots, one random bot at a time">See a random bot</a></p>
           </div>
-          <p><a class="btn" href="/bots/">Browse bots</a><a class="btn" href="/random-bot/" title="Explore the wonderful world of online bots, one random bot at a time">See a random bot</a></p>
         <?php }
 
         if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
-          <h3 id="blog">Latest from the blog</h3>
-          <div id="blog-latest-wrapper" class="row list">
-          <?php
+          <div class="container">
 
-          $latest_blog_posts = get_posts( array( 
-            'posts_per_page' => 4,
-            'exclude' => array( $post_id ),            
-            'post_type' => 'post',
-            'post_status' => 'publish'
-           ) );
+            <h3 id="blog">Latest from the blog</h3>
+            <div id="blog-latest-wrapper" class="row list">
+            <?php
 
-          foreach ( $latest_blog_posts as $blog_post ) {
-            $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
-            $post_thumbnail_url_full = get_the_post_thumbnail_url( $blog_post->ID );
-            ?>
-            <div class="col-sm-6 col-md-6 col-lg-3 list-item">
-              <div class="card w-100">
-                <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                  <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
-                  </h5>
-                  <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
+            $latest_blog_posts = get_posts( array( 
+              'posts_per_page' => 4,
+              'exclude' => array( $post_id ),            
+              'post_type' => 'post',
+              'post_status' => 'publish'
+             ) );
+
+            foreach ( $latest_blog_posts as $blog_post ) {
+              $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
+              $post_thumbnail_url_full = get_the_post_thumbnail_url( $blog_post->ID );
+              ?>
+              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                <div class="card w-100">
+                  <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
+                    <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
+                    </h5>
+                    <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
+                  </div>
                 </div>
               </div>
+            <?php } ?>
             </div>
-          <?php } ?>
+            <p><a class="btn" href="/blog/">Visit the blog</a></p>
+            <!-- /post details -->
           </div>
-          <p><a class="btn" href="/blog/">Visit the blog</a></p>
-          <!-- /post details -->
         <?php } ?>
       </article>
       <!-- /article -->
