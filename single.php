@@ -37,6 +37,15 @@
           <?php } ?>
           <!-- /post thumbnail -->
           <?php
+          if ( $post_type === 'post' ) {
+            $post_date = get_the_time( 'F j, Y' );
+            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
+            $m = new \Moment\Moment( $post_date );
+            $post_date_ago = $m->fromNow()->getRelative();
+          ?>
+            <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
+          <?php }
+
           if ( $post_type == 'bot' ){ ?>
             <ul class="btn-list">
             <?php
@@ -248,15 +257,6 @@
           if ( $post_type === 'single' ){ ?>
             <p class="post-tags mt-5 mb-5"><?php the_tags( '', ' ', '<br>' ); // Separated by commas with a line break at the end ?></p>
           <?php }
-          if ( $post_type === 'post' ) {
-            $post_date = get_the_time( 'F j, Y' );
-            $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
-            $m = new \Moment\Moment( $post_date );
-            $post_date_ago = $m->fromNow()->getRelative();
-          ?>
-            <p class="mt-5 mb-5 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
-          <?php }
-
           global $coauthors_plus;
 
           $coauthors = get_coauthors();
@@ -265,90 +265,96 @@
           if ( $coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2" ) ){ ?>
             <?php if ( $post_type === 'bot' ){ ?>
               <h3 id="authors">Created by</h3>
-            <?php }
+              <?php } ?>
+              <div class="row list">
+              <?php
+              foreach ( $coauthors as $coauthor ) { ?>
+                <div class="col-sm-12 col-md-12 col-lg-6 list-item">
+                  <?php
+                  $author_id = $coauthor->data->ID;
+                  if ( $author_id != 2 ){
+                    $author_data = get_userdata( intval( $author_id ) );
 
-            foreach ( $coauthors as $coauthor ) {
-              $author_id = $coauthor->data->ID;
-              if ( $author_id != 2 ){
-                $author_data = get_userdata( intval( $author_id ) );
+                    // echo "<pre><code>";
+                    // var_dump( get_userdata( $author_id ) );
+                    // echo "</code></pre>";
 
-                // echo "<pre><code>";
-                // var_dump( get_userdata( $author_id ) );
-                // echo "</code></pre>";
+                    $nickname = get_the_author_meta( 'nickname', $author_id );
+                    $username = get_the_author_meta( 'user_nicename', $author_id );
 
-                $nickname = get_the_author_meta( 'nickname', $author_id );
-                $username = get_the_author_meta( 'user_nicename', $author_id );
+                    if ( user_can( $author_id, 'administrator' ) ){  
+                      $prompt_donation = true;
+                      $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
+                      if ( empty( $botwiki_team_role ) ){
+                        $botwiki_team_role = "Botwiki team member.";      
+                      }
+                    }
+                    else{
+                      $botwiki_team_role = "Botwiki contributor.";    
+                    }
 
-                if ( user_can( $author_id, 'administrator' ) ){  
-                  $prompt_donation = true;
-                  $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
-                  if ( empty( $botwiki_team_role ) ){
-                    $botwiki_team_role = "Botwiki team member.";      
-                  }
+                    $first_name = get_the_author_meta( 'nickname', $author_id );
+                    $last_name = get_the_author_meta( 'last_name', $author_id );
+                    $full_name = '';
+
+                    if( empty( $first_name ) ){
+                        $full_name = $last_name;
+                    } elseif( empty( $last_name ) ){
+                        $full_name = $first_name;
+                    } else {
+                        $full_name = "{$first_name} {$last_name}";
+                    }
+
+                    $botwiki_profile_page_url = $site_url . '/author/' . $username;
+                    $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+                    $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+                    $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+
+                    if ( empty( $profile_img_url ) ){
+                      $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360, 'scheme' => 'https' ) );
+                    }
+
+                  // $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
+                  // $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
+
+                 //  $background_img_dominant_color_css = str_replace( '[', 'background-color:rgb( ', $background_img_dominant_color );
+                 //  $background_img_dominant_color_css = str_replace( ']', ' )', $background_img_dominant_color_css );
+                  include( locate_template( 'author-card.php', false, false ) );  
                 }
-                else{
-                  $botwiki_team_role = "Botwiki contributor.";    
-                }
-
-                $first_name = get_the_author_meta( 'nickname', $author_id );
-                $last_name = get_the_author_meta( 'last_name', $author_id );
-                $full_name = '';
-
-                if( empty( $first_name ) ){
-                    $full_name = $last_name;
-                } elseif( empty( $last_name ) ){
-                    $full_name = $first_name;
-                } else {
-                    $full_name = "{$first_name} {$last_name}";
-                }
-
-                $botwiki_profile_page_url = $site_url . '/author/' . $username;
-                $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
-
-                $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
-                $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
-
-                if ( empty( $profile_img_url ) ){
-                  $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360, 'scheme' => 'https' ) );
-                }
-
-              // $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
-              // $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
-
-             //  $background_img_dominant_color_css = str_replace( '[', 'background-color:rgb( ', $background_img_dominant_color );
-             //  $background_img_dominant_color_css = str_replace( ']', ' )', $background_img_dominant_color_css );
-              include( locate_template( 'author-card.php', false, false ) );  
-            }
-          } ?>
-        <?php }
-        if ( $post_type === 'resource' && $prompt_donation ) { ?>
-          <div class="container mt-5 pl-0 pr-0">
-            <div class="card mt-4 mb-4">
-              <div class="card-body mt-4">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h3 class="mt-0 mb-3 d-inline">Enjoyed the tutorial?</h3>
-                    <p class="mt-3"><strong>Consider supporting Botwiki!</strong></p>
-                    <ul class="btn-list mt-2 mb-2">
-                      <li>
-                        <a class="btn" title="Support via Patreon" rel="me" href="https://www.patreon.com/botwiki">Become a patron</a>
-                      </li>
-                      <li>
-                        <a class="btn" title="Donate via PayPal" rel="me" href="https://paypal.me/stefanbohacek">Donate</a>
-                      </li>
-                      <li> 
-                        <a class="btn" title="View list of supporters" href="https://botwiki.org/about/supporters/">See our supporters</a>  
-                      </li> 
-                      <li>  
-                        <a class="btn" title="Twitter" rel="me" href="https://twitter.com/botwikidotorg">Follow @botwikidotorg</a> 
-                      </li> 
-                    </ul>
+              } ?>
+            </div>
+          <?php }
+          if ( $post_type === 'resource' && $prompt_donation ) { ?>
+            <div class="col-sm-12 col-md-12 col-lg-6 list-item">
+              <div class="container card mt-lg-4 mb-4 pl-0 pr-0">
+                <div class="card-body mt-4">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h3 class="mt-0 mb-3 d-inline">Enjoyed the tutorial?</h3>
+                      <p class="mt-3"><strong>Consider supporting Botwiki!</strong></p>
+                      <ul class="btn-list mt-2 mb-2">
+                        <li>
+                          <a class="btn mb-2" title="Support via Patreon" rel="me" href="https://www.patreon.com/botwiki">Become a patron</a>
+                        </li>
+                        <li>
+                          <a class="btn mb-2" title="Donate via PayPal" rel="me" href="https://paypal.me/stefanbohacek">Donate</a>
+                        </li>
+                        <li> 
+                          <a class="btn mb-2" title="View list of supporters" href="https://botwiki.org/about/supporters/">See our supporters</a>
+                        </li> 
+                        <li>  
+                          <a class="btn mb-2" title="Twitter" rel="me" href="https://twitter.com/botwikidotorg">Follow @botwikidotorg</a> 
+                        </li> 
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>          
-        <?php }
+            </div>          
+          <?php } ?>
+        </div>
+        <?php
         if ( $post_type === 'bot' ) { ?>
 
 
