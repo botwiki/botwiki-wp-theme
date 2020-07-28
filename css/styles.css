@@ -383,7 +383,6 @@ video {
 .video-wrapper {
   position: relative;
   margin: 3em auto;
-  padding-bottom: 56.25%;
   padding-top: 25px;
   height: 315px;
   max-width: 600px; }

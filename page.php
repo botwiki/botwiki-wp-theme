@@ -54,9 +54,25 @@
                     <p class="mt-5"><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
                         by <a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id)); ?>"><?php echo get_the_author_meta('nickname', $author_id); ?></a></em>.</p>
                     <p class="post-tags mt-5 mb-5"><?php the_tags('', ' ', '<br>'); // Separated by commas with a line break at the end ?></p>
-                    <div class="note">
-                        <p>This is an interview from the Botwiki Interview series. <a href="/projects/botwiki-interviews/">Read more.</a></p>
-                    </div>
+
+
+                      <div class="container mt-5 pl-0 pr-0">
+                        <div class="card mt-4 mb-4">
+                          <div class="card-body mt-4">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <h3 class="mt-0 mb-3 d-inline">Botwiki Interview</h3>
+                                <p class="mt-3">This is an interview from the <strong>Botwiki Interview</strong> series.</p>
+                                <ul class="btn-list mt-2 mb-2">
+                                  <li>
+                                    <a class="btn" title="Read more Botwiki interviews" href="/projects/botwiki-interviews/">Read more</a> 
+                                  </li> 
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
                 <?php }
             ?>
             <?php if ( !is_front_page() ){ ?>
