@@ -17,7 +17,7 @@
         <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
         <!-- /post title -->
         <div class="post-content">
-          <p class="text-center lead mb-5 mt-n3"><?php echo get_the_excerpt(); ?></p>
+          <p class="text-center lead mb-5 mt-n3 font-weight-bold"><?php echo get_the_excerpt(); ?></p>
 
           <!-- post thumbnail -->
           <?php if ( has_post_thumbnail() ) {
