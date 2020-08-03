@@ -250,10 +250,11 @@
       }
     ?>
       <main role="main" class="container-fluid m-0 p-0">
-        <div id="robots" class="mt-5 text-center"></div>
+        
         <div class="container">
+          <h1 class="post-title">Thank you</h1>
+          <div id="robots" class="mt-5 text-center"></div>            
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1 class="post-title">Thank you</h1>
             <div class="post-content">
               <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
                 <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
@@ -291,10 +292,10 @@
     <?php }
     else{ ?>
       <main role="main" class="container-fluid m-0 p-0">
-        <div id="robots" class="mt-5 text-center"></div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1 class="post-title"><?php the_title(); ?></h1>
+            <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
+            <div id="robots" class="mt-5 text-center"></div>
             <div class="post-content">
               <p>Please <a href="<?php echo get_permalink(); ?>">return to the previous page</a> and make sure all required fields are filled out. <strong>Thank you!</strong></p>
             </div>
@@ -307,10 +308,10 @@
     <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/medium-editor.css' media='all' />
     <link rel='stylesheet' href='<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/css/themes/default.css' media='all' />
     <main role="main" class="container-fluid m-0 p-0">
-      <div id="robots" class="mt-5 text-center"></div>
       <div class="container">
+        <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
+        <div id="robots" class="mt-5 text-center"></div>
         <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-          <h1 class="post-title"><?php the_title(); ?></h1>
           <div class="post-content">
             <ul class="btn-list">
               <li>
