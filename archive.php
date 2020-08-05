@@ -23,25 +23,25 @@
 
   }
 
-  if(is_author()){
-    $author_id = get_query_var('author');
+  if( is_author() ){
+    $author_id = get_query_var( 'author' );
 
     $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $user->ID ) );
 
-    if ( empty( $profile_img_url )){
-      $profile_img_url = get_avatar_url($author_id, array( 'size' => 360, 'scheme' => 'https' ));
+    if ( empty( $profile_img_url ) ){
+      $profile_img_url = get_avatar_url( $author_id, array( 'size' => 360, 'scheme' => 'https' ) );
     }
 
     $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', $author_id ) );
     $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', $author_id ) );
 
-    if ( empty( $background_img_url )){
+    if ( empty( $background_img_url ) ){
       $background_img_url = esc_attr( get_the_author_meta( 'background-img-url', 2 ) );
       $background_img_dominant_color = esc_attr( get_the_author_meta( 'background-img-dominant-color', 2 ) );    
     }
 
-    $background_img_dominant_color_css = str_replace('[', 'background-color:rgb(', $background_img_dominant_color);
-    $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
+    $background_img_dominant_color_css = str_replace( '[', 'background-color:rgb( ', $background_img_dominant_color );
+    $background_img_dominant_color_css = str_replace( ']', ' )', $background_img_dominant_color_css );
 
 
     if ( !empty( $background_img_url ) ){ ?>
@@ -55,9 +55,9 @@
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
       <?php
-        if(is_author()){
-          $nickname = get_the_author_meta('nickname', $author_id);
-          $username = get_the_author_meta('user_nicename', $author_id);
+        if( is_author() ){
+          $nickname = get_the_author_meta( 'nickname', $author_id );
+          $username = get_the_author_meta( 'user_nicename', $author_id );
           $post_type = $wp_query->query['post_type'];          
         ?>
           <h1 class="post-title">Browsing <?php
@@ -260,7 +260,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-sm-12 col-md-4 text-center p-l">
-                      <img src="/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, /wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, /wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, /wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, /wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="(max-width: 1200px) 100vw, 1200px" />
+                      <img src="/wp-content/uploads/2018/02/mbc-january-2016.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Monthly Bot Challenge January 2016" srcset="/wp-content/uploads/2018/02/mbc-january-2016.png 1200w, /wp-content/uploads/2018/02/mbc-january-2016-250x95.png 250w, /wp-content/uploads/2018/02/mbc-january-2016-768x292.png 768w, /wp-content/uploads/2018/02/mbc-january-2016-700x267.png 700w, /wp-content/uploads/2018/02/mbc-january-2016-120x46.png 120w" sizes="( max-width: 1200px ) 100vw, 1200px" />
                   </div>
                   <div class="col-sm-12 col-md-8">
                     <h2 id="monthly-bot-challenge">Monthly Bot Challenge</h2>
@@ -286,23 +286,25 @@
           <?php }
         } ?>
 
-  			<?php get_template_part( 'loop' ); ?>
-  			<?php get_template_part( 'pagination' ); ?>
+  			<?php
+          get_template_part( 'loop' );
+          include( locate_template( 'support-botwiki.php', false, false ) );
+          get_template_part( 'pagination' );
 
-        <?php if(is_author()){
-          if ( user_can($author_id, 'administrator') ){  
-            $botwiki_team_role = get_the_author_meta('botwiki-team-role', $author_id);
-            if ( empty( $botwiki_team_role ) ){
-              $botwiki_team_role = "Botwiki team member.";
+          if ( is_author() ){
+            if ( user_can( $author_id, 'administrator' ) ){  
+              $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
+              if ( empty( $botwiki_team_role ) ){
+                $botwiki_team_role = "Botwiki team member.";
+              }
             }
-          }
-          else{
-            $botwiki_team_role = "Botwiki contributor.";    
-          }
-          $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+            else{
+              $botwiki_team_role = "Botwiki contributor.";    
+            }
+            $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
 
-          include( locate_template( 'author-card.php', false, false ) );
-        } ?>
+            include( locate_template( 'author-card.php', false, false ) );
+          } ?>
       </div>      
 		</div>
 	</main>
