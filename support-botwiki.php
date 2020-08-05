@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12">
           <h3 class="mt-0 mb-3 d-inline">Enjoying Botwiki?</h3>
-          <p class="mt-3"><strong>Consider supporting the project!</strong></p>
+          <p class="mt-4 mb-4"><strong>Consider supporting the project!</strong></p>
           <ul class="btn-list mt-2 mb-2">
             <li>
               <a class="btn mb-2" title="Support via Patreon" rel="me" href="https://www.patreon.com/botwiki">Become a patron</a>
