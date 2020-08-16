@@ -525,7 +525,6 @@ add_filter( 'style_loader_tag', 'css_add_rel_preload', 10, 4 );
 
 
 function enqueue_scripts_async( $tag, $handle, $src ) {
-  log_this( $handle );
   $excluded_scripts = array(
     'jquery',
     'jquery-core',
