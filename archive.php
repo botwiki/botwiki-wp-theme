@@ -163,7 +163,10 @@
                   </div>
                   <div class="col-sm-12 col-md-8">
                     <h2 id="monthly-bot-challenge">Cheap Bots, Done Quick!</h2>
-                    <p>An open-source website that lets you create Twitter bots using a text-generating language called Tracery.</p>
+                    <?php
+                    $cbdq_description = apply_filters( 'the_content', get_post_field( 'post_content', 8220 ) );
+                    echo substr_replace( $cbdq_description, '', strpos( $cbdq_description, '<ul' ), strpos( $cbdq_description, '/ul>' ) -strpos( $cbdq_description, '<ul' ) + 4);
+                    ?>
                     <ul class="btn-list">
                       <li>
                         <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
