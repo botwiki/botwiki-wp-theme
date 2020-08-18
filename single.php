@@ -325,6 +325,7 @@
               } ?>
             </div>
           <?php }
+          ?></article><?php
           if ( $post_type === 'resource' && $prompt_donation ) { ?>
             <div class="col-sm-12 col-md-12 col-lg-6 list-item">
               <div class="container card mt-lg-4 mb-4 pl-0 pr-0">
@@ -413,6 +414,7 @@
             </div>
             <p><a class="btn" href="/bots/">Browse bots</a><a class="btn" href="/random-bot/" title="Explore the wonderful world of online bots, one random bot at a time">See a random bot</a></p>
           </div>
+        <!-- /article -->
         <?php }
 
         if ( $post_type === 'post' ||  $post_type === 'bot' || $post_type === 'resource' ) { ?>
@@ -452,8 +454,6 @@
             <!-- /post details -->
           </div>
         <?php } ?>
-      </article>
-      <!-- /article -->
     </div>
 
   <?php endwhile; ?>
