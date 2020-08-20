@@ -1,5 +1,7 @@
 <?php
-use Screen\Capture;
+#use Screen\Capture;
+// use \ScreenshotMachine;
+require_once dirname(__FILE__) . '/../vendor/screenshotmachine/screenshotmachine-php/ScreenshotMachine.php';
 
 class BW_Helpers {
 
@@ -20,6 +22,83 @@ class BW_Helpers {
   }
 
   function make_screenshot( $options ){
+    if ( !file_exists(  ABSPATH . 'temp/' ) ) {
+      mkdir( ABSPATH . 'temp/' , 0777, true);
+    }
+
+    $default_width = 1200;
+    $default_height = 1000;
+
+    if ( is_array( $options ) ){
+      $url = $options['url'];
+
+      if ( !empty( $options['width'] ) ){
+        $width = $options['width'];
+      } else {
+        $width = $default_width;
+      }
+
+      if ( !empty( $options['height'] ) ){
+        $height = $options['height'];
+      } else {
+        $height = $default_height;
+      }
+    } else {
+      $url = $options;
+      $file_name = preg_replace( '/[^a-z0-9]+/', '-', strtolower( $url ) ) . '-' . time();
+      $width = $default_width;
+      $height = $default_height;
+      $options = array(
+        'url' => $url,
+        'width' => $width,
+        'height' => $height,
+      );
+    }
+
+    if ( !empty( $options['file_name'] ) ){
+      $file_name = $options['file_name'] . '-' . time();
+    } else {
+      $file_name = preg_replace( '/[^a-z0-9]+/', '-', strtolower( $url ) ) . '-' . time();
+    }
+
+    $options['dimension'] = $width. 'x' . $height;
+    $options['device'] = 'desktop';
+    $options['format'] = 'png';
+    $options['cacheLimit'] = "0";
+    $options['delay'] = '6000';
+    $options['zoom'] = '100';
+    $options['hide'] = '%23layers';
+
+    // $machine = new ScreenshotMachine( SCREENSHOT_MACHINE_API_KEY, SCREENSHOT_MACHINE_API_PHRASE );
+    $machine = new ScreenshotMachine( SCREENSHOT_MACHINE_API_KEY, '' );
+    $api_url = $machine->generate_screenshot_api_url( $options );
+
+    $file_name = preg_replace( "/[^a-z0-9\.]/", "-", strtolower( $file_name ) ) . '.png';
+
+    $image_path = ABSPATH . 'temp/' . $file_name;
+    $image_url = get_site_url() . '/temp/' . $file_name;
+
+    if ( !file_exists(  ABSPATH . 'temp/' ) ) {
+      mkdir( ABSPATH . 'temp/' , 0777, true );
+    }
+
+    file_put_contents( $image_path, file_get_contents( $api_url ) );
+
+    // log_this( array(
+    //   '$page_screenshot' => $page_screenshot,
+    //   '$file_name' => $file_name
+    // ) );
+
+    $screenshot_data = array(
+      'image_path' => $image_path,
+      'image_url' => $image_url
+    );
+
+    return $screenshot_data;
+  }
+
+/*
+  function __make_screenshot( $options ){
     if ( !file_exists(  ABSPATH . 'temp/' ) ) {
       mkdir( ABSPATH . 'temp/' , 0777, true);
     }
@@ -57,8 +136,9 @@ class BW_Helpers {
 
     $page_screenshot = new Capture( $url );
     
-    $page_screenshot->setUserAgentString( 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.3618.125' );
-    $page_screenshot->setDelay( 5000 );
+    $page_screenshot->setUserAgentString( 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 OPR/70.0.3728.106' );
+    // $page_screenshot->setUserAgentString( 'Mozilla/5.0 (compatible; MSIE 9.0; InfoChannel RNSafeBrowser/v.1.1.0G)' );
+    // $page_screenshot->setDelay( 5000 );
 
 
     $page_screenshot->setWidth( $width );
@@ -66,9 +146,13 @@ class BW_Helpers {
     $page_screenshot->setClipWidth( $width );
     $page_screenshot->setClipHeight( $height );
 
-    $page_screenshot->setImageType('png');
+    $page_screenshot->setImageType( 'png' );
 
-    $page_screenshot->includeJs(new \Screen\Injection\LocalPath( get_template_directory() . '/includes/phantomjs/twitter-cleanup.js' ) );
+    $page_screenshot->setOptions( [
+        'ignore-ssl-errors' => 'yes',
+    ] );
+
+    // $page_screenshot->includeJs(new \Screen\Injection\LocalPath( get_template_directory() . '/includes/phantomjs/twitter-cleanup.js' ) );
 
     $file_name = preg_replace( "/[^a-z0-9\.]/", "-", strtolower( $file_name ) ) . '.png';
 
@@ -81,6 +165,12 @@ class BW_Helpers {
 
     $page_screenshot->save( $image_path );
 
+    log_this( array(
+      '$page_screenshot' => $page_screenshot
+    ) );
+
+    $page_screenshot->jobs->clean();
+
     $screenshot_data = array(
       'image_path' => $image_path,
       'image_url' => $image_url
@@ -88,6 +178,7 @@ class BW_Helpers {
 
     return $screenshot_data;
   }
+*/
 
   function join_with_and( $array ) {
     $oxf_comma = ( count( $array ) > 2 ? ',' : '' );

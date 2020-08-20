@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7783cc19a85bb68bf607b85ba2ffe5b",
+    "content-hash": "ea187f5283ab42f603a69ca6fad2dcde",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -167,24 +167,24 @@
         },
         {
             "name": "ksubileau/color-thief-php",
-            "version": "v1.3.1",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ksubileau/color-thief-php.git",
-                "reference": "a673d7d3fa815c70fa4bebdee74d337e9e6944fa"
+                "reference": "fc2acefacbd037f68cf61bcc62b30ac1bb16ed59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ksubileau/color-thief-php/zipball/a673d7d3fa815c70fa4bebdee74d337e9e6944fa",
-                "reference": "a673d7d3fa815c70fa4bebdee74d337e9e6944fa",
+                "url": "https://api.github.com/repos/ksubileau/color-thief-php/zipball/fc2acefacbd037f68cf61bcc62b30ac1bb16ed59",
+                "reference": "fc2acefacbd037f68cf61bcc62b30ac1bb16ed59",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.7",
-                "squizlabs/php_codesniffer": "~2.7"
+                "friendsofphp/php-cs-fixer": "^2.13",
+                "phpunit/phpunit": "~4.8|~5.7"
             },
             "suggest": {
                 "ext-gd": "to use the GD image adapter.",
@@ -216,7 +216,7 @@
                 "php",
                 "thief"
             ],
-            "time": "2016-12-18T03:12:25+00:00"
+            "time": "2018-10-27T18:57:38+00:00"
         },
         {
             "name": "microweber/screen",
@@ -268,6 +268,43 @@
                 "screen"
             ],
             "time": "2017-01-20T15:21:43+00:00"
+        },
+        {
+            "name": "screenshotmachine/screenshotmachine-php",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/screenshotmachine/screenshotmachine-php.git",
+                "reference": "8d2b08b7561c7818c954f181babed37d5883d754"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/screenshotmachine/screenshotmachine-php/zipball/8d2b08b7561c7818c954f181babed37d5883d754",
+                "reference": "8d2b08b7561c7818c954f181babed37d5883d754",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Captures website screenshot and converts website to PDF using Screenshot machine - online website screenshot generator and website to PDF converter.",
+            "homepage": "https://github.com/screenshotmachine/screenshotmachine-php",
+            "keywords": [
+                "Thumbnails",
+                "capture",
+                "headless",
+                "html2pdf",
+                "htmltopdf",
+                "pdf",
+                "screenshot",
+                "screenshots",
+                "snapshot",
+                "thumbnail",
+                "webpage",
+                "website"
+            ],
+            "time": "2019-08-26T08:53:44+00:00"
         }
     ],
     "packages-dev": [],
