@@ -172,7 +172,7 @@
                         <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
                       </li>
                       <li>
-                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with author</a>
+                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with the creator</a>
                       </li>
                       <?php
                         echo $glitch_link;
@@ -198,7 +198,7 @@
                         <a class="btn" href="https://botsin.space/">Visit site</a>
                       </li>
                       <li>
-                        <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with author</a>
+                        <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with the creator</a>
                       </li>
                       <?php
                         echo $glitch_link;
