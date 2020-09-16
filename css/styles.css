@@ -569,8 +569,7 @@ blockquote {
     font-weight: bold;
     line-height: 0;
     margin-bottom: 2rem;
-    margin-left: 0;
-    vertical-align: -.5em; }
+    margin-left: 0; }
     @media (max-width: 900px) {
       blockquote:before {
         margin-left: -1.5rem; } }
@@ -593,6 +592,8 @@ blockquote {
     @media (max-width: 900px) {
       blockquote ul, blockquote ol {
         padding: 0 20px; } }
+  blockquote p:first-child {
+    margin-top: -3rem; }
 
 blockquote.instagram-media,
 iframe.instagram-media {

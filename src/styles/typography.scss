@@ -151,7 +151,6 @@ blockquote{
     line-height: 0;
     margin-bottom: 2rem;
     margin-left: 0;
-    vertical-align: -.5em;
     @media (max-width: $site-width-medium){
       margin-left: -1.5rem;
     }
@@ -178,6 +177,10 @@ blockquote{
     @media (max-width: $site-width-medium){
       padding: 0 20px;
     }
+  }
+
+  p:first-child{
+    margin-top: -3rem;
   }
 }
 
