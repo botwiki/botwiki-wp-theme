@@ -44,6 +44,9 @@ img {
     height: auto;
     margin: 0 auto; }
 
+.card a, .card a:hover {
+  color: inherit; }
+
 .card-footer {
   padding-bottom: 2.25em;
   background: none;
