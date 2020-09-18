@@ -37,12 +37,14 @@
             <?php if ( is_home() || $post_type == 'tutorial' ){ 
               $post_date = get_the_time( 'F j, Y' );
               $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
-              $m = new \Moment\Moment( $post_date );
-              $post_date_ago = $m->fromNow()->getRelative();
+              if ( class_exists( 'Moment\Moment' ) ){
+                $m = new \Moment\Moment( $post_date );
+                $post_date_ago = $m->fromNow()->getRelative();
+              }
             ?>
 
-            <p><em>Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-              by <a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><?php echo get_the_author_meta( 'nickname', $author_id ); ?></a></em></p>
+            <p class="text-muted mt-n2">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+              by <a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><?php echo get_the_author_meta( 'nickname', $author_id ); ?></a></p>
             <?php } ?>
 
             </p>

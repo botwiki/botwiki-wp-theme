@@ -109,6 +109,9 @@ a{
   &, &:hover{
     transition: color 0.3s;
   }
+  .text-muted &{
+    color: inherit;
+  }
 }
 
 ul, ol{

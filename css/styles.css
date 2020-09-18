@@ -536,6 +536,8 @@ a {
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;
     transition: color 0.3s; }
+  .text-muted a {
+    color: inherit; }
 
 ul, ol {
   margin-left: 3px;
