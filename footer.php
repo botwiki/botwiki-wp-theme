@@ -138,7 +138,7 @@
         </div>
         <div class="container-fluid pt-0 pb-1 pl-0 pr-0 background-fff">
           <div class="container">
-            <div class="row">
+            <div class="row mx-auto" style="max-width: 640px;">
               <div class="col-12 pt-4 pb-3">
                 <div class="row align-items-center mt-3 mb-5 pb-5">
                   <div class="col-sm-6 col-md-3 mx-auto mt-5">

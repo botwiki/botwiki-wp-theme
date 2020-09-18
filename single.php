@@ -40,8 +40,10 @@
           if ( $post_type === 'post' ) {
             $post_date = get_the_time( 'F j, Y' );
             $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
-            $m = new \Moment\Moment( $post_date );
-            $post_date_ago = $m->fromNow()->getRelative();
+            if ( class_exists( 'Moment\Moment' ) ){
+              $m = new \Moment\Moment( $post_date );
+              $post_date_ago = $m->fromNow()->getRelative();
+            }
           ?>
             <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
           <?php }
