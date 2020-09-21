@@ -122,7 +122,6 @@ ul, ol{
 blockquote{
   /* Courtesy of css-tricks.com. */
   background: $background-ternary;
-  border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
 
@@ -142,6 +141,18 @@ blockquote{
       padding-right: 2em;
     }
   }
+
+  border-left: 1px solid $background-ternary;
+  border: 1px solid $background-ternary;
+
+  &:hover{
+    border: 1px solid #bdc6d2;
+    border-left: 1px solid #bdc6d2 !important;
+  }
+
+  &, &:hover{
+    transition: border-color 0.1s linear;
+  }  
 
   &:before {
     display: inline-block;

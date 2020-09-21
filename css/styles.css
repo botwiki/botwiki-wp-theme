@@ -549,11 +549,12 @@ ul, ol {
 blockquote {
   /* Courtesy of css-tricks.com. */
   background: #f5f8fb;
-  border-left: none !important;
   font-style: italic;
   margin: 4rem auto !important;
   padding: 4rem 1rem 2rem 1rem;
-  quotes: "“" "”" "‘" "’"; }
+  quotes: "“" "”" "‘" "’";
+  border-left: 1px solid #f5f8fb;
+  border: 1px solid #f5f8fb; }
   @media (max-width: 900px) {
     blockquote {
       margin: 2rem auto 1rem !important; } }
@@ -564,6 +565,13 @@ blockquote {
       .col-md-6 blockquote {
         padding-left: 2em;
         padding-right: 2em; } }
+  blockquote:hover {
+    border: 1px solid #bdc6d2;
+    border-left: 1px solid #bdc6d2 !important; }
+  blockquote, blockquote:hover {
+    -webkit-transition: border-color 0.1s linear;
+    -o-transition: border-color 0.1s linear;
+    transition: border-color 0.1s linear; }
   blockquote:before {
     display: inline-block;
     color: #bdc6d2;
