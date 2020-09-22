@@ -524,22 +524,20 @@ EOT;
 add_filter( 'style_loader_tag', 'css_add_rel_preload', 10, 4 );
 
 
-function enqueue_scripts_async( $tag, $handle, $src ) {
-  $excluded_scripts = array(
-    'jquery',
-    'jquery-core',
-    'jquery-migrate',
-    'bootstrap-js'
-  );
 
-  if ( is_admin() || in_array( $handle, $excluded_scripts ) ){
-    return $tag;
-  } else{
-    return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+function ftf_add_defer_attribute( $tag, $handle ) {
+  if ( !is_admin() ){
+    $ignore_scripts = array( 'jquery', 'jquery-core' );
+   
+    if ( !in_array( $handle, $ignore_scripts ) ){
+      return str_replace( ' src', ' defer="defer" src', $tag );
+    }
   }
+  return $tag;
 }
 
-add_filter( 'script_loader_tag', 'enqueue_scripts_async', 10, 3 );
+add_filter( 'script_loader_tag', 'ftf_add_defer_attribute', 10, 2 );
+
 
 function dequeue_jquery_migrate( $scripts ) {
     if ( ! is_admin() && ! empty( $scripts->registered['jquery'] ) ) {
