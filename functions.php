@@ -171,7 +171,7 @@ function load_social_media_embed_js(){
   if ( strpos( $html, 'twitter-tweet' ) !== false ){
     // Tweet embeds.
   ?>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <?php }
     if ( strpos( $html, 'mastodon-embed' ) !== false ){
       // Mastodon post embeds. Each domain needs its own script.
