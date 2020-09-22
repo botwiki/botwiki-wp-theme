@@ -200,10 +200,13 @@
     <meta name="theme-color" content="#38313a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Serif+Pro|Source+Code+Pro&display=swap' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Serif+Pro|Source+Code+Pro&display=swap' rel='stylesheet' type='text/css'>
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
+    -->
+    <?php include "fonts.php"; ?>
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
     <link href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
