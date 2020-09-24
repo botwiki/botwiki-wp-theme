@@ -5,7 +5,7 @@
 ?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
-			<h1 class="post-title"><?php echo sprintf( __( '%s Search Result(s) for ', 'botwiki' ), $wp_query->found_posts ); echo '<em>'. $search_query . '</em>'; ?></h1>
+			<h1 class="post-title"><?php echo sprintf( __( '%s Search Result(s) for ', 'botwiki' ), number_format( $wp_query->found_posts ) ); echo '<em>'. $search_query . '</em>'; ?></h1>
       <div class="post-content">
         <?php
    
