@@ -8,8 +8,8 @@
 			<h1 class="post-title"><?php echo sprintf( __( '%s Search Result(s) for ', 'botwiki' ), number_format( $wp_query->found_posts ) ); echo '<em>'. $search_query . '</em>'; ?></h1>
       <div class="post-content">
         <?php
-   
-         $possible_tags = explode( ' ', $search_query );
+
+          $possible_tags = explode( ' ', $search_query );
           $tags_html = array();
 
           get_search_form( true );
@@ -35,7 +35,7 @@
             }
           }
 
-          if ($tags_html){
+          if ( $tags_html ){
             echo '<p class="mt-5 mb-5 post-tags"><strong class="mr-3">Related tags:</strong>';
             echo( implode( '', $tags_html ) );
             echo '</p>';          
