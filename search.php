@@ -1,7 +1,7 @@
 <?php
   get_header();
   global $helpers;
-  $search_query = get_search_query();
+  $search_query = trim( get_search_query() );
 ?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
@@ -41,6 +41,9 @@
             echo '</p>';          
           }
           
+          if ( in_array( $search_query, [ 'twitter', 'twitter bot', 'twitterbot', 'twitter bots', 'twitterbots', 'tweet' ] ) ){ ?>
+            <p><a class="btn" href="/bots/twitterbots/">Browse Twitter bots</a></p>
+          <?php }
 
           get_template_part( 'loop' );
           get_template_part( 'pagination' );
