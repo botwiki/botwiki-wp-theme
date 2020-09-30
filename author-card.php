@@ -1,7 +1,7 @@
 <?php
   $profile_img_url = str_replace( '?s=96&', '?s=360&', $profile_img_url );
   function bw_render_author_links( $helpers, $options ){ ?>
-    <ul class="btn-list mt-2 mb-2">
+    <ul class="btn-list mt-4 mb-2">
       <?php if ( !is_author() ){ ?> 
         <li>
           <a class="btn mb-2" title="Botwiki profile page" rel="me" href="<?php echo $options['botwiki_profile_page_url']; ?>">View profile</a>
@@ -43,21 +43,13 @@ $author_info = array(
         </a>
         <p class="mt-3"><strong><?php echo $botwiki_team_role; ?></strong></p>
         <?php if ( !is_author() ){ bw_render_author_links( $helpers, $author_info ); } ?>
-      </div>
-      <div class="col-sm-12">
         <?php if ( is_author() ){
           if ( !empty( $description ) ){ ?> 
             <p><?php echo $description; ?></p>
+            <?php bw_render_author_links( $helpers, $author_info ); ?>
           <?php }
-        } ?>
-      </div>
-      <div class="col-sm-12">
-        <?php
-          if ( is_author() ){
-            bw_render_author_links( $helpers, $author_info );
-          }
-        ?>
-      </div>
+        } ?>        
+      </div>      
     </div>
   </div>
 </div>
