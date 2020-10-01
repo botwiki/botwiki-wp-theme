@@ -145,7 +145,7 @@
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_search() ) {
-        $page_title = 'Searching Botwiki for "' . $_GET['s'] . '"...';
+        $page_title = 'Searching Botwiki for "' . esc_html( $_GET['s'] ) . '"...';
       }
       elseif ( is_home()) {
         $page_title = 'Latest posts from our blog';
