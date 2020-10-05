@@ -82,6 +82,12 @@ class BW_Helpers {
       mkdir( ABSPATH . 'temp/' , 0777, true );
     }
 
+    log_this( 'make_screenshot', array(
+      'options' => $options,
+      'image_path' => $image_path,
+      'api_url' => $api_url
+    ) );
+
     file_put_contents( $image_path, file_get_contents( $api_url ) );
 
     // log_this( array(
