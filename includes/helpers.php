@@ -88,7 +88,13 @@ class BW_Helpers {
       'api_url' => $api_url
     ) );
 
-    file_put_contents( $image_path, file_get_contents( $api_url ) );
+    $ctx = stream_context_create( array( 'http' =>
+        array(
+            'timeout' => 60
+        )
+    ) );
+
+    file_put_contents( $image_path, file_get_contents( $api_url, false, $ctx ) );
 
     // log_this( array(
     //   '$page_screenshot' => $page_screenshot,
