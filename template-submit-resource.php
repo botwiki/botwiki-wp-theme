@@ -411,8 +411,8 @@
         </article>
       </div>
     </main>
-    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/js/select2.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
+    <script defer="defer" type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/js/select2.min.js"></script>
+    <script defer="defer" type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>
 <?php get_footer(); ?>
