@@ -33,8 +33,8 @@ $author_info = array(
     <div class="row">
       <div class="col-sm-12 col-md-2 text-center text-md-left">
         <a title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">
-          <img class="d-lg-none d-sm-block d-md-none lazy-load mt-3 mb-5 u-photo rounded w-50" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
-          <img class="d-none d-md-block d-lg-block lazy-load mb-4 u-photo rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
+          <img loading="lazy" class="d-lg-none d-sm-block d-md-none lazy-load mt-3 mb-5 u-photo rounded w-50" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
+          <img loading="lazy" class="d-none d-md-block d-lg-block lazy-load mb-4 u-photo rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
         </a>
       </div>
       <div class="col-sm-12 col-md-10">
