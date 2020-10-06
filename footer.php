@@ -172,6 +172,18 @@
     <?php wp_footer(); ?>
     <script type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/js/select2.min.js"></script>    
     <!-- analytics -->
-    <script type="text/javascript">var sc_project=10530872;var sc_invisible=1;var sc_security="b852d106";var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www."); document.write("<sc"+"ript type='text/javascript' src='"+scJsHost+"statcounter.com/counter/counter.js'></"+"script>");</script><noscript><div class="statcounter"><a title="hit counter" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/10530872/0/b852d106/1/" alt="hit counter"></a></div></noscript>
+    <script type="text/javascript">
+    var sc_project=10530872; 
+    var sc_invisible=1; 
+    var sc_security="b852d106"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/10530872/0/b852d106/1/"
+    alt="Web Analytics"></a></div></noscript>
   </body>
 </html>
