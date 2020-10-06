@@ -226,18 +226,18 @@ body:not( .home-page ){
 
   }
 
-  li{
-    // text-transform: uppercase;
-    transform: translateY(-55%);
-    opacity: 0;
-    transition: transform 0.4s, opacity 0.3s;  
-  }
+  // li{
+  //   // text-transform: uppercase;
+  //   transform: translateY(-55%);
+  //   opacity: 0;
+  //   transition: transform 0.4s, opacity 0.3s;  
+  // }
 
-  @for $i from 0 to 10 {
-    li:nth-child(#{$i+1}) {
-      transition-delay: #{$i*0.05}s;
-    }
-  }
+  // @for $i from 0 to 10 {
+  //   li:nth-child(#{$i+1}) {
+  //     transition-delay: #{$i*0.05}s;
+  //   }
+  // }
 
   .row{
     align-self: flex-start;
