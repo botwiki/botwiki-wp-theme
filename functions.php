@@ -587,6 +587,13 @@ function save_hide_featured_image_option( $post_id ){
   }
 }
 
+add_filter( 'the_content', 'add_lazy_loading_img_attr' );
+
+function add_lazy_loading_img_attr( $content ){
+    $content = str_replace( '<img', '<img loading="lazy"', $content );
+    return $content;
+}
+
 /*
     Helper dev functions.
 */
