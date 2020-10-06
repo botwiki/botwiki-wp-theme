@@ -208,7 +208,7 @@
     -->
     <?php include "fonts.php"; ?>
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
-    <noscript><link href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'></noscript>
+    <link href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
