@@ -189,7 +189,6 @@ body:not(.home-page) #menu-wrapper {
     transition: transform 0.5s, opacity 0.1s;
     transition: transform 0.5s, opacity 0.1s, -webkit-transform 0.5s; }
   #menu-wrapper li {
-    text-transform: uppercase;
     -webkit-transform: translateY(-55%);
         -ms-transform: translateY(-55%);
             transform: translateY(-55%);

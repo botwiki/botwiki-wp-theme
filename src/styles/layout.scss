@@ -227,7 +227,7 @@ body:not( .home-page ){
   }
 
   li{
-    text-transform: uppercase;
+    // text-transform: uppercase;
     transform: translateY(-55%);
     opacity: 0;
     transition: transform 0.4s, opacity 0.3s;  
