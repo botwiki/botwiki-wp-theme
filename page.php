@@ -94,7 +94,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-3 list-item">
                     <div class="card w-100">
                       <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
-                        <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>"  data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
+                        <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>"  data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
                       </a>
                       <div class="card-body">
                         <h5 class="card-title">

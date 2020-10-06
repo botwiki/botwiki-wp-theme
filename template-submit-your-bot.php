@@ -342,7 +342,7 @@
                     <div class="row">
                       <div class="col-sm-2">
                         <a href="<?php echo $botwiki_profile_page_url; ?>">
-                          <img class="lazy-load img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>">
+                          <img loading="lazy" class="lazy-load img-thumbnail" style="width: 100%; height: 100%; max-width: 100px; max-height: 100px;" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>">
                         </a>
                       </div>
                       <div class="col-sm-10">

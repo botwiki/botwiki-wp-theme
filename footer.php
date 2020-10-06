@@ -26,16 +26,16 @@
         <div class="container-fluid pl-5 pr-5 mb-5 pb-5">
           <div class="row m-0 p-0 mb-5">
             <div class="col-sm-4 justify-content-center align-self-center">
-              <img class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/01/D-An1_cXUAE2gBb.png" data-src="https://botwiki.org/wp-content/uploads/2020/01/D-An1_cXUAE2gBb.png">
+              <img loading="lazy" class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/01/D-An1_cXUAE2gBb.png" data-src="https://botwiki.org/wp-content/uploads/2020/01/D-An1_cXUAE2gBb.png">
             </div>
             <div class="col-sm-2 justify-content-center align-self-center">
-              <img class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/01/EPZDAxdW4AA89as.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/01/EPZDAxdW4AA89as.jpeg">
+              <img loading="lazy" class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/01/EPZDAxdW4AA89as.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/01/EPZDAxdW4AA89as.jpeg">
             </div>
             <div class="col-sm-4 justify-content-center align-self-center">
-              <img class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/02/ECgJCClVUAAyS1u-scaled.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/02/ECgJCClVUAAyS1u-scaled.jpeg">
+              <img loading="lazy" class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/02/ECgJCClVUAAyS1u-scaled.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/02/ECgJCClVUAAyS1u-scaled.jpeg">
             </div>
             <div class="col-sm-2 justify-content-center align-self-center">
-              <img class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/07/perpetualsoaps-01.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/07/perpetualsoaps-01.jpeg">
+              <img loading="lazy" class="lazy-load" src="https://botwiki.org/wp-content/uploads/2020/07/perpetualsoaps-01.jpeg" data-src="https://botwiki.org/wp-content/uploads/2020/07/perpetualsoaps-01.jpeg">
             </div>
           </div>
         </div>

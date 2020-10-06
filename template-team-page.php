@@ -94,7 +94,7 @@
               <div class="col-sm-6 col-md-3 list-item">
                 <div class="card w-100">
                   <a href="<?php echo get_author_posts_url( $author_id, $username ); ?>">
-                    <img class="lazy-load card-img-top" src="<?php echo $avatar_url; ?>" data-src="<?php echo $avatar_url; ?>" alt="<?php echo $full_name; ?>">
+                    <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $avatar_url; ?>" data-src="<?php echo $avatar_url; ?>" alt="<?php echo $full_name; ?>">
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">
@@ -161,7 +161,7 @@
                 ?>
               <div class="col-xs-6 col-s-2 m-2 text-center">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                  <img class="lazy-load rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
+                  <img loading="lazy" class="lazy-load rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
                 </a>
               </div>
               <?php }

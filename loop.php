@@ -21,7 +21,7 @@
                 $post_thumbnail_url = get_the_post_thumbnail_url( $post->ID, 'medium' );
                 $post_thumbnail_url_full = get_the_post_thumbnail_url( $post->ID );
               ?>
-              <img class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
+              <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
             </a>
           <?php } ?>
           <div class="card-body" id="post-<?php the_ID(); ?>">

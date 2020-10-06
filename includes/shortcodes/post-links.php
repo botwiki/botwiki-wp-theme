@@ -190,7 +190,7 @@ class Post_Links {
         $link_list_html .= '<div class="col-sm-12 col-md-6 col-lg-4 list-item">' .
                            '  <div class="card w-100">' .
                            '    <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
-                           '      <img class="lazy-load" src="' . $link_thumbnail_url . '" data-src="' . $link_thumbnail_url . '">' .
+                           '      <img loading="lazy" class="lazy-load" src="' . $link_thumbnail_url . '" data-src="' . $link_thumbnail_url . '">' .
                            '    </a>' .
                            '    <div class="card-body">' .
                            '      <h5 class="card-title">' .
