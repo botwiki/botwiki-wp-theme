@@ -168,11 +168,7 @@
           </div>
         </div>
       </footer>
-      <!-- /footer -->
-    <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
-    <link href='<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/css/select2.min.css' rel='stylesheet' type='text/css'>
-    <?php wp_footer(); ?>
-    <script defer="defer" type="text/javascript" src="<?php bloginfo('template_directory') ?>/libs/select2/4.0.10/js/select2.min.js"></script>    
+    <!-- /footer -->    
     <!-- analytics -->
     <script type="text/javascript">
     var sc_project=10530872; 

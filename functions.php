@@ -210,18 +210,37 @@ function load_mastodon_js(){
   <?php }
 }
 
-function load_highlight_js(){
+function load_js_libraries(){
   global $post;
 
   if ( strpos( get_post_field( 'post_content', $post->ID ), '<code' ) !== false ){
     wp_register_style( 'highlight-monokai-sublime', get_template_directory_uri() . '/libs/highlight.js/styles/monokai-sublime.css' );
     wp_enqueue_style( 'highlight-monokai-sublime' );
-    wp_register_script( 'highlight', get_template_directory_uri() . '/libs/highlight.js/highlight.pack.js', array( 'jquery' ));
+    wp_register_script( 'highlight', get_template_directory_uri() . '/libs/highlight.js/highlight.pack.js', array( 'jquery' ) );
     wp_enqueue_script( 'highlight' );
   }
+
+  $js_file_path = get_template_directory() . '/libs/select2/4.0.10/js/select2.min.js';
+
+  wp_register_script( 'select2-js', get_template_directory_uri() . '/libs/select2/4.0.10/js/select2.min.js', array( 'jquery' ), filemtime( $js_file_path ) );
+  wp_enqueue_script( 'select2-js' );
+
+
+  $js_file_path = get_template_directory() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js';
+
+  wp_register_script( 'medium-editor-js', get_template_directory_uri() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js', array( 'jquery' ), filemtime( $js_file_path ) );
+  wp_enqueue_script( 'medium-editor-js' );
+
+
+
 }
 
 function load_styles(){
+  $css_file_path = get_stylesheet_directory() . '/libs/select2/4.0.10/css/select2.min.css';
+
+  wp_register_style( 'select2-styles', get_template_directory_uri() . '/libs/select2/4.0.10/css/select2.min.css', array(), filemtime( $css_file_path ), 'all' );
+  wp_enqueue_style( 'select2-styles' );
+
   $css_file_path = get_stylesheet_directory() . '/libs/bootstrap/bootstrap.min.css';
 
   wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.css', array(), filemtime( $css_file_path ), 'all' );
@@ -427,7 +446,7 @@ add_action( 'init', 'html5blank_header_scripts' );
 add_action( 'wp_enqueue_scripts', 'load_styles' );
 add_action( 'wp_enqueue_scripts', 'load_social_media_embed_js' );
 add_action( 'wp_enqueue_scripts', 'load_mastodon_js' );
-add_action( 'wp_enqueue_scripts', 'load_highlight_js' );
+add_action( 'wp_enqueue_scripts', 'load_js_libraries' );
 add_action( 'admin_enqueue_scripts', 'load_admin_js_styles' );
 add_action( 'init', 'register_site_menu' );
 add_action( 'widgets_init', 'my_remove_recent_comments_style' );
