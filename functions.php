@@ -354,8 +354,8 @@ function botwiki_site_pagination( $wp_query = null, $echo = true, $params = [] )
     'end_size'     => 3,
     'mid_size'     => 1,
     'prev_next'    => true,
-    'prev_text'    => __( '« Prev' ),
-    'next_text'    => __( 'Next »' ),
+    'prev_text'    => __( '«<span class="d-none d-md-inline d-lg-inline"> Prev</span>' ),
+    'next_text'    => __( '<span class="d-none d-md-inline d-lg-inline">Next </span>»' ),
     'add_args'     => $add_args,
     'add_fragment' => ''
   ), $params ) );
