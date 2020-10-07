@@ -136,34 +136,24 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid pt-0 pb-1 pl-0 pr-0 background-fff">
-          <div class="container">
-            <div class="row mx-auto" style="max-width: 640px !important;">
-              <div class="col-12 pt-4 pb-3">
-                <div class="row align-items-center mt-3 mb-5 pb-5">
-                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
-                    <p class="text-center">
-                      <a href="https://fightfascism.glitch.me/">
-                        <img loading="lazy" class="lazy-load" alt="Fight Fascism" title="Fight fascism! Sticker by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism-block.jpg">
-                      </a>
-                    </p>              
-                  </div>
-                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
-                    <p class="text-center">
-                      <a href="https://blacklivesmatter.com/">
-                        <img loading="lazy" class="lazy-load" alt="Black Lives Matter" title="Black Lives Matter logo" src="<?php echo get_template_directory_uri(); ?>/images/other/blm.jpg" data-src="<?php echo get_template_directory_uri(); ?>/images/other/blm.jpg">
-                      </a>
-                    </p>              
-                  </div>
-                  <div class="col-sm-6 col-md-3 mx-auto mt-5">
-                    <p class="text-center">
-                      <a href="https://indieweb.org/">
-                        <img loading="lazy" class="lazy-load" alt="IndieWeb" title="Support #indieweb!" src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png" data-src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp.png">
-                      </a>
-                    </p>              
-                  </div>
-                </div>
-              </div>
+        <div class="container border-top mb-5 pb-3">
+          <div class="row align-items-center mx-auto mt-5 mb-5">
+            <div class="col-sm-12 mx-auto mt-4 text-center">
+              <p class="d-inline text-center">
+                <a href="https://fightfascism.glitch.me/">
+                  <img loading="lazy" class="m-2 lazy-load" alt="Fight Fascism" title="Fight fascism! Design by Angus Johnston" src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism-square.png" data-src="<?php echo get_template_directory_uri(); ?>/images/other/fight-fascism-square.png">
+                </a>
+              </p>
+              <p class="d-inline text-center">
+                <a href="https://blacklivesmatter.com/">
+                  <img loading="lazy" class="m-2 lazy-load" alt="Black Lives Matter" title="Black Lives Matter logo" src="<?php echo get_template_directory_uri(); ?>/images/other/blm.png" data-src="<?php echo get_template_directory_uri(); ?>/images/other/blm.png">
+                </a>
+              </p>
+              <p class="d-inline text-center">
+                <a href="https://indieweb.org/">
+                  <img loading="lazy" class="m-2 lazy-load" alt="IndieWeb" title="Support #indieweb!" src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp-black.png" data-src="<?php echo get_template_directory_uri(); ?>/images/other/indiewebcamp-black.png">
+                </a>
+              </p>              
             </div>
           </div>
         </div>
