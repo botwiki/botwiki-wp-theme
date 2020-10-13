@@ -173,5 +173,6 @@
     class="statcounter"
     src="https://c.statcounter.com/10530872/0/b852d106/1/"
     alt="Web Analytics"></a></div></noscript>
+    <?php wp_footer(); ?>.
   </body>
 </html>
