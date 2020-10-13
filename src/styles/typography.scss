@@ -125,9 +125,9 @@ blockquote{
   font-style: italic;
   margin: 4rem auto !important;
 
-  @media (max-width: $site-width-medium){
-    margin: 2rem auto 1rem !important;
-  }
+  // @media (max-width: $site-width-medium){
+  //   margin: 2rem auto 1rem !important;
+  // }
 
   padding: 4rem 1rem 2rem 1rem;
   quotes: "\201C""\201D""\2018""\2019";

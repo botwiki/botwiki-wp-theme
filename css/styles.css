@@ -504,9 +504,6 @@ blockquote {
   quotes: "“" "”" "‘" "’";
   border-left: 1px solid #f5f8fb;
   border: 1px solid #f5f8fb; }
-  @media (max-width: 900px) {
-    blockquote {
-      margin: 2rem auto 1rem !important; } }
   .col-md-6 blockquote {
     padding-left: 1em;
     padding-right: 1em; }
