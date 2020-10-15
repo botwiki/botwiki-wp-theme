@@ -41,7 +41,10 @@ $author_info = array(
         <a class="no-underline" title="Botwiki profile page" rel="me" href="<?php echo $botwiki_profile_page_url; ?>">
           <h3 class="mt-0 mb-3 d-inline"><?php echo $nickname; ?></h3>
         </a>
+        <?php if ( !is_author() ){ ?>
         <p class="mt-3"><strong><?php echo $botwiki_team_role; ?></strong></p>
+        <?php } ?>
+
         <?php if ( !is_author() ){ bw_render_author_links( $helpers, $author_info ); } ?>
         <?php if ( is_author() ){
           if ( !empty( $description ) ){ ?> 
