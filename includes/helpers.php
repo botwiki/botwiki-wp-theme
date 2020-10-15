@@ -90,7 +90,7 @@ class BW_Helpers {
 
     $ctx = stream_context_create( array( 'http' =>
         array(
-            'timeout' => 60
+            'timeout' => 120
         )
     ) );
 
