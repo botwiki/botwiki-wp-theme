@@ -398,12 +398,18 @@
             foreach ( $related_bots as $related_bot ) {
               $post_thumbnail_url = get_the_post_thumbnail_url( $related_bot->ID, 'medium' );
               $post_thumbnail_url_full = get_the_post_thumbnail_url( $related_bot->ID );
+              $dominant_color  = get_post_meta( $related_bot->ID, 'dominant_color', true );
+              $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+              $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+
               ?>
               <div class="col-sm-6 col-md-6 col-lg-3 list-item">
                 <div class="card w-100">
-                  <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
-                    <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
-                  </a>
+                  <div style="<?php echo $dominant_color_css; ?>">
+                    <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
+                      <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url;  ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
+                    </a>
+                  </div>
                   <div class="card-body">
                     <h5 class="card-title">
                       <a href="<?php echo get_permalink( $related_bot->ID ); ?>"><?php echo $related_bot->post_title; ?></a>  
