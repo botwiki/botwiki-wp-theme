@@ -25,7 +25,7 @@
             $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
             $dominant_color_css = str_replace(']', ')', $dominant_color_css);
           ?>
-            <div style="<?php echo $dominant_color_css; ?>">
+            <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
               <a href="<?php echo $link_url; ?>" title="<?php  get_the_title(); ?>"> 
                 <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full;  ?>" alt="<?php echo $related_bot->post_title; ?>">
               </a>
