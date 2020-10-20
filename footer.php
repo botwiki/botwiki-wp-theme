@@ -115,7 +115,7 @@
                       <li class="list-header">Support us</li>
                       <li><a href="<?php echo site_url(); ?>/about/support-us">Support us</a></li>
                       <li><a href="https://www.patreon.com/botwiki">Patreon</a></li>
-                      <li><a href="https://www.paypal.me/botwiki">PayPal</a></li>
+                      <li><a href="https://www.paypal.me/stefanbohacek">PayPal</a></li>
                       <!-- <li><a href="<?php //echo site_url(); ?>/merch">Botwiki Store</a></li> -->
                       <li><a href="<?php echo site_url(); ?>/about/supporters">Our supporters</a></li>
                     </ul>                
