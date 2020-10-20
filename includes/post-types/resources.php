@@ -194,7 +194,7 @@ class ResourcesPostType {
       ?>
       <div class="notice <?php echo ($botmaker_badge_awarded ? "notice-info" : "notice-warning"); ?> inline">
         <p>
-          <a href="https://badgr.io/issuer/issuers/eZTK4xC2T6GCmKFZvTRHKg/badges/t93HNcivRduXM8dekI2FIg/issue" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_resource_author_emails; ?></code>.
+          <a href="https://badgr.com/issuers/5e1fd98146e0fb003395f0b4/badges/5e1fe34146e0fb0035a130e0/award" target="_blank">Award bot teacher badge</a> to <code><?php echo $bot_resource_author_emails; ?></code>.
         </p>
         <p>
           <label>
