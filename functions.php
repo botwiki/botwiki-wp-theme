@@ -649,3 +649,29 @@ function log_this( $title, $data = false ){
   }
   error_log( str_pad( "", $border_length_bottom, $border_char ) . "\n" );
 }
+
+function bw_add_robotstxt( $robots ){
+  $resources = get_posts( array( 
+    'posts_per_page' => -1,
+    'post_type' => 'resource',
+    'post_status' => 'publish'
+  ) );
+
+  $disallow_urls = implode( array_map( function( $post ){
+    $resource_url = get_post_meta( $post->ID, 'resource_url', true );
+
+    if ( !empty( $resource_url ) ){
+      $permalink = get_permalink( $post->ID );
+      return "Disallow: " . $permalink . "\n";
+    } else {
+      return '';      
+    }
+  }, $resources ) );
+
+  echo <<<ROBOTS
+User-agent: *
+{$disallow_urls}
+ROBOTS;  
+}
+
+add_action( 'do_robotstxt', 'bw_add_robotstxt', PHP_INT_MAX );
