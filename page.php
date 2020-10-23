@@ -113,7 +113,7 @@
                   </div>
                 <?php } ?>
                 </div>
-                <p><a class="btn" href="/blog/">Visit the blog</a></p>
+                <p><a class="btn" href="/projects/">Browse all</a></p>
             <?php } ?>
             <?php if ( !is_front_page() ){ ?>
                 <h3 id="blog">Latest from the blog</h3>
