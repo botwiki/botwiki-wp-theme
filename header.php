@@ -206,6 +206,18 @@
     <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
     -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "<?php echo $page_title ?>",
+      "image": [
+        "<?php echo $page_thumbnail; ?>",
+       ],
+      "datePublished": "<?php echo get_the_date(); ?>",
+      "dateModified": "<?php echo get_the_modified_date(); ?>"
+    }
+    </script>
     <?php include "fonts.php"; ?>
     <?php wp_head(); ?>
   </head>
