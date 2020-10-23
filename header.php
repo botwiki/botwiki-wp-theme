@@ -212,7 +212,7 @@
       "@type": "NewsArticle",
       "headline": "<?php echo $page_title ?>",
       "image": [
-        "<?php echo $page_thumbnail; ?>",
+        "<?php echo $page_thumbnail; ?>"
        ],
       "datePublished": "<?php echo get_the_date(); ?>",
       "dateModified": "<?php echo get_the_modified_date(); ?>"
