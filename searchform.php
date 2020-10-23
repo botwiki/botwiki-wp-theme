@@ -9,7 +9,7 @@
     <div class="container mt-3 pl-0 pr-0 text-left">
       <div class="row w-100 pl-1 pr-1">
         <div class="col-sm-12 mt-2 pl-0 pr-0">
-          <input itemprop="query" required pattern="\s*(\S\s*){2,}" title="What would you like to search for?" id="search-input" class="form-control mt-3 mb-3 mr-sm-2" type="search" name="s" placeholder="<?php _e( 'Search...', 'botwiki' ); ?>" aria-label="Search" value="<?php echo get_search_query(); ?>">
+          <input itemprop="query-input" required pattern="\s*(\S\s*){2,}" title="What would you like to search for?" id="search-input" class="form-control mt-3 mb-3 mr-sm-2" type="search" name="s" placeholder="<?php _e( 'Search...', 'botwiki' ); ?>" aria-label="Search" value="<?php echo get_search_query(); ?>">
         </div>
       </div>
     </div>  
