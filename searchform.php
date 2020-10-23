@@ -1,14 +1,15 @@
 <div itemscope itemtype="https://schema.org/WebSite">
+  <link itemprop="url" href="https://botwiki.org/"/>
   <form class="search-form<?php
   if ( is_search() ){
     echo ' pl-3 pr-3 ';
   }
   ?>" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" class="form mt-5 mt-md-0 mb-5 text-right pr-0 w-100" method="get" action="<?php echo home_url(); ?>" role="search">
-    <meta itemprop="target" content="https://botwiki.org/?s={search_term_string}"/>
+    <meta itemprop="target" content="https://botwiki.org/?s={query}"/>
     <div class="container mt-3 pl-0 pr-0 text-left">
       <div class="row w-100 pl-1 pr-1">
         <div class="col-sm-12 mt-2 pl-0 pr-0">
-          <input required pattern="\s*(\S\s*){2,}" title="What would you like to search for?" itemprop="query-input" id="search-input" class="form-control mt-3 mb-3 mr-sm-2" type="search" name="s" placeholder="<?php _e( 'Search...', 'botwiki' ); ?>" aria-label="Search" value="<?php echo get_search_query(); ?>">
+          <input itemprop="query" required pattern="\s*(\S\s*){2,}" title="What would you like to search for?" id="search-input" class="form-control mt-3 mb-3 mr-sm-2" type="search" name="s" placeholder="<?php _e( 'Search...', 'botwiki' ); ?>" aria-label="Search" value="<?php echo get_search_query(); ?>">
         </div>
       </div>
     </div>  
