@@ -5,7 +5,7 @@
     echo ' pl-3 pr-3 ';
   }
   ?>" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" class="form mt-5 mt-md-0 mb-5 text-right pr-0 w-100" method="get" action="<?php echo home_url(); ?>" role="search">
-    <meta itemprop="target" content="https://botwiki.org/?s={query}"/>
+    <meta itemprop="target" content="https://botwiki.org/?s={query-input}"/>
     <div class="container mt-3 pl-0 pr-0 text-left">
       <div class="row w-100 pl-1 pr-1">
         <div class="col-sm-12 mt-2 pl-0 pr-0">
