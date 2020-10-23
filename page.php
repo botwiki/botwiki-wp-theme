@@ -75,6 +75,46 @@
                       </div> 
                 <?php }
             ?>
+            <?php if ( get_post_field( 'post_name', wp_get_post_parent_id( $post_id ) ) === 'projects' ){ ?>
+                <h3 id="more-projects">More projects</h3>
+                <div id="more-projects-wrapper" class="row list">
+                <?php
+
+                $latest_projects = get_children( array(
+                  'post_parent' => wp_get_post_parent_id( $post_id ),
+                  'posts_per_page' => 4,
+                  'exclude' => array( $post_id ),            
+                  'post_type' => 'page',
+                  'post_status' => 'publish'
+                 ) );
+
+                foreach ( $latest_projects as $project ) {
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $project->ID, 'medium' );
+                    $post_thumbnail_url_full = get_the_post_thumbnail_url( $project->ID );
+                    $dominant_color  = get_post_meta( $project->ID, 'dominant_color', true );
+                    $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+                    $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+
+                  ?>
+                  <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                    <div class="card w-100">
+                      <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
+                        <a href="<?php echo get_permalink( $project->ID ); ?>">
+                          <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>"  data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <a href="<?php echo get_permalink( $project->ID ); ?>"><?php echo $project->post_title; ?></a>  
+                        </h5>
+                        <p class="card-text"><?php echo $project->post_excerpt; ?></p>
+                      </div>
+                    </div>
+                  </div>
+                <?php } ?>
+                </div>
+                <p><a class="btn" href="/blog/">Visit the blog</a></p>
+            <?php } ?>
             <?php if ( !is_front_page() ){ ?>
                 <h3 id="blog">Latest from the blog</h3>
                 <div id="blog-latest-wrapper" class="row list">
