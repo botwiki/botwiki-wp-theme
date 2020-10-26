@@ -25,8 +25,8 @@ $(function() {
                 if ( data ){
                     let text = data.full_text,
                         entities = null,
-                        renderedTweetHTML = `<div class="card">
-                            <div class="card-body pt-4">
+                        renderedTweetHTML = `<div class="card h-100">
+                            <div class="card-body pt-5">
                                 <div class="card-text">
                                 <p>
                                     <a href="https://twitter.com/${ data.user.screen_name }"><img class="rounded-circle" style="width: 48px; height: 48px" src="${ data.user.profile_image_url_https }"></a>
@@ -98,11 +98,12 @@ $(function() {
                     const tweetDate = new Date( data.created_at ).toLocaleDateString( navigator.language, { month: 'long', year: 'numeric', day: 'numeric' } );
 
                     renderedTweetHTML += text + `</p>
-                            <p class="mt-5 text-muted">
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
                                 🔁 <a href="${ url }" target="_blank">${ data.retweet_count }</a> |
                                 ❤️ <a href="${ url }" target="_blank">${ data.favorite_count }</a> |
                                 <a href="${ url }" target="_blank">${ tweetDate }</a>
-                            </div>
                         </div>
                     </div>`;
                     
