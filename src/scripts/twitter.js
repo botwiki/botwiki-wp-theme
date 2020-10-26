@@ -26,7 +26,7 @@ $(function() {
                     let text = data.full_text,
                         entities = null,
                         renderedTweetHTML = `<div class="card h-100">
-                            <div class="card-body pt-5">
+                            <div class="card-body pt-4">
                                 <div class="card-text">
                                 <p>
                                     <a href="https://twitter.com/${ data.user.screen_name }"><img class="rounded-circle" style="width: 48px; height: 48px" src="${ data.user.profile_image_url_https }"></a>
