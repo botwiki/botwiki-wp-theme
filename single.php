@@ -170,7 +170,9 @@
             $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
             ?>
             <div class="row social-embeds">
-            <?php foreach ( $bot_tweets_html as $tweet_html ) { ?>
+            <?php foreach ( $bot_tweets_html as $tweet_html ) {
+              $tweet_html = str_replace( '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', '', $tweet_html );
+              ?>
               <div class="col-sm-12 col-md-6">
                 <?php
                 if ( strpos( $tweet_html, 'twitter-tweet' ) !== false ){
