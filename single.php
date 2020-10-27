@@ -273,7 +273,7 @@
               <div class="row list">
               <?php
               foreach ( $coauthors as $coauthor ) { ?>
-                <div class="col-sm-12 col-md-12 col-lg-6 list-item">
+                <div class="col-sm-12 col-md-12 col-lg-<?php echo count( $coauthors ) === 1 ? '12' : '6'; ?> list-item">
                   <?php
                   $author_id = $coauthor->data->ID;
                   if ( $author_id != 2 ){
