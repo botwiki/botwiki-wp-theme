@@ -108,7 +108,7 @@ $(function() {
                     </div>`;
                     
                     let renderedTweet = document.createElement( 'div' );
-                    renderedTweet.className = 'twitter-tweet twitter-tweet-rendered'
+                    renderedTweet.className = 'twitter-tweet twitter-tweet-rendered w-100'
                     renderedTweet.innerHTML = renderedTweetHTML;
                     tweet.parentNode.replaceChild( renderedTweet, tweet );
                     console.log( renderedTweet, entities, data );
