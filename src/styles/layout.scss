@@ -522,3 +522,12 @@ video {
 .hljs{
   padding: 1em !important;
 }
+
+.twitter-tweet.twitter-tweet-rendered{
+  .card{
+    img {
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
