@@ -25,7 +25,7 @@ $(function() {
                 if ( data ){
                     let text = data.full_text,
                         entities = null,
-                        renderedTweetHTML = `<div class="card h-100">
+                        renderedTweetHTML = `<div class="card h-100 w-100">
                             <div class="card-body pt-4">
                                 <div class="card-text">
                                 <p>
