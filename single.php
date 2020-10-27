@@ -361,9 +361,6 @@
         </div>
         <?php
         if ( $post_type === 'bot' ) { ?>
-          <?php
-            include( locate_template( 'support-botwiki.php', false, false ) );
-          ?>
           <div class="container">
             <h3 id="related-bots">More bots</h3>
             <div id="related-bots-wrapper" class="row list">
@@ -470,6 +467,9 @@
             <p><a class="btn" href="/blog/">Visit the blog</a></p>
             <!-- /post details -->
           </div>
+          <?php
+            include( locate_template( 'support-botwiki.php', false, false ) );
+          ?>          
         <?php } ?>
     </div>
 
