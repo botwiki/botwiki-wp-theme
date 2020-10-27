@@ -467,12 +467,14 @@
             <p><a class="btn" href="/blog/">Visit the blog</a></p>
             <!-- /post details -->
           </div>
-          <?php
-            include( locate_template( 'support-botwiki.php', false, false ) );
-          ?>          
+
         <?php } ?>
     </div>
-
+    <div class="container">
+      <?php
+        include( locate_template( 'support-botwiki.php', false, false ) );
+      ?>          
+    </div>
   <?php endwhile; ?>
 
   <?php else: ?>

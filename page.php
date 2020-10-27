@@ -152,11 +152,18 @@
                   </div>
                 <?php } ?>
                 </div>
-                <p><a class="btn" href="/blog/">Visit the blog</a></p>
+                <p><a class="btn" href="/blog/">Visit the blog</a></p>                
             <?php } ?>
         </article>
         <!-- /article -->
+        <?php if ( !is_front_page() ){ ?>
+          <div class="ml-n3 mr-n3">
+            <?php
+              include( locate_template( 'support-botwiki.php', false, false ) );
+            ?>          
+          </div>
         <?php } ?>
+      <?php } ?>
 	<?php endwhile; ?>
 	<?php else: ?>
 		<!-- article -->
