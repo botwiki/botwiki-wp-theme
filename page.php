@@ -156,13 +156,9 @@
             <?php } ?>
         </article>
         <!-- /article -->
-        <?php if ( !is_front_page() ){ ?>
-          <div class="ml-n3 mr-n3">
-            <?php
+        <?php if ( !is_front_page() ){
               include( locate_template( 'support-botwiki.php', false, false ) );
-            ?>          
-          </div>
-        <?php } ?>
+        } ?>
       <?php } ?>
 	<?php endwhile; ?>
 	<?php else: ?>

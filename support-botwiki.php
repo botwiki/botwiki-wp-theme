@@ -1,8 +1,4 @@
-<div id="botwiki-support-prompt" class="container <?php
-  if ( is_archive() ){
-    echo 'pl-0 pr-0';
-  }
-?>">
+<div id="botwiki-support-prompt" class="container pl-0 pr-0">
   <div class="card mt-lg-4 mb-4 pl-0 pr-0">
     <div class="card-body mt-4">
       <div class="row">
