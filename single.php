@@ -472,7 +472,9 @@
     </div>
     <div class="container">
       <?php
-        include( locate_template( 'support-botwiki.php', false, false ) );
+        if ( $post_type === 'post' ||  $post_type === 'bot' ) {
+          include( locate_template( 'support-botwiki.php', false, false ) );
+        }
       ?>          
     </div>
   <?php endwhile; ?>
