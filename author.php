@@ -58,14 +58,14 @@
   $background_img_dominant_color_css = str_replace(']', ')', $background_img_dominant_color_css);
 
   if ( !empty( $background_img_url ) ){ ?>
-		<div class="thumbnail-wrapper" style="<?php echo $background_img_dominant_color_css; ?>">
+		<div class="thumbnail-wrapper mb-n5" style="<?php echo $background_img_dominant_color_css; ?>">
 			<img src="<?php echo $background_img_url; ?>" data-src="<?php echo $background_img_url; ?>" class="lazy-load expand-image">
 		</div>
   <?php }
 ?>
 
-	<main role="main" class="container post-content">
-    <div class="mt-5">
+	<main role="main" class="container post-content mt-n5">
+    <div class="mt-n5">
       <?php
         include( locate_template( 'author-card.php', false, false ) );
       ?>
