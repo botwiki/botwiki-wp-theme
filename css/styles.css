@@ -581,8 +581,6 @@ body.page-template-template-submit-your-bot blockquote {
 
 .twitter-tweet.twitter-tweet-rendered {
   margin: 2em auto !important; }
-  .twitter-tweet.twitter-tweet-rendered .card {
-    height: 100%; }
 
 .fb-post.fb_iframe_widget span {
   max-width: 100% !important;
