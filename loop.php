@@ -1,4 +1,4 @@
-<div class="mt-5">
+<div class="mt-5 mb-5">
   <div class="row list">
     <?php if ( have_posts() ): while ( have_posts() ) : the_post();
       $post_id = get_the_ID();
