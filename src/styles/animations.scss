@@ -10,7 +10,7 @@
 
 .lazy-load,
 .lazy-loaded{
-  transition: transform 0.2s, opacity 0.3s ease-out;
+  transition: transform 0.15s, opacity 0.2s ease-out;
 }
 
 
@@ -19,17 +19,17 @@
 }
 
 .unshifted {
-  transition: transform 0.2s, opacity 0.3s;
+  transition: transform 0.1s, opacity 0.15s;
 }
 
 .slide-down{
-  transition: transform 0.3s, opacity 1s;
+  transition: transform 0.15s, opacity 0.1s;
 }
 
 
 .slide-up,
 .slide-up-hidden{
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.15s, opacity 0.15s;
 }
 
 
@@ -58,7 +58,7 @@
 .thumbnail-wrapper,
 body.home #menu-wrapper,
 body.home .hover-box{
-    animation-duration: 0.2s;
+    animation-duration: 0.15s;
     animation-fill-mode: both;
     animation-name: fade-in-up;
     animation-timing-function: ease-out;
@@ -77,7 +77,7 @@ body.home .hover-box{
 
 
 .hover-box{
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
   
   &:nth-child(2) {
     animation-delay: 0.05s;
