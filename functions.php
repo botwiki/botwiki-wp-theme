@@ -226,10 +226,10 @@ function load_js_libraries(){
   wp_enqueue_script( 'select2-js' );
 
 
-  $js_file_path = get_template_directory() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js';
+  // $js_file_path = get_template_directory() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js';
 
-  wp_register_script( 'medium-editor-js', get_template_directory_uri() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js', array( 'jquery' ), filemtime( $js_file_path ) );
-  wp_enqueue_script( 'medium-editor-js' );
+  // wp_register_script( 'medium-editor-js', get_template_directory_uri() . '/libs/medium-editor/5.23.3/js/medium-editor.min.js', array( 'jquery' ), filemtime( $js_file_path ) );
+  // wp_enqueue_script( 'medium-editor-js' );
 
 
 

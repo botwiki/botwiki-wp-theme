@@ -411,6 +411,7 @@
         </article>
       </div>
     </main>
+    <script type="text/javascript" src="<?php bloginfo( 'template_directory' ) ?>/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
   <?php }
 ?>
 <?php get_footer(); ?>
