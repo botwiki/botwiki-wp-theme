@@ -8510,6 +8510,8 @@ body.archive .note .btn, body.archive .card .btn {
 
 .thumbnail-wrapper {
   overflow: hidden; }
+  .thumbnail-wrapper a {
+    position: relative; }
 
 .unshifted {
   -webkit-transition: opacity 0.15s, -webkit-transform 0.1s;
