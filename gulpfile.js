@@ -21,8 +21,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
-    criticalCss = require('gulp-penthouse'),
-    penthouse = require('penthouse-pages');
+    criticalCss = require('gulp-penthouse');
 
 function swallow_error (error) {
   console.log(error.toString());
