@@ -21,12 +21,79 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
-    sourcemaps = require('gulp-sourcemaps');
+    criticalCss = require('gulp-penthouse'),
+    penthouse = require('penthouse-pages');
 
 function swallow_error (error) {
   console.log(error.toString());
   this.emit('end');
 }
+
+
+gulp.task('critical-css', function () {
+    return gulp.src('./css/styles.min.css')
+          .pipe(criticalCss({
+              out: './styles.css',
+              url: 'http://botwiki.local/bot/emoji__polls',
+              width: 1300,
+              height: 900,
+              strict: true,
+              userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          }))
+          .pipe(minifycss())
+          .on('error', swallow_error)        
+          .pipe(gulp.dest('./css-critical/'));
+});
+
+// gulp.task('critical-css', function() {
+//     return penthouse({
+//         pages: [
+//             {
+//                 name: 'home',
+//                 url: '',
+//             },
+//             {
+//                 name: 'bot',
+//                 url: '/bot/emoji__polls/',
+//             },
+//         ],
+//         baseUrl: 'http://botwiki.local/',
+//         dest: './css-critical/',
+//         css: './css/styles.min.css',
+//         width: 1300,
+//         height: 900,
+//         strict: true,
+//         userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+//     });
+// });
+
+
+// gulp.task('critical-css', function () {
+//     return gulp.src('./css/styles.min.css')
+//         .pipe(criticalCss({
+//             pages: [
+//                 {
+//                     name: 'home',
+//                     url: 'http://botwiki.local/',
+//                 },
+//                 {
+//                     name: 'bot',
+//                     url: 'http://botwiki.local/bot/emoji__polls/',
+//                 },
+//             ],
+//             baseUrl: 'http://botwiki.local/',
+//             dest: './css-critical/',
+//             css: './css/styles.min.css',
+//             width: 1300,
+//             height: 900,
+//             strict: true,
+//             userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+//         }))
+//         // .pipe(cssNano({
+//         //   safe:true // this isn't required, but I've included cssNano to minify the output file
+//         // }))
+//         .pipe(gulp.dest('./css-critical/')); // destination folder for the output file
+// } );
 
 gulp.task('browser-sync', function () {
    var files = [
@@ -116,12 +183,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/admin-styles/**/*.*', ['admin-styles']);
-  gulp.watch('src/styles/**/*.*', ['styles']);
+  gulp.watch('src/admin-styles/**/*.*', ['admin-styles','critical-css']);
+  gulp.watch('src/styles/**/*.*', ['styles','critical-css']);
   gulp.watch('src/admin-scripts/**/*.*', ['jslint', 'admin-scripts']);
   gulp.watch('src/scripts/**/*.*', ['jslint', 'scripts']);
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'admin-styles', 'jslint', 'admin-scripts', 'scripts', 'browser-sync', 'watch');
+    gulp.start('styles', 'critical-css', 'admin-styles', 'jslint', 'admin-scripts', 'scripts', 'browser-sync', 'watch');
 });
