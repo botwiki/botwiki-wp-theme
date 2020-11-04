@@ -132,7 +132,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/admin-styles/**/*.*', ['admin-styles','critical-css']);
+  gulp.watch('src/admin-styles/**/*.*', ['admin-styles']);
   gulp.watch('src/styles/**/*.*', ['styles','critical-css']);
   gulp.watch('src/admin-scripts/**/*.*', ['jslint', 'admin-scripts']);
   gulp.watch('src/scripts/**/*.*', ['jslint', 'scripts']);
