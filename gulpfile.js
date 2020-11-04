@@ -44,56 +44,6 @@ gulp.task('critical-css', function () {
           .pipe(gulp.dest('./css-critical/'));
 });
 
-// gulp.task('critical-css', function() {
-//     return penthouse({
-//         pages: [
-//             {
-//                 name: 'home',
-//                 url: '',
-//             },
-//             {
-//                 name: 'bot',
-//                 url: '/bot/emoji__polls/',
-//             },
-//         ],
-//         baseUrl: 'http://botwiki.local/',
-//         dest: './css-critical/',
-//         css: './css/styles.min.css',
-//         width: 1300,
-//         height: 900,
-//         strict: true,
-//         userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-//     });
-// });
-
-
-// gulp.task('critical-css', function () {
-//     return gulp.src('./css/styles.min.css')
-//         .pipe(criticalCss({
-//             pages: [
-//                 {
-//                     name: 'home',
-//                     url: 'http://botwiki.local/',
-//                 },
-//                 {
-//                     name: 'bot',
-//                     url: 'http://botwiki.local/bot/emoji__polls/',
-//                 },
-//             ],
-//             baseUrl: 'http://botwiki.local/',
-//             dest: './css-critical/',
-//             css: './css/styles.min.css',
-//             width: 1300,
-//             height: 900,
-//             strict: true,
-//             userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-//         }))
-//         // .pipe(cssNano({
-//         //   safe:true // this isn't required, but I've included cssNano to minify the output file
-//         // }))
-//         .pipe(gulp.dest('./css-critical/')); // destination folder for the output file
-// } );
-
 gulp.task('browser-sync', function () {
    var files = [
       'css/*.css',
