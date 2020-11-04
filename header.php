@@ -7,7 +7,7 @@
       global $wp_query;
       global $page_title;
 
-      echo '<style id="critical-css">' . file_get_contents( get_template_directory() . '/css-critical/styles.css' ) . '</style>';
+      echo '<style type="text/css">' . file_get_contents( get_template_directory() . '/css-critical/styles.css' ) . '</style>';
 
       if ( isset( $wp_query->query['post_type'] ) ){
         $post_type = $wp_query->query['post_type'];
