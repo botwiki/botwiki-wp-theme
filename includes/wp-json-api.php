@@ -197,8 +197,7 @@ class WP_JSON_API_Fixes_And_Enhancements {
       return $args;
     }
 
-    // $bot_url = strtolower( trim( $request['bot_url'] ) );
-    $bot_url = trim( $request['bot_url'] );
+    $bot_url = strtolower( trim( $request['bot_url'] ) );
 
     $info = parse_url($bot_url);
 
@@ -234,6 +233,10 @@ class WP_JSON_API_Fixes_And_Enhancements {
     if ( !empty( $bot_search->posts ) ){
       foreach ( $bot_search->posts as $bot ) {
         $bot_urls = explode( "\n", get_post_meta( $bot->ID, 'bot_url', true ) );
+
+        $bot_urls = array_map( function( $url ){
+          return strtolower( trim( $url ) );
+        }, $bot_urls );
 
         if ( count( array_intersect( $bot_urls, $url_variations ) ) > 0 ){
           $post_id = $bot->ID;
