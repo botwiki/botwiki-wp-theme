@@ -197,7 +197,7 @@ class WP_JSON_API_Fixes_And_Enhancements {
       return $args;
     }
 
-    $bot_url = $request['bot_url'];
+    $bot_url = strtolower( trim( $request['bot_url'] ) );
 
     $info = parse_url($bot_url);
 
@@ -216,6 +216,7 @@ class WP_JSON_API_Fixes_And_Enhancements {
 
     $meta_query = array();
     $meta_query['relation'] = 'OR';
+
     foreach ( $url_variations as $url ) {
       $meta_query[] = array(
         'meta_key' => 'bot_url',
@@ -224,11 +225,23 @@ class WP_JSON_API_Fixes_And_Enhancements {
       );
     }
 
-    $args['meta_query'] = $meta_query;
+    $bot_search = new WP_Query( array(
+      'post_type' => 'bot',
+      'meta_query' => $meta_query
+    ) );
 
-    // $args['meta_key'] = 'bot_url';
-    // $args['meta_value'] = $url_variations;
-    // $args['meta_compare'] = 'IN';
+    if ( !empty( $bot_search->posts ) ){
+      foreach ( $bot_search->posts as $bot ) {
+        $bot_urls = explode( "\n", get_post_meta( $bot->ID, 'bot_url', true ) );
+
+        if ( count( array_intersect( $bot_urls, $url_variations ) ) > 0 ){
+          $post_id = $bot->ID;
+          break;
+        }
+      }
+    }
+
+    $args['p'] = $post_id;
 
     return $args;
   }
