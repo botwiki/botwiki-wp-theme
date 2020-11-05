@@ -245,7 +245,11 @@ class WP_JSON_API_Fixes_And_Enhancements {
       }
     }
 
-    $args['p'] = $post_id;
+    if ( !empty( $post_id ) ){
+      $args['p'] = $post_id;
+    } else {
+      $args['p'] = '1';
+    };
 
     return $args;
   }
