@@ -197,7 +197,8 @@ class WP_JSON_API_Fixes_And_Enhancements {
       return $args;
     }
 
-    $bot_url = strtolower( trim( $request['bot_url'] ) );
+    // $bot_url = strtolower( trim( $request['bot_url'] ) );
+    $bot_url = trim( $request['bot_url'] );
 
     $info = parse_url($bot_url);
 
