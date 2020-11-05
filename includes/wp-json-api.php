@@ -7,12 +7,17 @@ class WP_JSON_API_Fixes_And_Enhancements {
     add_filter( 'rest_api_init', array( $this, 'add_meta_fields' ) );
     add_filter( 'rest_api_init', array( $this, 'extra_query_strings' ) );
     add_filter( 'rest_prepare_bot', array( $this, 'add_bot_post_type_meta' ), 10, 3 );
+    // add_filter( 'rest_post_dispatch', array( $this, 'api_response_cleanup' ), 10, 3 );
+  }
+
+  public function api_response_cleanup( $response, $server, $request ){
+    return $response;
   }
 
   public function add_bot_post_type_meta( $data, $post, $context ) {
     $bot_url = get_post_meta( $post->ID, 'bot_url', true );
 
-    if( $phone ) {
+    if( !empty( $bot_url ) ) {
         $data->data['bot_url'] = $bot_url;
     }
 
@@ -209,9 +214,21 @@ class WP_JSON_API_Fixes_And_Enhancements {
       'https://www.' . $domain . $path
     );
 
-    $args['meta_key'] = 'bot_url';
-    $args['meta_value'] = $url_variations;
-    $args['meta_compare'] = 'IN';
+    $meta_query = array();
+    $meta_query['relation'] = 'OR';
+    foreach ( $url_variations as $url ) {
+      $meta_query[] = array(
+        'meta_key' => 'bot_url',
+        'value' => $url,
+        'compare' => 'LIKE'
+      );
+    }
+
+    $args['meta_query'] = $meta_query;
+
+    // $args['meta_key'] = 'bot_url';
+    // $args['meta_value'] = $url_variations;
+    // $args['meta_compare'] = 'IN';
 
     return $args;
   }
