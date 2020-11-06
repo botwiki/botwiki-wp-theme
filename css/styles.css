@@ -8509,9 +8509,8 @@ body.archive .note .btn, body.archive .card .btn {
   transition: transform 0.15s, opacity 0.15s ease-out, -webkit-transform 0.15s; }
 
 .thumbnail-wrapper {
-  overflow: hidden; }
-  .thumbnail-wrapper a {
-    position: relative; }
+  overflow: hidden;
+  position: relative; }
 
 .unshifted {
   -webkit-transition: opacity 0.15s, -webkit-transform 0.1s;
