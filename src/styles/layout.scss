@@ -52,9 +52,9 @@ img{
   max-width: 100%;
 
   .card &{
-    height: 200px;
+    height: 360px;
     @media(min-width: $site-width-small){
-      height: 250px;
+      height: 200px;
     }
     object-fit: cover;
   }

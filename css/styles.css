@@ -7414,12 +7414,12 @@ body.home-page .container {
 img {
   max-width: 100%; }
   .card img {
-    height: 200px;
+    height: 360px;
     -o-object-fit: cover;
        object-fit: cover; }
     @media (min-width: 860px) {
       .card img {
-        height: 250px; } }
+        height: 200px; } }
   img.aligncenter {
     display: block;
     margin: 3rem auto; }
