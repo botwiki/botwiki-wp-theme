@@ -75,6 +75,9 @@ img{
   a, a:hover{
     color: inherit;
   }
+  & > p{
+    margin-bottom: 0;
+  }
 }
 
 .card-footer{
