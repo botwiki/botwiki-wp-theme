@@ -7417,6 +7417,9 @@ img {
     height: 200px;
     -o-object-fit: cover;
        object-fit: cover; }
+    @media (min-width: 860px) {
+      .card img {
+        height: 250px; } }
   img.aligncenter {
     display: block;
     margin: 3rem auto; }

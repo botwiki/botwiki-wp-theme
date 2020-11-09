@@ -54,7 +54,7 @@ img{
   .card &{
     height: 200px;
     @media(min-width: $site-width-small){
-      // height: 250px;
+      height: 250px;
     }
     object-fit: cover;
   }
