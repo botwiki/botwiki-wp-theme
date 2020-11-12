@@ -136,7 +136,7 @@
             </div>
           </div>
         </div>
-        <div class="container <?php if ( is_front_page() ){ echo 'border-top'; } ?> mb-5 pb-3">
+        <div class="container <?php if ( !is_front_page() ){ echo 'border-top'; } ?> mb-5 pb-3">
           <div class="row align-items-center mx-auto mt-5 mb-5">
             <div class="col-sm-12 mx-auto mt-4 text-center">
               <p class="d-inline text-center">
