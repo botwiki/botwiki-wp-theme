@@ -159,12 +159,13 @@ blockquote{
     color: $color-ternary;
     content: '“';
     font-family: $code-font-family;
-    font-size: 13em;
+    font-size: 10em;
     font-style: normal;
     font-weight: bold;
-    line-height: 0;
-    margin-bottom: 2rem;
-    margin-left: 0;
+    line-height: 1rem;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+    margin-bottom: 4rem !important;
     @media (max-width: $site-width-medium){
       margin-left: -1.5rem;
     }
