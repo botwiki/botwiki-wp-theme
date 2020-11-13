@@ -7735,9 +7735,9 @@ video {
 
 /* Notes */
 .note {
-  background-color: #f5f8fb;
+  background-color: #edf6ff;
   font-weight: bold;
-  border: 2px solid #bdc6d2;
+  border: 2px solid #9aadc5;
   padding: 1em;
   margin-bottom: 2em; }
   .note p {
@@ -7801,7 +7801,7 @@ body, .hover-box p {
   color: #3c3c3c; }
 
 body.page-template-template-showcase {
-  background: #f5f8fb; }
+  background: #edf6ff; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Source Serif Pro", serif;
@@ -7839,7 +7839,7 @@ h2 {
   -o-transition: border-color 0.3s;
   transition: border-color 0.3s; }
   .card:hover {
-    border-color: #bdc6d2;
+    border-color: #9aadc5;
     -webkit-transition: border-color 0.3s;
     -o-transition: border-color 0.3s;
     transition: border-color 0.3s; }
@@ -7889,13 +7889,13 @@ ul, ol {
 
 blockquote {
   /* Courtesy of css-tricks.com. */
-  background: #f5f8fb;
+  background: #edf6ff;
   font-style: italic;
   margin: 4rem auto !important;
   padding: 4rem 1rem 2rem 1rem;
   quotes: "“" "”" "‘" "’";
-  border-left: 1px solid #f5f8fb;
-  border: 1px solid #f5f8fb; }
+  border-left: 1px solid #edf6ff;
+  border: 1px solid #edf6ff; }
   .col-md-6 blockquote {
     padding-left: 1em;
     padding-right: 1em; }
@@ -7904,15 +7904,15 @@ blockquote {
         padding-left: 2em;
         padding-right: 2em; } }
   blockquote:hover {
-    border: 1px solid #bdc6d2;
-    border-left: 1px solid #bdc6d2 !important; }
+    border: 1px solid #9aadc5;
+    border-left: 1px solid #9aadc5 !important; }
   blockquote, blockquote:hover {
     -webkit-transition: border-color 0.1s linear;
     -o-transition: border-color 0.1s linear;
     transition: border-color 0.1s linear; }
   blockquote:before {
     display: inline-block;
-    color: #bdc6d2;
+    color: #9aadc5;
     content: '“';
     font-family: "Source Code Pro", monospace;
     font-size: 13em;
@@ -8023,7 +8023,7 @@ a.pilcrow-link .pilcrow {
   -o-transition: transform 0.25s, opacity 0.2s;
   transition: transform 0.25s, opacity 0.2s;
   transition: transform 0.25s, opacity 0.2s, -webkit-transform 0.25s;
-  color: #bdc6d2; }
+  color: #9aadc5; }
 
 a.no-underline, a.no-underline:hover {
   text-decoration: none !important; }
@@ -8081,7 +8081,7 @@ p.post-tags a {
   margin-bottom: 0 !important; }
 
 .background-alternate {
-  background-color: #f5f8fb; }
+  background-color: #edf6ff; }
 
 .background-fff {
   background-color: #fff; }
@@ -8255,27 +8255,28 @@ div#menu-wrapper {
 
 .hover-box {
   position: relative;
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  border-radius: 8px; }
   .hover-box, .hover-box:hover {
-    -webkit-transition: background-color 0.7s;
-    -o-transition: background-color 0.7s;
-    transition: background-color 0.7s; }
-    .hover-box h2, .hover-box p, .hover-box:hover h2, .hover-box:hover p {
+    -webkit-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s; }
+    .hover-box h2, .hover-box a, .hover-box:hover h2, .hover-box:hover a {
       -webkit-transition: -webkit-transform 0.3s;
       transition: -webkit-transform 0.3s;
       -o-transition: transform 0.3s;
       transition: transform 0.3s;
       transition: transform 0.3s, -webkit-transform 0.3s; }
   .hover-box:hover {
-    background-color: #f5f8fb; }
+    background-color: #edf6ff; }
     .hover-box:hover h2 {
       -webkit-transform: translate(0, -5px);
           -ms-transform: translate(0, -5px);
               transform: translate(0, -5px); }
-    .hover-box:hover p {
-      -webkit-transform: translate(0, -2px);
-          -ms-transform: translate(0, -2px);
-              transform: translate(0, -2px); }
+    .hover-box:hover a {
+      -webkit-transform: translate(0, 2px);
+          -ms-transform: translate(0, 2px);
+              transform: translate(0, 2px); }
   .hover-box a {
     display: block;
     padding: 10px; }

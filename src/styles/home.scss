@@ -28,10 +28,11 @@ div#menu-wrapper{
 .hover-box{
   position: relative;
   padding-bottom: 1em;
+  border-radius: 8px;
 
   &,&:hover{
-    transition: background-color 0.7s;
-    h2, p{
+    transition: background-color 0.2s;
+    h2, a{
       transition: transform 0.3s;
     }
   }
@@ -40,8 +41,8 @@ div#menu-wrapper{
     h2{
       transform: translate(0,-5px);
     } 
-    p{
-      transform: translate(0,-2px);
+    a{
+      transform: translate(0,2px);
     } 
   }
 
