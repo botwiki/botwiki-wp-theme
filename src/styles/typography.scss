@@ -197,6 +197,23 @@ blockquote{
   p:first-child{
     margin-top: -3rem;
   }
+
+
+  @for $i from 0 to 30 {
+    &:nth-of-type(#{$i+1}) {
+        @if $i % 2 == 0 {
+          transform: rotate(1deg);
+          p,img{
+            transform: rotate(-1deg);
+          }
+        } @else {
+          transform: rotate(-1deg);
+          p,img{
+            transform: rotate(1deg);
+          }
+        }
+    }
+  }  
 }
 
 blockquote.instagram-media,
