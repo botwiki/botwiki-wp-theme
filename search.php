@@ -46,11 +46,12 @@
           <?php }
 
           get_template_part( 'loop' );
-          get_template_part( 'pagination' );
 
    
 
-        if ($wp_query->found_posts > 0){ ?>
+        if ($wp_query->found_posts > 0){
+          get_template_part( 'pagination' );
+        ?>
         <h3>Not quite what you're looking for?</h3>
         <?php }?>
         <div class="container">
