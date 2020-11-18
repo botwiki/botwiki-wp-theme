@@ -50,7 +50,7 @@
 
    
 
-        if ($wp_query->found_posts > 0){ ?>      
+        if ($wp_query->found_posts > 0){ ?>
         <h3>Not quite what you're looking for?</h3>
         <?php }?>
         <div class="container">
@@ -72,6 +72,51 @@
             </li>
           </ul>
         </div>
+
+
+          <div class="container">
+
+            <h3 id="blog">Latest from the blog</h3>
+            <div id="blog-latest-wrapper" class="row list">
+            <?php
+            remove_all_filters( 'pre_get_posts' );
+
+            $latest_blog_posts = get_posts( array( 
+              'posts_per_page' => 4,
+              'post_type' => 'post',
+              'post_status' => 'publish'
+             ) );
+
+            foreach ( $latest_blog_posts as $blog_post ) {
+              $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
+              $post_thumbnail_url_full = get_the_post_thumbnail_url( $blog_post->ID );
+              $dominant_color  = get_post_meta( $blog_post->ID, 'dominant_color', true );
+              $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+              $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+
+
+              ?>
+              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                <div class="card w-100">
+                  <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
+                    <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
+                      <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $blog_post->post_title; ?>">
+                    </div>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
+                    </h5>
+                    <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+            </div>
+            <p><a class="btn" href="/blog/">Visit the blog</a></p>
+            <!-- /post details -->
+          </div>
+
   		</div>
     </div>
 	</main>
