@@ -5,7 +5,21 @@
 ?>
   <main role="main" class="container-fluid m-0 p-0">
     <div class="container">
-			<h1 class="post-title"><?php echo sprintf( __( '%s Search Result(s) for ', 'botwiki' ), number_format( $wp_query->found_posts ) ); echo '<em>'. $search_query . '</em>'; ?></h1>
+			<h1 class="post-title"><?php
+
+      $found_posts = $wp_query->found_posts;
+      $title = '';
+
+      if ( $found_posts === 0 ){
+        $title = "Nothing found for <em>$search_query</em>";
+      } elseif ( $found_posts === 1 ) {
+        $title = "One result found for <em>$search_query</em>";
+      } else {
+        $title = "number_format( $found_posts )results found for <em>$search_query</em>";
+      }
+
+      echo $title;
+      ?></h1>
       <div class="post-content">
         <?php
 

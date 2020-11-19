@@ -2,7 +2,7 @@
   <link itemprop="url" href="https://botwiki.org/"/>
   <form class="search-form<?php
   if ( is_search() ){
-    echo ' pl-3 pr-3 ';
+    echo ' search-form px-5 pt-3 pb-5 bg-light ';
   }
   ?>" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" class="form mt-5 mt-md-0 mb-5 text-right pr-0 w-100" method="get" action="<?php echo home_url(); ?>" role="search">
     <meta itemprop="target" content="https://botwiki.org/?s={s}"/>
