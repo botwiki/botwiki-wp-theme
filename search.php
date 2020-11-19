@@ -15,7 +15,7 @@
       } elseif ( $found_posts === 1 ) {
         $title = "One result found for <em>$search_query</em>";
       } else {
-        $title = "number_format( $found_posts )results found for <em>$search_query</em>";
+        $title = number_format( $found_posts ) . " results found for <em>$search_query</em>";
       }
 
       echo $title;
