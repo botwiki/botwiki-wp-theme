@@ -23,10 +23,16 @@
       <div class="post-content">
         <?php
 
+          get_search_form( true );
+          
+          if ( in_array( $search_query, [ 'twitter', 'twitter bot', 'twitterbot', 'twitter bots', 'twitterbots', 'tweet' ] ) ){ ?>
+            <p><a class="btn" href="/bots/twitterbots/">Browse Twitter bots</a></p>
+          <?php }
+
+          get_template_part( 'loop' );
+
           $possible_tags = explode( ' ', $search_query );
           $tags_html = array();
-
-          get_search_form( true );
 
           foreach ( $possible_tags as $tag ) {
             /*
@@ -50,43 +56,35 @@
           }
 
           if ( $tags_html ){
-            echo '<p class="mt-5 mb-5 post-tags"><strong class="mr-3">Related tags:</strong>';
+            echo '<p class="lead mt-5 "><strong class="mr-3">Related tags</strong></p><p class="post-tags mb-5">';
             echo( implode( '', $tags_html ) );
             echo '</p>';          
           }
-          
-          if ( in_array( $search_query, [ 'twitter', 'twitter bot', 'twitterbot', 'twitter bots', 'twitterbots', 'tweet' ] ) ){ ?>
-            <p><a class="btn" href="/bots/twitterbots/">Browse Twitter bots</a></p>
-          <?php }
 
-          get_template_part( 'loop' );
-
-   
-
-        if ($wp_query->found_posts > 0){
-          get_template_part( 'pagination' );
-        ?>
-        <h3>Not quite what you're looking for?</h3>
-        <?php }?>
-        <div class="container">
-          <ul>
-            <li>
-              <a title="Add your bot, tutorial, and other botmaking resources to Botwiki" href="<?php echo home_url(); ?>/contribute/">Contribute to Botwiki</a>
-              <ul>
-                <li><em>Please be patient while we review the submissions</em> <span title="Thank you!">🙇</span></li>
-              </ul>  
-            </li>
-            <li>
-              <a href="https://botmakers.org/">Ask in the Botmakers community</a>
-            </li>
-            <li>
-              <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/botwikidotorg">Find us on Twitter</a>
-            </li>
-          </ul>
-        </div>
+          if ($wp_query->found_posts > 0){
+            get_template_part( 'pagination' );
+          ?>
+          <h3>Not quite what you're looking for?</h3>
+          <?php }?>
+          <div class="container">
+            <ul>
+              <li>
+                <a title="Add your bot, tutorial, and other botmaking resources to Botwiki" href="<?php echo home_url(); ?>/contribute/">Contribute to Botwiki</a>
+                <ul>
+                  <li><em>Please be patient while we review the submissions</em> <span title="Thank you!">🙇</span></li>
+                </ul>  
+              </li>
+              <li>
+                <a href="https://botmakers.org/">Ask in the Botmakers community</a>
+              </li>
+              <li>
+                <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/botwikidotorg">Find us on Twitter</a>
+              </li>
+            </ul>
+          </div>
 
 
           <div class="container">
