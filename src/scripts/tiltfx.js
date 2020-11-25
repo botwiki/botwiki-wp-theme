@@ -25,8 +25,12 @@
 	} );
 
 	$( '.botwiki-logo' ).tilt( {
-	  maxTilt: 5
+	  maxTilt: 2
 	} );
+
+	$( '#menu-wrapper .container' ).tilt( {
+	  maxTilt: 0.8
+	} );	
 
 	$( '.thumbnail-wrapper img' ).tilt( {
 	  maxTilt: 2
