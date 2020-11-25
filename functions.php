@@ -144,6 +144,13 @@ function html5blank_header_scripts(){
     $js_file_path = get_template_directory() . '/js/scripts.min.js';
     $dependencies = array( 'jquery' );
 
+    $js_file_path = get_template_directory() . '/libs/tilt/tilt.jquery.min.js';
+
+    wp_register_script( 'tilt-js', get_template_directory_uri() . '/libs/tilt/tilt.jquery.min.js', array( 'jquery' ), filemtime( $js_file_path ));
+    wp_enqueue_script( 'tilt-js' );    
+    $dependencies[] = 'tilt-js';
+    
+
     $js_file_path = get_template_directory() . '/libs/js-cookie/js.cookie-2.2.1.min.js';
     wp_register_script( 'js-cookie-js', get_template_directory_uri() . '/libs/js-cookie/js.cookie-2.2.1.min.js', array(), filemtime( $js_file_path ));
     wp_enqueue_script( 'js-cookie-js' );
