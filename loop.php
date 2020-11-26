@@ -64,7 +64,7 @@
         <?php if ( !is_search() ){ ?>
           <div class="col-sm-12">
             <article>
-              <h2><?php _e( 'Sorry, nothing to display?', 'botwiki' ); ?></h2>
+              <h2><?php _e( 'Sorry, nothing to display.', 'botwiki' ); ?></h2>
             </article>
           </div>
         <?php } ?>
