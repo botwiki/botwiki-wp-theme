@@ -28,7 +28,7 @@
 	  maxTilt: 2
 	} );
 
-	$( '#menu-wrapper .container' ).tilt( {
+	$( '#menu-wrapper .menu-container' ).tilt( {
 	  maxTilt: 0.8
 	} );	
 
