@@ -141,8 +141,7 @@ function html5blank_header_scripts(){
 
     wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.js', array( 'jquery' ), filemtime( $js_file_path ));
     wp_enqueue_script( 'bootstrap-js' );
-    $js_file_path = get_template_directory() . '/js/scripts.min.js';
-    $dependencies = array( 'jquery' );
+    $dependencies = array( 'jquery', 'select2-js' );
 
     $js_file_path = get_template_directory() . '/libs/tilt/tilt.jquery.min.js';
 
@@ -154,7 +153,6 @@ function html5blank_header_scripts(){
     $js_file_path = get_template_directory() . '/libs/js-cookie/js.cookie-2.2.1.min.js';
     wp_register_script( 'js-cookie-js', get_template_directory_uri() . '/libs/js-cookie/js.cookie-2.2.1.min.js', array(), filemtime( $js_file_path ));
     wp_enqueue_script( 'js-cookie-js' );
-    $js_file_path = get_template_directory() . '/js/scripts.min.js';
     $dependencies[] = 'js-cookie-js';
 
 
