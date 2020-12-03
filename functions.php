@@ -31,7 +31,11 @@ require 'includes/rss-feed.php';
 require 'includes/wp-json-api.php';
 // Disabled for performance reasons.
 // require 'includes/archive-page.php'; 
-require 'includes/simple_html_dom.php';
+
+if ( !class_exists( 'simple_html_dom_node' ) ){
+  require 'includes/simple_html_dom.php';
+}
+
 require 'includes/newonbotwiki-twitter.php';
 
 
