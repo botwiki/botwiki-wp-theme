@@ -49,8 +49,10 @@ $author_info = array(
         <?php if ( is_author() ){
           if ( !empty( $description ) ){ ?> 
             <p><?php echo $description; ?></p>
-            <?php bw_render_author_links( $helpers, $author_info ); ?>
-          <?php }
+          <?php } else { ?>
+            <p><?php echo $botwiki_team_role; ?></p>
+          <?php } 
+          bw_render_author_links( $helpers, $author_info );
         } ?>        
       </div>      
     </div>
