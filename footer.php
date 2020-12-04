@@ -61,9 +61,6 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>" target="_blank" title="Share on Facebook"><img alt="Share on Facebook" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/facebook.svg"></a>
                     </li>
                     <li>
-                    <a href="https://plus.google.com/share?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/google-plus.svg"></a>
-                    </li>
-                    <li>
                     <a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode( home_url(add_query_arg( array(), $wp->request) ) ); ?>&amp;description=<?php echo $page_title; ?>" target="_blank" title="Pin on Pinterest"><img alt="Pin on Pinterest" src="<?php echo get_template_directory_uri(); ?>/images/sharing-icons/pinterest.svg"></a>
                     </li>
                     <li>
