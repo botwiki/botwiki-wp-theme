@@ -20,6 +20,10 @@
 	  maxTilt: 1
 	} );
 
+	$( '.author-card' ).tilt( {
+	  maxTilt: 0.4
+	} );	
+
 	$( '.hover-box > a' ).tilt( {
 	  maxTilt: 10
 	} );
