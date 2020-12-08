@@ -33,7 +33,7 @@
 	} );	
 
 	$( '.thumbnail-wrapper img' ).tilt( {
-	  maxTilt: 1
+	  maxTilt: 0.5
 	} );
 
 	$( document ).on( 'tembeds_tweets_processed', function(){
