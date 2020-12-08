@@ -13,11 +13,11 @@
 	'use strict';
 
 	$( 'blockquote' ).tilt( {
-	  maxTilt: 2
+	  maxTilt: 1
 	} );
 
 	$( '.card' ).tilt( {
-	  maxTilt: 2
+	  maxTilt: 1
 	} );
 
 	$( '.hover-box > a' ).tilt( {
@@ -38,7 +38,7 @@
 
 	$( document ).on( 'tembeds_tweets_processed', function(){
 		$( '.twitter-tweet' ).tilt( {
-		  maxTilt: 3
+		  maxTilt: 2
 		} );
 	} );	
 
