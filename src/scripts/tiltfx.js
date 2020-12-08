@@ -13,7 +13,7 @@
 	'use strict';
 
 	$( 'blockquote' ).tilt( {
-	  maxTilt: 1
+	  maxTilt: 0.5
 	} );
 
 	$( '.card' ).tilt( {
