@@ -405,7 +405,7 @@
               <div id="bot-submitted-notice" class="d-none alert alert-warning" role="alert">
                 <p><strong>Heads up, it looks like someone already added this bot.</strong></p>
                 <div id="bot-submitted-output"></div>
-                <p>If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
+                <p class="mt-4">If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
               </div>
               <div class="form-group">
                 <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
