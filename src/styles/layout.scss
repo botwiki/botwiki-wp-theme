@@ -71,6 +71,14 @@ img{
   }
 }
 
+.author-card{
+  p{
+    a{
+      text-decoration: underline !important;
+    }
+  }
+}
+
 .card{
   a, a:hover{
     color: inherit;

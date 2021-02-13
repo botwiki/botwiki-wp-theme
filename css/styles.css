@@ -7428,6 +7428,9 @@ img {
     height: auto;
     margin: 0 auto; }
 
+.author-card p a {
+  text-decoration: underline !important; }
+
 .card a, .card a:hover {
   color: inherit; }
 
