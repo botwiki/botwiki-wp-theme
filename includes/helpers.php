@@ -61,6 +61,7 @@ class BW_Helpers {
       $file_name = preg_replace( '/[^a-z0-9]+/', '-', strtolower( $url ) ) . '-' . time();
     }
 
+    $options['file_name'] = urlencode( $options['file_name'] );
     $options['dimension'] = $width. 'x' . $height;
     $options['device'] = 'desktop';
     $options['format'] = 'png';
