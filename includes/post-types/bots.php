@@ -12,6 +12,7 @@ class BotsPostType {
     add_action( 'pre_get_posts', array( $this, 'filter_query' ) );
     add_action( 'admin_bar_menu', array( $this, 'add_pending_bots_link' ), 100 );
     add_shortcode( 'bot_count', array( $this, 'get_bot_count' ) );
+    add_shortcode( 'bot_languages', array( $this, 'get_bot_language_cards' ) );
 
     add_filter( 'lazyblock/bot-output/frontend_callback', array( $this, 'lazyblock_bot_output' ), 10, 2 );
     add_filter( 'lazyblock/bot-output/frontend_allow_wrapper', '__return_false' );
@@ -140,6 +141,33 @@ class BotsPostType {
 
   function get_bot_count( $atts ) {
     return number_format( wp_count_posts( 'bot' )->publish );
+  }
+
+  function get_bot_language_cards( $atts ) {
+    $html = '';
+    $languages = get_terms( array( 
+        'taxonomy' => 'programing_language',
+        'orderby' => 'count',
+        'order' => 'DESC',
+    ) );
+
+    foreach ( $languages as $language ){
+      $slug = $language->slug;
+      $name = $language->name;
+      $count = number_format( $language->count );
+
+      $html .= <<<HTML
+        <div class="col-sm-12 col-md-6 col-lg-4 list-item">
+          <div class="card w-100" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+            <div class="card-body">
+              <h5 class="card-title"><a class="stretched-link" href="/languages/{$slug}/?opensource=true">{$name} ({$count})</a></h5>
+            </div>
+          </div>
+        </div>
+HTML;
+    }
+
+    return "<div class='row list'>$html</div>";
   }
 
   function add_pending_bots_link($wp_admin_bar) {
