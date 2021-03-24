@@ -89,12 +89,20 @@
               }
               // $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
               // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
-              $avatar_url = str_replace( '?s=96', '?s=512', get_avatar_url( $author_id, array( 'size' => 500, 'scheme' => 'https' ) ) );
+
+              $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+              if ( empty( $profile_img_url ) ){
+                $profile_img_url = get_avatar_url( $author_id, array( 'size' => 500, 'scheme' => 'https' ) );
+              }
+
+              $profile_img_url = str_replace( '?s=120', '?s=512', $profile_img_url );
+
               ?>
               <div class="col-sm-6 col-md-3 list-item">
                 <div class="card w-100">
                   <a href="<?php echo get_author_posts_url( $author_id, $username ); ?>">
-                    <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $avatar_url; ?>" data-src="<?php echo $avatar_url; ?>" alt="<?php echo $full_name; ?>">
+                    <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>">
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">
