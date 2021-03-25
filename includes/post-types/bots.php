@@ -154,13 +154,30 @@ class BotsPostType {
     foreach ( $languages as $language ){
       $slug = $language->slug;
       $name = $language->name;
-      // $count = number_format( $language->count );
+
+      $args = array(
+          'posts_per_page' => -1,
+          'post_type' => array(
+              'bot'
+          ),
+          'programing_language' => $language->slug,
+          'meta_query' => array(
+              array(
+                  'key' => 'bot_source_url',
+                  'value' => array(''),
+                  'compare' => 'NOT IN'
+              )
+          )
+      );
+
+      $query = new WP_Query( $args );
+      $count = number_format( $query->found_posts );
 
       $html .= <<<HTML
         <div class="col-sm-12 col-md-6 col-lg-4 list-item">
           <div class="card w-100" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
             <div class="card-body">
-              <h5 class="card-title"><a class="stretched-link" href="/languages/{$slug}/?opensource=true">{$name}</a></h5>
+              <h5 class="card-title"><a class="stretched-link" href="/languages/{$slug}/?opensource=true">{$name} ({$count})</a></h5>
             </div>
           </div>
         </div>
