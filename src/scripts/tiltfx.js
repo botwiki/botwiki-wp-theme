@@ -12,17 +12,16 @@
 	
 	'use strict';
 
-	$( 'blockquote' ).tilt( {
-	  maxTilt: 0.5
+	function addTiltEffect( $el ){
+		$el.tilt( {
+		  maxTilt: 200 / $el.outerWidth()
+		} );
+	}
+
+	$( '.card, blockquote' ).each( function(){
+		addTiltEffect( $( this ) );
 	} );
 
-	$( '.card' ).tilt( {
-	  maxTilt: 1
-	} );
-
-	$( '.author-card' ).tilt( {
-	  maxTilt: 0.4
-	} );	
 
 	$( '.hover-box > a' ).tilt( {
 	  maxTilt: 10
@@ -41,8 +40,8 @@
 	} );
 
 	$( document ).on( 'tembeds_tweets_processed', function(){
-		$( '.twitter-tweet' ).tilt( {
-		  maxTilt: 2
+		$( '.twitter-tweet' ).each( function(){
+			addTiltEffect( $( this ) );
 		} );
 	} );	
 
