@@ -1,7 +1,8 @@
 /* Fix for the Email Posts to Subscribers plugin */
 (function ($) {
   'use strict';
-  
+  window.jQuery = window.jQuery || $;
+
   function prepareFormPostData_elp(form, formData) {
     jQuery.each((form.serializeArray() || {}), function (i, field) {
       formData['elp_' + field.name] = field.value;
