@@ -223,8 +223,8 @@ function load_js_libraries(){
   global $post;
 
   if ( strpos( get_post_field( 'post_content', $post->ID ), '<code' ) !== false ){
-    wp_register_style( 'highlight-monokai-sublime', get_template_directory_uri() . '/libs/highlight.js/styles/monokai-sublime.css' );
-    wp_enqueue_style( 'highlight-monokai-sublime' );
+    wp_register_style( 'highlight-dark', get_template_directory_uri() . '/libs/highlight.js/styles/dark.css' );
+    wp_enqueue_style( 'highlight-dark' );
     wp_register_script( 'highlight', get_template_directory_uri() . '/libs/highlight.js/highlight.pack.js', array( 'jquery' ) );
     wp_enqueue_script( 'highlight' );
   }

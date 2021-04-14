@@ -538,3 +538,22 @@ div.bottom-page-links{
   }
 }
 
+.wp-block-code{
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  code{
+      border-radius: 10px !important;
+  }
+}
+
+code.hljs{
+  position: relative;
+  label{
+    position: absolute;
+    color: lightgray;
+    right: 10px;
+    top: 4px;
+    font-size: 11px;
+  }
+}
