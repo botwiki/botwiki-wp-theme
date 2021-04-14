@@ -1,5 +1,4 @@
-/* Fix for the Email Posts to Subscribers plugin */
-(function ($) {
+$(function() {
   'use strict';
   window.jQuery = window.jQuery || $;
 
@@ -81,6 +80,4 @@
 
   });
 
-})(jQuery);
-
-
+});
