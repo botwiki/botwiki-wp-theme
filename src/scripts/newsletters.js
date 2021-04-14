@@ -72,6 +72,28 @@ $(function() {
   }
 
   $(document).ready(function () {
+    let $newsletterForm = $( '.elp_form' );
+    
+    $newsletterForm.find( 'span.email' ).html( 'Your email, please' )
+
+    $newsletterForm.find( 'input' ).each( function(){
+      let $input = $( this );
+      $input.addClass( 'form-control' );
+
+      if ( $input.attr( 'name' ) === 'submit' ){
+        $input.css( { 'max-width': '10rem' } );
+      }
+
+      if ( $input.attr( 'name' ) === 'email' ){
+        $input.addClass( 'mt-2 mb-2' );
+      }
+
+      if ( $input.attr( 'name' ) === 'name' ){
+        $input.removeAttr( 'required' )
+      }
+    } );
+
+
     $(document).on('submit', '.elp_form', function (e) {
       e.preventDefault();
       var form = $(this);
