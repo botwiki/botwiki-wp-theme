@@ -96,7 +96,7 @@ class ResourcesPostType {
         'filter_items_list' => __( 'Filter items list', 'botwiki' )
       ),
       'taxonomies' => array('resource_type', 'post_tag', 'programing_language', 'network'),
-      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'author', 'revisions' ),
+      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'author', 'revisions', 'custom-fields' ),
       'hierarchical' => true,
       'public' => true,
       'show_ui' => true,

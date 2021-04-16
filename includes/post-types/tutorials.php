@@ -57,7 +57,7 @@ class TutorialsPostType {
         'filter_items_list' => __( 'Filter items list', 'tutorialwiki' )
       ),
       'taxonomies' => array('post_tag', 'programing_language', 'network'),
-      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'revisions' ),
+      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
       'hierarchical' => true,
       'public' => true,
       'show_ui' => true,
