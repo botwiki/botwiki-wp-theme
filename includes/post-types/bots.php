@@ -273,6 +273,7 @@ HTML;
 
   function create_post_type() {
     add_action( 'init', array( $this, 'register_bot_post_type' ), 40 );
+    add_action( 'init',  array( $this, 'register_bot_post_meta' ), 40 );
     add_action( 'init', array( $this, 'register_bot_network_taxonomy' ), 40 );
     add_action( 'init', array( $this, 'register_programing_language_taxonomy' ), 40 );
   }
@@ -342,6 +343,32 @@ HTML;
     );
     register_post_type( 'bot', $args );
   }
+
+  function register_bot_post_meta(){
+    $meta_keys = array(
+      'bot_url',
+      'bot_source_url',
+      'bot_tweets',
+      'bot_author_email',
+      'bot_author_info',
+      'botmaker_badge_awarded',
+      'bot_is_featured',
+      'bot_is_nsfw',
+      'output_archive_url',
+      'output_archive_filename',
+      'output_archive_date',
+      'dominant_color',
+      'bot_tweets_html'
+    );
+
+    foreach ( $meta_keys as $key ) {
+      register_meta( 'post', $key, array(
+        'show_in_rest' => true,
+        'type' => 'string',
+        'single' => true
+      ) );
+    }
+}  
 
   function register_bot_network_taxonomy() {
     $labels = array(
