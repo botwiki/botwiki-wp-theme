@@ -269,7 +269,13 @@
           <div class="post-content">
             <ul class="btn-list">
               <li>
-                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">Follow @newonbotwiki</a>
+                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a>
+              </li>
+              <li>
+                <a class="btn" href="/botwiki-weekly-digest/" target="_blank">Weekly Digest</a>
+              </li>
+              <li>
+                <a class="btn" href="https://botmakers.org/" target="_blank">botmakers.org</a>
               </li>
               <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
               <li>
