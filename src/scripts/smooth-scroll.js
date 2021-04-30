@@ -2,6 +2,8 @@
 // Source: https://css-tricks.com/snippets/jquery/smooth-scrolling/
 $(function() {
   'use strict';
+  var $navbar = $('.navbar');
+
   $('a[href*="#"]')
   .not('[href="#"]')
   .not('[href="#0"]')
@@ -13,12 +15,12 @@ $(function() {
     ) {
       var target = $(this.hash);
 
-      if (window.history && window.history.pushState && target.selector){
+      if (window.history && window.history.pushState && target.attr( 'id' ) ){
         if (target.selector === '#header'){
           history.pushState(null, null, window.location.pathname);
         }
         else{
-          history.pushState(null, null, target.selector);
+          history.pushState(null, null, '#' + target.attr( 'id' ));
         }
       }
 
@@ -26,7 +28,7 @@ $(function() {
       if (target.length) {
         event.preventDefault();
         $('html, body').animate({
-          scrollTop: target.offset().top
+          scrollTop: target.offset().top - $navbar.height() - parseInt(target.css('margin-top').replace('px', ''))
         }, 500, function() {
           var $target = $(target);
           $target.focus();
