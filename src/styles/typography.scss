@@ -26,6 +26,14 @@ h1{
   body.single-bot &{
     word-wrap: break-word;
   }
+
+  &.post-title{
+    span{
+      box-shadow: inset 0 -20px 0 0 #eaf2fb;
+      display: inline-block;
+      padding: 0 10px;      
+    }
+  }
 }
 
 h2{

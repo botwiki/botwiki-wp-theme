@@ -9,7 +9,7 @@
   $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 ?>
   <main role="main" class="container-fluid m-0 p-0">
-    <h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
+    <h1 class="text-center post-title mt-5"><span><?php the_title(); ?></span></h1>
 
     <!-- <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>"> -->
       <?php

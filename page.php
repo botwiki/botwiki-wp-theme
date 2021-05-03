@@ -7,7 +7,7 @@
   <div class="mt-5">
 		<?php if ( !is_front_page() ) { ?>
 		<!-- post title -->
-		<h1 class="text-center post-title mt-5"><?php the_title(); ?></h1>
+		<h1 class="text-center post-title mt-5"><span><?php the_title(); ?></span></h1>
 		<!-- /post title -->
 		<?php } ?>
   </div>
