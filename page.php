@@ -7,7 +7,23 @@
   <div class="mt-5">
 		<?php if ( !is_front_page() ) { ?>
 		<!-- post title -->
-		<h1 class="text-center post-title mt-5"><span><?php the_title(); ?></span></h1>
+		<h1 class="text-center post-title mt-5"><span<?php
+            $dominant_color = get_post_meta( $post_id, 'dominant_color', true );
+            if ( $dominant_color ){
+              $rgb = json_decode( $dominant_color );
+              $contrast = sqrt(
+                $rgb[0] * $rgb[0] * .241 +
+                $rgb[1] * $rgb[1] * .691 +
+                $rgb[2] * $rgb[2] * .068
+              );
+
+              $lum = ($rgb[0]+$rgb[0]+$rgb[2]+$rgb[1]+$rgb[1]+$rgb[1])/6;
+
+              ?>
+              style="box-shadow: inset 0 -20px 0 0 rgba(<?php echo $rgb[0] . ',' . $rgb[1] . ',' . $rgb[2] . ',' . log( log10( $contrast ) ) ?>)"
+            <?php }
+
+        ?>><?php the_title(); ?></span></h1>
 		<!-- /post title -->
 		<?php } ?>
   </div>

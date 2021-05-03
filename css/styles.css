@@ -7824,7 +7824,7 @@ h1 {
   h1.post-title span {
     -webkit-box-shadow: inset 0 -20px 0 0 #eaf2fb;
             box-shadow: inset 0 -20px 0 0 #eaf2fb;
-    display: inline-block;
+    display: inline;
     padding: 0 10px; }
 
 h2 {
