@@ -686,7 +686,7 @@ ROBOTS;
 add_action( 'do_robotstxt', 'bw_add_robotstxt', PHP_INT_MAX );
 
 function bw_admin_reorder_posts( $query ){
-  if ( is_admin() && $query->is_main_query() && $_GET['post_type'] === 'bot' ) { 
+  if ( is_admin() && $query->is_main_query() && in_array( $_GET['post_type'], ['bot', 'resource'] ) ) { 
     $query->set( 'order', 'DESC' ); 
   } 
 } 
