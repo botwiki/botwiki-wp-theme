@@ -21,7 +21,7 @@
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <h1 class="post-title text-center"><?php the_title(); ?></h1>
         <div class="post-content">
-          <p class="text-center lead mb-5 mt-n3 font-weight-bold"><?php echo get_the_excerpt(); ?></p>
+          <p class="text-center lead mb-4 mt-n3 font-weight-bold"><?php echo get_the_excerpt(); ?></p>
           <?php if ( get_post_meta( $post_id, 'hide_featured_image', true ) !== 'on' ){ ?>
             <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
               <?php
