@@ -1,3 +1,8 @@
+body{
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
 body, .hover-box p {
   font-family: $body-font-family !important;
   color: $color-primary;
@@ -86,7 +91,7 @@ h3{
 
 h4{
   font-size: 2.25em;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
 
   h3 + &{
@@ -193,6 +198,14 @@ blockquote{
 
   cite{
     font-size: 0.9rem;
+    color: $color-ternary;
+  }
+
+  a{
+    color: $color-ternary;
+    &:hover{
+      color: $color-ternary-dark;
+    }
   }
 
   ul, ol{
@@ -202,9 +215,15 @@ blockquote{
     }
   }
 
-  p:first-child{
-    margin-top: -3rem;
+  p{
+    color: $color-ternary-dark;
+    font-size: 1.25rem;
+
+    &:first-child{
+      margin-top: -3rem;
+    }
   }
+
 }
 
 blockquote.instagram-media,

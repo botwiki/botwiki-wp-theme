@@ -7799,6 +7799,10 @@ video {
   -o-object-fit: contain;
      object-fit: contain; }
 
+body {
+  font-size: 1.1rem;
+  line-height: 1.75; }
+
 body, .hover-box p {
   font-family: "Open Sans", sans-serif !important;
   color: #3c3c3c; }
@@ -7867,7 +7871,7 @@ h3 {
 
 h4 {
   font-size: 2.25em;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 3rem; }
   h3 + h4 {
     margin-top: -2rem; }
@@ -7946,14 +7950,22 @@ blockquote {
       blockquote cite, blockquote p {
         padding: 0; } }
   blockquote cite {
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    color: #9aadc5; }
+  blockquote a {
+    color: #9aadc5; }
+    blockquote a:hover {
+      color: #788ba3; }
   blockquote ul, blockquote ol {
     padding: 0 50px; }
     @media (max-width: 900px) {
       blockquote ul, blockquote ol {
         padding: 0 20px; } }
-  blockquote p:first-child {
-    margin-top: -3rem; }
+  blockquote p {
+    color: #788ba3;
+    font-size: 1.25rem; }
+    blockquote p:first-child {
+      margin-top: -3rem; }
 
 blockquote.instagram-media,
 iframe.instagram-media {
