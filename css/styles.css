@@ -7560,8 +7560,7 @@ body:not(.home-page) #menu-wrapper {
 
 #menu-wrapper {
   padding-bottom: 2em;
-  overflow-x: visible;
-  overflow-y: auto;
+  overflow: visible;
   top: 0;
   left: 0;
   right: 0;
