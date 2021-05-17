@@ -120,9 +120,22 @@
               ?>
             </ul>
           <?php } else {?>
-            <h1 class="post-title">Browsing all <?php
-              echo ( !empty( $_GET['opensource'] ) ? 'open source' : number_format( wp_count_posts( 'bot' )->publish ) );
-            ?> bots...</h1>
+            <h1 class="post-title"><?php
+            if ( !empty( $_GET['opensource'] ) ){ ?>
+              Browsing <?php
+              $os_bots = new WP_Query( array(
+                'post_type'         => 'bot',
+                'posts_per_page'    => -1,
+                'post_status'       => 'publish',
+                'meta_key'          => 'bot_source_url',
+                'meta_value'        => array(''),
+                'meta_compare'      => 'NOT IN',
+              ) );    
+
+              echo number_format( count( $os_bots->posts ) ); ?> open source bots...
+            <?php } else { ?>
+              Browsing <?php echo number_format( wp_count_posts( 'bot' )->publish ); ?> bots...
+            <?php }?></h1>
             <div class="post-content">
             <ul class="btn-list">
               <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
