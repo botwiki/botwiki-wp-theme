@@ -138,6 +138,12 @@
             <?php }?></h1>
             <div class="post-content">
             <ul class="btn-list">
+
+            <?php if ( !empty( $_GET['opensource'] ) ){ ?>
+              <li><a class="btn" href="/bots/open-source/#browse-bots-by-category">Browse by category</a></li>
+              <li><a class="btn" href="/bots/open-source/#browse-bots-by-network">Browse by network</a></li>
+              <!-- <li><a class="btn" href="/random-bot?opensource=true">Random bot</a></li> -->
+            <?php } else {?>
               <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
               <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
               <li><a class="btn" href="/random-bot">Random bot</a></li>
@@ -148,6 +154,7 @@
                 // $glitch_link = '';
                 // $narrow_opensource_link = '';              
               ?>
+            <?php } ?>
             </ul>
           <?php } ?>
         <?php }
