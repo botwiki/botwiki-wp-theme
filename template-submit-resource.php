@@ -224,8 +224,7 @@
                     <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We are a diverse group of enthusiasts who make and share fun and creative online bots. Come join us! 😊 <a href="https://t.co/4FH6OgVuCG">https://t.co/4FH6OgVuCG</a></p>&mdash; A friendly encyclopedia of 🤖💻💾 ( @botwikidotorg ) <a href="https://twitter.com/botwikidotorg/status/984405698103726082?ref_src=twsrc%5Etfw">April 12, 2018</a></blockquote>
                   </div>
                   <div class="col-sm-12 col-md-6">
-                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New bot was added to Botwiki! <a href="https://t.co/RUepf5f8Im">https://t.co/RUepf5f8Im</a></p>&mdash; New on Botwiki ✨ (@newonbotwiki) <a href="https://twitter.com/newonbotwiki/status/1206599872016719877?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote>                    
-                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New bot was added to Botwiki! <a href="https://t.co/RUepf5f8Im">https://t.co/RUepf5f8Im</a></p>&mdash; New on Botwiki ✨ (@newonbotwiki) <a href="https://twitter.com/newonbotwiki/status/1206599872016719877?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote>
                   </div>
               </div>
             </div>
