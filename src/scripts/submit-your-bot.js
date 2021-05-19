@@ -230,6 +230,8 @@ $( function() {
         $networkField.val( 'reddit-bots' ).trigger( 'change' );
       } else if ( inputFieldValue.indexOf( 'facebook.com' ) !== -1 ){
         $networkField.val( 'facebook-bots' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'instagram.com' ) !== -1 ){
+        $networkField.val( 'instagram-bots' ).trigger( 'change' );
       } else if ( inputFieldValue.indexOf( 'youtube.com' ) !== -1 ){
         $networkField.val( 'youtube-bots' ).trigger( 'change' );
       }
