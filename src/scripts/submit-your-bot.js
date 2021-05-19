@@ -228,6 +228,8 @@ $( function() {
         $networkField.val( 'mastodon' ).trigger( 'change' );
       } else if ( inputFieldValue.indexOf( 'reddit.com' ) !== -1 ){
         $networkField.val( 'reddit-bots' ).trigger( 'change' );
+      } else if ( inputFieldValue.indexOf( 'facebook.com' ) !== -1 ){
+        $networkField.val( 'facebook-bots' ).trigger( 'change' );
       } else if ( inputFieldValue.indexOf( 'youtube.com' ) !== -1 ){
         $networkField.val( 'youtube-bots' ).trigger( 'change' );
       }
