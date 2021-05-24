@@ -45,9 +45,11 @@ class Post_Links {
     $is_external = false;
 
     $post_ids = explode( ',', $atts['ids'] );
+    $hrefs = explode( ',', $atts['hrefs'] );
+
     $link_list_html = '<ul class="btn-list mb-4">';
 
-    foreach ($post_ids as $post_id) {
+    foreach ( $post_ids as $post_id ){
       $link_url = get_post_meta( $post_id, 'resource_url', true );
 
       if ( empty( $link_url ) ){
@@ -64,6 +66,10 @@ class Post_Links {
                         . ($is_external ? ': ' . get_the_excerpt($post_id) . ' (' .  parse_url($link_url)['host'] . ')' : '')
                         . '</li>' ;
       }
+    }
+
+    foreach ( $hrefs as $href ){
+        $link_list_html .= '<li><a href="#' . $href . '" class="btn">' . ucfirst( str_replace( '-', ' ', $href ) ) . '</a></li>' ;
     }
 
     $link_list_html .= '</ul>';
