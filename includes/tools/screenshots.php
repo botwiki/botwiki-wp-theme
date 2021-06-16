@@ -2,8 +2,8 @@
 
 class Screenshot_Tool {
   public function __construct() {
-    add_action('admin_menu', array( $this, 'add_tools_submenu_page' ) );
-    add_filter('admin_post_thumbnail_html', array( $this, 'add_featured_image_instruction' ) );
+    add_action( 'admin_menu', array( $this, 'add_tools_submenu_page' ) );
+    add_filter( 'admin_post_thumbnail_html', array( $this, 'add_featured_image_instruction' ) );
   }
 
   function add_featured_image_instruction( $content ) {
