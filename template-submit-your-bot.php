@@ -330,7 +330,7 @@
               <?php } ?>
             </ul>
             <?php echo do_shortcode( get_post_field( 'post_content', $post_id ) ); ?>
-            <form id="submit-bot-form" method="post" class="mt-5">
+            <form id="submit-bot-form" method="post" class="mt-5 bg-light p-5">
             <?php if ( is_user_logged_in() ) {
               $author_id = get_current_user_id();
               $username = get_the_author_meta( 'user_nicename', get_current_user_id() );
