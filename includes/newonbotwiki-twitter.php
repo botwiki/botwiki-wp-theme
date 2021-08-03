@@ -21,9 +21,7 @@ class New_On_Botwiki {
 
             $twitter_handle = $helpers->get_username_from_url( $author_url );
 
-            if ( !empty( $twitter_handle ) && !in_array( $twitter_handle, array(
-              'tinysubversions'
-            ) ) ){
+            if ( !empty( $twitter_handle ) ){
               array_push( $twitter_handles, $twitter_handle );
             }
           }
@@ -76,7 +74,18 @@ class New_On_Botwiki {
             }
           }
 
-          $bot_author_info = get_post_meta( $post_id, 'bot_author_info', true );
+          $coauthors = get_coauthors( $post_id );
+
+          if ( !empty( $coauthors ) && $coauthors[0]->ID !== 0 ){
+            $bot_author_info = implode( "\n", array_map( function( $author ){
+              $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
+              $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
+              return $author->display_name . ',' . $author_twitter_url;
+            }, $coauthors ) );
+
+          } else {
+            $bot_author_info = get_post_meta( $post_id, 'bot_author_info', true );
+          }
 
           if ( strlen( $bot_author_info ) > 0 ){
             $twitter_handles = self::get_twitter_handles( $bot_author_info );
@@ -108,7 +117,18 @@ class New_On_Botwiki {
 
           $tweet_text = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url;
 
-          $resource_author_info = get_post_meta( $post_id, 'resource_author_info', true );
+          $coauthors = get_coauthors( $post_id );
+
+          if ( !empty( $coauthors ) && $coauthors[0]->ID !== 0 ){
+            $resource_author_info = implode( "\n", array_map( function( $author ){
+              $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
+              $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
+              return $author->display_name . ',' . $author_twitter_url;
+            }, $coauthors ) );
+
+          } else {
+            $resource_author_info = get_post_meta( $post_id, 'resource_author_info', true );
+          }
 
           if ( strlen( $resource_author_info ) > 0 ){
             $twitter_handles = self::get_twitter_handles( $resource_author_info );

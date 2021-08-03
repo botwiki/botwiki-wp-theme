@@ -96,10 +96,18 @@ class Post_Links {
         $link_title = get_the_title( $post_id );
         $link_list_html .= '<li><a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_title . '</a>';
 
-        $link_authors = explode( PHP_EOL, get_post_meta( $post_id, 'resource_author_info', true ) );
+        $coauthors = get_coauthors( $post_id );
+
+        if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
+          $link_authors = array_map( function( $author ){
+            $author_url = get_site_url() . '/author/' . $author->user_login;
+            return $author->display_name . ',' . $author_url;
+          }, $coauthors );
+        } else {
+          $link_authors = explode( PHP_EOL, get_post_meta( $post_id, 'resource_author_info', true ) );
+        }
 
         $link_authors_html = '';
-
 
         if ( count( $link_authors ) === 1 ){
           if ( !empty( $link_authors[0] ) && $is_external ){

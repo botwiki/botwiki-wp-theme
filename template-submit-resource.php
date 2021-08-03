@@ -162,8 +162,10 @@
         ) );
 
         try {
-          $dominant_color = ColorThief::getColor( $screenshot['image_path'] );
-          update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+          if ( class_exists( 'ColorThief' ) ){
+            $dominant_color = ColorThief::getColor( $screenshot['image_path'] );
+            update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+          }
         } catch (Exception $e) {
           /* noop */            
         }
