@@ -76,7 +76,7 @@ class New_On_Botwiki {
 
           $coauthors = get_coauthors( $post_id );
 
-          if ( !empty( $coauthors ) && $coauthors[0]->ID !== 0 ){
+          if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
             $bot_author_info = implode( "\n", array_map( function( $author ){
               $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
               $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
@@ -119,7 +119,7 @@ class New_On_Botwiki {
 
           $coauthors = get_coauthors( $post_id );
 
-          if ( !empty( $coauthors ) && $coauthors[0]->ID !== 0 ){
+          if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
             $resource_author_info = implode( "\n", array_map( function( $author ){
               $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
               $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';

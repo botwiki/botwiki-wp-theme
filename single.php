@@ -281,7 +281,7 @@
           $coauthors = get_coauthors();
           $coauthors_count = count( $coauthors );
 
-          if ( $coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->data->ID !== "2" ) ){ ?>
+          if ( $coauthors_count > 1 || ( $coauthors_count === 1 && $coauthors[0]->user_login !== 'botwiki' ) ){ ?>
             <?php if ( $post_type === 'bot' ){ ?>
               <h3 id="authors">Created by</h3>
               <?php } ?>
