@@ -557,9 +557,9 @@ function ftf_add_defer_attribute( $tag, $handle ) {
   if ( !is_admin() ){
     // $ignore_scripts = array( 'jquery', 'jquery-core' );
    
-    if ( !in_array( $handle, $ignore_scripts ) ){
-      return str_replace( ' src', ' defer="defer" src', $tag );
-    }
+    // if ( !in_array( $handle, $ignore_scripts ) ){
+    //   return str_replace( ' src', ' defer="defer" src', $tag );
+    // }
   }
   return $tag;
 }
