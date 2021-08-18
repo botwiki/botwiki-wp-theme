@@ -27,10 +27,6 @@ $( function() {
   }
 
   if ( $body.hasClass( 'page-template-template-submit-resource' ) ){
-    $( window ).bind( 'beforeunload', function(){
-      return 'Are you sure you want to leave?';
-    } );
-
     /* Disassociate resource author to allow logged in users to submit other people's resources. */
 
     let $disassociateAuthorBtn = $( '#disassociate-author' );

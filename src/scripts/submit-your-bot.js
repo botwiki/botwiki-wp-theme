@@ -36,11 +36,6 @@ $( function() {
   }
 
   if ( $body.hasClass( 'page-template-template-submit-your-bot' ) ){
-
-    $( window ).bind( 'beforeunload', function(){
-      return 'Are you sure you want to leave?';
-    } );
-
     /* Disassociate bot author to allow logged in users to submit other people's bots. */
 
     let $disassociateAuthorBtn = $( '#disassociate-author' );
