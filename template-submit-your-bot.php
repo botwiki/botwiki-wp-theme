@@ -172,7 +172,11 @@
       }
 
       if ( isset( $_POST['bot-is-interactive'] ) ){
-        array_push( $bot_tags, 'interactive' );        
+        array_push( $bot_tags, 'interactive' );
+      }
+
+      if ( isset( $_POST['is-authors-first-bot'] ) ){
+        array_push( $bot_tags, 'myfirstbot' );
       }
 
       if ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ){
@@ -435,10 +439,21 @@
                   </p>
                 <?php } ?>
               </div>
-              <div class="form-check mb-2">
-                <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
-                <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
-                <small id="bot-is-interactive-help" class="form-text text-muted">This bot responds to messages, applies effects to images, etc.</small>
+              <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-check mb-2">
+                      <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
+                      <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
+                      <small id="bot-is-interactive-help" class="form-text text-muted">Responds to messages, applies effects to images, etc.</small>
+                    </div>
+                  </div>                
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-check mb-2">
+                      <input type="checkbox" class="form-check-input" id="is-authors-first-bot" name="is-authors-first-bot">
+                      <label class="form-check-label" for="is-authors-first-bot">This is my first bot</label>
+                      <small id="is-authors-first-bot-help" class="form-text text-muted">We'll tag it with <a target="_blank" href="https://botwiki.org/bot/?tags=myfirstbot">#MyFirstBot</a>.</small>
+                    </div>
+                  </div>                
               </div>
               <div class="form-check mb-2">
                 <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
