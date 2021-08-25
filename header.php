@@ -132,8 +132,8 @@
       elseif ( is_tax() ) {
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 
-        if ( !empty( $term->description ) ){
-          $page_title = str_replace( '.', '', $term->description );
+        if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
+          $page_title = "Bots made with " . $term->name;
         } else {
           $page_title = "Posts tagged #" . $term->name;
         }

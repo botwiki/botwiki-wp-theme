@@ -69,15 +69,20 @@
       <?php } elseif ( is_tax() ){
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 
-        if ( !empty( $term->description ) ){
-          $page_title = str_replace( '.', '', $term->description );
+        if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
+          $page_title = "Bots made with " . $term->name;
         } else {
           $page_title = "Posts tagged #" . $term->name;
         }
       ?>
         <h1 class="post-title"><?php echo $page_title; ?></h1>
         <div class="post-content">
-        <?php }
+        <?php
+
+        if ( !empty( $term->description ) ){
+          echo wpautop( $term->description );
+        }
+      }
         elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
           if ( $_GET['networks'] || $_GET['languages'] || $_GET['tags'] ){
