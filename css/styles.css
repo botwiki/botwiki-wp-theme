@@ -8066,6 +8066,9 @@ p.post-tags a {
     -o-transition: background-color 0.3s;
     transition: background-color 0.3s; }
 
+#bot-tags-help p {
+  line-height: 1.2rem; }
+
 .share-prompt h3 {
   margin-top: 1rem;
   font-size: 1.7rem;
