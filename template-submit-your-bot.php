@@ -439,6 +439,24 @@
                   </p>
                 <?php } ?>
               </div>
+              <div class="form-group">
+                <label for="bot-source-language">What languages and libraries did you use to make your bot?</label>
+                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
+                <?php
+                  $languages = get_terms( 'programing_language', array( 
+                      'hide_empty' => false,
+                  ) );
+                  foreach ( $languages as $language ) { ?>
+                    <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
+                  <?php }
+                ?> 
+                </select>
+              </div>              
+              <div class="form-group">
+                <label for="bot-source-url">Is your bot open-sourced?</label>
+                <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
+                <small id="bot-source-url-help" class="form-text text-muted">Don't worry about <a href="https://botwiki.org/blog/poll-sharing-your-bots-source-code/" target="_blank">"<u>messy code</u>"</a>! Share any links to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
+              </div>
               <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="form-check mb-2">
@@ -454,32 +472,7 @@
                       <small id="is-authors-first-bot-help" class="form-text text-muted">We'll tag it with <a target="_blank" href="https://botwiki.org/bot/?tags=myfirstbot">#MyFirstBot</a>.</small>
                     </div>
                   </div>                
-              </div>
-              <div class="form-check mb-2">
-                <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
-                <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
-              </div>
-              <div id="bot-source-info" class="mt-3 d-none">
-                <div class="form-group">
-                  <label for="bot-source-url">Link( s ) to your bot's source code</label>
-                  <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
-                  <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
-                </div>
-                <div class="form-group">
-                  <label for="bot-source-language">What language( s ) did you use?</label>
-                  <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
-                  <?php
-                    $languages = get_terms( 'programing_language', array( 
-                        'hide_empty' => false,
-                    ) );
-                    foreach ( $languages as $language ) { ?>
-                      <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
-                    <?php }
-                  ?> 
-                  </select>
-                  <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
-                </div>
-              </div>
+              </div>              
               <div class="form-group mt-3">
                 <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
                 <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
