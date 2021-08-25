@@ -7438,9 +7438,12 @@ img {
   margin-bottom: 0; }
 
 .card-footer {
-  padding-bottom: 2.25em;
   background: none;
   border-top: none; }
+  .card-footer img {
+    width: 22px;
+    height: 22px;
+    vertical-align: sub; }
 
 .card-title {
   margin-top: 0.75rem; }

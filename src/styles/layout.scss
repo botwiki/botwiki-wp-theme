@@ -89,9 +89,15 @@ img{
 }
 
 .card-footer{
-  padding-bottom: 2.25em;
+  // padding-bottom: 2.25em;
   background: none;
   border-top: none;
+
+  img{
+    width: 22px;
+    height: 22px;
+    vertical-align: sub;    
+  }
 }
 
 .card-title{
