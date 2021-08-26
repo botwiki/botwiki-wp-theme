@@ -8522,7 +8522,8 @@ body.archive .note .btn, body.archive .card .btn {
 .post-thumbnail-date {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
-  display: block; }
+  display: block;
+  margin-top: 1rem; }
 
 @media (min-width: 860px) {
   .post-thumbnail-1-1 .post-thumbnail-title {
