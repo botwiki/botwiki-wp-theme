@@ -458,6 +458,12 @@
               $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
               $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
+              $author_nickname = get_the_author_meta( 'nickname', $author_id );
+              $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
+              global $coauthors_plus;
+              $coauthors = get_coauthors();
+              $author_id = $coauthor[0]->data->ID;
 
               ?>
               <div class="col-sm-6 col-md-6 col-lg-3 list-item">
@@ -473,6 +479,9 @@
                     </h5>
                     <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
                   </div>
+                  <div class="card-footer">
+                    <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
+                  </div>                  
                 </div>
               </div>
             <?php } ?>
