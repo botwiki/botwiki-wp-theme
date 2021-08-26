@@ -8507,12 +8507,9 @@ body.archive .note .btn, body.archive .card .btn {
   bottom: 0;
   color: #fff;
   background: rgba(25, 25, 25, 0.8);
-  min-height: 3rem;
+  min-height: 9.5rem;
   padding: 5px;
   font-weight: bold; }
-  @media (min-width: 860px) {
-    .post-thumbnail-title {
-      min-height: 8rem; } }
   .post-thumbnail .post-thumbnail-title {
     left: 0;
     right: 0; }
@@ -8521,6 +8518,8 @@ body.archive .note .btn, body.archive .card .btn {
     padding: 15px; }
 
 .post-thumbnail-date {
+  position: absolute;
+  bottom: 1rem;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
   display: block;

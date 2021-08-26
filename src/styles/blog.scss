@@ -69,12 +69,8 @@
   bottom: 0;
   color: #fff;
   background: rgba(25,25,25,0.8);
-  min-height: 3rem;
+  min-height: 9.5rem;
   padding: 5px;
-  @media(min-width: $site-width-small){
-    min-height: 8rem;
-  }
-
   font-weight: bold;
 
   .post-thumbnail &{
@@ -97,6 +93,8 @@
 
 
 .post-thumbnail-date{
+  position: absolute;
+  bottom: 1rem;  
   font-size: 1.1rem;
   color: rgba(255,255,255,0.6);
   display: block;
