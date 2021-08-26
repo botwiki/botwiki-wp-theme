@@ -380,7 +380,7 @@
             <?php
 
             $related_bots = get_posts( array( 
-              'posts_per_page' => 4,
+              'posts_per_page' => 3,
               'orderby' => 'rand',
               'order' => 'ASC',
               'exclude' => array( $post_id ),
@@ -390,13 +390,13 @@
               'suppress_filters' => true
             ) );
 
-            if ( count( $related_bots ) < 4 ){
+            if ( count( $related_bots ) < 3 ){
               $used_post_ids = array_map( function( $bot ){
                 return $bot->ID;
               }, $related_bots);
 
               $related_bots_fill = get_posts( array( 
-                'posts_per_page' => 4 - count( $related_bots ),
+                'posts_per_page' => 3 - count( $related_bots ),
                 'orderby' => 'rand',
                 'order' => 'ASC',
                 'exclude' => $used_post_ids,
@@ -415,7 +415,7 @@
               $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
               ?>
-              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+              <div class="col-sm-12 col-md-4 col-lg-4 list-item">
                 <div class="card w-100">
                   <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
                     <a href="<?php echo get_permalink( $related_bot->ID ); ?>">
@@ -445,7 +445,7 @@
             <?php
 
             $latest_blog_posts = get_posts( array( 
-              'posts_per_page' => 4,
+              'posts_per_page' => 3,
               'exclude' => array( $post_id ),            
               'post_type' => 'post',
               'post_status' => 'publish'
@@ -472,7 +472,7 @@
 
 
               ?>
-              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+              <div class="col-sm-12 col-md-4 col-lg-4 list-item">
                 <div class="card w-100">
                   <a href="<?php echo get_permalink( $blog_post->ID ); ?>">
                     <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
@@ -486,7 +486,7 @@
                     <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
                   </div>
                   <div class="card-footer">
-                    <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php // echo $author_nickname; ?></a><!-- | --><span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
+                    <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
                   </div>                  
                 </div>
               </div>
