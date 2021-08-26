@@ -458,10 +458,10 @@
               $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
               $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
+              $author_id = $blog_post->post_author;
               $author_nickname = get_the_author_meta( 'nickname', $author_id );
               $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
-              $author_id = $blog_post->post_author;
               $post_date = get_the_time( 'F j, Y', $blog_post->ID );
               $post_date_full = $post_date . ' ' . get_the_time( 'g:i a', $blog_post->ID );
 
