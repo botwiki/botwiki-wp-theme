@@ -462,8 +462,17 @@
               $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
               global $coauthors_plus;
-              $coauthors = get_coauthors();
+              $coauthors = get_coauthors( $blog_post->ID );
               $author_id = $coauthor[0]->data->ID;
+
+              $post_date = get_the_time( $blog_post->ID, 'F j, Y' );
+              $post_date_full = $post_date . ' ' . get_the_time( $blog_post->ID, 'g:i a' );
+
+              if ( class_exists( 'Moment\Moment' ) ){
+                $m = new \Moment\Moment( $post_date );
+                $post_date_ago = $m->fromNow()->getRelative();
+              }
+
 
               ?>
               <div class="col-sm-6 col-md-6 col-lg-3 list-item">
