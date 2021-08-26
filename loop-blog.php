@@ -15,7 +15,7 @@
     $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
 
     ?>
-    <div class="post-thumbnail post-thumbnail-<?php echo $page; ?>-<?php echo $index; ?>" style="<?php echo $dominant_color_css; ?>">
+    <div class="blog-post-thumbnail post-thumbnail post-thumbnail-<?php echo $page; ?>-<?php echo $index; ?>" style="<?php echo $dominant_color_css; ?>">
       <a href="<?php echo $link_url; ?>" title="<?php get_the_title(); ?>">
         <img class="post-thumbnail-img lazy-load"
              src="<?php echo get_the_post_thumbnail_url( $post_thumbnail_id, 'medium_large' ); ?>"

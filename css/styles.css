@@ -8471,12 +8471,17 @@ body.archive .note .btn, body.archive .card .btn {
   padding: 5px;
   margin: 1px;
   position: relative;
+  -webkit-transition: -webkit-filter 0.3s;
+  transition: -webkit-filter 0.3s;
+  -o-transition: filter 0.3s;
+  transition: filter 0.3s;
+  transition: filter 0.3s, -webkit-filter 0.3s;
   overflow: hidden; }
   .post-thumbnail, .post-thumbnail .post-thumbnail-img {
     min-height: 320px; }
   .post-thumbnail:hover .post-thumbnail-img {
-    -webkit-filter: brightness(40%) opacity(1);
-            filter: brightness(40%) opacity(1);
+    -webkit-filter: brightness(45%) opacity(1);
+            filter: brightness(45%) opacity(1);
     -webkit-transition: -webkit-filter 0.3s;
     transition: -webkit-filter 0.3s;
     -o-transition: filter 0.3s;
@@ -8491,8 +8496,8 @@ body.archive .note .btn, body.archive .card .btn {
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-filter: brightness(55%) opacity(0.95);
-          filter: brightness(55%) opacity(0.95);
+  -webkit-filter: brightness(40%) opacity(0.95);
+          filter: brightness(40%) opacity(0.95);
   -webkit-transition: -webkit-filter 0.3s;
   transition: -webkit-filter 0.3s;
   -o-transition: filter 0.3s;
@@ -8506,7 +8511,6 @@ body.archive .note .btn, body.archive .card .btn {
   position: absolute;
   bottom: 0;
   color: #fff;
-  background: rgba(25, 25, 25, 0.8);
   min-height: 9.5rem;
   padding: 5px;
   font-weight: bold; }
