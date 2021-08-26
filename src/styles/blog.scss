@@ -75,6 +75,9 @@
   position: absolute;
   bottom: 0;
   color: #fff;
+  // background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+
   min-height: 9.5rem;
   padding: 5px;
   font-weight: bold;
@@ -90,7 +93,7 @@
   // }
 
   .post-thumbnail &{
-    margin: 5px;
+    margin: 0;
     padding: 15px;
   }
 }

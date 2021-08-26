@@ -8511,6 +8511,9 @@ body.archive .note .btn, body.archive .card .btn {
   position: absolute;
   bottom: 0;
   color: #fff;
+  background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(bottom, black 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 100%);
   min-height: 9.5rem;
   padding: 5px;
   font-weight: bold; }
@@ -8518,7 +8521,7 @@ body.archive .note .btn, body.archive .card .btn {
     left: 0;
     right: 0; }
   .post-thumbnail .post-thumbnail-title {
-    margin: 5px;
+    margin: 0;
     padding: 15px; }
 
 .post-thumbnail-date {
