@@ -69,6 +69,7 @@
   bottom: 0;
   color: #fff;
   background: rgba(25,25,25,0.8);
+  min-height: 3rem;
   padding: 5px;
   @media(min-width: $site-width-small){
     min-height: 8rem;
