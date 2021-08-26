@@ -174,6 +174,8 @@
               </div>
               <?php }
             } ?>
+
+            <p>And a huge shoutout to <a href="/about/supporters/">our supporters</a> 🙌</p>
           </div>
         </div>
       </article>
