@@ -36,12 +36,12 @@
           $author_id = $coauthor[0]->data->ID;
 
           $author_email = esc_attr( get_the_author_meta( 'email', $author_id ) );
-          $profile_img_url = esc_attr( get_avatar_url( $author_email, array('size' => 22 ) ) );
+          $profile_img_url = esc_attr( get_avatar_url( $author_email, array( 'size' => 22 ) ) );
 
           if ( class_exists( 'Moment\Moment' ) ){
             $m = new \Moment\Moment($post_date);
             $post_date_ago = $m->fromNow()->getRelative();
-            echo " <span class='post-thumbnail-date'><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2"  src="$profile_img_url" data-src="$profile_img_url"> $post_author | $post_date_ago</span>";
+            echo " <span class='post-thumbnail-date'><img width=\"22\" height=\"22\" loading=\"lazy\" class=\"lazy-load u-photo rounded-circle mr-2\"  src=\"$profile_img_url\" data-src=\"$profile_img_url\"> $post_author | $post_date_ago</span>";
           }
           ?>
         </p>
