@@ -28,7 +28,17 @@ $author_info = array(
 );
 ?>
 
-<div class="container card <?php echo ( is_author() ? 'mt-n5' : 'mt-0' ) ?> mb-4 pl-0 pr-0 author-card">
+<div class="container card <?php
+  $post_type = get_post_type();
+
+  if ( is_author() ){
+    echo 'mt-n5';
+  } elseif ( $post_type === 'bot' ) {
+    echo 'mt-0';
+  } else {
+    echo 'mt-5';    
+  }
+?> mb-4 pl-0 pr-0 author-card">
   <div class="card-body mt-4">
     <div class="row">
       <div class="col-sm-12 col-md-2 text-center text-md-left">
