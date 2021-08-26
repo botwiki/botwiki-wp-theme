@@ -461,12 +461,9 @@
               $author_nickname = get_the_author_meta( 'nickname', $author_id );
               $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
-              global $coauthors_plus;
-              $coauthors = get_coauthors( $blog_post->ID );
-              $author_id = $coauthor[0]->data->ID;
-
-              $post_date = get_the_time( $blog_post->ID, 'F j, Y' );
-              $post_date_full = $post_date . ' ' . get_the_time( $blog_post->ID, 'g:i a' );
+              $author_id = $blog_post->post_author;
+              $post_date = get_the_time( 'F j, Y', $blog_post->ID );
+              $post_date_full = $post_date . ' ' . get_the_time( 'g:i a', $blog_post->ID );
 
               if ( class_exists( 'Moment\Moment' ) ){
                 $m = new \Moment\Moment( $post_date );
