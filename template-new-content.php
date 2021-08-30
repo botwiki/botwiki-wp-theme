@@ -137,6 +137,10 @@
               <a class="btn" href="/submit-resource/">Add your resource</a>
             </li>
           </ul>
+          <div class="text-muted mb-5">
+            <p>Note: If you recently submitted a bot or a resource, please give us some time to review it against  <a href="/botwiki-submission-guidelines/"><u>our guidelines</u></a>.</p>
+            <p>Thank you!</p>
+          </div>
         </div>
       </article>
     </div>
