@@ -7792,6 +7792,8 @@ video {
 .social-embeds {
   max-width: 980px;
   margin: 0 -1rem; }
+  .social-embeds .list-item {
+    margin-bottom: 0; }
 
 .hljs {
   padding: 1em !important; }

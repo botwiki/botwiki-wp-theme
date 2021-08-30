@@ -535,6 +535,9 @@ video {
   max-width: $max-embed-width;
   // margin: 0 auto;
   margin: 0 -1rem;
+  .list-item{
+    margin-bottom: 0;
+  }
 }
 
 .hljs{
