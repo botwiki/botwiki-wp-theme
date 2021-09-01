@@ -7974,7 +7974,7 @@ blockquote {
 blockquote.instagram-media,
 iframe.instagram-media {
   display: block;
-  margin: 1em auto 0 !important;
+  margin: 2rem auto 0 !important;
   max-width: calc(100% - 10px) !important; }
 
 blockquote.twitter-tweet,
@@ -7992,7 +7992,7 @@ body.page-template-template-submit-your-bot blockquote {
     margin-top: 30px; }
 
 .twitter-tweet.twitter-tweet-rendered {
-  margin: 1em auto 0 !important; }
+  margin: 2rem auto 0 !important; }
 
 .fb-post.fb_iframe_widget span {
   max-width: 100% !important;
