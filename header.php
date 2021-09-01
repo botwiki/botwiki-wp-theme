@@ -65,13 +65,13 @@
           );
         }
 
-        $page_title .= ucfirst( $post_type_for_title ) . ' tagged #' . implode( ' #', $page_tags );
-        $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
+        $page_title .= ucfirst( $post_type_for_title ) . ' tagged #' . implode( $page_tags, ' #' );
+        $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
       }
       elseif ( is_category() ) {
         // $page_title = 'Posts labeled ' . single_cat_title();
         $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
-        $page_description = 'Browsing pages tagged #' . implode( ' #', $page_tags ) . ' on Botwiki';
+        $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
       }
       elseif ( is_post_type_archive() ) {
         if (is_author()){
@@ -125,8 +125,8 @@
       elseif ( is_tag() ) {
         $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
   
-        $page_title = "Posts tagged #" . implode( ' #', $tags );
-        $page_description = "Browsing posts tagged #" . implode( ' #', $tags ) . ' on Botwiki';
+        $page_title = "Posts tagged #" . implode( $tags, ' #' );
+        $page_description = "Browsing posts tagged #" . implode( $tags, ' #' ) . ' on Botwiki';
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_tax() ) {
