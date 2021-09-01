@@ -69,9 +69,10 @@
         $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
       }
       elseif ( is_category() ) {
-        // $page_title = 'Posts labeled ' . single_cat_title();
         $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
-        $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
+        if ( is_array( $page_tags ) && !empty( $page_tags ) ){
+          $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
+        }
       }
       elseif ( is_post_type_archive() ) {
         if (is_author()){
