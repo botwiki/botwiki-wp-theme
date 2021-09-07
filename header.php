@@ -65,8 +65,10 @@
           );
         }
 
-        $page_title .= ucfirst( $post_type_for_title ) . ' tagged #' . implode( $page_tags, ' #' );
-        $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
+        if ( is_array( $page_tags ) && !empty( $page_tags ) ){
+          $page_title .= ucfirst( $post_type_for_title ) . ' tagged #' . implode( $page_tags, ' #' );
+          $page_description = 'Browsing pages tagged #' . implode( $page_tags, ' #' ) . ' on Botwiki';
+        }
       }
       elseif ( is_category() ) {
         $page_title = 'Posts labeled #' . $wp_query->query_vars['category_name'];
