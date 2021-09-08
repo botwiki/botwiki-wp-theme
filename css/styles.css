@@ -7908,6 +7908,7 @@ blockquote {
   background: #edf6ff;
   font-style: italic;
   margin: 4rem auto !important;
+  border-radius: 8px;
   padding: 4rem 1rem 2rem 1rem;
   quotes: "“" "”" "‘" "’";
   border-left: 1px solid #edf6ff;
