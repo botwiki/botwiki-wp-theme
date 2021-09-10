@@ -214,7 +214,7 @@
 
                     if ( $languages ){
                       foreach ( $languages as $language ) {
-                        $language_links[] = '<li><a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->slug . '</a></li>';
+                        $language_links[] = '<li><a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->name . '</a></li>';
                       }
                       ?>
                       <h4 class="mt-2 mb-2">Languages</h4>
