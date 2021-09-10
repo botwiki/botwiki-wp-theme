@@ -172,7 +172,11 @@
       }
 
       if ( isset( $_POST['bot-is-interactive'] ) ){
-        array_push( $bot_tags, 'interactive' );        
+        array_push( $bot_tags, 'interactive' );
+      }
+
+      if ( isset( $_POST['is-authors-first-bot'] ) ){
+        array_push( $bot_tags, 'myfirstbot' );
       }
 
       if ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ){
@@ -260,7 +264,7 @@
               <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
                 <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
               <?php } else { ?>
-                <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
+                <p class="mt-5"><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
                 <p>You can <a href="https://twitter.com/newonbotwiki" target="_blank">follow @newonbotwiki</a> to see when the site gets updated.</p>
               <?php } ?>
               <ul class="btn-list mt-4">
@@ -435,43 +439,46 @@
                   </p>
                 <?php } ?>
               </div>
-              <div class="form-check mb-2">
-                <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
-                <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
-                <small id="bot-is-interactive-help" class="form-text text-muted">This bot responds to messages, applies effects to images, etc.</small>
+              <div class="form-group">
+                <label for="bot-source-language">What languages and libraries did you use to make your bot?</label>
+                <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
+                <?php
+                  $languages = get_terms( 'programing_language', array( 
+                      'hide_empty' => false,
+                  ) );
+                  foreach ( $languages as $language ) { ?>
+                    <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
+                  <?php }
+                ?> 
+                </select>
+              </div>              
+              <div class="form-group">
+                <label for="bot-source-url">Is your bot open-sourced?</label>
+                <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
+                <small id="bot-source-url-help" class="form-text text-muted">Don't worry about <a href="https://botwiki.org/blog/poll-sharing-your-bots-source-code/" target="_blank">"<u>messy code</u>"</a>! Share any links to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
               </div>
-              <div class="form-check mb-2">
-                <input type="checkbox" class="form-check-input" id="bot-is-opensource" name="bot-is-opensource">
-                <label class="form-check-label" for="bot-is-opensource">This bot is open-source</label>
-              </div>
-              <div id="bot-source-info" class="mt-3 d-none">
-                <div class="form-group">
-                  <label for="bot-source-url">Link( s ) to your bot's source code</label>
-                  <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
-                  <small id="bot-source-url-help" class="form-text text-muted">Link to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
-                </div>
-                <div class="form-group">
-                  <label for="bot-source-language">What language( s ) did you use?</label>
-                  <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
-                  <?php
-                    $languages = get_terms( 'programing_language', array( 
-                        'hide_empty' => false,
-                    ) );
-                    foreach ( $languages as $language ) { ?>
-                      <option value="<?php echo $language->slug ?>"><?php echo $language->name ?></option>
-                    <?php }
-                  ?> 
-                  </select>
-                  <small id="bot-source-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us.</small>
-                </div>
-              </div>
+              <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-check mb-2">
+                      <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
+                      <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
+                      <small id="bot-is-interactive-help" class="form-text text-muted">Responds to messages, applies effects to images, etc.</small>
+                    </div>
+                  </div>                
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-check mb-2">
+                      <input type="checkbox" class="form-check-input" id="is-authors-first-bot" name="is-authors-first-bot">
+                      <label class="form-check-label" for="is-authors-first-bot">This is my first bot</label>
+                      <small id="is-authors-first-bot-help" class="form-text text-muted">We'll tag it with <a target="_blank" href="https://botwiki.org/bot/?tags=myfirstbot">#MyFirstBot</a>.</small>
+                    </div>
+                  </div>                
+              </div>              
               <div class="form-group mt-3">
                 <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
                 <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
                 </select>
                 <div id="bot-tags-help" class="form-text form-help-text text-muted mt-3">
-                  <p>Add as many relevant tags as you can, this will make it easier for others to find your submission.</p>
-                  <p>Note that <strong>you don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
+                  <p>Add as many relevant tags as you can, this will make it easier for others to find your submission. <strong>You don't need to add tags based on your bot's network or programming language</strong>, for example <code>#twitterbot</code> or <code>#python</code>. These tags are added automatically based on provided information.</p>
                 </div>
               </div>
               <div class="form-check mt-3 mb-2">

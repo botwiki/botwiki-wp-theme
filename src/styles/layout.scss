@@ -89,9 +89,15 @@ img{
 }
 
 .card-footer{
-  padding-bottom: 2.25em;
+  // padding-bottom: 2.25em;
   background: none;
   border-top: none;
+
+  img{
+    width: 22px;
+    height: 22px;
+    vertical-align: sub;    
+  }
 }
 
 .card-title{
@@ -529,6 +535,9 @@ video {
   max-width: $max-embed-width;
   // margin: 0 auto;
   margin: 0 -1rem;
+  .list-item{
+    margin-bottom: 0;
+  }
 }
 
 .hljs{

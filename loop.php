@@ -1,3 +1,4 @@
+
 <div class="mt-5">
   <div class="row list">
     <?php if ( have_posts() ): while ( have_posts() ) : the_post();
@@ -43,19 +44,20 @@
             <?php if ( is_home() || $post_type == 'tutorial' ){ 
               $post_date = get_the_time( 'F j, Y' );
               $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
+              $author_nickname = get_the_author_meta( 'nickname', $author_id );
+              $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
+
               if ( class_exists( 'Moment\Moment' ) ){
                 $m = new \Moment\Moment( $post_date );
                 $post_date_ago = $m->fromNow()->getRelative();
               }
             ?>
-
-            <p class="text-muted mt-n2">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-              by <a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><?php echo get_the_author_meta( 'nickname', $author_id ); ?></a></p>
-            <?php } ?>
-
-            </p>
-        <!-- /post thumbnail -->
             </div>
+            <div class="card-footer">
+              <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
+            <?php } ?>
+            </p>
+            </div>            
           </div>
         </div>
       <?php endwhile; ?>

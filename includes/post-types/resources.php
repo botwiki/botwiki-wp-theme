@@ -24,7 +24,7 @@ class ResourcesPostType {
       $external_resource_url = get_post_meta( $wp_query->posts[0]->ID, 'resource_url', true );
       $content = get_post_field( 'post_content', $wp_query->posts[0]->ID );
 
-      if ( empty( $content ) && !empty( $external_resource_url ) ){
+      if ( !is_archive() && empty( $content ) && !empty( $external_resource_url ) ){
         wp_redirect( $external_resource_url );
       }
     }

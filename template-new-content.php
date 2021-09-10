@@ -20,7 +20,8 @@
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <div class="post-content">
-           <ul class="btn-list mt-5 text-sm-left text-md-center">
+  <!--
+          <ul class="btn-list mt-5 text-sm-left text-md-center">
             <li>
               <a class="btn" href="#blog">Botwiki blog</a>
             </li>
@@ -30,10 +31,8 @@
             <li>
               <a class="btn" href="#resources">New resources</a>
             </li>
-            <li>
-              <a class="btn" href="https://twitter.com/newonbotwiki">@newonbotwiki</a>
-            </li>
-          </ul>        
+          </ul>
+  -->      
 
           <?php
             echo get_post_field( 'post_content', $post_id);
@@ -138,6 +137,10 @@
               <a class="btn" href="/submit-resource/">Add your resource</a>
             </li>
           </ul>
+          <div class="text-muted mb-5">
+            <p>Note: If you recently submitted a bot or a resource, please give us some time to review it against  <a href="/botwiki-submission-guidelines/"><u>our guidelines</u></a>.</p>
+            <p>Thank you!</p>
+          </div>
         </div>
       </article>
     </div>

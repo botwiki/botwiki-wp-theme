@@ -36,7 +36,6 @@ $( function() {
   }
 
   if ( $body.hasClass( 'page-template-template-submit-your-bot' ) ){
-
     /* Disassociate bot author to allow logged in users to submit other people's bots. */
 
     let $disassociateAuthorBtn = $( '#disassociate-author' );
