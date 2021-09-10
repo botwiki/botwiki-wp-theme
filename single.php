@@ -175,7 +175,7 @@
 
                       if ( $tags ){
                         foreach ( $tags as $tag ) {
-                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->name . '</a> ';
+                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
                         }
                       }
 
