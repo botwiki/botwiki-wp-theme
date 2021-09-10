@@ -7431,6 +7431,9 @@ img {
 .author-card p a {
   text-decoration: underline !important; }
 
+.card p {
+  line-height: 1.5rem; }
+
 .card a, .card a:hover {
   color: inherit; }
 
