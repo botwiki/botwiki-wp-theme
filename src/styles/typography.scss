@@ -156,12 +156,12 @@ blockquote{
     }
   }
 
-  border-left: 1px solid $background-ternary;
-  border: 1px solid $background-ternary;
+  border-left: 3px solid $background-ternary;
+  border: 3px solid $background-ternary;
 
   &:hover{
-    border: 1px solid $color-ternary;
-    border-left: 1px solid $color-ternary !important;
+    border: 3px solid $color-ternary;
+    border-left: 3px solid $color-ternary !important;
   }
 
   &, &:hover{

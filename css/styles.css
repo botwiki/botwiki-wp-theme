@@ -7911,8 +7911,8 @@ blockquote {
   border-radius: 8px;
   padding: 4rem 1rem 2rem 1rem;
   quotes: "“" "”" "‘" "’";
-  border-left: 1px solid #edf6ff;
-  border: 1px solid #edf6ff; }
+  border-left: 3px solid #edf6ff;
+  border: 3px solid #edf6ff; }
   .col-md-6 blockquote {
     padding-left: 1em;
     padding-right: 1em; }
@@ -7921,8 +7921,8 @@ blockquote {
         padding-left: 2em;
         padding-right: 2em; } }
   blockquote:hover {
-    border: 1px solid #9aadc5;
-    border-left: 1px solid #9aadc5 !important; }
+    border: 3px solid #9aadc5;
+    border-left: 3px solid #9aadc5 !important; }
   blockquote, blockquote:hover {
     -webkit-transition: border-color 0.1s linear;
     -o-transition: border-color 0.1s linear;
