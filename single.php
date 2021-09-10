@@ -91,7 +91,7 @@
             if ( $post_type === 'bot' ) {?>
               <div class="row">
                 <div class="col-sm-12 col-md-9 mb-3 pr-3">
-                  <ul class="btn-list mt-1 mb-4">
+                  <ul class="btn-list mt-1 mb-5">
                   <?php
 
                   $bot_urls = preg_split( '/\n|\r\n?/', $post_meta['bot_url'][0] );
