@@ -350,14 +350,16 @@ a{
 
 
 p.post-tags{
+  line-height: 2.5rem;
   a{
     font-family: $button-font-family;
     font-size: 1rem;
-    color: #42474e  ;
+    color: #4e7cb1;
     background-color: #eaf2fb;
     line-height: 2em;
     padding: 5px;
     white-space: nowrap;
+    border-radius: 6px;
 
     &:before{
       content: '#';

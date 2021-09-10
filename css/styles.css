@@ -8054,23 +8054,26 @@ a.pilcrow-link .pilcrow {
 a.no-underline, a.no-underline:hover {
   text-decoration: none !important; }
 
-p.post-tags a {
-  font-family: "Source Code Pro", monospace;
-  font-size: 1rem;
-  color: #42474e;
-  background-color: #eaf2fb;
-  line-height: 2em;
-  padding: 5px;
-  white-space: nowrap; }
-  p.post-tags a:before {
-    content: '#'; }
-  p.post-tags a:hover {
-    text-decoration: none;
-    background-color: #c8d0d9; }
-  p.post-tags a, p.post-tags a:hover {
-    -webkit-transition: background-color 0.3s;
-    -o-transition: background-color 0.3s;
-    transition: background-color 0.3s; }
+p.post-tags {
+  line-height: 2.5rem; }
+  p.post-tags a {
+    font-family: "Source Code Pro", monospace;
+    font-size: 1rem;
+    color: #4e7cb1;
+    background-color: #eaf2fb;
+    line-height: 2em;
+    padding: 5px;
+    white-space: nowrap;
+    border-radius: 6px; }
+    p.post-tags a:before {
+      content: '#'; }
+    p.post-tags a:hover {
+      text-decoration: none;
+      background-color: #c8d0d9; }
+    p.post-tags a, p.post-tags a:hover {
+      -webkit-transition: background-color 0.3s;
+      -o-transition: background-color 0.3s;
+      transition: background-color 0.3s; }
 
 #bot-tags-help p {
   line-height: 1.2rem; }
