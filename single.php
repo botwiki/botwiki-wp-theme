@@ -63,85 +63,7 @@
             <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
           <?php }
 
-          if ( $post_type == 'bot' ){ ?>
-            <ul class="btn-list">
-            <?php
-
-            $bot_urls = preg_split( '/\n|\r\n?/', $post_meta['bot_url'][0] );
-
-            $bot_source_url = '';
-
-            if ( array_key_exists( 'bot_source_url', $post_meta ) && !empty( $post_meta['bot_source_url'][0] ) ){
-              $bot_source_url = $post_meta['bot_source_url'][0];
-            }
-
-            if ( is_array( $bot_urls ) && $bot_urls[0] ){
-              foreach ( $bot_urls as $url ) {
-                if ( $url !== $bot_source_url ){
-                  $info = parse_url( $url );
-                  $host = $info['host'];
-                  $host_names = explode( ".", $host );
-                  $domain = $host_names[count( $host_names )-2] . "." . $host_names[count( $host_names )-1];
-                  if ( $domain === 'twitter.com' ){
-                    $label = 'View on Twitter';
-                  } elseif ( $domain === 'tumblr.com' ) {
-                    $label = 'View on Tumblr';
-                  } elseif ( $domain === 'youtube.com' ) {
-                    $label = 'View on YouTube';
-                  } elseif ( $domain === 'twitch.tv' ) {
-                    $label = 'View on Twitch';
-                  } elseif ( $domain === 'instagram.com' ) {
-                    $label = 'View on Instagram';
-                  } elseif ( $domain === 'facebook.com' ) {
-                    $label = 'View on Facebook';
-                  } elseif ( $domain === 'm.me' ) {
-                    $label = 'Chat via Facebook Messenger';
-                  } elseif ( $domain === 'reddit.com' ) {
-                    $label = 'View on Reddit';
-                  } elseif ( $domain === 'discordapp.com' ) {
-                    $label = 'Add to Discord';
-                  } else {
-                    $label = 'View on ' . $domain;
-                  }
-                  ?>
-                  <li>
-                    <a class="btn" href="<?php echo $url; ?>"><?php echo $label; ?></a>
-                  </li>
-                <?php }                 
-              }
-            }
-
-            $bot_languages = wp_get_post_terms( $post_id, 'programing_language' );
-
-            $bot_source_urls = array();
-            if ( array_key_exists( 'bot_source_url', $post_meta ) && !empty( $post_meta['bot_source_url'][0] ) ){
-              $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
-            }
-
-            if ( count( $bot_source_urls ) === 1 ){ ?>
-              <li>
-                <a class="btn view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
-              </li>
-            <?php } elseif ( count( $bot_source_urls ) > 1 ){ ?>
-              <li>
-                <a class="btn view-source" href="#source-code">View source</a>
-              </li>
-            <?php }
-
-            if( isset( $post_meta['output_archive_url'] ) && strlen( trim( $post_meta['output_archive_url'][0] ) ) !== 0 ){ ?>
-              <li>
-                <a class="btn" href="<?php echo $post_meta['output_archive_url'][0] ?>"
-                   target="_blank"
-              <?php
-                if( isset( $post_meta['output_archive_date'] ) && strlen( trim( $post_meta['output_archive_date'][0] ) ) !== 0 ){ ?>
-                  title="Archive created on <?php echo $post_meta['output_archive_date'][0] ?>"
-                <?php } ?>
-                >Download archive</a>
-              </li>
-              <?php } ?>
-            </ul>
-          <?php }
-          else if ( $post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
+            if ( $post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
 
               $info = parse_url( $post_meta['resource_url'][0] );
               $host = $info['host'];
@@ -165,7 +87,150 @@
           echo "mt-5";
         }
         ?>">
-          <?php the_content(); ?>
+          <?php
+            if ( $post_type === 'bot' ) {?>
+              <div class="row">
+                <div class="col-sm-12 col-md-9 mb-3 pr-3">
+                  <ul class="btn-list mt-1 mb-4">
+                  <?php
+
+                  $bot_urls = preg_split( '/\n|\r\n?/', $post_meta['bot_url'][0] );
+
+                  $bot_source_url = '';
+
+                  if ( array_key_exists( 'bot_source_url', $post_meta ) && !empty( $post_meta['bot_source_url'][0] ) ){
+                    $bot_source_url = $post_meta['bot_source_url'][0];
+                  }
+
+                  if ( is_array( $bot_urls ) && $bot_urls[0] ){
+                    foreach ( $bot_urls as $url ) {
+                      if ( $url !== $bot_source_url ){
+                        $info = parse_url( $url );
+                        $host = $info['host'];
+                        $host_names = explode( ".", $host );
+                        $domain = $host_names[count( $host_names )-2] . "." . $host_names[count( $host_names )-1];
+                        if ( $domain === 'twitter.com' ){
+                          $label = 'View on Twitter';
+                        } elseif ( $domain === 'tumblr.com' ) {
+                          $label = 'View on Tumblr';
+                        } elseif ( $domain === 'youtube.com' ) {
+                          $label = 'View on YouTube';
+                        } elseif ( $domain === 'twitch.tv' ) {
+                          $label = 'View on Twitch';
+                        } elseif ( $domain === 'instagram.com' ) {
+                          $label = 'View on Instagram';
+                        } elseif ( $domain === 'facebook.com' ) {
+                          $label = 'View on Facebook';
+                        } elseif ( $domain === 'm.me' ) {
+                          $label = 'Chat via Facebook Messenger';
+                        } elseif ( $domain === 'reddit.com' ) {
+                          $label = 'View on Reddit';
+                        } elseif ( $domain === 'discordapp.com' ) {
+                          $label = 'Add to Discord';
+                        } else {
+                          $label = 'View on ' . $domain;
+                        }
+                        ?>
+                        <li>
+                          <a class="btn" href="<?php echo $url; ?>"><?php echo $label; ?></a>
+                        </li>
+                      <?php }                 
+                    }
+                  }
+
+                  $bot_languages = wp_get_post_terms( $post_id, 'programing_language' );
+
+                  $bot_source_urls = array();
+                  if ( array_key_exists( 'bot_source_url', $post_meta ) && !empty( $post_meta['bot_source_url'][0] ) ){
+                    $bot_source_urls = preg_split( '/\r\n|[\r\n]/', $post_meta['bot_source_url'][0] );
+                  }
+
+                  if ( count( $bot_source_urls ) === 1 ){ ?>
+                    <li>
+                      <a class="btn view-source" href="<?php echo $bot_source_urls[0]; ?>">View source</a>
+                    </li>
+                  <?php } elseif ( count( $bot_source_urls ) > 1 ){ ?>
+                    <li>
+                      <a class="btn view-source" href="#source-code">View source</a>
+                    </li>
+                  <?php }
+
+                  if( isset( $post_meta['output_archive_url'] ) && strlen( trim( $post_meta['output_archive_url'][0] ) ) !== 0 ){ ?>
+                    <li>
+                      <a class="btn" href="<?php echo $post_meta['output_archive_url'][0] ?>"
+                         target="_blank"
+                    <?php
+                      if( isset( $post_meta['output_archive_date'] ) && strlen( trim( $post_meta['output_archive_date'][0] ) ) !== 0 ){ ?>
+                        title="Archive created on <?php echo $post_meta['output_archive_date'][0] ?>"
+                      <?php } ?>
+                      >Download archive</a>
+                    </li>
+                    <?php } ?>
+                  </ul>
+                  <?php the_content(); ?>
+                  <p class="post-tags mt-5 mb-1">
+                    <?php 
+                      $tags = get_the_tags();
+                      $tags_array = array();
+
+                      if ( $tags ){
+                        foreach ( $tags as $tag ) {
+                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->name . '</a> ';
+                        }
+                      }
+
+                      echo join( ' ', $tags_array );
+                      // the_tags( '', ' ', '<br>' );
+                    ?>
+                  </p>                 
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <h4 class="mt-0 mb-2">Networks</h4>
+                  <ul>
+
+                  <?php
+
+                    $networks = get_the_terms( $post_id, 'network' );
+                    function get_network_name( $network ){
+                      return $network->name;
+                    }
+
+                    $network_names = array_map( 'get_network_name', $networks );
+
+                    $network_links = array();
+                    if ( $networks ){
+                      foreach ( $networks as $network ) {
+                        $network_links[] = '<li><a href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
+                      }
+                    }
+
+                    echo join( ' ', $network_links );
+                    ?>
+                  </ul>
+                  <?php
+
+                    $languages = get_the_terms( $post_id, 'programing_language' );
+                    $language_links = array();
+
+                    if ( $languages ){
+                      foreach ( $languages as $language ) {
+                        $language_links[] = '<li><a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->slug . '</a></li>';
+                      }
+                      ?>
+                      <h4 class="mt-2 mb-2">Languages</h4>
+                      <ul>
+                      <?php
+                      echo join( ' ', $language_links );
+                      ?>
+                      </ul>
+                    <?php } ?>
+                </div>
+              </div>
+            <?php
+            } else {
+              the_content();
+            }
+          ?>
         </div>
         <?php
         if ( $post_type === 'bot' ) { 
@@ -173,12 +238,6 @@
           $bot_tweets_hide = ( array_key_exists('bot_tweets_hide', $post_meta ) && $post_meta['bot_tweets_hide'][0] === "on" );
 
           if ( !$bot_tweets_hide ){
-            $networks = get_the_terms( $post_id, 'network' );
-            function get_network_name( $network ){
-              return $network->name;
-            }
-
-            $network_names = array_map( 'get_network_name', $networks );
             $bot_tweets_html_meta = get_post_meta( $post_id, 'bot_tweets_html', true );
             $tumblr_script = '<script async src="https://assets.tumblr.com/post.js"></script>';
 
@@ -220,42 +279,6 @@
 
           ?>
           </div>
-          <p class="post-tags mt-5 mb-5">
-            <?php 
-              $network_tags = array();
-              if ( $networks ){
-                foreach ( $networks as $network ) {
-                  $network_tags[] = '<a href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->slug . '</a> ';
-                }               
-              }
-
-              echo join( ' ', $network_tags );
-
-              $languages = get_the_terms( $post_id, 'programing_language' );
-              $language_tags = array();
-
-              if ( $languages ){
-                foreach ( $languages as $language ) {
-                  $language_tags[] = '<a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->slug . '</a> ';
-                }
-
-              }
-
-              echo join( ' ', $language_tags );
-
-              $tags = get_the_tags();
-              $tags_array = array();
-
-              if ( $tags ){
-                foreach ( $tags as $tag ) {
-                  $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
-                }
-              }
-
-              echo join( ' ', $tags_array );
-              // the_tags( '', ' ', '<br>' );
-            ?>
-          </p>          
           <?php if ( count( $bot_source_urls ) > 1 ){
             global $helpers;
             ?>
