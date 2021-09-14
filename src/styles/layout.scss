@@ -35,6 +35,12 @@ body{
   .container{
     width: 100% !important;
     max-width: $max-content-width !important;
+
+    &.blog-home{
+      &, .container{
+        max-width: $max-content-width-blog !important;      
+      }
+    }
   }
 }
 

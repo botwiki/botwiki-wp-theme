@@ -18,7 +18,7 @@
     <img src="<?php // echo $featured_image; ?>">
   </div>
  -->
-  <main role="main" class="container">
+  <main role="main" class="container blog-home">
     <h2 class="blog-title">Botwiki Blog</h2>
     <div class="mt-5">
 			<!-- <h1><?php
