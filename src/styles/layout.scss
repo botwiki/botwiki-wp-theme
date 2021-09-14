@@ -38,10 +38,15 @@ body{
 
     &.blog-home{
       &, .container{
-        max-width: $max-content-width-blog !important;      
+        max-width: $max-content-width-blog !important;   
       }
     }
   }
+}
+
+.blog-more{
+  max-width: $max-content-width !important;
+  margin: 0 auto;
 }
 
 body.home-page{

@@ -7407,6 +7407,10 @@ body .container {
   body .container.blog-home, body .container.blog-home .container {
     max-width: 1200px !important; }
 
+.blog-more {
+  max-width: 980px !important;
+  margin: 0 auto; }
+
 body.home-page .container {
   max-width: 1024px !important; }
   body.home-page .container .row {
