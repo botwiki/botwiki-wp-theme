@@ -7812,6 +7812,9 @@ video {
   -o-object-fit: contain;
      object-fit: contain; }
 
+.mw-100 .twitter-tweet-rendered {
+  max-width: 100% !important; }
+
 body {
   font-size: 1.1rem;
   line-height: 1.75rem; }
