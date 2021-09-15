@@ -7418,7 +7418,8 @@ body.home-page .container {
     margin: 0 auto; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
   .card img {
     height: 360px;
     -o-object-fit: cover;
