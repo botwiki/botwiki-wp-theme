@@ -217,7 +217,7 @@
                         $language_links[] = '<li><a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->name . '</a></li>';
                       }
                       ?>
-                      <h4 class="mt-2 mb-2">Languages</h4>
+                      <h4 class="mt-2 mb-2">Made with</h4>
                       <ul>
                       <?php
                       echo join( ' ', $language_links );
