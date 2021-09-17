@@ -90,7 +90,7 @@
           <?php
             if ( $post_type === 'bot' ) {?>
               <div class="row">
-                <div class="col-sm-12 col-md-9 col-lg-10 mb-3 pr-3">
+                <div class="col-sm-12 col-md-9 mb-3 pr-3">
                   <ul class="btn-list mt-1 mb-5">
                   <?php
 
@@ -184,7 +184,7 @@
                     ?>
                   </p>                 
                 </div>
-                <div class="col-sm-12 col-md-3 col-lg-2">
+                <div class="col-sm-12 col-md-3">
                   <h4 class="mt-0 mb-2">Networks</h4>
                   <ul>
 
