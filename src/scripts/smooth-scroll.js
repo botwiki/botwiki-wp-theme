@@ -7,6 +7,7 @@ $(function() {
   $('a[href*="#"]')
   .not('[href="#"]')
   .not('[href="#0"]')
+  .not('[data-toggle]')
   .click(function(event) {
     if (
       location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') 
