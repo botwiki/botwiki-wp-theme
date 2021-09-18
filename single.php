@@ -185,7 +185,7 @@
                   </p>                 
                 </div>
                 <div class="col-sm-12 col-md-3">
-                  <h4 class="mt-0 mb-2">Networks</h4>
+                  <h3 class="sidebar-header">Networks</h3>
                   <ul>
 
                   <?php
@@ -217,7 +217,7 @@
                         $language_links[] = '<li><a href="' . $site_url . '/languages/' . $language->slug . '">' . $language->name . '</a></li>';
                       }
                       ?>
-                      <h4 class="mt-2 mb-2">Made with</h4>
+                      <h3 class="mt-2 mb-2 sidebar-header">Made with</h3>
                       <ul>
                       <?php
                       echo join( ' ', $language_links );

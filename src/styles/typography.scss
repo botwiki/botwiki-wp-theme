@@ -87,6 +87,25 @@ h3{
   font-size: 2.5em;
   margin-top: 1em;
   margin-bottom: 1em;
+
+  &.sidebar-header{
+    margin-bottom: 2rem !important;
+
+    & + ul{
+      padding-left: 2rem;
+    }
+
+    @media (min-width: $site-width-medium){
+      font-size: 2rem !important;
+      margin-top: 0;
+      margin-bottom: .5rem !important;
+
+      & + ul{
+        padding-left: 1rem;
+      }
+
+    }
+  }
 }
 
 h4{
