@@ -14,7 +14,7 @@
       <h1><?php echo "All posts tagged " . implode( ' ', $tag_links ); ?></h1>
       <?php if ( in_array( 'opensource', $tags ) ){ ?>
         <ul class="btn-list">
-          <li><a class="btn" href="/bot/?opensource=true/">Browse opensource bots</a></li>
+          <li><a class="btn" href="/bot/?opensource=true/">Browse open-source bots</a></li>
         </ul>
       <?php } elseif ( in_array( 'twitterbot', $tags ) ) { ?>
         <ul class="btn-list">

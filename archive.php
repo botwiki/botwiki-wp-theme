@@ -83,7 +83,11 @@
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 
         if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
-          $page_title = "Bots made with " . $term->name;
+              if ( !empty( $_GET['opensource'] ) ){
+                $page_title = "Open-source bots made with " . $term->name;
+              } else {
+                $page_title = "Bots made with " . $term->name;
+              }
         } else {
           $page_title = "Posts tagged #" . $term->name;
         }
@@ -95,6 +99,18 @@
         if ( !empty( $term->description ) ){
           echo wpautop( $term->description );
         }
+
+        if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
+          $page_title = "Bots made with " . $term->name;
+          ?>
+          <ul class="btn-list">
+            <?php
+              if ( !empty( $_GET['opensource'] ) ){ ?>
+                <li><a class="btn" href="<?php echo get_term_link( $term ); ?>">Browse all <?php echo $term->name; ?> bots</a></li>
+              <?php } else { ?>
+                <li><a class="btn" href="<?php echo get_term_link( $term ); ?>?opensource=true">Browse open-source <?php echo $term->name; ?> bots</a></li>
+              <?php }
+          }
       }
         elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
@@ -187,7 +203,7 @@
 
           if ( in_array( 'opensource', $tags ) ) { ?>
             <ul class="btn-list">
-              <li><a class="btn" href="/bot/?opensource=true">Browse opensource bots</a></li>
+              <li><a class="btn" href="/bot/?opensource=true">Browse open-source bots</a></li>
               <?php
                 echo $glitch_link;
                 echo $narrow_opensource_link;
