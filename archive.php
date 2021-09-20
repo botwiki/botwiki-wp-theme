@@ -107,6 +107,7 @@
             <?php
               if ( !empty( $_GET['opensource'] ) ){ ?>
                 <li><a class="btn" href="<?php echo get_term_link( $term ); ?>">Browse all <?php echo $term->name; ?> bots</a></li>
+                <li><a class="btn" href="/bots/open-source/">Browse all open-source bots</a></li>
               <?php } else { ?>
                 <li><a class="btn" href="<?php echo get_term_link( $term ); ?>?opensource=true">Browse open-source <?php echo $term->name; ?> bots</a></li>
               <?php }
