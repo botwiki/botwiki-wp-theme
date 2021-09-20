@@ -257,7 +257,7 @@
       <main role="main" class="container-fluid m-0 p-0">
         
         <div class="container">
-          <h1 class="post-title">Thank you</h1>
+          <h1 class="post-title text-center">Thank you</h1>
           <div id="robots" class="mt-5 text-center"></div>            
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <div class="post-content">
