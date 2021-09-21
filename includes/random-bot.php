@@ -16,11 +16,11 @@ class Random_Bot_Redirect {
       ?><!doctype html>
         <html lang="en-US" class="no-js">
           <head>
-            <title>🤖🤖🤖❓❓❓</title>
-            <meta itemprop="name" content="🤖🤖🤖❓❓❓"/>
+            <title>Random bots on Botwiki</title>
+            <meta itemprop="name" content="Random bots on Botwiki"/>
             <meta itemprop="url" content="https://botwiki.org/random-bot/"/>
-            <meta property="og:title" content="🤖🤖🤖❓❓❓" />
-            <meta name="twitter:title" content="🤖🤖🤖❓❓❓" />
+            <meta property="og:title" content="Random bots on Botwiki" />
+            <meta name="twitter:title" content="Random bots on Botwiki" />
             <meta name="description" content="Explore the wonderful world of online bots, one random bot at a time." />
             <meta property="og:description" content="Explore the wonderful world of online bots, one random bot at a time." />
             <meta name="twitter:description" content="Explore the wonderful world of online bots, one random bot at a time." />
