@@ -659,6 +659,14 @@ function log_this( $title, $data = false ){
   error_log( str_pad( "", $border_length_bottom, $border_char ) . "\n" );
 }
 
+function str_contains_arr( $str, array $arr ){
+    foreach( $arr as $a ){
+        if ( stripos( $str,$a ) !== false ) return true;
+    }
+    return false;
+}
+
+
 function bw_add_robotstxt( $robots ){
   $resources = get_posts( array( 
     'posts_per_page' => -1,
