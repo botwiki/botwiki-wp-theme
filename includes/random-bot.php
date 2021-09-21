@@ -34,7 +34,7 @@ class Random_Bot_Redirect {
           </head>
           <body>
           </body>
-        </html><?php wp_die(); ?>
+        </html><?php wpdie(); ?>
       <?php } else {
         $random_bot = new WP_Query(array(
           'post_type' => 'bot',
