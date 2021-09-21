@@ -12,8 +12,8 @@ class Random_Bot_Redirect {
       $user_agent = $_SERVER['HTTP_USER_AGENT'];
       $bot_user_agents = array( 'Twitterbot/' );
 
-      if ( str_contains_arr( $user_agent, $bot_user_agents ) ){ ?>
-        <!doctype html>
+      if ( str_contains_arr( $user_agent, $bot_user_agents ) ){
+      ?><!doctype html>
         <html lang="en-US" class="no-js">
           <head>
             <title>🤖🤖🤖❓❓❓</title>
