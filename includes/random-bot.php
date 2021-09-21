@@ -8,7 +8,7 @@ class Random_Bot_Redirect {
   public function show_random_bot( $content ) { 
     global $wp_query;
     if ( isset( $wp_query->query['name'] ) && $wp_query->query['name'] === 'random-bot' ){
-        
+      $wp_query->is_404 = false;
       $user_agent = $_SERVER['HTTP_USER_AGENT'];
       $bot_user_agents = array( 'Twitterbot/' );
 
