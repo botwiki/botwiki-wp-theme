@@ -168,21 +168,6 @@
                     <?php } ?>
                   </ul>
                   <?php the_content(); ?>
-                  <p class="post-tags mt-5 mb-1">
-                    <?php 
-                      $tags = get_the_tags();
-                      $tags_array = array();
-
-                      if ( $tags ){
-                        foreach ( $tags as $tag ) {
-                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
-                        }
-                      }
-
-                      echo join( ' ', $tags_array );
-                      // the_tags( '', ' ', '<br>' );
-                    ?>
-                  </p>                 
                 </div>
                 <div class="col-sm-12 col-md-3">
                   <h3 class="sidebar-header">Networks</h3>
@@ -243,7 +228,7 @@
 
             $bot_tweets_html = preg_split( '/(<\/blockquote>|<\/iframe>|' . str_replace( "/", "\/", $tumblr_script ) . ')/i', $bot_tweets_html_meta, -1, PREG_SPLIT_NO_EMPTY );
             ?>
-            <div class="row list social-embeds">
+            <div class="row list social-embeds p-2">
             <?php foreach ( $bot_tweets_html as $tweet_html ) {
               $tweet_html = str_replace( '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>', '', $tweet_html );
               ?>
@@ -275,6 +260,22 @@
               </div>
             <?php } ?>
             </div>
+            <p class="post-tags mt-3 mb-1">
+              <?php 
+                $tags = get_the_tags();
+                $tags_array = array();
+
+                if ( $tags ){
+                  foreach ( $tags as $tag ) {
+                    $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+                  }
+                }
+
+                echo join( ' ', $tags_array );
+                // the_tags( '', ' ', '<br>' );
+              ?>
+            </p>                 
+
           <?php }
 
           ?>
