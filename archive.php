@@ -195,10 +195,13 @@
                     ?>
                     <ul class="btn-list">
                       <li>
-                        <a class="btn" href="https://cheapbotsdonequick.com/">Visit site</a>
+                        <a class="btn" href="https://cheapbotsdonequick.com/">Visit</a>
                       </li>
                       <li>
-                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview with the creator</a>
+                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview</a>
+                      </li>
+                      <li>
+                        <a class="btn" href="https://www.patreon.com/v21/">Support</a>
                       </li>
                       <?php
                         echo $glitch_link;
