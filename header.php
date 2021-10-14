@@ -128,8 +128,8 @@
       elseif ( is_tag() ) {
         $tags = preg_split( "/(\+|,)/", $wp_query->query['tag'] );
   
-        $page_title = "Posts tagged #" . implode( $tags, ' #' );
-        $page_description = "Browsing posts tagged #" . implode( $tags, ' #' ) . ' on Botwiki';
+        $page_title = "Posts tagged #" . implode( ' #', $tags);
+        $page_description = "Browsing posts tagged #" . implode( ' #', $tags ) . ' on Botwiki';
         $page_thumbnail = get_the_post_thumbnail_url( (int)get_option( 'page_on_front' ) );
       }
       elseif ( is_tax() ) {
