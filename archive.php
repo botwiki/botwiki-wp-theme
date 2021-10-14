@@ -228,7 +228,7 @@
                         <a class="btn" href="https://cheapbotsdonequick.com/">Visit</a>
                       </li>
                       <li>
-                        <a class="btn" href="/projects/botwiki-interviews/george-buckenham/">Interview</a>
+                        <a class="btn" href="/projects/botwiki-interviews/v-buckenham/">Interview</a>
                       </li>
                       <li>
                         <a class="btn" href="https://www.patreon.com/v21/">Support</a>
