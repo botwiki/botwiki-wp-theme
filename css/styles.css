@@ -7885,6 +7885,17 @@ h3 {
   font-size: 2.5em;
   margin-top: 1em;
   margin-bottom: 1em; }
+  h3.sidebar-header {
+    margin-bottom: 2rem !important; }
+    h3.sidebar-header + ul {
+      padding-left: 2rem; }
+    @media (min-width: 900px) {
+      h3.sidebar-header {
+        font-size: 2rem !important;
+        margin-top: 0;
+        margin-bottom: .5rem !important; }
+        h3.sidebar-header + ul {
+          padding-left: 1rem; } }
 
 h4 {
   font-size: 2rem;
@@ -7988,7 +7999,7 @@ blockquote {
 blockquote.instagram-media,
 iframe.instagram-media {
   display: block;
-  margin: 2rem auto 0 !important;
+  margin: 2rem auto !important;
   max-width: calc(100% - 10px) !important; }
 
 blockquote.twitter-tweet,
@@ -8006,7 +8017,7 @@ body.page-template-template-submit-your-bot blockquote {
     margin-top: 30px; }
 
 .twitter-tweet.twitter-tweet-rendered {
-  margin: 2rem auto 0 !important; }
+  margin: 2rem auto !important; }
 
 .fb-post.fb_iframe_widget span {
   max-width: 100% !important;

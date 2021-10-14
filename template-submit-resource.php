@@ -199,7 +199,7 @@
         </div>
         <div class="container">
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-            <h1 class="post-title">Thank you</h1>
+            <h1 class="post-title text-center">Thank you!</h1>
             <div class="post-content">
               <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
                 <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=resource&author=<?php echo get_current_user_id(); ?>">submit your resource for review</a>.</p> 

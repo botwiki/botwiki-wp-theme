@@ -49,6 +49,19 @@
         <img src="<?php echo $background_img_url; ?>">
       </div>
     <?php }
+
+    if ( user_can( $author_id, 'administrator' ) ){  
+      $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
+      if ( empty( $botwiki_team_role ) ){
+        $botwiki_team_role = "Botwiki team member.";
+      }
+    }
+    else{
+      $botwiki_team_role = "Botwiki contributor.";    
+    }
+    $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
+
+    include( locate_template( 'author-card.php', false, false ) );
   } ?>
 
 
@@ -70,7 +83,11 @@
         $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 
         if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
-          $page_title = "Bots made with " . $term->name;
+              if ( !empty( $_GET['opensource'] ) ){
+                $page_title = "Open-source bots made with " . $term->name;
+              } else {
+                $page_title = "Bots made with " . $term->name;
+              }
         } else {
           $page_title = "Posts tagged #" . $term->name;
         }
@@ -82,6 +99,19 @@
         if ( !empty( $term->description ) ){
           echo wpautop( $term->description );
         }
+
+        if ( get_query_var( 'taxonomy' ) === 'programing_language' ) {
+          $page_title = "Bots made with " . $term->name;
+          ?>
+          <ul class="btn-list">
+            <?php
+              if ( !empty( $_GET['opensource'] ) ){ ?>
+                <li><a class="btn" href="<?php echo get_term_link( $term ); ?>">Browse all <?php echo $term->name; ?> bots</a></li>
+                <li><a class="btn" href="/bots/open-source/">Browse all open-source bots</a></li>
+              <?php } else { ?>
+                <li><a class="btn" href="<?php echo get_term_link( $term ); ?>?opensource=true">Browse open-source <?php echo $term->name; ?> bots</a></li>
+              <?php }
+          }
       }
         elseif ( $wp_query->query['post_type'] == 'bot' ) {
 
@@ -174,7 +204,7 @@
 
           if ( in_array( 'opensource', $tags ) ) { ?>
             <ul class="btn-list">
-              <li><a class="btn" href="/bot/?opensource=true">Browse opensource bots</a></li>
+              <li><a class="btn" href="/bot/?opensource=true">Browse open-source bots</a></li>
               <?php
                 echo $glitch_link;
                 echo $narrow_opensource_link;
@@ -322,21 +352,7 @@
           get_template_part( 'loop' );
           include( locate_template( 'support-botwiki.php', false, false ) );
           get_template_part( 'pagination' );
-
-          if ( is_author() ){
-            if ( user_can( $author_id, 'administrator' ) ){  
-              $botwiki_team_role = get_the_author_meta( 'botwiki-team-role', $author_id );
-              if ( empty( $botwiki_team_role ) ){
-                $botwiki_team_role = "Botwiki team member.";
-              }
-            }
-            else{
-              $botwiki_team_role = "Botwiki contributor.";    
-            }
-            $botwiki_profile_page_url = get_site_url() . '/author/' . $username;
-
-            include( locate_template( 'author-card.php', false, false ) );
-          } ?>
+          ?>
       </div>      
 		</div>
 	</main>
