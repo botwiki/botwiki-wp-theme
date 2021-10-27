@@ -5676,7 +5676,6 @@ button.bg-dark:focus {
   position: fixed !important; }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important; }
 
 .fixed-top {
@@ -5693,9 +5692,8 @@ button.bg-dark:focus {
   left: 0;
   z-index: 1030; }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020; } }
@@ -7761,6 +7759,12 @@ video {
 /* Search */
 #menu-wrapper #search-filters.container {
   padding: 0 !important; }
+
+#search-filters input {
+  opacity: 1; }
+
+#search-filters label {
+  padding-left: 0.5rem; }
 
 @media (max-width: 860px) {
   #search-filters .form-check {

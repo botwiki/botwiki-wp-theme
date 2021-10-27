@@ -500,6 +500,12 @@ video {
 }
 
 #search-filters{
+  input{
+    opacity: 1;
+  }
+  label{
+    padding-left: 0.5rem;
+  }  
   .form-check{
     @media(max-width: $site-width-small){
       margin-top: 1rem;
