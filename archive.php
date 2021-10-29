@@ -350,6 +350,28 @@
 
   			<?php
           get_template_part( 'loop' );
+
+          if ( $wp_query->query['post_type'] == 'bot' ) {
+
+            $networks_term = get_terms( 'network' );
+            $network_links = array();
+
+            if ( $networks_term ){
+              foreach ( $networks_term as $network ) {
+                if ( $network->slug !== $_GET['networks'] ){
+                  $network_links[] = '<li><a class="btn" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
+                }
+              }
+              ?>
+              <h3 class="mt-2 mb-2 sidebar-header">More networks</h3>
+              <ul class="btn-list">
+              <?php
+              echo join( ' ', $network_links );
+              ?>
+              </ul>
+            <?php }
+          }
+
           include( locate_template( 'support-botwiki.php', false, false ) );
           get_template_part( 'pagination' );
           ?>
