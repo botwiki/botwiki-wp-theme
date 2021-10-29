@@ -148,10 +148,20 @@
             <div class="post-content">
             <ul class="btn-list">
               <?php
-                // echo $glitch_link;
-                // echo $narrow_opensource_link;
-                // $glitch_link = '';
-                // $narrow_opensource_link = '';
+              if ( !empty( $_GET['networks'] ) ){
+                if ( $_GET['networks'] === 'twitter-bots' ){ ?>
+                  <li><a class="btn" href="/bots/twitterbots/">Learn more</a></li>
+                  <li><a class="btn" href="/resources/twitterbots/">Tutorials and resources</a></li>
+                <?php } elseif ( $_GET['networks'] === 'mastodon' || $_GET['networks'] === 'fediverse' ){ ?>
+                  <li><a class="btn" href="/bots/fediverse-bots/">Learn more</a></li>
+                  <li><a class="btn" href="/resources/fediverse-bots/">Tutorials and resources</a></li>
+                <?php }
+              }
+
+              // echo $glitch_link;
+              // echo $narrow_opensource_link;
+              // $glitch_link = '';
+              // $narrow_opensource_link = '';
               ?>
             </ul>
           <?php } else {?>
