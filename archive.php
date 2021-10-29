@@ -364,7 +364,7 @@
               }
               ?>
               <h3 class="mt-2 mb-2 sidebar-header">More networks</h3>
-              <ul class="btn-list">
+              <ul class="btn-list pl-0 pr-0">
               <?php
               echo join( ' ', $network_links );
               ?>
