@@ -359,7 +359,13 @@
             if ( $networks_term ){
               foreach ( $networks_term as $network ) {
                 if ( $network->slug !== $_GET['networks'] ){
-                  $network_links[] = '<li><a class="btn" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
+                  $badge = '';
+
+                  if ( in_array( $network->slug, ['twitter-bots', 'mastodon', 'fediverse'])){
+                    $badge = ' <span class="badge badge-secondary">popular</span>';
+                  }
+
+                  $network_links[] = '<li><a class="btn" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . $badge . '</a></li>';
                 }
               }
               ?>
