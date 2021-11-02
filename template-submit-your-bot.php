@@ -319,6 +319,9 @@
           <div class="post-content">
             <ul class="btn-list">
               <li>
+                <a class="btn" href="/botwiki-submission-guidelines/" target="_blank">Submission Guidelines</a>
+              </li>
+              <li>
                 <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a>
               </li>
               <li>
