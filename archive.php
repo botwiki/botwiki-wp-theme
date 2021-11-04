@@ -146,24 +146,6 @@
               echo ( !empty( $_GET['opensource'] ) ? 'open source' : '' );
             ?> bots tagged <?php echo $networks ; echo $languages ; echo rtrim( $tag_links ); ?>&nbsp;...</h1>
             <div class="post-content">
-            <ul class="btn-list">
-              <?php
-              if ( !empty( $_GET['networks'] ) ){
-                if ( $_GET['networks'] === 'twitter-bots' ){ ?>
-                  <li><a class="btn" href="/bots/twitterbots/">Learn more</a></li>
-                  <li><a class="btn" href="/resources/twitterbots/">Tutorials and resources</a></li>
-                <?php } elseif ( $_GET['networks'] === 'mastodon' || $_GET['networks'] === 'fediverse' ){ ?>
-                  <li><a class="btn" href="/bots/fediverse-bots/">Learn more</a></li>
-                  <li><a class="btn" href="/resources/fediverse-bots/">Tutorials and resources</a></li>
-                <?php }
-              }
-
-              // echo $glitch_link;
-              // echo $narrow_opensource_link;
-              // $glitch_link = '';
-              // $narrow_opensource_link = '';
-              ?>
-            </ul>
           <?php } else {?>
             <h1 class="post-title"><?php
             if ( !empty( $_GET['opensource'] ) ){ ?>
@@ -183,24 +165,34 @@
             <?php }?></h1>
             <div class="post-content">
             <ul class="btn-list">
-
-            <?php if ( !empty( $_GET['opensource'] ) ){ ?>
-              <li><a class="btn" href="/bots/open-source/#browse-bots-by-category">Browse by category</a></li>
-              <li><a class="btn" href="/bots/open-source/#browse-bots-by-network">Browse by network</a></li>
-              <!-- <li><a class="btn" href="/random-bot?opensource=true">Random bot</a></li> -->
-              <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
-            <?php } else {?>
-              <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
-              <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
-              <li><a class="btn" href="/random-bot">Random bot</a></li>
-              <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
               <?php
-                // echo $glitch_link;
-                // echo $narrow_opensource_link;
-                // $glitch_link = '';
-                // $narrow_opensource_link = '';              
-              ?>
-            <?php } ?>
+              if ( !empty( $_GET['networks'] ) ){
+                if ( $_GET['networks'] === 'twitter-bots' ){ ?>
+                  <li><a class="btn" href="/bots/twitterbots/">Learn more</a></li>
+                  <li><a class="btn" href="/resources/twitterbots/">Tutorials and resources</a></li>
+                <?php } elseif ( $_GET['networks'] === 'mastodon' || $_GET['networks'] === 'fediverse' ){ ?>
+                  <li><a class="btn" href="/bots/fediverse-bots/">Learn more</a></li>
+                  <li><a class="btn" href="/resources/fediverse-bots/">Tutorials and resources</a></li>
+                <?php }
+              }
+
+              if ( !empty( $_GET['opensource'] ) ){ ?>
+                <li><a class="btn" href="/bots/open-source/#browse-bots-by-category">Browse by category</a></li>
+                <li><a class="btn" href="/bots/open-source/#browse-bots-by-network">Browse by network</a></li>
+                <!-- <li><a class="btn" href="/random-bot?opensource=true">Random bot</a></li> -->
+                <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
+              <?php } else {?>
+                <li><a class="btn" href="/bots/#browse-bots-by-category">Browse by category</a></li>
+                <li><a class="btn" href="/bots/#browse-bots-by-network">Browse by network</a></li>
+                <li><a class="btn" href="/random-bot">Random bot</a></li>
+                <li><a class="btn" href="/bots/#bots">What is a bot?</a></li>
+                <?php
+                  // echo $glitch_link;
+                  // echo $narrow_opensource_link;
+                  // $glitch_link = '';
+                  // $narrow_opensource_link = '';              
+                ?>
+              <?php } ?>
             </ul>
           <?php } ?>
         <?php }
