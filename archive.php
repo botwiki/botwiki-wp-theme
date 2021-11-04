@@ -374,8 +374,13 @@
                   if ( in_array( $network->slug, ['twitter-bots', 'mastodon', 'fediverse'])){
                     $badge = ' <span class="badge badge-secondary">popular</span>';
                   }
+                  $opensource_filter = !empty( $_GET['opensource'] ) ? '&opensource=true' : '';
 
-                  $network_links[] = '<li><a class="btn" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . $badge . '</a></li>';
+                  $network_links[] .= <<<HTML
+                    <li>
+                      <a class="btn" href="{$site_url}/bot/?networks={$network->slug}$opensource_filter">{$network->name}{$badge}</a>
+                    </li>
+HTML;  
                 }
               }
               ?>
