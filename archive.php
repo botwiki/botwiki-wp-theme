@@ -23,6 +23,18 @@
 
   }
 
+  $network_related_links = '';
+
+  if ( !empty( $_GET['networks'] ) ){
+    if ( $_GET['networks'] === 'twitter-bots' ){
+      $network_related_links .= '<li><a class="btn" href="/bots/twitterbots/">Learn more</a></li>';
+      $network_related_links .= '<li><a class="btn" href="/resources/twitterbots/">Tutorials and resources</a></li>';
+    } elseif ( $_GET['networks'] === 'mastodon' || $_GET['networks'] === 'fediverse' ){
+      $network_related_links .= '<li><a class="btn" href="/bots/fediverse-bots/">Learn more</a></li>';
+      $network_related_links .= '<li><a class="btn" href="/resources/fediverse-bots/">Tutorials and resources</a></li>';
+    }
+  }
+
   if( is_author() ){
     $author_id = get_query_var( 'author' );
 
@@ -166,16 +178,6 @@
             <div class="post-content">
             <ul class="btn-list">
               <?php
-              if ( !empty( $_GET['networks'] ) ){
-                if ( $_GET['networks'] === 'twitter-bots' ){ ?>
-                  <li><a class="btn" href="/bots/twitterbots/">Learn more</a></li>
-                  <li><a class="btn" href="/resources/twitterbots/">Tutorials and resources</a></li>
-                <?php } elseif ( $_GET['networks'] === 'mastodon' || $_GET['networks'] === 'fediverse' ){ ?>
-                  <li><a class="btn" href="/bots/fediverse-bots/">Learn more</a></li>
-                  <li><a class="btn" href="/resources/fediverse-bots/">Tutorials and resources</a></li>
-                <?php }
-              }
-
               if ( !empty( $_GET['opensource'] ) ){ ?>
                 <li><a class="btn" href="/bots/open-source/#browse-bots-by-category">Browse by category</a></li>
                 <li><a class="btn" href="/bots/open-source/#browse-bots-by-network">Browse by network</a></li>
@@ -208,6 +210,7 @@
             <ul class="btn-list">
               <li><a class="btn" href="/bot/?opensource=true">Browse open-source bots</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -236,6 +239,7 @@
                         <a class="btn" href="https://www.patreon.com/v21/">Support</a>
                       </li>
                       <?php
+                        echo $network_related_links;
                         echo $glitch_link;
                         echo $narrow_opensource_link;
                       ?>
@@ -262,6 +266,7 @@
                         <a class="btn" href="/projects/botwiki-interviews/botwiki-interview-colin-mitchell">Interview with the creator</a>
                       </li>
                       <?php
+                        echo $network_related_links;
                         echo $glitch_link;
                         echo $narrow_opensource_link;
                       ?>
@@ -275,6 +280,7 @@
               <li><a class="btn" href="/bot/?tags=images,generative<?php echo $filter_opensource;?>">#images+generative</a></li>
               <li><a class="btn" href="/bot/?tags=images,iot<?php echo $filter_opensource;?>">#images+iot</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -283,6 +289,7 @@
             <ul class="btn-list">
               <li><a class="btn" href="/bot/?tags=text,generative<?php echo $filter_opensource;?>">#text+generative</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -295,6 +302,7 @@
               <li><a class="btn" href="/bot/?tags=generative,text<?php echo $filter_opensource;?>">#generative+text</a></li>
               <li><a class="btn" href="/bot/?tags=generative,audio<?php echo $filter_opensource;?>">#generative+audio</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -303,6 +311,7 @@
             <ul class="btn-list">
               <li><a class="btn" href="/bot/?tags=interactive,game<?php echo $filter_opensource;?>">#interactive+game</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -311,6 +320,7 @@
             <ul class="btn-list">
               <li><a class="btn" href="/bot/?tags=iot,images<?php echo $filter_opensource;?>">#iot+images</a></li>
               <?php
+                echo $network_related_links;
                 echo $glitch_link;
                 echo $narrow_opensource_link;
               ?>
@@ -332,6 +342,7 @@
                     <ul class="btn-list">
                       <li><a class="btn" href="/projects/monthly-bot-challenge/">Read more</a></li>
                       <?php
+                        echo $network_related_links;
                         echo $glitch_link;
                         echo $narrow_opensource_link;
                       ?>                  
@@ -343,6 +354,7 @@
           <?php } else { ?>
             <ul class="btn-list">
             <?php 
+              echo $network_related_links;
               echo $glitch_link;
               echo $narrow_opensource_link;
               ?>
