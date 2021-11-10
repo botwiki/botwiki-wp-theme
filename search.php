@@ -89,6 +89,46 @@
 
           <div class="container">
 
+            <h3 id="bots">Latest bots</h3>
+            <div id="bots-latest-wrapper" class="row list">
+            <?php
+            remove_all_filters( 'pre_get_posts' );
+
+            $latest_bots = get_posts( array( 
+              'posts_per_page' => 4,
+              'post_type' => 'bot',
+              'post_status' => 'publish'
+             ) );
+
+            foreach ( $latest_bots as $bot ) {
+              $post_thumbnail_url = get_the_post_thumbnail_url( $bot->ID, 'medium' );
+              $post_thumbnail_url_full = get_the_post_thumbnail_url( $bot->ID );
+              $dominant_color  = get_post_meta( $bot->ID, 'dominant_color', true );
+              $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
+              $dominant_color_css = str_replace(']', ')', $dominant_color_css);
+              ?>
+              <div class="col-sm-6 col-md-6 col-lg-3 list-item">
+                <div class="card w-100">
+                  <a href="<?php echo get_permalink( $bot->ID ); ?>">
+                    <div class="overflow-hidden" style="<?php echo $dominant_color_css; ?>">
+                      <img loading="lazy" class="lazy-load card-img-top" src="<?php echo $post_thumbnail_url; ?>" data-src="<?php echo $post_thumbnail_url_full; ?>" alt="<?php echo $bot->post_title; ?>">
+                    </div>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="<?php echo get_permalink( $bot->ID ); ?>"><?php echo $bot->post_title; ?></a>  
+                    </h5>
+                    <p class="card-text"><?php echo $bot->post_excerpt; ?></p>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+            </div>
+            <p><a class="btn" href="/bots/">Explore</a></p>
+            <!-- /post details -->
+          </div>
+          <div class="container">
+
             <h3 id="blog">Latest from the blog</h3>
             <div id="blog-latest-wrapper" class="row list">
             <?php
