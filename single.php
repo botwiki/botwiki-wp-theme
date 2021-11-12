@@ -169,7 +169,7 @@
                   </ul>
                   <?php the_content(); ?>
                 </div>
-                <div class="col-sm-12 col-md-3">
+                <div class="col-sm-12 col-md-3 mb-5 sidebar">
                   <h3 class="sidebar-header">Networks</h3>
                   <ul class="list-unstyled pl-0">
 
