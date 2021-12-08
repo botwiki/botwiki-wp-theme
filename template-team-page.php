@@ -106,7 +106,7 @@
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">
-                        <a href="<?php echo get_author_posts_url( $author_id, $username ); ?>"><?php echo $nickname; ?></a>  
+                        <a class="stretched-link" href="<?php echo get_author_posts_url( $author_id, $username ); ?>"><?php echo $nickname; ?></a>  
                       </h5>
                     <p class="card-text"><?php echo $botwiki_team_role; ?></p>
                   </div>

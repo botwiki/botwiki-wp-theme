@@ -155,7 +155,7 @@
                                      '    </a>' .
                                      '    <div class="card-body">' .
                                      '      <h5 class="card-title">' .
-                                     '      <a href="' . $bot_url . '" class="mb-0">' . $bot_title  . '</a>' .
+                                     '      <a class="stretched-link" href="' . $bot_url . '" class="mb-0">' . $bot_title  . '</a>' .
                                      '      </h5>' .
                                      '      <p class="card-text">' . $bot_description . '</p>' .
                                      '    </div>' .

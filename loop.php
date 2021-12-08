@@ -33,7 +33,7 @@
             </div>
           <?php } ?>
           <div class="card-body" id="post-<?php the_ID(); ?>">
-            <h5 class="card-title"><a href="<?php echo $link_url; ?>" title="<?php get_the_title(); ?>"><?php the_title(); ?></a></h5>
+            <h5 class="card-title"><a class="stretched-link" href="<?php echo $link_url; ?>" title="<?php get_the_title(); ?>"><?php the_title(); ?></a></h5>
             <p class="card-text">   
             <?php
               bw_excerpt( 'html5wp_index' );

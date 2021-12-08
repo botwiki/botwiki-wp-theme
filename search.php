@@ -116,7 +116,7 @@
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">
-                      <a href="<?php echo get_permalink( $bot->ID ); ?>"><?php echo $bot->post_title; ?></a>  
+                      <a class="stretched-link" href="<?php echo get_permalink( $bot->ID ); ?>"><?php echo $bot->post_title; ?></a>  
                     </h5>
                     <p class="card-text"><?php echo $bot->post_excerpt; ?></p>
                   </div>
@@ -158,7 +158,7 @@
                   </a>
                   <div class="card-body">
                     <h5 class="card-title">
-                      <a href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
+                      <a class="stretched-link" class="stretched-link" href="<?php echo get_permalink( $blog_post->ID ); ?>"><?php echo $blog_post->post_title; ?></a>  
                     </h5>
                     <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
                   </div>

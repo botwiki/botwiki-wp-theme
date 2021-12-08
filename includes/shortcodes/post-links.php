@@ -208,7 +208,7 @@ class Post_Links {
                            '    </a>' .
                            '    <div class="card-body">' .
                            '      <h5 class="card-title">' .
-                           '      <a data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
+                           '      <a class="stretched-link" data-resource-id="' . $post_id . '" href="' . $link_url . '">' .
                                      $link_title .
                            '      </a>' .
                            '      </h5>' .
