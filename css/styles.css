@@ -7867,7 +7867,6 @@ h2 {
   font-family: "Open Sans", sans-serif; }
 
 .card {
-  border-radius: 0;
   -webkit-transition: border-color 0.3s;
   -o-transition: border-color 0.3s;
   transition: border-color 0.3s; }
