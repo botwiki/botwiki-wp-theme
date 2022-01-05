@@ -164,6 +164,10 @@
       }
 
       $page_title .=  ' | ' . get_bloginfo('name');
+
+      $page_title = esc_attr( $page_title );
+      $page_description = esc_attr( $page_description );
+
     ?>
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php echo $page_title ?></title>
