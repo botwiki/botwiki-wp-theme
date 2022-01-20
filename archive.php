@@ -365,7 +365,7 @@
   			<?php
           get_template_part( 'loop' );
 
-          if ( $wp_query->query['post_type'] == 'bot' ) {
+          if ( !is_author() && $wp_query->query['post_type'] == 'bot' ) {
 
             $networks_term = get_terms( 'network' );
             $network_links = array();
