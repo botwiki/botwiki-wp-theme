@@ -1,9 +1,11 @@
 <?php
+  global $wp;
   get_header();
   $post_id = get_the_id();
   $post_type = get_post_type();
   $post_meta = get_post_meta( $post_id ); 
   $site_url = get_site_url();
+  $current_url = home_url( $wp->request );
   $prompt_donation = false;
 ?>
   <main role="main" class="container-fluid m-0 p-0 pt-3">
@@ -403,7 +405,7 @@
           <div class="card mt-5 mb-5 pl-0 pr-0">
             <div class="card-body mt-3">
               <p>
-                ✉️ <a href="mailto:stefan@botwiki.org"><strong>Contact us</strong> to report broken links and other content issues.</a>
+                ✉️ <a href="mailto:stefan@botwiki.org?subject=Botwiki%20content%20issues&body=Hi%2C%20I%20would%20like%20to%20report%20an%20issue%20on%20page%20<?php echo $current_url;?>.%0D%0A%0D%0AThe%20issue%20is%20..."><strong>Contact us</strong> to report broken links and other content issues.</a>
               </p>
             </div>
           </div>
