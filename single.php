@@ -396,7 +396,20 @@
             </div>
           <?php } ?>
         </div>
+
         <?php
+        if ( in_array( $post_type, [ 'post', 'bot', 'resource' ] ) ) { ?>
+        <div class="container">
+          <div class="card mt-5 mb-5 pl-0 pr-0">
+            <div class="card-body mt-3">
+              <p>
+                ✉️ <a href="mailto:stefan@botwiki.org"><strong>Contact us</strong> to report broken links and other content issues.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <?php
+        }
         if ( $post_type === 'bot' ) { ?>
           <div class="container">
             <h3 id="related-bots">More bots</h3>
