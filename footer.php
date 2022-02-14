@@ -155,21 +155,7 @@
           </div>
         </div>
       </footer>
-    <!-- /footer -->    
-    <!-- analytics -->
-    <script type="text/javascript">
-    var sc_project=10530872; 
-    var sc_invisible=1; 
-    var sc_security="b852d106"; 
-    </script>
-    <script type="text/javascript"
-    src="https://www.statcounter.com/counter/counter.js"
-    async></script>
-    <noscript><div class="statcounter"><a title="Web Analytics"
-    href="https://statcounter.com/" target="_blank"><img
-    class="statcounter"
-    src="https://c.statcounter.com/10530872/0/b852d106/1/"
-    alt="Web Analytics"></a></div></noscript>
+    <!-- /footer -->
     <?php wp_footer(); ?>.
   </body>
 </html>
