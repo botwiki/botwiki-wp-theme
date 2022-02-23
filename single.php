@@ -182,7 +182,11 @@
                       return $network->name;
                     }
 
-                    $network_names = array_map( 'get_network_name', $networks );
+                    $network_names = [];
+
+                    if ( $networks ){
+                      $network_names = array_map( 'get_network_name', $networks );
+                    }
 
                     $network_links = array();
                     if ( $networks ){
