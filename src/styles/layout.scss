@@ -139,6 +139,7 @@ body:not( .home-page ){
 }
 #menu-toggle{
   &:checked + #menu-wrapper{
+    overflow: scroll;
     .hover-box{
       opacity: 1;
       transform: translateY(0);
