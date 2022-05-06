@@ -7604,7 +7604,7 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
 /* Site thumbnail */
 .thumbnail-wrapper {
   text-align: center;
-  margin: 0 auto 4em;
+  margin: 4em auto 4em;
   width: 100% !important;
   max-width: 980px !important; }
   @media (max-width: 860px) {
