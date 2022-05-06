@@ -294,13 +294,6 @@ ul.navbar-nav{
   text-align: center;
   margin: 4em auto 4em;
 
-
-  body.single-bot{
-    &{
-      margin-top: 1em;
-    }
-  }
-
   @media(max-width: $site-width-small){
     margin-top: 0;
   }
@@ -356,6 +349,7 @@ ul.navbar-nav{
 
 body.single-bot{
   .thumbnail-wrapper{
+    margin-top: 1em;    
     position: relative;
     text-align: center;
     img{
