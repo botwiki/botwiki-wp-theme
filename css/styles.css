@@ -7607,6 +7607,8 @@ ul.navbar-nav, ul.navbar-nav li.menu-item {
   margin: 4em auto 4em;
   width: 100% !important;
   max-width: 980px !important; }
+  .thumbnail-wrapper body.single-bot {
+    margin-top: 1em; }
   @media (max-width: 860px) {
     .thumbnail-wrapper {
       margin-top: 0; } }

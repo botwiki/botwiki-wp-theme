@@ -294,6 +294,13 @@ ul.navbar-nav{
   text-align: center;
   margin: 4em auto 4em;
 
+
+  body.single-bot{
+    &{
+      margin-top: 1em;
+    }
+  }
+
   @media(max-width: $site-width-small){
     margin-top: 0;
   }
