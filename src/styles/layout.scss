@@ -129,6 +129,13 @@ img{
   border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
+.link-cards{
+  img{
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
 /* Site navigation */
 body:not( .home-page ){
   .hover-box{

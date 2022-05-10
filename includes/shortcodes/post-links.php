@@ -183,7 +183,7 @@ class Post_Links {
 
     $include_description = ( $atts['description'] === 'yes' || $atts['description'] === 'true' );
 
-    $link_list_html = '<div class="container mt-5"><div class="row list">';
+    $link_list_html = '<div class="container mt-5 link-cards"><div class="row list">';
 
     foreach ($post_ids as $post_id) {
       if ( get_post_status( $post_id ) === 'publish' ){
