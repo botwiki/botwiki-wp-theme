@@ -8311,6 +8311,9 @@ code.hljs {
     top: 4px;
     font-size: 11px; }
 
+.medium-editor-action b {
+  color: #fff; }
+
 /* Home page styles */
 body.home article,
 div#menu-wrapper {
