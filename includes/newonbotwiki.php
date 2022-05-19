@@ -174,11 +174,11 @@ class New_On_Botwiki {
             /* Post update on Mastodon */
 
             $headers = [
-              'Authorization: Bearer' . NEWONBOTWIKI_MASTODON_ACCESS_TOKEN
+              'Authorization: Bearer ' . NEWONBOTWIKI_MASTODON_ACCESS_TOKEN
             ];
             
             $status_data = array(
-              "status" => "Posting to Mastodon!",
+              "status" => $status_text,
               "language" => "eng",
               "visibility" => "public"
             );
@@ -186,7 +186,7 @@ class New_On_Botwiki {
             $ch_status = curl_init();
             curl_setopt($ch_status, CURLOPT_URL, "https://botsin.space//api/v1/statuses");
             curl_setopt($ch_status, CURLOPT_POST, 1);
-            curl_setopt($ch_status, CURLOPT_POSTFIELDS, $status_text);
+            curl_setopt($ch_status, CURLOPT_POSTFIELDS, $status_data);
             curl_setopt($ch_status, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch_status, CURLOPT_HTTPHEADER, $headers);
             
