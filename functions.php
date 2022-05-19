@@ -36,7 +36,7 @@ if ( !class_exists( 'simple_html_dom_node' ) ){
   require 'includes/simple_html_dom.php';
 }
 
-require 'includes/newonbotwiki-twitter.php';
+require 'includes/newonbotwiki.php';
 
 
 /*------------------------------------*\
