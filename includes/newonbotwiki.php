@@ -178,7 +178,7 @@ class New_On_Botwiki {
             ];
             
             $status_data = array(
-              "status" => $status_text,
+              "status" => str_replace('@', 'https://twitter.com/', $status_text),
               "language" => "eng",
               "visibility" => "public"
             );
