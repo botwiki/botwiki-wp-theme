@@ -16,7 +16,7 @@ class Describe_Topic {
         <a href="https://www.vox.com/identities/2019/9/30/20891314/elon-musk-tesla-labor-violation-nlrb">union-busting</a>
         billionaire heir to an <a href="https://www.businessinsider.co.za/how-elon-musks-family-came-to-own-an-emerald-mine-2018-2">apartheid emerald fortune</a>,
         <a href="https://en.wikipedia.org/wiki/Neuralink#Animal_testing">animal torturer</a>,
-        and a <a href="https://gizmodo.com/heres-elon-musk-giving-donald-trump-a-stern-talking-to-1791966416">Donald Trump collaborator</a>.
+        and a <a href="https://gizmodo.com/heres-elon-musk-giving-donald-trump-a-stern-talking-to-1791966416">Donald Trump collaborator</a>
   TEXT;
         break;
     }
