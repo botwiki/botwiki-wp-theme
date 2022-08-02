@@ -702,15 +702,7 @@ function bw_admin_reorder_posts( $query ){
 
 add_action( 'pre_get_posts', 'bw_admin_reorder_posts' );
 
-function custom_rest_api_init() {
-  remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
-  add_filter( 'rest_pre_serve_request', function( $value ) {
-      header( 'Access-Control-Allow-Origin: *' );
-      header( 'Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, PATCH, DELETE' );
-      header( 'Access-Control-Allow-Credentials: true' );
-      header( 'Access-Control-Expose-Headers: Link', false );
-      header( 'Access-Control-Allow-Headers: X-Requested-With' );
-      return $value;
-  } );
-}
-add_action( 'rest_api_init', 'custom_rest_api_init', 15 );
+
+add_action('rest_api_init', function() {
+  remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
+}, 15);
