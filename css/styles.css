@@ -8325,8 +8325,7 @@ div#menu-wrapper {
     margin: 2rem 0; }
   body.home article h2,
   div#menu-wrapper h2 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: normal;
+    font-family: "Abril Fatface";
     text-transform: lowercase;
     margin-top: 3rem;
     font-size: 3rem;
