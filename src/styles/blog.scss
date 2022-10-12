@@ -71,6 +71,7 @@
 .post-thumbnail-title{
   font-family: $title-font-family;
   font-size: 1.4em;
+  font-weight: normal;
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -80,7 +81,6 @@
 
   min-height: 9.5rem;
   padding: 5px;
-  font-weight: bold;
 
   .post-thumbnail &{
     left: 0;

@@ -8552,6 +8552,7 @@ body.archive .note .btn, body.archive .card .btn {
 .post-thumbnail-title {
   font-family: "Abril Fatface", serif;
   font-size: 1.4em;
+  font-weight: normal;
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -8560,8 +8561,7 @@ body.archive .note .btn, body.archive .card .btn {
   background: -o-linear-gradient(bottom, black 0%, rgba(0, 0, 0, 0) 100%);
   background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 100%);
   min-height: 9.5rem;
-  padding: 5px;
-  font-weight: bold; }
+  padding: 5px; }
   .post-thumbnail .post-thumbnail-title {
     left: 0;
     right: 0; }
