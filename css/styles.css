@@ -7517,7 +7517,7 @@ nav {
   pointer-events: none;
   min-height: 5em; }
   nav h2 {
-    font-family: "Source Serif Pro", serif; }
+    font-family: "Abril Fatface", serif; }
   nav #menu-toggle {
     display: none; }
     nav #menu-toggle:checked + #menu-wrapper {
@@ -7841,7 +7841,7 @@ body.page-template-template-showcase {
   background: #edf6ff; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Source Serif Pro", serif;
+  font-family: "Abril Fatface", serif;
   line-height: 1;
   font-weight: bold; }
 
@@ -8164,7 +8164,7 @@ footer ul.footer-list {
   footer ul.footer-list li {
     font-weight: bold; }
     footer ul.footer-list li.list-header {
-      font-family: "Source Serif Pro", serif;
+      font-family: "Abril Fatface", serif;
       font-size: 1.8em;
       text-transform: uppercase;
       margin-bottom: 0.6em; }
@@ -8326,7 +8326,7 @@ div#menu-wrapper {
     margin: 2rem 0; }
   body.home article h2,
   div#menu-wrapper h2 {
-    font-family: "Abril Fatface";
+    font-family: "Abril Fatface", serif;
     text-transform: lowercase;
     margin-top: 3rem;
     font-size: 3rem;
@@ -8550,7 +8550,7 @@ body.archive .note .btn, body.archive .card .btn {
   transition: filter 0.3s, -webkit-filter 0.3s; }
 
 .post-thumbnail-title {
-  font-family: "Source Serif Pro", serif;
+  font-family: "Abril Fatface", serif;
   font-size: 1.4em;
   text-align: left;
   position: absolute;
