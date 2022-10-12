@@ -222,7 +222,8 @@ blockquote{
   }
 
   a{
-    color: $color-ternary;
+    color: $color-ternary-dark;
+    text-decoration: underline;
     &:hover{
       color: $color-ternary-dark;
     }

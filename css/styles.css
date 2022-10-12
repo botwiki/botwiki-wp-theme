@@ -7994,16 +7994,17 @@ blockquote {
     font-size: 0.9rem;
     color: #9aadc5; }
   blockquote a {
-    color: #9aadc5; }
+    color: #566981;
+    text-decoration: underline; }
     blockquote a:hover {
-      color: #788ba3; }
+      color: #566981; }
   blockquote ul, blockquote ol {
     padding: 0 50px; }
     @media (max-width: 900px) {
       blockquote ul, blockquote ol {
         padding: 0 20px; } }
   blockquote p {
-    color: #788ba3;
+    color: #566981;
     font-size: 1.25rem; }
     blockquote p:first-child {
       margin-top: -3rem; }
