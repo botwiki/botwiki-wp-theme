@@ -7891,7 +7891,9 @@ h2 {
   .card h3 {
     color: #3c3c3c; }
   .card h5 {
-    font-size: 1.25em; }
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25em;
+    font-weight: bold; }
 
 h3 {
   font-size: 2.7em;
