@@ -86,13 +86,13 @@ h2{
 }
 
 h3{
-  font-family: $body-font-family;
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 1em;
   margin-bottom: 1em;
 
   &.sidebar-header{
+    font-family: $body-font-family;
     margin-bottom: 2rem !important;
 
     & + ul{

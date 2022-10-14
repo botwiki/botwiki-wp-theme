@@ -7896,12 +7896,12 @@ h2 {
     font-weight: bold; }
 
 h3 {
-  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 1em;
   margin-bottom: 1em; }
   h3.sidebar-header {
+    font-family: "Open Sans", sans-serif;
     margin-bottom: 2rem !important; }
     h3.sidebar-header + ul {
       padding-left: 2rem; }
