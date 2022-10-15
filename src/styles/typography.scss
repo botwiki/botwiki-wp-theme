@@ -100,6 +100,13 @@ h3{
       padding-left: 2rem;
     }
 
+    .badge-secondary{
+      background-color: #7f8e9f;
+      &:hover{
+        background-color: #536272;
+      }
+    }
+
     @media (min-width: $site-width-medium){
       margin-top: 0;
 
