@@ -7896,6 +7896,9 @@ h2 {
     font-weight: bold; }
 
 a.badge-secondary {
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem !important;
+  color: #fff !important;
   background-color: #7f8e9f !important; }
   a.badge-secondary:hover {
     background-color: #536272 !important; }

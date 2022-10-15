@@ -85,6 +85,9 @@ h2{
   }
 }
 a.badge-secondary{
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem !important;
+  color: #fff !important;
   background-color: #7f8e9f !important;
   &:hover{
     background-color: #536272 !important;
@@ -377,7 +380,6 @@ a{
     text-decoration: none !important;
   }
 }
-
 
 p.post-tags{
   line-height: 2.5rem;

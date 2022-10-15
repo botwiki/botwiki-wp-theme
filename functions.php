@@ -295,7 +295,7 @@ function my_css_attributes_filter($var){
 
 // Remove invalid rel attribute values in the categorylist
 function remove_category_rel_from_category_list($thelist){
-  return str_replace( 'rel="category tag"', 'rel="tag"', $thelist);
+  return str_replace( 'rel="category tag"', 'class="badge badge-secondary" rel="tag"', $thelist);
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
