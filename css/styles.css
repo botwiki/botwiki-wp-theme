@@ -7902,14 +7902,13 @@ h3 {
   h3.sidebar-header {
     font-size: 1.75rem;
     font-family: "Open Sans", sans-serif;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
     font-weight: bold; }
     h3.sidebar-header + ul {
       padding-left: 2rem; }
     @media (min-width: 900px) {
       h3.sidebar-header {
-        margin-top: 0;
-        margin-bottom: 1rem !important; }
+        margin-top: 0; }
         h3.sidebar-header + ul {
           padding-left: 1rem; } }
 

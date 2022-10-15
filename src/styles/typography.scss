@@ -93,7 +93,7 @@ h3{
   &.sidebar-header{
     font-size: 1.75rem;
     font-family: $body-font-family;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
     font-weight: bold;
 
     & + ul{
@@ -102,7 +102,6 @@ h3{
 
     @media (min-width: $site-width-medium){
       margin-top: 0;
-      margin-bottom: 1rem !important;
 
       & + ul{
         padding-left: 1rem;
