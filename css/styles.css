@@ -7895,6 +7895,11 @@ h2 {
     font-size: 1em;
     font-weight: bold; }
 
+a.badge-secondary {
+  background-color: #7f8e9f !important; }
+  a.badge-secondary:hover {
+    background-color: #536272 !important; }
+
 h3 {
   font-size: 2.5rem;
   margin-top: 1em;
@@ -7906,10 +7911,6 @@ h3 {
     font-weight: bold; }
     h3.sidebar-header + ul {
       padding-left: 2rem; }
-    h3.sidebar-header .badge-secondary {
-      background-color: #7f8e9f; }
-      h3.sidebar-header .badge-secondary:hover {
-        background-color: #536272; }
     @media (min-width: 900px) {
       h3.sidebar-header {
         margin-top: 0; }

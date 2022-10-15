@@ -84,7 +84,12 @@ h2{
     font-weight: bold;
   }
 }
-
+a.badge-secondary{
+  background-color: #7f8e9f !important;
+  &:hover{
+    background-color: #536272 !important;
+  }
+}
 h3{
   font-size: 2.5rem;
   margin-top: 1em;
@@ -100,12 +105,7 @@ h3{
       padding-left: 2rem;
     }
 
-    .badge-secondary{
-      background-color: #7f8e9f;
-      &:hover{
-        background-color: #536272;
-      }
-    }
+
 
     @media (min-width: $site-width-medium){
       margin-top: 0;
