@@ -7909,7 +7909,7 @@ h3 {
     @media (min-width: 900px) {
       h3.sidebar-header {
         margin-top: 0;
-        margin-bottom: .75rem !important; }
+        margin-bottom: 1rem !important; }
         h3.sidebar-header + ul {
           padding-left: 1rem; } }
 
