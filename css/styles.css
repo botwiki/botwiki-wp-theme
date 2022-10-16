@@ -8321,7 +8321,8 @@ code.hljs {
     color: lightgray;
     right: 10px;
     top: 4px;
-    font-size: 11px; }
+    font-size: 11px;
+    pointer-events: none; }
 
 .medium-editor-action b {
   color: #fff; }
