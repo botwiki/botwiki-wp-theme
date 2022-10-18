@@ -191,7 +191,7 @@
                     $network_links = array();
                     if ( $networks ){
                       foreach ( $networks as $network ) {
-                        $network_links[] = '<li><a class="badge badge-secondary p-2" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
+                        $network_links[] = '<li><a class="badge badge-secondary p-2 mb-2" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
                       }
                     }
 
@@ -205,7 +205,7 @@
 
                     if ( $languages ){
                       foreach ( $languages as $language ) {
-                        $language_links[] = '<li><a class="badge badge-secondary p-2" href="' . $site_url . '/languages/' . $language->slug . '">' . $language->name . '</a></li>';
+                        $language_links[] = '<li><a class="badge badge-secondary p-2 mb-2" href="' . $site_url . '/languages/' . $language->slug . '">' . $language->name . '</a></li>';
                       }
                       ?>
                       <h3 class="mt-2 mb-2 sidebar-header">Made with</h3>
