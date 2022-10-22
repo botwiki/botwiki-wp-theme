@@ -427,7 +427,7 @@
               'orderby' => 'rand',
               'order' => 'ASC',
               'exclude' => array( $post_id ),
-              'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, $tags ),
+              'tag__in' => array_map( function( $tag ){ return $tag->term_id; }, is_array( $tags ) ? $tags : [] ),
               'post_type' => 'bot',
               'post_status' => 'publish',
               'suppress_filters' => true
