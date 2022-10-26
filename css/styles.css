@@ -8032,9 +8032,7 @@ blockquote.twitter-tweet,
 iframe.twitter-tweet,
 iframe,
 .twitter-tweet {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  display: block; }
 
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }
