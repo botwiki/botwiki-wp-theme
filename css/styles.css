@@ -7722,6 +7722,11 @@ body.single-bot .thumbnail-wrapper {
     -webkit-transform: translateY(0);
             transform: translateY(0); } }
 
+.break-out {
+  width: 100vw;
+  position: relative;
+  left: calc(-1 * (100vw - 100%) / 2); }
+
 /* Site footer */
 .footer .footer-callout {
   max-width: 300px;
