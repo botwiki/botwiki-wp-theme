@@ -265,13 +265,6 @@ blockquote{
 
 }
 
-blockquote.instagram-media,
-iframe.instagram-media{
-  display: block;
-  margin: 2rem auto !important;
-  max-width: calc(100% - 10px) !important;
-}
-
 blockquote.twitter-tweet,
 iframe.twitter-tweet,
 iframe,
@@ -290,10 +283,6 @@ body.page-template-template-submit-your-bot{
       margin-top: 30px;
     }  
   }
-}
-
-.twitter-tweet.twitter-tweet-rendered{
-  margin: 2rem auto !important;
 }
 
 .fb-post.fb_iframe_widget{
