@@ -106,11 +106,11 @@
         if ( user_can($author_id, 'administrator') ){  
           $page_description = get_the_author_meta('botwiki-team-role', $author_id);
           if ( empty( $page_description ) ){
-            $page_description = "Botwiki team member.";
+            $page_description = 'Botwiki team member.';
           }
         }
         else{
-          $page_description = "Botwiki contributor.";    
+          $page_description = 'Botwiki contributor.';    
         }
 
         // $page_title = get_the_title();
@@ -186,6 +186,21 @@
     <meta property="twitter:image:src" content="<?php echo $page_thumbnail; ?>" /> 
     <?php } ?>
     <meta name="twitter:card" content="summary_large_image" />
+    <?php
+      // TODO Try different tiles based on post type and other conditions.
+      switch ( $post_type ) {
+        case 'bot': ?>
+          <meta name="twitter:tile:template" content="1" />
+          <meta name="twitter:tile:template:testing" content="1" />
+          <?php break;
+        
+        default: ?>
+          <meta name="twitter:tile:template" content="1" />
+          <meta name="twitter:tile:template:testing" content="1" />
+          <?php break;
+      }
+    
+    ?>
     <meta name="twitter:site" content="@botwikidotorg" />
     <meta name="twitter:domain" content="https://botwiki.org/" />
     <link type="text/plain" rel="author" href="https://botwiki.org/humans.txt" />
