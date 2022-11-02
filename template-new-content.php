@@ -11,12 +11,12 @@
   <main role="main" class="container-fluid m-0 p-0">
     <h1 class="text-center post-title mt-5"><span><?php the_title(); ?></span></h1>
 
-    <!-- <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>"> -->
+    <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
       <?php
-        // $post_thumbnail_id = get_post_thumbnail_id();
-        // the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
+        $post_thumbnail_id = get_post_thumbnail_id();
+        the_post_thumbnail('post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ),'class' => 'lazy-load expand-image', 'title' => get_post($post_thumbnail_id)->post_title ]);
       ?>
-    <!-- </div> -->
+    </div>
     <div class="container">
       <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
         <div class="post-content">
