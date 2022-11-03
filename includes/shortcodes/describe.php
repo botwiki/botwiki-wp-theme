@@ -12,7 +12,8 @@ class Describe_Topic {
     switch ( $topic ) {
       case 'elon musk':
         $description = <<<TEXT
-        <a href="https://www.reddit.com/r/EnoughMuskSpam/comments/7vuvf0/why_i_hate_elon_musk_and_why_you_should_hate_him/">Elon Musk</a>, 
+        <a href="https://www.reddit.com/r/EnoughMuskSpam/comments/7vuvf0/why_i_hate_elon_musk_and_why_you_should_hate_him/">Elon</a>
+        <a href="https://www.vanityfair.com/news/2022/04/elon-musk-twitter-terrible-things-hes-said-and-done">Musk</a>, 
         <a href="https://www.vox.com/identities/2019/9/30/20891314/elon-musk-tesla-labor-violation-nlrb">union-busting</a>
         billionaire heir to an <a href="https://www.businessinsider.co.za/how-elon-musks-family-came-to-own-an-emerald-mine-2018-2">apartheid emerald fortune</a>,
         <a href="https://en.wikipedia.org/wiki/Neuralink#Animal_testing">animal torturer</a>,
