@@ -62,7 +62,12 @@
               $post_date_ago = $m->fromNow()->getRelative();
             }
           ?>
-            <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> in <?php the_category( ', ' ); ?></p>
+            <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> <?php
+              if ( $post_type === 'post' ){
+                echo 'in';
+                the_category( ', ' );
+              }
+            ?></p>
           <?php }
 
             if ( $post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
