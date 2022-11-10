@@ -54,7 +54,7 @@
           <?php } ?>
           <!-- /post thumbnail -->
           <?php
-          if ( $post_type === 'post' ) {
+          if ( in_array( $post_type, ['post', 'resource'] ) ) {
             $post_date = get_the_time( 'F j, Y' );
             $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
             if ( class_exists( 'Moment\Moment' ) ){
