@@ -64,7 +64,7 @@
           ?>
             <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> <?php
               if ( $post_type === 'post' ){
-                echo 'in';
+                echo 'in ';
                 the_category( ', ' );
               }
             ?></p>
