@@ -147,7 +147,7 @@ class New_On_Botwiki {
 
           if ( $example_content_url !== false && !empty( $example_content_url ) ){
             $status_text_twitter .= $via_text_twitter . "\n\n🤖 " . $bot_url . "\n\n" . $example_content_url ;
-            $status_text_mastodon .= $via_text_mastodon . "\n\n " . $example_content_url . "\n\n🤖 " . $bot_url ;
+            $status_text_mastodon .= $via_text_mastodon . "\n\n" . $example_content_url . "\n\n🤖 " . $bot_url ;
           } else {
             $status_text_twitter .= ' ' . $bot_url . $via_text_twitter;
             $status_text_mastodon .= ' ' . $bot_url . $via_text_mastodon;
