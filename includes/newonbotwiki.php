@@ -119,7 +119,7 @@ class New_On_Botwiki {
             }, $user_handles );
 
             $mastodon_handles = array_map( function( $handle ){
-              return empty( $handle['username'] ) ? null : '@' . $handle['username'];
+              return empty( $handle['username'] ) ? null : $handle['username'];
             }, $user_handles );
 
             if ( count( $twitter_handles ) !== 0 ){
