@@ -14,11 +14,16 @@
             <a id="contribute-link" title="Contribute to Botwiki" href="<?php echo site_url(); ?>/contribute/">📋</a>
           </li>
           <li>
+            <a id="mastodon-link" title="Follow @botwiki@mastodon.social" rel="me" href="https://mastodon.social/botwiki">
+              <span>@botwiki</span>
+            </a>
+          </li>
+          <!-- <li>
             <a id="twitter-link" title="Follow @botwikidotorg on Twitter" rel="me" href="https://twitter.com/botwikidotorg">
               <img src="<?php echo get_template_directory_uri(); ?>/images/icons/twitter-white.svg">
               <span>@botwikidotorg</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <?php if ( is_front_page()){ ?>
