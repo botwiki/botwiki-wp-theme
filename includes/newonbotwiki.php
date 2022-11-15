@@ -19,10 +19,10 @@ class New_On_Botwiki {
           if ( strpos( $author_url, 'twitter.com/' ) !== false ){
             global $helpers;
 
-            $twitter_handle = $helpers->get_username_from_url( $author_url );
-
-            if ( !empty( $twitter_handle ) ){
-              array_push( $twitter_handles, $twitter_handle );
+            $user = $helpers->get_username_from_url( $author_url );
+            
+            if ( $user && !empty( $user['username_twitter'] ) ){
+              array_push( $twitter_handles, $user['username_twitter'] );
             }
           }
         }
