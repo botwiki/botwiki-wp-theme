@@ -38,6 +38,31 @@ class New_On_Botwiki {
     return $twitter_handles; 
   }
 
+  public static function get_user_handles( $author_info ){
+    $author_info = preg_split( '/\n|\r\n?/', $author_info );
+    $user_handles = array();
+
+    if ( !empty( $author_info ) ){
+      foreach ( $author_info as $author ) {
+        $author_split = explode( ',', $author );
+
+        if ( is_array( $author_split ) && count( $author_split ) === 2 ){
+          $author_url = $author_split[1];
+
+          global $helpers;
+          $user = $helpers->get_username_from_url( $author_url );          
+
+          if ( !empty( $user ) ){
+            array_push( $user_handles, $user );
+          }
+
+        }
+      }
+    }
+
+    return $user_handles; 
+  }
+  
   public function post_update( $new_status, $old_status, $post ) {
     if ( empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN ) ||
          empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN_SECRET ) ||
@@ -46,24 +71,25 @@ class New_On_Botwiki {
       return false;
     }
 
-    if ( !empty( $post ) && $new_status === 'publish' && $old_status !== 'publish' ){
+    if ( ENVIRONMENT === 'local' || (!empty( $post ) && $new_status === 'publish' && $old_status !== 'publish') ){
       $post_id = $post->ID;
       $published_tweet_url = get_post_meta( $post_id, 'published_tweet_url', true );
       
       if ( empty( $published_tweet_url ) && !wp_is_post_revision( $post_id ) ) {
         $permalink = get_permalink( $post_id );
-        $status_text = null;
+        $status_text_twitter = null;
 
         if ( $post->post_type === 'bot' ){
           // $bot_is_featured = get_post_meta( $post_id, 'bot_is_featured' );
           // $bot_is_nsfw = get_post_meta( $post_id, 'bot_is_nsfw' );
 
-          $status_text = 'New bot was added to Botwiki!';
+          $status_text_twitter = 'New bot was added to Botwiki!';
           $bot_url = 'botwiki.org/bot/' . $post->post_name; 
           $bot_urls = preg_split( '/\n|\r\n?/', get_post_meta( $post_id, 'bot_tweets', true ) );
 
           $example_tweet_url = false;
-          $via_text = '';
+          $via_text_twitter = '';
+          $via_text_mastodon = '';
 
           if ( $bot_urls ){
             foreach ( $bot_urls as $url ) {
@@ -88,17 +114,42 @@ class New_On_Botwiki {
           }
 
           if ( strlen( $bot_author_info ) > 0 ){
-            $twitter_handles = self::get_twitter_handles( $bot_author_info );
+            $user_handles = self::get_user_handles( $bot_author_info );
 
-            if ( !empty( $twitter_handles ) ){
-              $via_text .= ' via ' .  $twitter_handles;           
+            // log_this( 'user_handles', $user_handles );
+
+            $twitter_handles = array_map( function( $handle ){
+              return empty( $handle['username_twitter'] ) ? null : '@' . $handle['username_twitter'];
+            }, $user_handles );
+
+            $mastodon_handles = array_map( function( $handle ){
+              return $handle['username'];
+            }, $user_handles );
+
+            if ( count( $twitter_handles ) !== 0 ){
+              $twitter_handles_str = implode( ", ", $twitter_handles );
+            }
+
+            if ( count( $mastodon_handles ) !== 0 ){
+              $mastodon_handles_str = implode( ", ", $mastodon_handles );
+            }
+
+            if ( !empty( $twitter_handles_str ) ){
+              $via_text_twitter .= ' via ' .  $twitter_handles_str;           
+            }
+            if ( !empty( $mastodon_handles_str ) ){
+              $via_text_mastodon .= ' via ' .  $mastodon_handles_str;           
             }
           }
 
+          $status_text_mastodon = $status_text_twitter;
+
           if ( $example_tweet_url !== false && !empty( $example_tweet_url ) ){
-            $status_text .= $via_text . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
+            $status_text_twitter .= $via_text_twitter . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
+            $status_text_mastodon .= $via_text_mastodon . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
           } else {
-            $status_text .= ' ' . $bot_url . $via_text;
+            $status_text_twitter .= ' ' . $bot_url . $via_text_twitter;
+            $status_text_mastodon .= ' ' . $bot_url . $via_text_mastodon;
           }
 
         } elseif ( $post->post_type === 'resource' ){
@@ -115,7 +166,7 @@ class New_On_Botwiki {
           }
 
 
-          $status_text = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url;
+          $status_text_twitter = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url;
 
           $coauthors = get_coauthors( $post_id );
 
@@ -131,17 +182,17 @@ class New_On_Botwiki {
           }
 
           if ( strlen( $resource_author_info ) > 0 ){
-            $twitter_handles = self::get_twitter_handles( $resource_author_info );
+            $twitter_handles = self::get_user_handles( $resource_author_info );
 
             if ( !empty( $twitter_handles ) ){
-              $status_text .= ' Via ' .  $twitter_handles;           
+              $status_text_twitter .= ' Via ' .  $twitter_handles;           
             }
           }
         } elseif ( $post->post_type === 'post' && get_post_status( $post ) === 'publish' ){
-          $status_text = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
+          $status_text_twitter = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
         }
 
-        if ( !empty( $status_text ) ){
+        if ( !empty( $status_text_twitter ) ){
           if ( ENVIRONMENT === 'production' ){
             /* Post update on Twitter */
 
@@ -178,13 +229,13 @@ class New_On_Botwiki {
             ];
             
             $status_data = array(
-              "status" => str_replace('@', 'https://twitter.com/', $status_text),
+              "status" => str_replace('@', 'https://twitter.com/', $status_text_twitter),
               "language" => "eng",
               "visibility" => "public"
             );
             
             $ch_status = curl_init();
-            curl_setopt($ch_status, CURLOPT_URL, "https://botsin.space//api/v1/statuses");
+            curl_setopt($ch_status, CURLOPT_URL, "https://botsin.space/api/v1/statuses");
             curl_setopt($ch_status, CURLOPT_POST, 1);
             curl_setopt($ch_status, CURLOPT_POSTFIELDS, $status_data);
             curl_setopt($ch_status, CURLOPT_RETURNTRANSFER, true);
@@ -196,7 +247,8 @@ class New_On_Botwiki {
             
           } else {
             log_this( '@newonbotwiki', array(
-              'status_text' => $status_text
+              'status_text_twitter' => $status_text_twitter,
+              'status_text_mastodon' => $status_text_mastodon
             ) );
           }
         }

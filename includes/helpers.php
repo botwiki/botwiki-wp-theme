@@ -226,24 +226,26 @@ class BW_Helpers {
   }
 
   function get_username_from_url( $url ){
-    $networks = [
-      'twitter.com',
-      'botsin.space',
-      'beeping.town',
-      'mastodon.social',
-    ];
+    $url_parsed = parse_url( trim( $url ), -1 );
 
-    foreach ( $networks as $network ) {
-      if ( strpos( $url, $network . '/') != -1 ){
-        $regex  = '#https?://' . str_replace('.', '\.', $network) . '/(?:\#!/)?(\w+)';
-        if ( preg_match( "/https*:\/\/" . $network . "\/(#!\/)?([^\/]*)/", $url, $match ) ){
-          return trim( str_replace( '@', '', $match[2] ) );
-        }
+    $user = array(
+      "url" => $url,
+    );
+
+    if ( strpos( $url, 'twitter.com/') != false ){
+      $regex  = '#https?://twitter\.com/(?:\#!/)?(\w+)';
+
+      if (preg_match("/https*:\/\/twitter.com\/(#!\/)?([^\/]*)/", $url, $match) ){
+        $user['username'] = "@" . trim( str_replace( "@", "", $match[2] ) ) . "@twitter.com";
+        $user['username_twitter'] = trim( str_replace( "@", "", $match[2] ) );
       }
+    } elseif ( strpos( $url, "@") != false ){
+      $user['username'] = "@" . str_replace("/@", "", $url_parsed["path"]) . "@" . $url_parsed["host"];
     }
 
-    return false;
+    return $user;
   }
+
 
   function get_domain_from_url( $url ){
     $domain = $url;
