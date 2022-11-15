@@ -71,8 +71,7 @@ class New_On_Botwiki {
       return false;
     }
 
-    // if ( ENVIRONMENT === 'local' || (!empty( $post ) && $new_status === 'publish' && $old_status !== 'publish') ){
-    if ( true ){
+    if ( ENVIRONMENT === 'local' || (!empty( $post ) && $new_status === 'publish' && $old_status !== 'publish') ){
       $post_id = $post->ID;
       $published_tweet_url = get_post_meta( $post_id, 'published_tweet_url', true );
       
@@ -122,11 +121,11 @@ class New_On_Botwiki {
               return empty( $handle['username'] ) ? null : $handle['username'];
             }, $user_handles );
 
-            log_this(array(
-              'user_handles' => $user_handles,
-              'twitter_handles' => $twitter_handles,
-              'mastodon_handles' => $mastodon_handles,  
-            ));
+            // log_this(array(
+            //   'user_handles' => $user_handles,
+            //   'twitter_handles' => $twitter_handles,
+            //   'mastodon_handles' => $mastodon_handles,  
+            // ));
 
             if ( count( $twitter_handles ) !== 0 ){
               $twitter_handles_str = implode( ", ", $twitter_handles );
@@ -166,7 +165,6 @@ class New_On_Botwiki {
           if ( empty( $resource_url ) ){
             $resource_url = 'botwiki.org/resource/' . $resource_type_slug . '/' . $post->post_name; 
           }
-
 
           $status_text_twitter = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url;
 
@@ -208,7 +206,7 @@ class New_On_Botwiki {
             $twitter_api_url = 'https://api.twitter.com/1.1/statuses/update.json';
             $request_method = 'POST';
             $post_fields = array(
-              'status' => $status_text
+              'status' => $status_text_twitter
             );
 
             $twitter = new TwitterAPIExchange( $api_keys );
@@ -217,9 +215,6 @@ class New_On_Botwiki {
                                   ->setPostfields( $post_fields )
                                   ->performRequest()
                         );
-
-            log_this( 'twitter_response', $response );
-            
             try {
               $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
               update_post_meta( $post_id, 'published_tweet_url', $tweet_url  );            
