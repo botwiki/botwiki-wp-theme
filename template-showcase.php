@@ -31,12 +31,6 @@
                       if ( $block['blockName'] === 'lazyblock/bot-output' ){
                         $bot_output = $block['attrs']['bot-output'];
 
-                        log_this( array(
-                          'post_title' => $bot->post_title,
-                          'post_name' => $bot->post_name,
-                          'bot_output' => $bot_output
-                        ) );
-
                         echo '<div class="bot-showcase">';
                         echo str_replace( '</body></html>', '', render_block( $block ) );
                         echo '</div>';
