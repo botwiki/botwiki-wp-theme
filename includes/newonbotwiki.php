@@ -111,14 +111,14 @@ class New_On_Botwiki {
           if ( strlen( $bot_author_info ) > 0 ){
             $user_handles = self::get_user_handles( $bot_author_info );
 
-            // log_this( 'user_handles', $user_handles );
+            log_this( 'user_handles', $user_handles );
 
             $twitter_handles = array_map( function( $handle ){
               return empty( $handle['username_twitter'] ) ? null : '@' . $handle['username_twitter'];
             }, $user_handles );
 
             $mastodon_handles = array_map( function( $handle ){
-              return $handle['username'];
+              return empty( $handle['username'] ) ? null : '@' . $handle['username'];
             }, $user_handles );
 
             if ( count( $twitter_handles ) !== 0 ){

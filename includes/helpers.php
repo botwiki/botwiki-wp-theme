@@ -251,7 +251,7 @@ class BW_Helpers {
     $domain = $url;
 
     try {
-      $info = parse_url($url);
+      $info = parse_url(trim($url));
       $host = $info['host'];
       $host_names = explode(".", $host);
       $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
