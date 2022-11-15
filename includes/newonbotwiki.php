@@ -112,7 +112,7 @@ class New_On_Botwiki {
           if ( strlen( $bot_author_info ) > 0 ){
             $user_handles = self::get_user_handles( $bot_author_info );
 
-            log_this( 'user_handles', $user_handles );
+            // log_this( 'user_handles', $user_handles );
 
             $twitter_handles = array_map( function( $handle ){
               return empty( $handle['username_twitter'] ) ? null : '@' . $handle['username_twitter'];
@@ -225,7 +225,7 @@ class New_On_Botwiki {
             ];
             
             $status_data = array(
-              "status" => $status_text_twitter,
+              "status" => $status_text_mastodon,
               "language" => "eng",
               "visibility" => "public"
             );
