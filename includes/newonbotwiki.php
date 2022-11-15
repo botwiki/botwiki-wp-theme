@@ -84,20 +84,15 @@ class New_On_Botwiki {
           // $bot_is_nsfw = get_post_meta( $post_id, 'bot_is_nsfw' );
 
           $status_text_twitter = 'New bot was added to Botwiki!';
-          $bot_url = 'botwiki.org/bot/' . $post->post_name; 
+          $bot_url = 'https://botwiki.org/bot/' . $post->post_name; 
           $bot_urls = preg_split( '/\n|\r\n?/', get_post_meta( $post_id, 'bot_tweets', true ) );
 
-          $example_tweet_url = false;
+          $example_content_url = false;
           $via_text_twitter = '';
           $via_text_mastodon = '';
 
-          if ( $bot_urls ){
-            foreach ( $bot_urls as $url ) {
-              if ( strpos( $url, 'twitter.com' ) !== -1 ){
-                $example_tweet_url = $url;
-                break;
-              }
-            }
+          if ( $bot_urls && count( $bot_urls ) > 0 ){
+            $example_content_url = $bot_urls[0];
           }
 
           $coauthors = get_coauthors( $post_id );
@@ -144,9 +139,9 @@ class New_On_Botwiki {
 
           $status_text_mastodon = $status_text_twitter;
 
-          if ( $example_tweet_url !== false && !empty( $example_tweet_url ) ){
-            $status_text_twitter .= $via_text_twitter . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
-            $status_text_mastodon .= $via_text_mastodon . "\n\n🤖 " . $bot_url . "\n\n" . $example_tweet_url ;
+          if ( $example_content_url !== false && !empty( $example_content_url ) ){
+            $status_text_twitter .= $via_text_twitter . "\n\n🤖 " . $bot_url . "\n\n" . $example_content_url ;
+            $status_text_mastodon .= $via_text_mastodon . "\n\n🤖 " . $bot_url . "\n\n" . $example_content_url ;
           } else {
             $status_text_twitter .= ' ' . $bot_url . $via_text_twitter;
             $status_text_mastodon .= ' ' . $bot_url . $via_text_mastodon;
