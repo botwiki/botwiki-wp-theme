@@ -97,7 +97,7 @@
           <?php
             if ( $post_type === 'bot' ) {?>
               <div class="row">
-                <div class="col-sm-12 col-md-9 mb-3 pr-3">
+                <div class="col-sm-12 col-md-9 col-lg-10 mb-3 pr-3">
                   <ul class="btn-list mt-1 mb-5">
                   <?php
 
@@ -176,7 +176,7 @@
                   </ul>
                   <?php the_content(); ?>
                 </div>
-                <div class="col-sm-12 col-md-3 mb-4 sidebar">
+                <div class="col-sm-12 col-md-3 col-lg-2 mb-4 sidebar">
                   <h3 class="sidebar-header">Networks</h3>
                   <ul class="list-unstyled pl-0">
 
