@@ -101,11 +101,12 @@
         if ( count( $bot_author_info_arr ) === 2 ){
           array_push( $created_by_html_array, '<a href="' . trim( $bot_author_info_arr[1] ) . '">' . trim( $bot_author_info_arr[0] ) . '</a>' );
 
-          $author_username = $helpers->get_username_from_url( $bot_author_info_arr[1] );
-
-          if ( $author_username ){
-            array_push( $author_tags , $author_username );
+          $user = $helpers->get_username_from_url( $bot_author_info_arr[1] );
+            
+          if ( $user && !empty( $user['username_twitter'] ) ){
+            array_push( $author_tags , $user['username_twitter'] );
           }
+
         }
         else{
           array_push( $created_by_html_array, $bot_author_info_arr[0] );          
