@@ -14,7 +14,7 @@
             <a id="contribute-link" title="Contribute to Botwiki" href="<?php echo site_url(); ?>/contribute/">📋</a>
           </li>
           <li>
-            <a id="mastodon-link" title="Follow @botwiki@mastodon.social" rel="me" href="https://mastodon.social/botwiki">
+            <a id="mastodon-link" class="social-link" title="Follow @botwiki@mastodon.social" rel="me" href="https://mastodon.social/botwiki">
               <span>@botwiki</span>
             </a>
           </li>

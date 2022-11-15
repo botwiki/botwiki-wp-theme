@@ -538,7 +538,7 @@ div.bottom-page-links{
       padding: 12px;
       line-height: 1em;
     }
-    &#twitter-link{
+    &.social-link{
       padding: 8px;
       @media (min-width: $site-width-small){
         width: auto;      

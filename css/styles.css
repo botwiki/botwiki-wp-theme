@@ -8226,19 +8226,19 @@ div.bottom-page-links {
     div.bottom-page-links a#back-to-top {
       padding: 12px;
       line-height: 1em; }
-    div.bottom-page-links a#twitter-link {
+    div.bottom-page-links a.social-link {
       padding: 8px; }
       @media (min-width: 860px) {
-        div.bottom-page-links a#twitter-link {
+        div.bottom-page-links a.social-link {
           width: auto; } }
-      div.bottom-page-links a#twitter-link img {
+      div.bottom-page-links a.social-link img {
         width: 1em; }
-      div.bottom-page-links a#twitter-link span {
+      div.bottom-page-links a.social-link span {
         font-size: .7em;
         line-height: 1.4em;
         vertical-align: inherit; }
         @media (max-width: 860px) {
-          div.bottom-page-links a#twitter-link span {
+          div.bottom-page-links a.social-link span {
             display: none; } }
 
 .list-style-circle {
