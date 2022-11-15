@@ -71,7 +71,8 @@ class New_On_Botwiki {
       return false;
     }
 
-    if ( ENVIRONMENT === 'local' || (!empty( $post ) && $new_status === 'publish' && $old_status !== 'publish') ){
+    // if ( ENVIRONMENT === 'local' || (!empty( $post ) && $new_status === 'publish' && $old_status !== 'publish') ){
+    if ( true ){
       $post_id = $post->ID;
       $published_tweet_url = get_post_meta( $post_id, 'published_tweet_url', true );
       
