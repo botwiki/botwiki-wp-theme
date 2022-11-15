@@ -122,6 +122,12 @@ class New_On_Botwiki {
               return empty( $handle['username'] ) ? null : $handle['username'];
             }, $user_handles );
 
+            log_this(array(
+              'user_handles' => $user_handles,
+              'twitter_handles' => $twitter_handles,
+              'mastodon_handles' => $mastodon_handles,  
+            ));
+
             if ( count( $twitter_handles ) !== 0 ){
               $twitter_handles_str = implode( ", ", $twitter_handles );
             }
