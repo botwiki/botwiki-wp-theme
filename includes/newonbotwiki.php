@@ -225,7 +225,7 @@ class New_On_Botwiki {
             ];
             
             $status_data = array(
-              "status" => $status_text_mastodon,
+              "status" => $status_text_mastodon . " #bots",
               "language" => "eng",
               "visibility" => "public"
             );
