@@ -217,6 +217,9 @@ class New_On_Botwiki {
                                   ->setPostfields( $post_fields )
                                   ->performRequest()
                         );
+
+            log_this( 'twitter_response', $response );
+            
             try {
               $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
               update_post_meta( $post_id, 'published_tweet_url', $tweet_url  );            
