@@ -176,20 +176,52 @@ class New_On_Botwiki {
               $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
               return $author->display_name . ',' . $author_twitter_url;
             }, $coauthors ) );
-
+          
           } else {
             $resource_author_info = get_post_meta( $post_id, 'resource_author_info', true );
           }
-
+          
           if ( strlen( $resource_author_info ) > 0 ){
-            $twitter_handles = self::get_user_handles( $resource_author_info );
-
-            if ( !empty( $twitter_handles ) ){
-              $status_text_twitter .= ' Via ' .  $twitter_handles;           
+            $user_handles = self::get_user_handles( $resource_author_info );
+          
+            // log_this( 'user_handles', $user_handles );
+          
+            $twitter_handles = array_map( function( $handle ){
+              return empty( $handle['username_twitter'] ) ? null : '@' . $handle['username_twitter'];
+            }, $user_handles );
+          
+            $mastodon_handles = array_map( function( $handle ){
+              return empty( $handle['username'] ) ? null : $handle['username'];
+            }, $user_handles );
+          
+            // log_this(array(
+            //   'user_handles' => $user_handles,
+            //   'twitter_handles' => $twitter_handles,
+            //   'mastodon_handles' => $mastodon_handles,  
+            // ));
+          
+            if ( count( $twitter_handles ) !== 0 ){
+              $twitter_handles_str = implode( ", ", $twitter_handles );
+            }
+          
+            if ( count( $mastodon_handles ) !== 0 ){
+              $mastodon_handles_str = implode( ", ", $mastodon_handles );
+            }
+          
+            if ( !empty( $twitter_handles_str ) ){
+              $via_text_twitter .= ' via ' .  $twitter_handles_str;           
+            }
+            if ( !empty( $mastodon_handles_str ) ){
+              $via_text_mastodon .= ' via ' .  $mastodon_handles_str;           
             }
           }
+          
+          $status_text_mastodon = $status_text_twitter;
+          $status_text_twitter = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url . $via_text_twitter;
+          $status_text_mastodon = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url . $via_text_mastodon;
         } elseif ( $post->post_type === 'post' && get_post_status( $post ) === 'publish' ){
           $status_text_twitter = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
+          $status_text_mastodon = 'New blog post was posted on Botwiki! ' . get_permalink( $post );
         }
 
         if ( !empty( $status_text_twitter ) ){
