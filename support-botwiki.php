@@ -16,7 +16,7 @@
               <a class="btn mb-2" title="View list of supporters" href="https://botwiki.org/about/supporters/">See our supporters</a>
             </li> 
             <li>  
-              <a class="btn mb-2" title="Twitter" rel="me" href="https://twitter.com/botwikidotorg">Follow @botwikidotorg</a> 
+              <a class="btn mb-2" title="Twitter" rel="me" href="https://mastodon.social/@botwiki">Follow @botwiki@mastodon.social</a> 
             </li> 
           </ul>
         </div>
