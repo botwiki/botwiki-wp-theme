@@ -139,7 +139,7 @@
                         }
                         ?>
                         <li>
-                          <a class="btn" href="<?php echo $url; ?>"><?php echo $label; ?></a>
+                          <a rel="me" class="btn" href="<?php echo $url; ?>"><?php echo $label; ?></a>
                         </li>
                       <?php }                 
                     }
