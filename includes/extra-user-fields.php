@@ -44,6 +44,13 @@ class Extra_User_Fields {
     </tr>
     <?php } ?>
     <tr>
+      <th><label for="fediverse-handle">Fediverse handle</label></th>
+      <td>
+        <input type="text" name="fediverse-handle" id="fediverse-handle" value="<?php echo esc_attr( get_the_author_meta( 'fediverse-handle', $user->ID ) ); ?>" class="regular-text" /><br />
+        <span class="description"><?php _e("Your Fediverse handle (Mastodon, Pleroma, etc)"); ?></span>
+      </td>
+    </tr>
+    <tr>
       <th><label for="twitter-handle">Twitter handle</label></th>
       <td>
         <input type="text" name="twitter-handle" id="twitter-handle" value="<?php echo esc_attr( get_the_author_meta( 'twitter-handle', $user->ID ) ); ?>" class="regular-text" /><br />
@@ -151,6 +158,7 @@ class Extra_User_Fields {
     if (isset($_POST['extra_user_fields'])) {
       update_user_meta( $user_id, 'botwiki-team-role', $_POST['botwiki-team-role'] );
       update_user_meta( $user_id, 'botwiki-unlisted-email', $_POST['botwiki-unlisted-email'] );
+      update_user_meta( $user_id, 'fediverse-handle', $_POST['fediverse-handle'] );
       update_user_meta( $user_id, 'twitter-handle', $_POST['twitter-handle'] );
       update_user_meta( $user_id, 'profile-img-url', $_POST['profile-img-url'] );
       update_user_meta( $user_id, 'background-img-url', $_POST['background-img-url'] );
