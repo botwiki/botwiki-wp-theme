@@ -88,7 +88,8 @@
                 $botwiki_team_role = "Botwiki contributor.";    
               }
               // $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
-              // $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+              // $twitter_handle = '@' . str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
+              // $fediverse_handle =  esc_attr( get_the_author_meta( 'fediverse-handle', $author_id ) );
 
               $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );
 
@@ -165,6 +166,7 @@
                   }
 
                   $website_url = esc_attr( get_the_author_meta( 'user_url', $author_id ) );
+                  $fediverse_handle =  esc_attr( get_the_author_meta( 'fediverse-handle', $author_id ) );
                   $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
                 ?>
               <div class="col-xs-6 col-s-2 m-2 text-center">

@@ -181,7 +181,8 @@
       }
 
       if ( is_user_logged_in() && isset( $_POST['disassociate-author-input'] ) && $_POST['disassociate-author-input'] === 'false' ){
-        $twitter_handle = str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
+        $twitter_handle = '@' . str_replace( '@', '', esc_attr( get_the_author_meta( 'twitter-handle', get_current_user_id() ) ) );
+        $fediverse_handle =  esc_attr( get_the_author_meta( 'fediverse-handle', get_current_user_id() ) );
 
         if ( !empty( $twitter_handle ) ){
           array_push( $bot_tags, $twitter_handle );

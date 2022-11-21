@@ -13,9 +13,14 @@
           </a>  
         </li> 
       <?php } ?>
+      <?php if ( !empty( $options['fediverse_handle'] )){ ?> 
+        <li>  
+          <a class="btn mb-2" title="Fediverse" rel="me" href="<?php echo $options['fediverse_url']; ?>"><?php echo $options['fediverse_handle']; ?></a> 
+        </li> 
+      <?php } ?>
       <?php if ( !empty( $options['twitter_handle'] )){ ?> 
         <li>  
-          <a class="btn mb-2" title="Twitter" rel="me" href="https://twitter.com/<?php echo $options['twitter_handle']; ?>">@<?php echo $options['twitter_handle']; ?></a> 
+          <a class="btn mb-2" title="Twitter" rel="me" href="https://twitter.com/<?php echo $options['twitter_handle']; ?>"><?php echo $options['twitter_handle']; ?></a> 
         </li> 
       <?php } ?>
     </ul>
@@ -24,8 +29,11 @@
 $author_info = array(
   'botwiki_profile_page_url' => $botwiki_profile_page_url,
   'website_url' => $website_url,
-  'twitter_handle' => $twitter_handle
+  'fediverse_handle' => $fediverse_handle,
+  'fediverse_url' => $fediverse_url,
+  'twitter_handle' => $twitter_handle,
 );
+
 ?>
 
 <div class="container card <?php
