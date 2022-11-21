@@ -18,7 +18,7 @@
           <a class="btn mb-2" title="Fediverse" rel="me" href="<?php echo $options['fediverse_url']; ?>"><?php echo $options['fediverse_handle']; ?></a> 
         </li> 
       <?php } ?>
-      <?php if ( !empty( $options['twitter_handle'] )){ ?> 
+      <?php if ( !empty( $options['twitter_handle'] ) && $options['twitter_handle'] !== '@' ){ ?> 
         <li>  
           <a class="btn mb-2" title="Twitter" rel="me" href="https://twitter.com/<?php echo $options['twitter_handle']; ?>"><?php echo $options['twitter_handle']; ?></a> 
         </li> 
