@@ -332,9 +332,9 @@
               <li>
                 <a class="btn" href="/botwiki-weekly-digest/" target="_blank">Weekly Digest</a>
               </li>
-              <li>
+              <!-- <li>
                 <a class="btn" href="https://botmakers.org/" target="_blank">botmakers.org</a>
-              </li>
+              </li> -->
               <?php if ( is_user_logged_in() && get_current_user_id() === 1 ) {?>
               <li>
                 <button class="btn" id="test" href="#">Test submission</button>
