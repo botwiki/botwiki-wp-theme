@@ -324,7 +324,10 @@
                 <a class="btn" href="/botwiki-submission-guidelines/" target="_blank">Submission Guidelines</a>
               </li>
               <li>
-                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki</a>
+                <a class="btn" href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a>
+              </li>
+              <li>
+                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki@twitter.com</a>
               </li>
               <li>
                 <a class="btn" href="/botwiki-weekly-digest/" target="_blank">Weekly Digest</a>
