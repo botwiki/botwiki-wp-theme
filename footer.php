@@ -91,7 +91,7 @@
           <div class="container">
             <div class="row">
               <div class="col-12">
-               <div class="row mt-0 mb-3 ml-n3 mr-n3">
+               <div class="row mt-5 mb-3 ml-n3 mr-n3">
                   <div class="col-sm-12 col-md-4">
                     <ul class="footer-list">
                       <li class="list-header">About</li>
