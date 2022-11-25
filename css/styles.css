@@ -8036,6 +8036,10 @@ iframe,
   margin-top: 3rem;
   margin-bottom: 3rem; }
 
+.video-wrapper iframe {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }
   body.page-template-template-submit-your-bot blockquote:before {
