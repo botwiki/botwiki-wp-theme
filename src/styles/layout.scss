@@ -477,7 +477,7 @@ video {
 
 .video-wrapper {
   position: relative;
-  margin: 3em auto;
+  margin: 0 auto !important;
   // padding-bottom: 56.25%;
   padding-top: 25px;
   height: 315px;

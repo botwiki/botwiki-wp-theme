@@ -7748,7 +7748,7 @@ video {
 
 .video-wrapper {
   position: relative;
-  margin: 3em auto;
+  margin: 0 auto !important;
   padding-top: 25px;
   height: 315px;
   max-width: 600px; }
@@ -8030,15 +8030,10 @@ blockquote {
 
 blockquote.twitter-tweet,
 iframe.twitter-tweet,
-iframe,
 .twitter-tweet {
   display: block;
   margin-top: 3rem;
   margin-bottom: 3rem; }
-
-.video-wrapper iframe {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important; }
 
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }
