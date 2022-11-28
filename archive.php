@@ -223,7 +223,7 @@
                       <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/08/cheap-bots-done-quick.png 1920w, /wp-content/uploads/2018/08/cheap-bots-done-quick-250x110.png 250w, /wp-content/uploads/2018/08/cheap-bots-done-quick-768x339.png 768w, /wp-content/uploads/2018/08/cheap-bots-done-quick-700x309.png 700w, /wp-content/uploads/2018/08/cheap-bots-done-quick-120x53.png 120w" />
                   </div>
                   <div class="col-sm-12 col-md-8">
-                    <h2 id="monthly-bot-challenge">Cheap Bots, Done Quick!</h2>
+                    <h2>Cheap Bots, Done Quick!</h2>
                     <?php
                     $cbdq_description = apply_filters( 'the_content', get_post_field( 'post_content', 8220 ) );
                     echo substr_replace( $cbdq_description, '', strpos( $cbdq_description, '<ul' ), strpos( $cbdq_description, '/ul>' ) -strpos( $cbdq_description, '<ul' ) + 4);
@@ -248,6 +248,34 @@
                 </div>
               </div>
             </div>
+          <?php } elseif ( in_array( 'cheapbotstootsweet', $tags ) ) { ?>          
+            <div class="card pt-5 mt-5 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 text-center p-l">
+                    <img src="/wp-content/uploads/2022/11/cheapbotstootsweet.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2022/11/cheapbotstootsweet.png 1920w, /wp-content/uploads/2022/11/cheapbotstootsweet-250x110.png 250w, /wp-content/uploads/2022/11/cheapbotstootsweet-768x339.png 768w, /wp-content/uploads/2022/11/cheapbotstootsweet-700x309.png 700w, /wp-content/uploads/2022/11/cheapbotstootsweet-120x53.png 120w" />
+                  </div>
+                  <div class="col-sm-12 col-md-8">
+                    <h2>Cheap Bots, Toot Sweet!</h2>
+                    <p><a href="http://cheapbotstootsweet.com/">Cheap Bots, Toot Sweet!</a>&nbsp;is a free website created by <a href="https://twitter.com/BooDooPerson">BooDoo</a>&nbsp;that lets you make Mastodon bots using <a href="http://tracery.io/">Tracery</a>, a text-generating language created by <a href="https://twitter.com/galaxykate">Dr. Kate Compton</a>.</p>                    
+                    <?php
+                    // $cbdq_description = apply_filters( 'the_content', get_post_field( 'post_content', 8220 ) );
+                    // echo substr_replace( $cbdq_description, '', strpos( $cbdq_description, '<ul' ), strpos( $cbdq_description, '/ul>' ) -strpos( $cbdq_description, '<ul' ) + 4);
+                    ?>
+                    <ul class="btn-list">
+                      <li>
+                        <a class="btn" href="https://cheapbotstootsweet.com/">Visit</a>
+                      </li>
+                      <?php
+                        echo $network_related_links;
+                        echo $glitch_link;
+                        echo $narrow_opensource_link;
+                      ?>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           <?php } elseif ( in_array( 'botsin.space', $tags ) || in_array( 'botsin-space', $tags ) ) { ?>          
             <div class="card pt-5 mt-5 mb-2">
               <div class="container">
@@ -256,7 +284,7 @@
                       <img src="/wp-content/uploads/2018/08/cheap-bots-done-quick.png" class="lazy-load mb-5 wp-post-image" alt="" data-src="" title="Cheap Bots, Done Quick" srcset="/wp-content/uploads/2018/09/botsin-space-bots-glitch.png 603w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-250x114.png 250w, /wp-content/uploads/2018/09/botsin-space-bots-glitch-120x55.png 120w" />
                   </div>
                   <div class="col-sm-12 col-md-8">
-                    <h2 id="monthly-bot-challenge">botsin.space</h2>
+                    <h2>botsin.space</h2>
                     <p>A Mastodon instance for hosting friendly bots.</p>
                     <ul class="btn-list">
                       <li>
