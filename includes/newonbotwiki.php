@@ -163,7 +163,7 @@ class New_On_Botwiki {
           $resource_url = get_post_meta( $post_id, 'resource_url', true );
 
           if ( empty( $resource_url ) ){
-            $resource_url = 'botwiki.org/resource/' . $resource_type_slug . '/' . $post->post_name; 
+            $resource_url = 'https://botwiki.org/resource/' . $resource_type_slug . '/' . $post->post_name; 
           }
 
           $status_text_twitter = 'New ' . $resource_type . ' was added to Botwiki! ' . $resource_url;
