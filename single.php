@@ -56,18 +56,34 @@
           <?php
           if ( in_array( $post_type, ['post', 'resource'] ) ) {
             $post_date = get_the_time( 'F j, Y' );
+            $modified_date = get_the_modified_time( 'F j, Y' );
             $post_date_full = $post_date . ' ' . get_the_time( 'g:i a' );
+            $modified_date_full = $post_date . ' ' . get_the_modified_time( 'g:i a' );
             if ( class_exists( 'Moment\Moment' ) ){
               $m = new \Moment\Moment( $post_date );
               $post_date_ago = $m->fromNow()->getRelative();
+              $m = new \Moment\Moment( $modified_date );
+              $modified_date_ago = $m->fromNow()->getRelative();
             }
           ?>
-            <p class="mt-n4 mb-2 text-muted">Posted <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span> <?php
+            <p class="mt-n4 mb-2 text-muted">
+              📅 <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
+            <?php
               if ( $post_type === 'post' ){
                 echo 'in ';
                 the_category( ', ' );
               }
-            ?></p>
+            ?>
+            <?php
+            log_this(array(
+              'post_date_full' => $post_date_full,
+              'modified_date_full' => $modified_date_full,              
+            ));
+              if ( $post_date_ago !== $modified_date_ago ){ ?>
+                | Updated <span title="<?php echo $modified_date; ?>"><?php echo $modified_date_ago; ?></span>
+              <?php }
+            ?>                          
+            </p>
           <?php }
 
             if ( $post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
