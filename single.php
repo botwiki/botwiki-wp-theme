@@ -74,15 +74,9 @@
                 the_category( ', ' );
               }
             ?>
-            <?php
-            log_this(array(
-              'post_date_full' => $post_date_full,
-              'modified_date_full' => $modified_date_full,              
-            ));
-              if ( $post_date_ago !== $modified_date_ago ){ ?>
-                | Updated <span title="<?php echo $modified_date; ?>"><?php echo $modified_date_ago; ?></span>
-              <?php }
-            ?>                          
+            <?php if ( $post_date_ago !== $modified_date_ago ){ ?>
+            | Updated <span title="<?php echo $modified_date; ?>"><?php echo $modified_date_ago; ?></span>
+            <?php } ?>
             </p>
           <?php }
 
