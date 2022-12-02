@@ -22,20 +22,6 @@
       ( isset( $_POST['resource-tags'] ) && !empty( $_POST['resource-tags'] ) )
     ) {
 
-
-      if (get_current_user_id() !== 1){
-        if (
-          ( isset( $_POST['apply-for-botmaker-badge'] ) && !empty( $_POST['apply-for-botmaker-badge'] ) ) &&
-          ( isset( $_POST['resource-author-email'] ) && !empty( $_POST['resource-author-email'] ) )
-        ){
-          $email_subject = 'Badge request and new resource submission';         
-        }
-        else{
-          $email_subject = 'New resource submission';          
-        }
-        wp_mail( get_the_author_meta('user_email', 1), $email_subject, print_r( $_POST, true ) );      
-      }
-
       function add_post_thumbnail( $post_id, $image_path, $description ){
         $upload_dir = wp_upload_dir();
         $image_data = file_get_contents($image_path);
@@ -148,6 +134,23 @@
       // error_log( print_r( $resource_meta, true ) );
 
       $new_post_id = wp_insert_post($post_data);
+
+      if (get_current_user_id() !== 1){
+        if (
+          ( isset( $_POST['apply-for-botmaker-badge'] ) && !empty( $_POST['apply-for-botmaker-badge'] ) ) &&
+          ( isset( $_POST['resource-author-email'] ) && !empty( $_POST['resource-author-email'] ) )
+        ){
+          $email_subject = 'Badge request and new resource submission';         
+        }
+        else{
+          $email_subject = 'New resource submission';          
+        }
+
+        $post_data = $_POST;
+        $post_data['edit_link'] = "https://botwiki.org/wp-admin/post.php?post=$new_post_id&action=edit";
+
+        wp_mail( get_the_author_meta('user_email', 1), $email_subject, print_r( $post_data, true ) );      
+      }
 
       wp_set_object_terms($new_post_id, $resource_tags, 'post_tag');
       update_post_meta($new_post_id, 'resource_author_info', $resource_author_info);
