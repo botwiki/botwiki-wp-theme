@@ -267,7 +267,9 @@
           <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
             <div class="post-content">
               <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
-                <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p> 
+                <div class="p-3 pt-5">
+                  <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=bot&author=<?php echo get_current_user_id(); ?>">submit your bots for review</a>.</p>
+                </div>
               <?php } else { ?>
                 <p class="mt-5"><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
                 <p>You can follow <a href="https://twitter.com/newonbotwiki" target="_blank"> @newonbotwiki</a> on Twitter and <a href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a> on Mastodon to see when the site gets updated.</p>
