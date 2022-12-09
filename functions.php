@@ -209,15 +209,20 @@ function load_mastodon_js(){
   global $post;
   $bot_tweets_html = get_post_meta( $post->ID, 'bot_tweets_html', true );
 
-  if ( strpos( $bot_tweets_html, 'botsin.space' ) !== false ){ ?>
-    <script src="https://botsin.space/embed.js" async="async"></script>
-  <?php }
-  if ( strpos( $bot_tweets_html, 'mastodon.social' ) !== false ){ ?>
-    <script src="https://mastodon.social/embed.js" async="async"></script>
-  <?php }
-  if ( strpos( $bot_tweets_html, 'beeping.town' ) !== false ){ ?>
-    <script src="https://beeping.town/embed.js" async="async"></script>
-  <?php }
+  $known_mastodon_instances = [
+    'botsin.space',
+    'mastodon.social',
+    'beeping.town',
+    'mastodon.archive.org',
+  ];
+
+  foreach ( $known_mastodon_instances as $instance ){
+    if ( strpos( $bot_tweets_html, $instance ) !== false ){ ?>
+      <script src="https://$instance/embed.js" async="async"></script>
+    <?php
+    break;
+    }
+  }
 }
 
 function load_js_libraries(){
