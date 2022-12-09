@@ -295,6 +295,25 @@ class BW_Helpers {
 
     return $screenshotable_url;
   }
+
+
+  function get_known_mastodon_instances(){
+    // TODO: Move these to a settings page for easier maintanance.
+
+    return [
+      'botsin.space',
+      'mastodon.social',
+      'beeping.town',
+      'fedibot.dev',
+      'mastodon.archive.org',
+    ];
+ 
+  }
+
+  function get_mastodon_embed_script_tag( $instance ){
+    return '<script src="https://' . $instance . '/embed.js" async="async"></script>';
+  }
+
 }
 
 $helpers = new BW_Helpers();

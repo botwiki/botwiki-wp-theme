@@ -207,20 +207,15 @@ function load_social_media_embed_js(){
 
 function load_mastodon_js(){
   global $post;
-  $bot_tweets_html = get_post_meta( $post->ID, 'bot_tweets_html', true );
+  global $helpers;
 
-  $known_mastodon_instances = [
-    'botsin.space',
-    'mastodon.social',
-    'beeping.town',
-    'mastodon.archive.org',
-  ];
+  $bot_tweets_html = get_post_meta( $post->ID, 'bot_tweets_html', true );
+  $known_mastodon_instances = $helpers->get_known_mastodon_instances();
 
   foreach ( $known_mastodon_instances as $instance ){
-    if ( strpos( $bot_tweets_html, $instance ) !== false ){ ?>
-      <script src="https://$instance/embed.js" async="async"></script>
-    <?php
-    break;
+    if ( strpos( $bot_tweets_html, $instance ) !== false ){
+      echo $helpers->get_mastodon_embed_script_tag($instance);
+      break;  
     }
   }
 }
