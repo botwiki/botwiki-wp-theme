@@ -448,6 +448,8 @@
                   $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
                 ?>
                   <p>
+                    <a href="https://www.tweetsort.io/?user=<?php echo $twitter_username; ?>" target="_blank">TweetSort</a>
+                    |
                     <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
                   </p>
                 <?php } ?>
