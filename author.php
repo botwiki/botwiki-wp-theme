@@ -42,12 +42,7 @@
 
   // @stefan@stefanbohacek.online
 
-  $fediverse_handle_array = explode('@', $fediverse_handle);
-  $fediverse_url = 'https://' .
-                    $fediverse_handle_array[count($fediverse_handle_array)-1] .
-                    '/' .
-                    ($fediverse_handle[0] === '@' ? '@' : '') .
-                    $fediverse_handle_array[count($fediverse_handle_array)-2];
+  $fediverse_url = $helpers->get_fediverse_url( $fediverse_handle );
 	$twitter_handle = '@' . str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
 
   $profile_img_url = esc_attr( get_the_author_meta( 'profile-img-url', $author_id ) );

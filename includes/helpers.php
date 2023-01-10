@@ -83,11 +83,11 @@ class BW_Helpers {
       mkdir( ABSPATH . 'temp/' , 0777, true );
     }
 
-    log_this( 'make_screenshot', array(
-      'options' => $options,
-      'image_path' => $image_path,
-      'api_url' => $api_url
-    ) );
+    // log_this( 'make_screenshot', array(
+    //   'options' => $options,
+    //   'image_path' => $image_path,
+    //   'api_url' => $api_url
+    // ) );
 
     $ctx = stream_context_create( array( 'http' =>
         array(
@@ -296,6 +296,15 @@ class BW_Helpers {
     return $screenshotable_url;
   }
 
+  function get_fediverse_url( $handle ){
+    $handle_array = explode('@', $handle);
+    $fediverse_url = 'https://' .
+                      $handle_array[count($handle_array)-1] .
+                      '/' .
+                      ($handle[0] === '@' ? '@' : '') .
+                      $handle_array[count($handle_array)-2];
+    return $fediverse_url;
+  }
 
   function get_known_mastodon_instances(){
     // TODO: Move these to a settings page for easier maintanance.

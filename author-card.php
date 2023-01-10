@@ -26,6 +26,8 @@
     </ul>
   <?php }
 
+$fediverse_url = $helpers->get_fediverse_url( $fediverse_handle );
+
 $author_info = array(
   'botwiki_profile_page_url' => $botwiki_profile_page_url,
   'website_url' => $website_url,
