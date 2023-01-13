@@ -251,7 +251,7 @@
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//stefanbohacek.com/matomo/";
+      var u="//matomo.stefanbohacek.dev/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '3']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
