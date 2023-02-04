@@ -708,3 +708,225 @@ add_action( 'pre_get_posts', 'bw_admin_reorder_posts' );
 add_action('rest_api_init', function() {
   remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
 }, 15);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXPERIMENTAL API
+
+add_action( 'rest_api_init', 'bw_register_import_endpoint');
+add_action( 'wp_ajax_nopriv_adw_cache_data', 'cache_data' );
+
+function get_site_info( $url ){
+  $ch = curl_init(); 
+  curl_setopt( $ch, CURLOPT_HEADER, 0 ); 
+  curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 ); 
+  curl_setopt( $ch, CURLOPT_URL, $url ); 
+  curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1 ); 
+  
+  $data = curl_exec( $ch ); 
+  curl_close( $ch ); 
+  
+  $dom = new DOMDocument(); 
+  @$dom->loadHTML( $data ); 
+  
+  $nodes = $dom->getElementsByTagName( 'title' ); 
+  $title = $nodes->item( 0 )->nodeValue; 
+  
+  $metas = $dom->getElementsByTagName( 'meta' ); 
+  $description = ''; 
+
+
+  $title_arr = explode( ' (@', $title );
+  $title = trim( $title_arr[0] );
+
+  for( $i=0; $i<$metas->length; $i++ ){ 
+      $meta = $metas->item( $i ); 
+      
+      if( $meta->getAttribute( 'name' ) == 'description' ){ 
+          $description = $meta->getAttribute( 'content' ); 
+      } 
+  } 
+
+  $description_arr = explode( ' · ', $description );
+  
+  if ( count( $description_arr ) > 1 ){
+      $description = trim( $description_arr[1] );
+  }
+
+  return array( 
+      "title" => $title,
+      "description" => $description
+  );
+}
+
+// if (!function_exists('get_network_name')){
+//   function get_network_name( $network_term_slug ){
+//     return get_term_by( 'slug', $network_term_slug, 'network' )->name;
+//   }
+// }
+
+function bw_register_import_endpoint(/* $_REQUEST */) {
+    register_rest_route('bw', 'import-bots', array(
+        'methods' => \WP_REST_Server::READABLE,
+        'permission_callback' => '__return_true',
+        'callback' => 'bw_import_bots'
+  ));
+}
+
+function bw_import_bots(\WP_REST_Request $request){
+    global $helpers;
+
+    $urls = $request['urls'];
+    $key = $request['key'];
+
+    if (empty($key) || $key !== INTERNAL_API_KEY ){
+      $response = array(
+        'status' => '403 forbidden'
+      );
+      
+      return $response;
+    }
+
+
+
+    if (empty($urls)){
+      $response = array(
+        'status' => '422 unprocessable entity'
+      );
+      
+      return $response;
+    }
+
+    $bot_urls = explode(",", $urls);
+    $bot_count = count( $bot_urls );
+    $bot_import_count = 0;
+    
+    log_this( "\nfound " . number_format( $bot_count ) . " URLs\n" );
+    
+    foreach ( $bot_urls as $index => $url ){
+      log_this( 'processing: ' . $url . "..." );
+    
+      $bot_info = get_site_info( $url );
+    
+      log_this(( print_r( $bot_info, true ) ) );
+    
+      if ( true || strlen( $bot_info['description'] ) > 0 ){
+          log_this( "begin..." );
+    
+          $bot_networks = ['mastodon', 'fediverse'];
+          $bot_description = trim( $bot_info['description'] );
+          
+          $bot_urls = [$url];
+          $main_bot_url = $url;
+          
+          $created_by_html_array = array();
+          $author_tags = array();
+          
+          $post_content = '<!-- wp:paragraph -->' 
+          . '<p><a href="' . $main_bot_url . '">' . $bot_info['title'] . '</a> is a Mastodon bot created by AUTHOR that '
+          . $bot_description
+          . "</p>"
+          . '<!-- /wp:paragraph -->';
+    
+          log_this(array(
+            'post_content' => $post_content
+          ));
+          
+          $bot_meta = array();
+          $bot_meta['bot_is_featured'] = 'on';
+          $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
+          
+          $screenshotable_url = trim( str_replace( array( "\n", "\r" ), '', $main_bot_url ) );
+          $bot_tags = array();
+          
+          foreach ( $bot_urls as $bot_url ) {
+              if ( strpos( $bot_url, 'botsin.space/' ) ){
+                  array_push( $bot_tags, 'botsin.space' );
+                  break;
+              }
+          }
+    
+          log_this( array(
+              'bot_tags' => $bot_tags
+          ));
+          
+          $post_data = array( 
+              'post_author' => 2,
+              'post_content' => $post_content,
+              'post_title' => $bot_info['title'],
+              'post_excerpt' => $bot_info['description'],
+              'post_status' => 'draft',
+              'post_type' => 'bot',
+              'post_category' => '',
+              'meta_input' => $bot_meta
+          );
+              
+          $new_post_id = wp_insert_post( $post_data );
+          
+          log_this( array(
+              'new_post_id' => $new_post_id
+          ));
+                  
+          wp_set_object_terms( $new_post_id, $bot_tags, 'post_tag' );
+          
+          foreach ( $bot_meta as $key => $value ) {
+              update_post_meta( $new_post_id, $key, $value );
+          }
+          
+          wp_set_object_terms( $new_post_id, $bot_networks, 'network' );
+    
+          try {
+              log_this(array(
+                'screenshotable_url' => $screenshotable_url
+              ));
+    
+              $screenshot = $helpers->make_screenshot( array( 
+                  'url' => $screenshotable_url,
+                  'file_name' => trim( $bot_info['title'] )
+              ) );
+    
+              log_this( array(
+                  'screenshot' => $screenshot
+              ));
+    
+              
+              if ( class_exists( 'ColorThief\ColorThief ' ) ){
+                  try {
+                      $dominant_color = ColorThief::getColor( $screenshot['image_path'] );
+                      update_post_meta( $new_post_id, 'dominant_color', json_encode( $dominant_color ) );
+                  } catch ( Exception $e ) {
+                      /* noop */            
+                  }
+              }
+              add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
+          } catch ( Exception $e ) {
+              // TODO: Proper error handling.
+              log_this($e->getMessage());
+    
+          }
+      $bot_import_count++;
+      } else {
+          log_this( "skipping..." );
+      }
+      
+      log_this( ( $index + 1 ) . '/' . $bot_count . " bots processed\n" );
+    }
+
+    $response = array(
+      'status' => '200 okay',
+      'processed' => $bot_count,
+      'imported' => $bot_import_count
+    );
+    
+    return $response;
+}

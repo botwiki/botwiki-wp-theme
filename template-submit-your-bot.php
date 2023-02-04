@@ -15,6 +15,40 @@
   $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
   $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
 
+  function get_network_name( $network_term_slug ){
+    return get_term_by( 'slug', $network_term_slug, 'network' )->name;
+  }
+
+  function add_post_thumbnail( $post_id, $image_path, $description ){
+    $upload_dir = wp_upload_dir();
+    $image_data = file_get_contents( $image_path );
+    $filename = basename( $image_path );
+
+    if ( wp_mkdir_p( $upload_dir['path'] ) ){
+      $file = $upload_dir['path'] . '/' . $filename;
+    }
+    else{
+      $file = $upload_dir['basedir'] . '/' . $filename;
+    }
+
+    file_put_contents( $file, $image_data );
+    $wp_filetype = wp_check_filetype( $filename, null );
+
+    $attachment = array( 
+      'post_mime_type' => $wp_filetype['type'],
+      // 'post_title' => $description,
+      'post_title' => $_POST['bot-name'],
+      'post_content' => '',
+      'post_status' => 'inherit'
+    );
+
+    $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+    require_once( ABSPATH . 'wp-admin/includes/image.php' );
+    $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+    $res1 = wp_update_attachment_metadata( $attach_id, $attach_data );
+    $res2 = set_post_thumbnail( $post_id, $attach_id );
+  }
+
   if ( !empty( $_POST ) ){
     // error_log( print_r( $_POST, true ) );
 
@@ -26,35 +60,6 @@
       ( isset( $_POST['bot-tagline'] ) && !empty( $_POST['bot-tagline'] ) ) &&
       ( isset( $_POST['bot-tags'] ) && !empty( $_POST['bot-tags'] ) )
     ) {
-      function add_post_thumbnail( $post_id, $image_path, $description ){
-        $upload_dir = wp_upload_dir();
-        $image_data = file_get_contents( $image_path );
-        $filename = basename( $image_path );
-
-        if ( wp_mkdir_p( $upload_dir['path'] ) ){
-          $file = $upload_dir['path'] . '/' . $filename;
-        }
-        else{
-          $file = $upload_dir['basedir'] . '/' . $filename;
-        }
-
-        file_put_contents( $file, $image_data );
-        $wp_filetype = wp_check_filetype( $filename, null );
-
-        $attachment = array( 
-          'post_mime_type' => $wp_filetype['type'],
-          // 'post_title' => $description,
-          'post_title' => $_POST['bot-name'],
-          'post_content' => '',
-          'post_status' => 'inherit'
-        );
-
-        $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
-        require_once( ABSPATH . 'wp-admin/includes/image.php' );
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-        $res1 = wp_update_attachment_metadata( $attach_id, $attach_data );
-        $res2 = set_post_thumbnail( $post_id, $attach_id );
-      }
 
       $bot_authors = array();
 
@@ -113,10 +118,6 @@
                       . '<!-- /wp:paragraph -->';
       }
       else{
-
-        function get_network_name( $network_term_slug ){
-          return get_term_by( 'slug', $network_term_slug, 'network' )->name;
-        }
 
         $post_content = '<!-- wp:paragraph -->' 
                       . '<p><a href="' . $main_bot_url . '">' . $_POST['bot-name'] . '</a> is a '
