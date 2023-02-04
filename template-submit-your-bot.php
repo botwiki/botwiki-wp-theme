@@ -243,7 +243,7 @@
                 </div>
               <?php } else { ?>
                 <p class="mt-5"><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-                <p>You can follow <a href="https://twitter.com/newonbotwiki" target="_blank"> @newonbotwiki</a> on Twitter and <a href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a> on Mastodon to see when the site gets updated.</p>
+                <p>You can follow <a href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a> to see when the site gets updated.</p>
               <?php } ?>
               <ul class="btn-list mt-4">
                 <li>
@@ -303,9 +303,6 @@
                 <a class="btn" href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a>
               </li>
               <li>
-                <a class="btn" href="https://twitter.com/newonbotwiki" target="_blank">@newonbotwiki@twitter.com</a>
-              </li>
-              <li>
                 <a class="btn" href="/botwiki-weekly-digest/" target="_blank">Weekly Digest</a>
               </li>
               <!-- <li>
@@ -358,7 +355,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="author-1-url">Author's URL</label>
-                  <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://twitter.com/author">
+                  <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://mastodon.social/author">
                 </div>
               </div>
             <?php } ?>
@@ -375,7 +372,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="bot-info-1-url">URL</label>
-                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://twitter.com/onecoolbot" value="<?php echo $bot_urls_val; ?>">
+                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot" value="<?php echo $bot_urls_val; ?>">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="bot-info-1-network">Network</label>
@@ -386,7 +383,7 @@
                     ) );
 
                     foreach ( $networks as $network ) { ?>
-                      <option <?php if ( $network->name === 'Twitter' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
+                      <option <?php if ( $network->name === 'Mastodon' ){ echo 'selected '; } ?> value="<?php echo $network->slug ?>"><?php echo $network->name ?></option>
                     <?php }
                   ?> 
                   </select>
@@ -398,7 +395,7 @@
               <div id="bot-submitted-notice" class="d-none alert alert-warning" role="alert">
                 <p><strong>Heads up, it looks like someone already added this bot.</strong></p>
                 <div id="bot-submitted-output"></div>
-                <p class="mt-4">If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://twitter.com/botwikidotorg" target="_blank">on Twitter</a>.</p>
+                <p class="mt-4">If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://mastodon.social/@botwiki" target="_blank">on Mastodon</a>.</p>
               </div>
               <div class="form-group">
                 <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
@@ -412,7 +409,7 @@
               </div>
               <div id="bot-selected-tweets-field" class="form-group">
                 <label for="bot-selected-tweets">Choose two <span id="bot-selected-tweets-label">tweets</span> from your bot that you like</label>
-                <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://twitter.com/mycoolbot/status/123456789&#x0a;https://twitter.com/mycoolbot/status/987654321"></textarea>
+                <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://botsin.space/mycoolbot/status/123456789&#x0a;https://botsin.space/mycoolbot/status/987654321"></textarea>
                 <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
                 <?php if ( !empty( $bot_urls_val ) ){
                   global $helpers;
