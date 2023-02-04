@@ -345,7 +345,8 @@ class BW_Helpers {
       'beeping.town',
       'fedibot.dev',
       'mastodon.archive.org',
-      'uff.rip'
+      'uff.rip',
+      'fedi.simonwillison.net'
     ];
  
   }
