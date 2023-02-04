@@ -38,7 +38,7 @@
             <ul class="btn-list">
               <li>
                 <a class="btn" target="_blank" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Get in touch</a>
-                <a class="btn" href="https://twitter.com/botwikidotorg">Tweet at us</a>
+                <a class="btn" href="https://mastodon.social/@botwiki">Find us on Mastodon</a>
               </li>
             </ul>
           </div>

@@ -18,12 +18,6 @@
               <span>@botwiki</span>
             </a>
           </li>
-          <!-- <li>
-            <a id="twitter-link" title="Follow @botwikidotorg on Twitter" rel="me" href="https://twitter.com/botwikidotorg">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/icons/twitter-white.svg">
-              <span>@botwikidotorg</span>
-            </a>
-          </li> -->
         </ul>
       </div>
       <?php if ( is_front_page()){ ?>
@@ -105,7 +99,7 @@
                   <div class="col-sm-12 col-md-4">
                     <ul class="footer-list">
                       <li class="list-header">Contact</li>
-                      <li><a class="h-card" rel="me" href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
+                      <li><a class="h-card" rel="me" href="https://mastodon.social/@botwiki">@botwiki</a></li>
                       <li><a class="u-email" rel="me" href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Email us</a></li>
                       <li><a href="<?php echo site_url(); ?>/about/feedback">Give feedback</a></li>
                       <li><a href="<?php echo site_url(); ?>/contribute/" title="Add your bot, tutorial, and other botmaking resources to Botwiki">Contribute</a></li>

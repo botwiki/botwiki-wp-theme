@@ -81,7 +81,7 @@
                 <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
               </li>
               <li>
-                <a href="https://twitter.com/botwikidotorg">Find us on Twitter</a>
+                <a href="https://mastodon.social/@botwiki">Find us on Mastodon</a>
               </li>
             </ul>
           </div>

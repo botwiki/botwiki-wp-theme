@@ -23,7 +23,7 @@
                 <a href="mailto:<?php echo $helpers->get_admin_emails(); ?>">Send us an email</a>
               </li>
               <li>
-                <a href="https://twitter.com/botwikidotorg">Complain about this in public</a>
+                <a href="https://mastodon.social/@botwiki">Complain about this in public</a>
               </li>
             </ul>
           </div>

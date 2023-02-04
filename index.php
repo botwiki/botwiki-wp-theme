@@ -29,8 +29,8 @@
       <div class="blog-more">
         <h3>Wait, there's more!</h3>
         <ul>
-          <li>follow us at <a href="https://twitter.com/botwikidotorg">@botwikidotorg</a></li>
-          <li>keep up with new bots and blog updates via <a href="https://twitter.com/newonbotwiki">@newonbotwiki</a></li>
+          <li>follow us at <a href="https://mastodon.social/@botwiki">@botwiki</a></li>
+          <li>keep up with new bots and blog updates via <a href="https://botsin.space/@newonbotwiki">@newonbotwiki</a></li>
           <li>subscribe to our <a href="/botwiki-weekly-digest/">weekly digest</a></li>
           <li>check out our <a href="/learn/#blogs-and-websites">blogroll</a></li>
           <li><a href="/about/team">meet the team</a></li>
