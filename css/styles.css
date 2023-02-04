@@ -8431,7 +8431,8 @@ div#menu-wrapper {
   width: 100% !important; }
 
 .medium-editor-element {
-  min-height: 90px !important; }
+  min-height: 90px !important;
+  height: auto; }
 
 .medium-editor-placeholder:after {
   color: #6c757d !important;
