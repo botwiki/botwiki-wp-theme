@@ -908,7 +908,7 @@ function bw_import_bots(\WP_REST_Request $request){
                       /* noop */            
                   }
               }
-              add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
+              $helpers->add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
           } catch ( Exception $e ) {
               // TODO: Proper error handling.
               log_this($e->getMessage());

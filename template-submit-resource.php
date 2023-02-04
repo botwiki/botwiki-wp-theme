@@ -22,30 +22,6 @@
       ( isset( $_POST['resource-tags'] ) && !empty( $_POST['resource-tags'] ) )
     ) {
 
-      function add_post_thumbnail( $post_id, $image_path, $description ){
-        $upload_dir = wp_upload_dir();
-        $image_data = file_get_contents($image_path);
-        $filename = basename($image_path);
-        if(wp_mkdir_p($upload_dir['path']))     $file = $upload_dir['path'] . '/' . $filename;
-        else                                    $file = $upload_dir['basedir'] . '/' . $filename;
-        file_put_contents($file, $image_data);
-
-        $wp_filetype = wp_check_filetype($filename, null );
-        $attachment = array(
-          'post_mime_type' => $wp_filetype['type'],
-          // 'post_title' => $description,
-          'post_title' => $_POST['resource-name'],
-          'post_content' => '',
-          'post_status' => 'inherit'
-        );
-        $attach_id = wp_insert_attachment( $attachment, $file, $post_id );
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
-        $attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-        $res1 = wp_update_attachment_metadata( $attach_id, $attach_data );
-        $res2 = set_post_thumbnail( $post_id, $attach_id );
-      }
-
-
       $resource_authors = array();
 
       if ( !empty( $_POST['author-names'] ) ){
@@ -178,7 +154,7 @@
           /* noop */            
         }
 
-        add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
+        $helpers->add_post_thumbnail( $new_post_id, $screenshot['image_path'], $bot_description );
 
         if ( !is_user_logged_in() || $_POST['disassociate-author-input'] !== 'false' ){
           global $wpdb;
