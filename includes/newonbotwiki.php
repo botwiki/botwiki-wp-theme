@@ -228,31 +228,31 @@ class New_On_Botwiki {
           if ( ENVIRONMENT === 'production' ){
             /* Post update on Twitter */
 
-            $api_keys = array(
-                'oauth_access_token' => NEWONBOTWIKI_TWITTER_ACCESS_TOKEN,
-                'oauth_access_token_secret' => NEWONBOTWIKI_TWITTER_ACCESS_TOKEN_SECRET,
-                'consumer_key' => NEWONBOTWIKI_TWITTER_API_KEY,
-                'consumer_secret' => NEWONBOTWIKI_TWITTER_API_SECRET
-            );
+            // $api_keys = array(
+            //     'oauth_access_token' => NEWONBOTWIKI_TWITTER_ACCESS_TOKEN,
+            //     'oauth_access_token_secret' => NEWONBOTWIKI_TWITTER_ACCESS_TOKEN_SECRET,
+            //     'consumer_key' => NEWONBOTWIKI_TWITTER_API_KEY,
+            //     'consumer_secret' => NEWONBOTWIKI_TWITTER_API_SECRET
+            // );
 
-            $twitter_api_url = 'https://api.twitter.com/1.1/statuses/update.json';
-            $request_method = 'POST';
-            $post_fields = array(
-              'status' => $status_text_twitter
-            );
+            // $twitter_api_url = 'https://api.twitter.com/1.1/statuses/update.json';
+            // $request_method = 'POST';
+            // $post_fields = array(
+            //   'status' => $status_text_twitter
+            // );
 
-            $twitter = new TwitterAPIExchange( $api_keys );
-            $response = json_decode(
-                          $twitter->buildOauth( $twitter_api_url, $request_method )
-                                  ->setPostfields( $post_fields )
-                                  ->performRequest()
-                        );
-            try {
-              $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
-              update_post_meta( $post_id, 'published_tweet_url', $tweet_url  );            
-            } catch (Exception $e) {
-              /* noop */
-            }
+            // $twitter = new TwitterAPIExchange( $api_keys );
+            // $response = json_decode(
+            //               $twitter->buildOauth( $twitter_api_url, $request_method )
+            //                       ->setPostfields( $post_fields )
+            //                       ->performRequest()
+            //             );
+            // try {
+            //   $tweet_url = 'https://twitter.com/' . $response->user->screen_name . '/status/' . $response->id_str;
+            //   update_post_meta( $post_id, 'published_tweet_url', $tweet_url  );            
+            // } catch (Exception $e) {
+            //   /* noop */
+            // }
 
             /* Post update on Mastodon */
 
