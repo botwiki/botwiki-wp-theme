@@ -408,7 +408,7 @@
                 <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
               </div>
               <div id="bot-selected-tweets-field" class="form-group">
-                <label for="bot-selected-tweets">Choose two <span id="bot-selected-tweets-label">tweets</span> from your bot that you like</label>
+                <label for="bot-selected-tweets">Choose two posts from your bot that you like</label>
                 <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://botsin.space/mycoolbot/status/123456789&#x0a;https://botsin.space/mycoolbot/status/987654321"></textarea>
                 <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
                 <?php if ( !empty( $bot_urls_val ) ){

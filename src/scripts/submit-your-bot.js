@@ -6,8 +6,7 @@ $( function() {
 
   function enable_selected_tweets_field(){
     let $bot_networks_select = $( '[name="bot-networks[]' ),
-        $selected_tweets_field = $( '#bot-selected-tweets-field' ),
-        $selected_tweets_label = $( '#bot-selected-tweets-label' );
+        $selected_tweets_field = $( '#bot-selected-tweets-field' );
 
 
     $bot_networks_select.on( 'change', function(){
@@ -16,22 +15,15 @@ $( function() {
         let $this = $( this ),
             selected_network = $this.children( "option" ).filter( ":selected" ).text();
 
-        if ( selected_network.indexOf( 'Twitter' ) > -1 ){
-          $selected_tweets_label.html( 'tweets' );
-          show_selected_tweets_field = true;
-        }
-        if ( selected_network.indexOf( 'Mastodon' ) > -1 ){
-          $selected_tweets_label.html( 'toots' );
-          show_selected_tweets_field = true;
+        if (
+          selected_network.indexOf( 'Twitter' ) > -1 ||
+          selected_network.indexOf( 'Mastodon' ) > -1 
+        ){
+          $selected_tweets_field.removeClass( 'd-none' );
+        } else {
+          $selected_tweets_field.addClass( 'd-none' );            
         }
       } );
-
-      if ( show_selected_tweets_field ){
-        $selected_tweets_field.removeClass( 'd-none' );
-      }
-      else{
-        $selected_tweets_field.addClass( 'd-none' );            
-      }
     } );
   }
 
