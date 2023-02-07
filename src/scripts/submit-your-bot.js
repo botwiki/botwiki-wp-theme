@@ -240,7 +240,7 @@ $( function() {
                 } catch( err ){ /* noop */ }
 
                 data.forEach( function( bot ){
-                  resultsHtml += `<div class="media">
+                  resultsHtml += `<div class="media border p-3 rounded media">
                     <a href="${ bot.link }" target="_blank">
                       <img width="120px" src="${ bot.featured_image_url }" class="mr-3" alt="Screenshot of ${ bot.title.rendered }" title="Screenshot of ${ bot.title.rendered }">
                     </a>
