@@ -411,7 +411,7 @@
                 <label for="bot-selected-tweets">Choose two posts from your bot that you like</label>
                 <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://botsin.space/mycoolbot/status/123456789&#x0a;https://botsin.space/mycoolbot/status/987654321"></textarea>
                 <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
-                <?php if ( !empty( $bot_urls_val ) ){
+                <?php if ( false && !empty( $bot_urls_val ) ){
                   global $helpers;
                   $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
                 ?>
