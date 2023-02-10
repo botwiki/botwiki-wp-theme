@@ -340,13 +340,14 @@ class BW_Helpers {
     // TODO: Move these to a settings page for easier maintanance.
 
     return [
-      'botsin.space',
-      'mastodon.social',
       'beeping.town',
+      'botsin.space',
+      'fedi.simonwillison.net',
       'fedibot.dev',
       'mastodon.archive.org',
+      'mastodon.social',
+      'mstdn.crmbl.uk',
       'uff.rip',
-      'fedi.simonwillison.net'
     ];
  
   }
