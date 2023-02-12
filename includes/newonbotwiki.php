@@ -160,11 +160,6 @@ class New_On_Botwiki {
           }
 
         } elseif ( $post->post_type === 'resource' ){
-          log_this(array(
-            '$post_id' => $post_id
-          ));
-
-
           $post_terms = wp_get_post_terms( $post_id, 'resource_type' );
           $term = $post_terms[0];
           $resource_type = strtolower( $term->name );
