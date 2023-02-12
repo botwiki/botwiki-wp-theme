@@ -64,6 +64,8 @@ class New_On_Botwiki {
   }
   
   public function post_update( $new_status, $old_status, $post ) {
+    global $helpers;
+    
     if ( empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN ) ||
          empty( NEWONBOTWIKI_TWITTER_ACCESS_TOKEN_SECRET ) ||
          empty( NEWONBOTWIKI_TWITTER_API_KEY ) ||
@@ -76,6 +78,7 @@ class New_On_Botwiki {
       $published_tweet_url = get_post_meta( $post_id, 'published_tweet_url', true );
       
       if ( empty( $published_tweet_url ) && !wp_is_post_revision( $post_id ) ) {
+      // if ( true ) {
         $permalink = get_permalink( $post_id );
         $status_text_twitter = null;
 
@@ -99,9 +102,18 @@ class New_On_Botwiki {
 
           if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
             $bot_author_info = implode( "\n", array_map( function( $author ){
-              $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
-              $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
-              return $author->display_name . ',' . $author_twitter_url;
+              $fediverse_handle = esc_attr( get_the_author_meta( 'fediverse-handle', $author->ID ) );
+
+              if (!empty($fediverse_handle)){
+                global $helpers;                
+                $author_social_url = $helpers->get_fediverse_url( $fediverse_handle );
+              } else {
+                $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
+                $author_social_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
+              }
+
+              return $author->display_name . ',' . $author_social_url;
+              
             }, $coauthors ) );
 
           } else {
@@ -120,12 +132,6 @@ class New_On_Botwiki {
             $mastodon_handles = array_map( function( $handle ){
               return empty( $handle['username'] ) ? null : $handle['username'];
             }, $user_handles );
-
-            // log_this(array(
-            //   'user_handles' => $user_handles,
-            //   'twitter_handles' => $twitter_handles,
-            //   'mastodon_handles' => $mastodon_handles,  
-            // ));
 
             if ( count( $twitter_handles ) !== 0 ){
               $twitter_handles_str = implode( ", ", $twitter_handles );
@@ -172,9 +178,17 @@ class New_On_Botwiki {
 
           if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
             $resource_author_info = implode( "\n", array_map( function( $author ){
-              $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
-              $author_twitter_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
-              return $author->display_name . ',' . $author_twitter_url;
+              $fediverse_handle = esc_attr( get_the_author_meta( 'fediverse-handle', $author->ID ) );
+
+              if (!empty($fediverse_handle)){
+                global $helpers;                
+                $author_social_url = $helpers->get_fediverse_url( $fediverse_handle );
+              } else {
+                $twitter_handle = esc_attr( get_the_author_meta( 'twitter-handle', $author->ID ) );
+                $author_social_url = !empty( $twitter_handle ) ? 'https://twitter.com/' . str_replace('@', '', $twitter_handle ) : '';
+              }
+
+              return $author->display_name . ',' . $author_social_url;
             }, $coauthors ) );
           
           } else {
