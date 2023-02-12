@@ -10,6 +10,10 @@
   $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
   $dominant_color_css = str_replace(']', ')', $dominant_color_css);
 
+  $resource_name_val = !empty( $_REQUEST['resource-name'] ) ? $_REQUEST['resource-name'] : '';
+  $resource_description_val = !empty( $_REQUEST['resource-description'] ) ? $_REQUEST['resource-description'] : '';
+  $resource_url_val = !empty( $_REQUEST['resource-url'] ) ? $_REQUEST['resource-url'] : '';
+
   if ( !empty( $_POST ) ){
 
     // error_log( print_r( $_POST, true ) );
@@ -332,16 +336,16 @@
               </div>            
               <div class="form-group">
                 <label for="resource-name">What's the title of your <span class="resource-type-name">tutorial</span>? <sup title="This field is required.">*</sup></label>
-                <input required type="text" class="form-control" id="resource-name" name="resource-name" placeholder="My tutorial...">
+                <input required type="text" class="form-control" id="resource-name" name="resource-name" value="<?php echo $resource_name_val; ?>" placeholder="My tutorial...">
               </div>
               <div class="form-group">
                 <label for="resource-tagline">A short description of your <span class="resource-type-name">tutorial</span> <sup title="This field is required.">*</sup></label>
-                <input required type="text" class="form-control" id="resource-tagline" name="resource-tagline" placeholder="A useful tutorial.">
+                <input required type="text" class="form-control" id="resource-tagline" name="resource-tagline" value="<?php echo $resource_description_val; ?>" placeholder="A useful tutorial.">
                 <small id="resource-tagline-help" class="form-text text-muted">Briefly explain what this <span class="resource-type-name">tutorial</span> is for.</small>
               </div>
               <div class="form-group">
                 <label for="resource-url">Where can we see your <span class="resource-type-name">tutorial</span>?<sup title="This field is required.">*</sup></label>
-                <input required type="url" class="form-control" id="resource-url" name="resource-url" placeholder="https://github.com/developer/resource">
+                <input required type="url" class="form-control" id="resource-url" name="resource-url" value="<?php echo $resource_url_val; ?>" placeholder="https://github.com/developer/resource">
               </div>
               <div class="form-group">
                 <label for="resource-networks">Is this <span class="resource-type-name">tutorial</span> for a specific network?</label>
