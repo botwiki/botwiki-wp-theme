@@ -166,6 +166,13 @@ class New_On_Botwiki {
           $resource_type = strtolower( $term->name );
           $resource_type_slug = strtolower( $term->slug );
 
+          log_this(array(
+            'post_terms' => $post_terms,
+            'term' => $term,
+            'resource_type' => $resource_type,
+            'resource_type_slug' => $resource_type_slug,  
+          ));          
+
           $resource_url = get_post_meta( $post_id, 'resource_url', true );
 
           if ( empty( $resource_url ) ){
