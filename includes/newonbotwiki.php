@@ -288,8 +288,9 @@ class New_On_Botwiki {
             curl_setopt($ch_status, CURLOPT_HTTPHEADER, $headers);
             
             $output_status = json_decode(curl_exec($ch_status));
-            
+            $post_url =  $output_status['url'];
             curl_close ($ch_status);
+            update_post_meta( $post_id, 'published_tweet_url', $post_url  );            
             
           } else {
             log_this( '@newonbotwiki', array(
