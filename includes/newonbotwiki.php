@@ -167,6 +167,7 @@ class New_On_Botwiki {
           $resource_type_slug = strtolower( $term->slug );
 
           log_this(array(
+            'post' => $post,
             'post_terms' => $post_terms,
             'term' => $term,
             'resource_type' => $resource_type,
