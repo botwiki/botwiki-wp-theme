@@ -64,10 +64,14 @@
 
           $user = $helpers->get_username_from_url( $bot_author_info_arr[1] );
             
-          if ( $user && !empty( $user['username_twitter'] ) ){
-            array_push( $author_tags , $user['username_twitter'] );
+          if ( $user ){
+            if ( !empty( $user['username_twitter'] ) ){
+              array_push( $author_tags , '@' . $user['username_twitter'] );
+            }
+            if ( !empty( $user['username'] ) ){
+              array_push( $author_tags , '@' . $user['username'] );
+            }
           }
-
         }
         else{
           array_push( $created_by_html_array, $bot_author_info_arr[0] );          
