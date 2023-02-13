@@ -69,7 +69,7 @@
               array_push( $author_tags , '@' . $user['username_twitter'] );
             }
             if ( !empty( $user['username'] ) ){
-              array_push( $author_tags , '@' . $user['username'] );
+              array_push( $author_tags , $user['username'] );
             }
           }
         }
