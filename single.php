@@ -185,6 +185,21 @@
                     <?php } ?>
                   </ul>
                   <?php the_content(); ?>
+                  <p class="post-tags mt-5 mb-2">
+                    <?php 
+                      $tags = get_the_tags();
+                      $tags_array = array();
+
+                      if ( $tags ){
+                        foreach ( $tags as $tag ) {
+                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+                        }
+                      }
+
+                      echo join( ' ', $tags_array );
+                      // the_tags( '', ' ', '<br>' );
+                    ?>
+                  </p>                  
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-2 mb-4 sidebar">
                   <h3 class="sidebar-header">Networks</h3>
@@ -281,22 +296,6 @@
               </div>
             <?php } ?>
             </div>
-            <p class="post-tags mt-3 mb-1">
-              <?php 
-                $tags = get_the_tags();
-                $tags_array = array();
-
-                if ( $tags ){
-                  foreach ( $tags as $tag ) {
-                    $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
-                  }
-                }
-
-                echo join( ' ', $tags_array );
-                // the_tags( '', ' ', '<br>' );
-              ?>
-            </p>                 
-
           <?php }
 
           ?>
