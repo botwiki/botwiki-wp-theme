@@ -184,22 +184,7 @@
                     </li>
                     <?php } ?>
                   </ul>
-                  <?php the_content(); ?>
-                  <p class="post-tags mt-5 mb-2">
-                    <?php 
-                      $tags = get_the_tags();
-                      $tags_array = array();
-
-                      if ( $tags ){
-                        foreach ( $tags as $tag ) {
-                          $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
-                        }
-                      }
-
-                      echo join( ' ', $tags_array );
-                      // the_tags( '', ' ', '<br>' );
-                    ?>
-                  </p>                  
+                  <?php the_content(); ?>                 
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-2 mb-4 sidebar">
                   <h3 class="sidebar-header">Networks</h3>
@@ -296,9 +281,22 @@
               </div>
             <?php } ?>
             </div>
-          <?php }
+          <?php } ?>
+          <p class="post-tags mt-0 mb-2">
+          <?php 
+            $tags = get_the_tags();
+            $tags_array = array();
 
+            if ( $tags ){
+              foreach ( $tags as $tag ) {
+                $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+              }
+            }
+
+            echo join( ' ', $tags_array );
+            // the_tags( '', ' ', '<br>' );
           ?>
+          </p>           
           </div>
           <?php if ( count( $bot_source_urls ) > 1 ){
             global $helpers;
