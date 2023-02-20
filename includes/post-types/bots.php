@@ -656,6 +656,9 @@ HTML;
       update_post_meta($post_id, 'output_archive_filename', $_POST['output-archive-filename']);
       update_post_meta($post_id, 'output_archive_date', $_POST['output-archive-date']);
 
+
+
+
       if ($_POST['bot_tweets']){
         $bot_tweets = explode("\n", str_replace("\r", "", $_POST['bot_tweets']));
         $twitter_oembed = 'https://publish.twitter.com/oembed?url=';
@@ -702,7 +705,6 @@ HTML;
               global $helpers;
               if ( $helpers->is_mastodon_instance($tweet_url) ){
                 $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
-                break;  
               }
             }
           }
