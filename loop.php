@@ -19,7 +19,7 @@
           }
 
           if ( has_post_thumbnail() ){
-            $post_thumbnail_url = get_the_post_thumbnail_url( $post_id, 'medium' );
+            $post_thumbnail_url = get_the_post_thumbnail_url( $post_id, 'large' );
             $post_thumbnail_url_full = get_the_post_thumbnail_url( $post_id );
 
             $dominant_color  = get_post_meta( $post_id, 'dominant_color', true );

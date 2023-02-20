@@ -18,7 +18,7 @@ class Custom_Post_Type_RSS {
   public function rss_feed_image( $content ) { 
     global $post;
     if ( has_post_thumbnail( $post->ID ) ){
-      // $content = '<p>' . get_the_post_thumbnail( $post->ID, 'medium' ) . '</p>' . $content;
+      // $content = '<p>' . get_the_post_thumbnail( $post->ID, 'large' ) . '</p>' . $content;
       $content = '<p>' . get_the_post_thumbnail( $post->ID ) . '</p>' . $content;
     }
     return $content;

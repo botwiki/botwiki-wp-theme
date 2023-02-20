@@ -105,7 +105,7 @@
                  ) );
 
                 foreach ( $latest_projects as $project ) {
-                    $post_thumbnail_url = get_the_post_thumbnail_url( $project->ID, 'medium' );
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $project->ID, 'large' );
                     $post_thumbnail_url_full = get_the_post_thumbnail_url( $project->ID );
                     $dominant_color  = get_post_meta( $project->ID, 'dominant_color', true );
                     $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
@@ -144,7 +144,7 @@
                  ) );
 
                 foreach ( $latest_blog_posts as $blog_post ) {
-                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'medium' );
+                    $post_thumbnail_url = get_the_post_thumbnail_url( $blog_post->ID, 'large' );
                     $post_thumbnail_url_full = get_the_post_thumbnail_url( $blog_post->ID );
                     $dominant_color  = get_post_meta( $blog_post->ID, 'dominant_color', true );
                     $dominant_color_css = str_replace('[', 'background-color:rgb(', $dominant_color);
