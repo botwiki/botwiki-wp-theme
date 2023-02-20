@@ -212,11 +212,11 @@ function load_mastodon_js(){
   global $helpers;
 
   $bot_tweets_html = get_post_meta( $post->ID, 'bot_tweets_html', true );
-  $known_mastodon_instances = $helpers->get_known_mastodon_instances();
+  $urls = wp_extract_urls($bot_tweets_html);
 
-  foreach ( $known_mastodon_instances as $instance ){
-    if ( strpos( $bot_tweets_html, $instance ) !== false ){
-      echo $helpers->get_mastodon_embed_script_tag($instance);
+  foreach ( $urls as $url ){
+    if ( $helpers->is_mastodon_instance($url) ){
+      echo $helpers->get_mastodon_embed_script_tag($helpers->get_domain_from_url($url));
       break;  
     }
   }

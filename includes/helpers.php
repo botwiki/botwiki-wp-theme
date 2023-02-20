@@ -336,6 +336,22 @@ class BW_Helpers {
     return $fediverse_url;
   }
 
+  function is_mastodon_instance($url){
+    $domain = $this->get_domain_from_url( $url );
+    if (in_array($domain, $this->get_known_mastodon_instances()) ){
+      return true;
+    }
+
+    $response = wp_remote_get( "https://$domain/api/v2/instance" );
+    $response_code = wp_remote_retrieve_response_code( $response );
+
+    if ($response_code === 200){
+      return true;
+    }
+
+    return false;
+  }
+
   function get_known_mastodon_instances(){
     // TODO: Move these to a settings page for easier maintanance.
 

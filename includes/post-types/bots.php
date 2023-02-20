@@ -699,17 +699,11 @@ HTML;
               // $bot_tweets_html .= $data->html;
             }
             else {
-              
-                global $helpers;
-                $known_mastodon_instances = $helpers->get_known_mastodon_instances();
-
-                foreach ( $known_mastodon_instances as $instance ){
-                  if ( strpos( $tweet_url, $instance ) !== false ){
-                    $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
-                    break;  
-                  }
-                }
-
+              global $helpers;
+              if ( $helpers->is_mastodon_instance($tweet_url) ){
+                $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
+                break;  
+              }
             }
           }
 
