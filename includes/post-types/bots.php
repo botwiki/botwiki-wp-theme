@@ -704,6 +704,23 @@ HTML;
             else {
               global $helpers;
               if ( $helpers->is_mastodon_instance($tweet_url) ){
+
+                // $domain = $helpers->get_domain_from_url( $tweet_url );
+                // $bot_post_id = end(explode('/', $tweet_url));
+
+                // $request_url = "https://$domain/api/v1/statuses/$bot_post_id";
+
+                // $response = wp_remote_get( $request_url );
+                // $body = wp_remote_retrieve_body( $response );
+                // $data = json_decode( $body );
+
+                // if( !is_wp_error( $response ) ) {
+                //   log_this(array(
+                //     '$tweet_url' => $tweet_url,
+                //     '$domain' => $data,
+                //   ));
+                // }
+
                 $bot_tweets_html .= '<blockquote><iframe src="' . $tweet_url . '/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400"></iframe></blockquote>';
               }
             }
