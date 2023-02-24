@@ -108,6 +108,9 @@
 
       $bot_meta = array();
       $bot_meta['bot_is_featured'] = 'on';
+      $bot_urls = array_map(function($url){
+        return rtrim($url, '/\\');
+      }, $bot_urls);
       $bot_meta['bot_url'] = trim( implode( "\n", $bot_urls ) );
       $bot_meta['bot_source_url'] = trim( $_POST['bot-source-url'] );      
       $bot_meta['bot_tweets'] = trim( $_POST['bot-selected-tweets'] );      
