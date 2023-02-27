@@ -417,17 +417,24 @@
               <div id="bot-selected-tweets-field" class="form-group">
                 <label for="bot-selected-tweets">Choose two posts from your bot that you like</label>
                 <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://botsin.space/mycoolbot/status/123456789&#x0a;https://botsin.space/mycoolbot/status/987654321"></textarea>
-                <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please.</small>
-                <?php if ( false && !empty( $bot_urls_val ) ){
-                  global $helpers;
-                  $twitter_username = $helpers->get_twitter_username_from_url( $bot_urls_val );
-                ?>
-                  <p>
-                    <a href="https://www.tweetsort.io/?user=<?php echo $twitter_username; ?>" target="_blank">TweetSort</a>
-                    |
-                    <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
-                  </p>
-                <?php } ?>
+                <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please. <?php if ( !empty( $bot_urls_val ) ){ ?>
+                  <?php
+                    global $helpers;
+
+                    $bot_url_domain = $helpers->get_domain_from_url( $bot_urls_val );
+                    $bot_username = $helpers->get_username_from_url( $bot_urls_val );
+
+                    if ( $bot_url_domain === 'twitter.com' ){
+                      $twitter_username = $bot_username['username_twitter'];
+                    ?>
+                      | <a href="https://www.tweetsort.io/?user=<?php echo $twitter_username; ?>" target="_blank">TweetSort</a>
+                      | <a href="https://socialbearing.com/search/user/<?php echo $twitter_username; ?>" target="_blank">Social Bearing</a>
+                    <?php } elseif ( $helpers->is_mastodon_instance($bot_urls_val) ){
+                      $fediverse_username = $bot_username['username'];
+                    ?>                        
+                      | <a href="https://www.topmastodonposts.com/by/<?php echo $fediverse_username; ?>" target="_blank">Top Mastodon Posts</a>
+                    <?php }
+                  } ?></small>
               </div>
               <div class="form-group">
                 <label for="bot-source-language">What languages and libraries did you use to make your bot?</label>
