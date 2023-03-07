@@ -193,10 +193,6 @@
                   <?php
 
                     $networks = get_the_terms( $post_id, 'network' );
-                    function get_network_name( $network ){
-                      return $network->name;
-                    }
-
                     $network_names = [];
 
                     if ( $networks ){

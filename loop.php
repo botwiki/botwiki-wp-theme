@@ -56,7 +56,26 @@
             <div class="card-footer">
               <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url( $author_id, get_the_author_meta( 'user_nicename', $author_id ) ); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
             <?php } ?>
-            </p>
+            <?php if ( $post_type === 'bot' ){ 
+
+              $networks = get_the_terms( $post_id, 'network' );
+              $network_names = [];
+
+              if ( $networks ){
+                $network_names = array_map( 'get_network_name', $networks );
+              }
+
+              $network_links = array();
+              if ( $networks ){
+                foreach ( $networks as $network ) {
+                  $network_links[] = '<li class="list-inline-item"><span class="badge badge-secondary p-2 mb-2">' . $network->name . '</span></li>';
+                }
+              }
+            ?>
+            </div>
+            <div class="card-footer">
+              <p class="text-muted mt-n2"><ul class="list-unstyled list-inline"><?php echo join( '', $network_links );?></ul></p>
+            <?php } ?>
             </div>            
           </div>
         </div>

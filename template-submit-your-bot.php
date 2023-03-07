@@ -15,10 +15,6 @@
   $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
   $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
 
-  function get_network_name( $network_term_slug ){
-    return get_term_by( 'slug', $network_term_slug, 'network' )->name;
-  }
-
   if ( !empty( $_POST ) ){
     // error_log( print_r( $_POST, true ) );
 

@@ -769,11 +769,9 @@ function get_site_info( $url ){
   );
 }
 
-// if (!function_exists('get_network_name')){
-//   function get_network_name( $network_term_slug ){
-//     return get_term_by( 'slug', $network_term_slug, 'network' )->name;
-//   }
-// }
+function get_network_name( $network ){
+  return $network->name;
+}
 
 function bw_register_import_endpoint(/* $_REQUEST */) {
     register_rest_route('bw', 'import-bots', array(
