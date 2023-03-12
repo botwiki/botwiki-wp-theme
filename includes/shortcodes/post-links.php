@@ -187,11 +187,13 @@ class Post_Links {
 
     foreach ($post_ids as $post_id) {
       if ( get_post_status( $post_id ) === 'publish' ){
-        $link_url = get_post_meta( $post_id, 'resource_url', true );
+        $link_url = post_permalink( $post_id );
 
-        if ( empty( $link_url ) ){
-          $link_url = post_permalink( $post_id );
-        }
+        // $link_url = get_post_meta( $post_id, 'resource_url', true );
+
+        // if ( empty( $link_url ) ){
+        //   $link_url = post_permalink( $post_id );
+        // }
 
         $link_title = get_post_meta( $post_id, 'card_title', true );
         if ( empty( $link_title ) ){
