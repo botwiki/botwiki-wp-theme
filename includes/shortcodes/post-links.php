@@ -16,13 +16,11 @@ class Post_Links {
     if ( get_post_status( $post_id ) === 'publish' ){
       $link_classes = $atts['class'];
 
-      $link_url = get_post_meta( $post_id, 'resource_url', true );
-
-      if ( empty( $link_url ) ){
-        $link_url = post_permalink( $post_id );
-      }
-      else{
+      if (empty(get_the_content($post_id))){
         $is_external = true;
+        $link_url = get_post_meta( $post_id, 'resource_url', true );
+      } else {
+        $link_url = post_permalink( $post_id );
       }
 
       $link_title = get_the_title( $post_id );
@@ -50,13 +48,12 @@ class Post_Links {
     $link_list_html = '<ul class="btn-list mb-4">';
 
     foreach ( $post_ids as $post_id ){
-      $link_url = get_post_meta( $post_id, 'resource_url', true );
 
-      if ( empty( $link_url ) ){
-        $link_url = post_permalink( $post_id );
-      }
-      else{
+      if (empty(get_the_content($post_id))){
         $is_external = true;
+        $link_url = get_post_meta( $post_id, 'resource_url', true );
+      } else {
+        $link_url = post_permalink( $post_id );
       }
 
       $link_title = get_the_title( $post_id );
@@ -83,14 +80,11 @@ class Post_Links {
 
     foreach ($post_ids as $post_id) {
       if ( get_post_status( $post_id ) === 'publish' ){
-        $is_external = false;
-        $link_url = get_post_meta( $post_id, 'resource_url', true );
-
-        if ( empty( $link_url ) ){
-          $link_url = post_permalink( $post_id );
-        }
-        else{
+        if (empty(get_the_content($post_id))){
           $is_external = true;
+          $link_url = get_post_meta( $post_id, 'resource_url', true );
+        } else {
+          $link_url = post_permalink( $post_id );
         }
 
         $link_title = get_the_title( $post_id );
@@ -187,13 +181,12 @@ class Post_Links {
 
     foreach ($post_ids as $post_id) {
       if ( get_post_status( $post_id ) === 'publish' ){
-        $link_url = post_permalink( $post_id );
 
-        // $link_url = get_post_meta( $post_id, 'resource_url', true );
-
-        // if ( empty( $link_url ) ){
-        //   $link_url = post_permalink( $post_id );
-        // }
+        if (empty(get_the_content($post_id))){
+          $link_url = get_post_meta( $post_id, 'resource_url', true );
+        } else {
+          $link_url = post_permalink( $post_id );
+        }
 
         $link_title = get_post_meta( $post_id, 'card_title', true );
         if ( empty( $link_title ) ){
