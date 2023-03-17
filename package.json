@@ -2,6 +2,9 @@
   "name": "botwiki-wp-theme",
   "version": "1.0.0",
   "description": "WordPress theme for Botwiki.",
+  "scripts": {
+    "dev": ". ~/.nvm/nvm.sh && nvm use 10 && gulp"
+  },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
