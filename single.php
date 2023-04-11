@@ -140,6 +140,8 @@
                           $label = 'View on Facebook';
                         } elseif ( $domain === 'm.me' ) {
                           $label = 'Chat via Facebook Messenger';
+                        } elseif ( $domain === 't.me' ) {
+                          $label = 'Chat via Telegram';
                         } elseif ( $domain === 'reddit.com' ) {
                           $label = 'View on Reddit';
                         } elseif ( $domain === 'discordapp.com' ) {
