@@ -15,12 +15,12 @@
           </li>
           <li>
             <a id="mastodon-link" class="social-link" title="Follow @botwiki@mastodon.social" rel="me" href="https://mastodon.social/@botwiki">
-              <span>@botwiki</span>
+              <span>@</span><span class="d-none d-lg-inline d-md-inline d-xl-inline">botwiki</span>
             </a>
           </li>
         </ul>
       </div>
-      <?php if ( is_front_page()){ ?>
+      <?php if ( is_front_page() ){ ?>
         <!--
         <div class="container-fluid pl-5 pr-5 mb-5 pb-5">
           <div class="row m-0 p-0 mb-5">
