@@ -91,27 +91,34 @@ class Post_Links {
         $link_list_html .= '<li><a data-resource-id="' . $post_id . '" href="' . $link_url . '">' . $link_title . '</a>';
 
         $coauthors = get_coauthors( $post_id );
+        $resource_author_info_meta = get_post_meta( $post_id, 'resource_author_info', true );
+        $link_authors = [];
 
-        if ( !empty( $coauthors ) && $coauthors[0]->user_login !== 'botwiki' ){
-          $link_authors = array_map( function( $author ){
-            $author_url = get_site_url() . '/author/' . $author->user_login;
-            return $author->display_name . ',' . $author_url;
-          }, $coauthors );
-        } else {
+
+        if ($resource_author_info_meta){
           $link_authors = explode( PHP_EOL, get_post_meta( $post_id, 'resource_author_info', true ) );
+        }
+        else {
+          if (!empty( $coauthors ) && $coauthors[0]->data->user_login !== 'botwiki' ){
+            $link_authors = array_map( function( $author ){
+              $author_url = get_site_url() . '/author/' . $author->data->user_login;
+              return $author->display_name . ',' . $author_url;
+            }, $coauthors );
+          }
         }
 
         $link_authors_html = '';
 
         if ( count( $link_authors ) === 1 ){
-          if ( !empty( $link_authors[0] ) && $is_external ){
+          // if ( !empty( $link_authors[0] ) && $is_external ){
+          if ( !empty( $link_authors[0] ) ){
             list($author_name, $author_url ) = explode(',', $link_authors[0]);          
           }
           elseif ( !$is_external ) {
-            $post_author = get_post_field( 'post_author', $post_id );
+            // $post_author = get_post_field( 'post_author', $post_id );
 
-            $author_name = get_the_author_meta( 'nickname', $post_author);
-            $author_url = get_author_posts_url($author_id, get_the_author_meta('nickname', $author_id));;
+            // $author_name = get_the_author_meta( 'nickname', $post_author );
+            // $author_url = get_author_posts_url( $author_id, get_the_author_meta('nickname', $author_id ) );;
           }
           $link_authors_html .= '<a data-resource-id="' . $post_id . '" href="' . $author_url . '">' . $author_name . '</a>';
         }
