@@ -71,7 +71,7 @@
             <?php
               if ( $post_type === 'post' ){
                 echo 'in ';
-                the_category( ', ' );
+                the_category( ' ' );
               }
             ?>
             <?php if ( $post_date_ago !== $modified_date_ago ){ ?>
