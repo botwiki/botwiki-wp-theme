@@ -362,6 +362,7 @@ class BW_Helpers {
       'fedibot.dev',
       'mastodon.archive.org',
       'mastodon.social',
+      'mastodon.thomaspreece.net',
       'mstdn.crmbl.uk',
       'uff.rip',
     ];
