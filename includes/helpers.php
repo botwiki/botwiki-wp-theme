@@ -247,14 +247,27 @@ class BW_Helpers {
   }
 
 
+  // function get_domain_from_url( $url ){
+  //   $domain = $url;
+
+  //   try {
+  //     $info = parse_url( trim( $url ) );
+  //     $host = $info['host'];
+  //     $host_names = explode(".", $host);
+  //     $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+  //   } catch (Exception $e) { /* NOOP */ }
+
+  //   return $domain;
+  // }
+
   function get_domain_from_url( $url ){
     $domain = $url;
 
     try {
       $info = parse_url( trim( $url ) );
-      $host = $info['host'];
-      $host_names = explode(".", $host);
-      $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+      $domain = $info['host'];
+      // $host_names = explode(".", $host);
+      // $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
     } catch (Exception $e) { /* NOOP */ }
 
     return $domain;
