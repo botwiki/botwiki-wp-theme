@@ -257,7 +257,13 @@
                   echo $tweet_html . '</blockquote>';
                 }
                 elseif ( strpos( $tweet_html, 'mastodon-embed' ) !== false ){
-                  echo str_replace( '<blockquote>', '', $tweet_html ) . '</iframe>' ;
+                  $iframe = str_replace( '<blockquote>', '', $tweet_html ) . '</iframe>';
+
+                  if (class_exists('\FTF_Fediverse_Embeds\Embed_Posts')){
+                    $ftf_embed_posts = new \FTF_Fediverse_Embeds\Embed_Posts();
+                    $iframe = $ftf_embed_posts->process_embeds($iframe, '');
+                  }
+                  echo $iframe;
                 }
                 elseif ( strpos( $tweet_html, 'player.twitch.tv' ) !== false ){ ?>
                   <div class="video-background">
