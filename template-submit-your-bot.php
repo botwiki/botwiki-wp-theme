@@ -39,21 +39,33 @@
         }
       }
 
+      $allowed_tags = array(
+        'p' => array(),
+        'a' => array(
+            'href' => array(),
+            'title' => array()
+        ),
+        'i' => array(),
+        'em' => array(),
+        'strong' => array(),
+        'b' => array(),
+        'blockquote' => array(
+            'cite' => true,
+        ),
+        'q' => array(
+          'cite' => true,
+         ),
+        'cite' => array(),
+        'code' => array(),
+      );      
+
       $bot_author_info = implode( "\n", $bot_authors );
-      $bot_description = trim( $_POST['bot-description'] );
-
-      $bot_description = str_replace([
-        '<span style="font-size: 1rem;">',
-        '</span>'
-        ], '', $bot_description);
-
+      $bot_description = wp_kses(trim( $_POST['bot-description'] ), $allowed_tags);
       $bot_urls = $_POST['bot-urls'];
 
       global $helpers;
 
       $main_bot_url = $bot_urls[0];
-
-
       $created_by_html_array = array();
       $author_tags = array();
 

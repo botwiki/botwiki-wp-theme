@@ -38,18 +38,31 @@
         }
       }
 
+      $allowed_tags = array(
+        'p' => array(),
+        'a' => array(
+            'href' => array(),
+            'title' => array()
+        ),
+        'i' => array(),
+        'em' => array(),
+        'strong' => array(),
+        'b' => array(),
+        'blockquote' => array(
+            'cite' => true,
+        ),
+        'q' => array(
+          'cite' => true,
+         ),
+        'cite' => array(),
+        'code' => array(),
+      );          
+
       $resource_author_info = implode( "\n", $resource_authors );
-      $resource_description = trim($_POST['resource-description'] );
-
-      $resource_description = str_replace([
-        '<span style="font-size: 1rem;">',
-        '</span>'
-        ], '', $resource_description);
-
+      $resource_description = wp_kses(trim( $_POST['resource-description'] ), $allowed_tags);
       $resource_url = trim($_POST['resource-url']);
 
       global $helpers;
-
       $created_by_html_array = array();
       $author_tags = array();
 
