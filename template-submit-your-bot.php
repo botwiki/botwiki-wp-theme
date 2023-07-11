@@ -40,8 +40,13 @@
       }
 
       $bot_author_info = implode( "\n", $bot_authors );
-
       $bot_description = trim( $_POST['bot-description'] );
+
+      $bot_description = str_replace([
+        '<span style="font-size: 1rem;">',
+        '</span>'
+        ], '', $bot_description);
+
       $bot_urls = $_POST['bot-urls'];
 
       global $helpers;

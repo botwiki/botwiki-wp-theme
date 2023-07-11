@@ -39,8 +39,13 @@
       }
 
       $resource_author_info = implode( "\n", $resource_authors );
-
       $resource_description = trim($_POST['resource-description'] );
+
+      $resource_description = str_replace([
+        '<span style="font-size: 1rem;">',
+        '</span>'
+        ], '', $resource_description);
+
       $resource_url = trim($_POST['resource-url']);
 
       global $helpers;
