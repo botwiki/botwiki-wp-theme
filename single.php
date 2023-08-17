@@ -65,11 +65,10 @@
               $m = new \Moment\Moment( $modified_date );
               $modified_date_ago = $m->fromNow()->getRelative();
             }
-            
-            if ( $post_type === 'post' ){ ?>
+            ?>
               <p class="mt-n4 mb-2 text-muted">
                 📅 <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-              <?php
+              <?php if ( $post_type === 'post' ){
                   echo 'in ';
                   the_category( ' ' );
               ?>
@@ -78,7 +77,6 @@
               <?php } ?>
               </p>
             <?php }
-           }
 
             if ( $post_type == 'resource' && !empty( $post_meta['resource_url'][0] ) ){
 
