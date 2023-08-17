@@ -66,6 +66,7 @@
               $modified_date_ago = $m->fromNow()->getRelative();
             } else {
               $post_date_ago = $post_date;              
+              $modified_date_ago = $post_date;              
             }
             ?>
               <p class="mt-n4 mb-2 text-muted">
