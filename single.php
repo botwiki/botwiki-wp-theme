@@ -68,9 +68,11 @@
             ?>
               <p class="mt-n4 mb-2 text-muted">
                 📅 <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span>
-              <?php if ( $post_type === 'post' ){
+              <?php
+                if ( $post_type === 'post' ){
                   echo 'in ';
                   the_category( ' ' );
+                }
               ?>
               <?php if ( $post_date_ago !== $modified_date_ago ){ ?>
               | Updated <span title="<?php echo $modified_date; ?>"><?php echo $modified_date_ago; ?></span>
