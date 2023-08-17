@@ -50,6 +50,8 @@
               if ( class_exists( 'Moment\Moment' ) ){
                 $m = new \Moment\Moment( $post_date );
                 $post_date_ago = $m->fromNow()->getRelative();
+              } else {
+                $post_date_ago = $post_date;
               }
             ?>
             </div>
