@@ -208,7 +208,7 @@
             <h1 class="post-title text-center">Thank you!</h1>
             <div class="post-content">
               <?php if ( ( is_user_logged_in() && $_POST['disassociate-author-input'] === 'false' ) ){ ?>
-                <p><strong>Thank you!</strong> Make sure to <a href="/wp-admin/edit.php?post_status=draft&post_type=resource&author=<?php echo get_current_user_id(); ?>">submit your resource for review</a>.</p> 
+                <p><strong>Thank you!</strong> Feel free to <a href="/wp-admin/edit.php?post_status=draft&post_type=resource&author=<?php echo get_current_user_id(); ?>">submit more of your resources for review</a>.</p> 
               <?php } else { ?>
                 <p><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p>
                 <p>You can follow <a href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki</a> on Mastodon to see when the site gets updated.</p>
