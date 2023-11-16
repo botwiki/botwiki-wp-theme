@@ -7968,7 +7968,7 @@ ul, ol {
   margin-left: 3px;
   padding: 0 1em; }
 
-blockquote {
+blockquote:not(.fediverse-post) {
   /* Courtesy of css-tricks.com. */
   background: #edf6ff;
   font-style: italic;
@@ -7978,21 +7978,21 @@ blockquote {
   quotes: "“" "”" "‘" "’";
   border-left: 3px solid #edf6ff;
   border: 3px solid #edf6ff; }
-  .col-md-6 blockquote {
+  .col-md-6 blockquote:not(.fediverse-post) {
     padding-left: 1em;
     padding-right: 1em; }
     @media (max-width: 900px) {
-      .col-md-6 blockquote {
+      .col-md-6 blockquote:not(.fediverse-post) {
         padding-left: 2em;
         padding-right: 2em; } }
-  blockquote:hover {
+  blockquote:not(.fediverse-post):hover {
     border: 3px solid #9aadc5;
     border-left: 3px solid #9aadc5 !important; }
-  blockquote, blockquote:hover {
+  blockquote:not(.fediverse-post), blockquote:not(.fediverse-post):hover {
     -webkit-transition: border-color 0.1s linear;
     -o-transition: border-color 0.1s linear;
     transition: border-color 0.1s linear; }
-  blockquote:before {
+  blockquote:not(.fediverse-post):before {
     display: inline-block;
     color: #9aadc5;
     content: '“';
@@ -8005,37 +8005,37 @@ blockquote {
     margin-top: -1.5rem;
     margin-bottom: 4rem !important; }
     @media (max-width: 900px) {
-      blockquote:before {
+      blockquote:not(.fediverse-post):before {
         margin-left: -1.5rem; } }
-  blockquote cite, blockquote p {
+  blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
     display: block;
     line-height: 1.5em;
     padding: 0 40px; }
     @media (min-width: 900px) {
-      blockquote cite, blockquote p {
+      blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
         -webkit-transform: translate(-10px, 0);
             -ms-transform: translate(-10px, 0);
                 transform: translate(-10px, 0); } }
     @media (max-width: 900px) {
-      blockquote cite, blockquote p {
+      blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
         padding: 0; } }
-  blockquote cite {
+  blockquote:not(.fediverse-post) cite {
     font-size: 0.9rem;
     color: #9aadc5; }
-  blockquote a {
+  blockquote:not(.fediverse-post) a {
     color: #566981;
     text-decoration: underline; }
-    blockquote a:hover {
+    blockquote:not(.fediverse-post) a:hover {
       color: #566981; }
-  blockquote ul, blockquote ol {
+  blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
     padding: 0 50px; }
     @media (max-width: 900px) {
-      blockquote ul, blockquote ol {
+      blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
         padding: 0 20px; } }
-  blockquote p {
+  blockquote:not(.fediverse-post) p {
     color: #566981;
     font-size: 1.25rem; }
-    blockquote p:first-child {
+    blockquote:not(.fediverse-post) p:first-child {
       margin-top: -3rem; }
 
 blockquote.twitter-tweet,
