@@ -381,7 +381,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="author-1-url">Author's URL</label>
-                  <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://mastodon.social/author">
+                  <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://fediverse.social/@author">
                 </div>
               </div>
             <?php } ?>
