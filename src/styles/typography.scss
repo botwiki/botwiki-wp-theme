@@ -8,6 +8,11 @@ body, .hover-box p {
   color: $color-primary;
 }
 
+body[data-bs-theme="dark"],
+body[data-bs-theme="dark"] .hover-box p {
+  color: #fff !important;
+}
+
 body.page-template-template-showcase{
   background: $background-ternary;
 }
@@ -16,6 +21,10 @@ h1, h2, h3, h4, h5, h6{
   font-family: $title-font-family;
   line-height: 1;
   font-weight: normal;
+
+  [data-bs-theme="dark"] {
+    color: #fff !important;
+  }      
 }
 
 h1{
@@ -35,6 +44,10 @@ h1{
   &.post-title{
     span{
       box-shadow: inset 0 -20px 0 0 #eaf2fb;
+      
+      [data-bs-theme="dark"] & {
+        box-shadow: inset 0 -20px 0 0 $color-primary;
+      }      
       display: inline;
       padding: 0 10px;      
     }
@@ -77,6 +90,11 @@ h2{
   }
   h3{
     color: $color-primary;
+
+    [data-bs-theme="dark"] & {
+      color: #fff !important;
+    }      
+  
   }
   h5{
     font-family: $body-font-family;
@@ -92,7 +110,13 @@ a.badge-secondary{
   &:hover{
     background-color: #536272 !important;
   }
+
 }
+
+[data-bs-theme="dark"] .badge-secondary {
+  border: 1px solid #fff !important;
+}  
+
 
 .alert-secondary{
   background-color: $background-ternary !important;
@@ -320,6 +344,11 @@ hr{
 a.pilcrow-link{
   &, &:hover{
     color: $color-primary;
+
+    [data-bs-theme="dark"] & {
+      color: #fff;
+    }
+    
     text-decoration: none;
     .pilcrow{
       opacity: 1;
@@ -450,6 +479,12 @@ p.post-tags{
 
 .background-alternate{
   background-color: $background-alternate;
+
+  [data-bs-theme="dark"] &,
+  [data-bs-theme="dark"] & a {
+    color: #fff;
+    background-color: $background-dark-mode;
+  }  
 }
 
 .background-fff{
@@ -560,6 +595,10 @@ div.bottom-page-links{
 .pagination{
   .page-link{
     color: $color-primary;
+
+    [data-bs-theme="dark"] & {
+      color: #fff !important;
+    }    
     padding: 10px 20px !important;
   }
   .page-item.active .page-link{
@@ -567,6 +606,15 @@ div.bottom-page-links{
     border-color: $color-primary;
   }
 }
+
+[data-bs-theme="dark"] {
+  .footer-logo-do{
+    background-color: #fff;
+    padding: 2px 5px;
+    border-radius: 20px;
+  }
+}  
+
 
 @keyframes img-pop {
   0% {

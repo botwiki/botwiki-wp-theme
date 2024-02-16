@@ -207,7 +207,7 @@
                     $network_links = array();
                     if ( $networks ){
                       foreach ( $networks as $network ) {
-                        $network_links[] = '<li><a class="badge badge-secondary p-2 mb-2" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
+                        $network_links[] = '<li><a class="text-decoration-none badge badge-secondary p-2 mb-2" href="' . $site_url . '/bot/?networks=' . $network->slug . '">' . $network->name . '</a></li>';
                       }
                     }
 
@@ -296,7 +296,7 @@
 
             if ( $tags ){
               foreach ( $tags as $tag ) {
-                $tags_array[] = '<a href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
+                $tags_array[] = '<a class="text-decoration-none" href="' . $site_url . '/bot/?tags=' . $tag->slug . '">' . $tag->slug . '</a> ';
               }
             }
 

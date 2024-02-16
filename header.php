@@ -7,7 +7,7 @@
       global $wp_query;
       global $page_title;
 
-      echo '<style type="text/css">' . file_get_contents( get_template_directory() . '/css-critical/styles.css' ) . '</style>';
+      // echo '<style type="text/css">' . file_get_contents( get_template_directory() . '/css-critical/styles.css' ) . '</style>';
 
       if ( isset( $wp_query->query['post_type'] ) ){
         $post_type = $wp_query->query['post_type'];
@@ -261,6 +261,20 @@
   <!-- End Matomo Code -->    
   </head>
   <body <?php body_class(); ?>>
+  <script>
+      const toggleDarkMode = (enabled) => {
+        console.log('toggleDarkMode', enabled);
+        if (enabled) {
+          document.body.setAttribute('data-bs-theme', 'dark');
+        } else {
+          document.body.setAttribute('data-bs-theme', 'light');
+        }
+      }
+
+      if (window.matchMedia) {
+        toggleDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+  </script>
     <noscript><style type="text/css">.lazy-load{opacity:1;transform:none;}</style></noscript>
     <header id="header">
     <?php if (!is_front_page()){ ?>

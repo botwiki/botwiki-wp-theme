@@ -257,7 +257,7 @@ body:not( .home-page ){
   left: 0;
   right: 0;
   padding-top: 60px;
-  background-color: $background-primary;
+  // background-color: $background-primary;
 
   &:not( .menu-visible ){
     opacity: 0;

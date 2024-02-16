@@ -54,6 +54,11 @@ ul.btn-list{
   &-link{
     text-decoration: underline;
   }
+
+  [data-bs-theme="dark"] & {
+    color: #fff !important;
+    background-color: $background-dark-mode;
+  }  
 }
 
 .note, .card{

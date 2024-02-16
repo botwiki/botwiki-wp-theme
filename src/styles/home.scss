@@ -1,5 +1,16 @@
 /* Home page styles */
 
+div#menu-wrapper{
+  background-color: #fff;
+  [data-bs-theme="dark"] & {
+    background-color: $background-dark-mode;
+  }    
+}
+
+body[data-bs-theme="dark"].home #menu-wrapper{
+    background-color: #212529;
+}
+
 body.home article,
 div#menu-wrapper{
   z-index: 200;
@@ -20,6 +31,9 @@ div#menu-wrapper{
   }
   a, a:hover{
     color: $link-color-alternate;
+    [data-bs-theme="dark"] & {
+      color: #fff;
+    }    
     text-decoration: none;      
   }
 }
@@ -37,6 +51,10 @@ div#menu-wrapper{
   }
   &:hover{
     background-color: $background-alternate;
+
+    [data-bs-theme="dark"] & {
+      background-color: $color-primary;
+    }
     h2{
       transform: translate(0,-5px);
     } 
