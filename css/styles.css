@@ -11113,6 +11113,8 @@ a.badge-secondary {
 
 .alert-secondary {
   background-color: #edf6ff !important; }
+  [data-bs-theme="dark"] .alert-secondary {
+    color: #3c3c3c; }
 
 h3, .h3 {
   font-size: 2.5rem;

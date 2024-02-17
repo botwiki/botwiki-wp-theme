@@ -120,6 +120,10 @@ a.badge-secondary{
 
 .alert-secondary{
   background-color: $background-ternary !important;
+
+  [data-bs-theme="dark"] & {
+    color: $color-primary;
+  }  
 }
 
 h3{
