@@ -43,14 +43,12 @@
             $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
           ?>
             <div class="thumbnail-wrapper" style="<?php echo $dominant_color_css; ?>">
-              <a href="<?php echo get_the_post_thumbnail_url( $post_id ); ?>">
-                <?php
-                  $post_thumbnail_id = get_post_thumbnail_id();
-                  the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post( $post_thumbnail_id )->post_title ] );
-                ?>
-                </a>
-                <div class="image-border-shadow"></div>
-              </div>
+              <?php
+                $post_thumbnail_id = get_post_thumbnail_id();
+                the_post_thumbnail( 'post-thumbnail', ['data-src' => get_the_post_thumbnail_url( $post_thumbnail_id ), 'class' => 'lazy-load expand-image webfeedsFeaturedVisual', 'title' => get_post( $post_thumbnail_id )->post_title ] );
+              ?>
+              <div class="image-border-shadow"></div>
+            </div>
           <?php } ?>
           <!-- /post thumbnail -->
           <?php
