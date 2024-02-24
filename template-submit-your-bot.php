@@ -398,7 +398,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="bot-info-1-url">URL</label>
-                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot" value="<?php echo $bot_urls_val; ?>">
+                  <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://botsin.space/@onecoolbot" value="<?php echo $bot_urls_val; ?>">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="bot-info-1-network">Network</label>
