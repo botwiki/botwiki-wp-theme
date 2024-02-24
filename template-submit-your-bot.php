@@ -376,11 +376,11 @@
             <?php } else { ?>
               <div class="author-fields form-row row">
                 <div class="form-group col-md-6">
-                  <label for="author-1-name">Author's name</label>
+                  <label class="form-label" for="author-1-name">Author's name</label>
                   <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="author-1-url">Author's URL</label>
+                  <label class="form-label" for="author-1-url">Author's URL</label>
                   <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://fediverse.social/@author">
                 </div>
               </div>
@@ -389,19 +389,19 @@
                 <button id="add-author-fields" class="btn">Add more authors</button>
               </div>
               <div class="form-group">
-                <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
+                <label class="form-label" for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
                 <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot" value="<?php echo $bot_name_val; ?>">
               </div>
               <div class="bot-info-fields form-row row">
                 <div class="form-group col-md-12 mb-1">
-                  <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
+                  <label class="form-label">Where can we see your bot?<sup title="This field is required.">*</sup></label>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="bot-info-1-url">URL</label>
+                  <label class="form-label" for="bot-info-1-url">URL</label>
                   <input required type="url" class="form-control" id="bot-info-1-url" name="bot-urls[]" placeholder="https://botsin.space/@onecoolbot" value="<?php echo $bot_urls_val; ?>">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="bot-info-1-network">Network</label>
+                  <label class="form-label" for="bot-info-1-network">Network</label>
                   <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
                   <?php
                     $networks = get_terms( 'network', array( 
@@ -424,17 +424,17 @@
                 <p class="mt-4">If you are the creator of the bot and would like to update your bot's description or apply for the <a href="/projects/botmaker-badges/" target="_blank">Botmaker Bagde</a>, feel free to reach out <a href="mailto:stefan@botwiki.org" target="_blank">via email</a> or <a href="https://mastodon.social/@botwiki" target="_blank">on Mastodon</a>.</p>
               </div>
               <div class="form-group">
-                <label for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
+                <label class="form-label" for="bot-description">What does your bot do? <sup title="This field is required.">*</sup></label>
                 <textarea required class="form-control" id="bot-description" name="bot-description" rows="3" placeholder="This bot makes..."><?php echo $bot_description_val; ?></textarea>
                 <small id="bot-description-help" class="form-text text-muted">You can select text to add links.</small>
               </div>
               <div class="form-group">
-                <label for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
+                <label class="form-label" for="bot-tagline">A short tagline <sup title="This field is required.">*</sup></label>
                 <input required type="text" class="form-control" id="bot-tagline" name="bot-tagline" placeholder="A bot that does cool stuff." value="<?php echo $bot_tagline_val; ?>">
                 <small id="bot-tagline-help" class="form-text text-muted">This shows up in search.</small>
               </div>
               <div id="bot-selected-tweets-field" class="form-group">
-                <label for="bot-selected-tweets">Choose two posts from your bot that you like</label>
+                <label class="form-label" for="bot-selected-tweets">Choose two posts from your bot that you like</label>
                 <textarea class="form-control" id="bot-selected-tweets" name="bot-selected-tweets" rows="3" placeholder="https://botsin.space/mycoolbot/status/123456789&#x0a;https://botsin.space/mycoolbot/status/987654321"></textarea>
                 <small id="bot-selected-tweets-help" class="form-text text-muted">Paste just the URLs, one on each line, please. <?php if ( !empty( $bot_urls_val ) ){ ?>
                   <?php
@@ -456,7 +456,7 @@
                   } ?></small>
               </div>
               <div class="form-group">
-                <label for="bot-source-language">What languages and libraries did you use to make your bot?</label>
+                <label class="form-label" for="bot-source-language">What languages and libraries did you use to make your bot?</label>
                 <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
                 <?php
                   $languages = get_terms( 'programing_language', array( 
@@ -469,7 +469,7 @@
                 </select>
               </div>              
               <div class="form-group">
-                <label for="bot-source-url">Is your bot open-sourced?</label>
+                <label class="form-label" for="bot-source-url">Is your bot open-sourced?</label>
                 <textarea class="form-control" id="bot-source-url" name="bot-source-url" placeholder="https://github.com/me/mycoolbot"></textarea>
                 <small id="bot-source-url-help" class="form-text text-muted">Don't worry about <a href="https://botwiki.org/blog/poll-sharing-your-bots-source-code/" target="_blank">"<u>messy code</u>"</a>! Share any links to your bot's repo on GitHub, Bitbucket, etc. You can add multiple URLs, one on each line.</small>
               </div>
@@ -477,20 +477,20 @@
                   <div class="col-sm-12 col-md-6">
                     <div class="form-check mb-2">
                       <input type="checkbox" class="form-check-input" id="bot-is-interactive" name="bot-is-interactive">
-                      <label class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
+                      <label class="form-label" class="form-check-label" for="bot-is-interactive">This bot is interactive</label>
                       <small id="bot-is-interactive-help" class="form-text text-muted">Responds to messages, applies effects to images, etc.</small>
                     </div>
                   </div>                
                   <div class="col-sm-12 col-md-6">
                     <div class="form-check mb-2">
                       <input type="checkbox" class="form-check-input" id="is-authors-first-bot" name="is-authors-first-bot">
-                      <label class="form-check-label" for="is-authors-first-bot">This is my first bot</label>
+                      <label class="form-label" class="form-check-label" for="is-authors-first-bot">This is my first bot</label>
                       <small id="is-authors-first-bot-help" class="form-text text-muted">We'll tag it with <a target="_blank" href="https://botwiki.org/bot/?tags=myfirstbot">#MyFirstBot</a>.</small>
                     </div>
                   </div>                
               </div>              
               <div class="form-group mt-3">
-                <label for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
+                <label class="form-label" for="bot-tags">Tag your bot <sup title="This field is required.">*</sup></label>
                 <select required class="form-control js-select2" id="bot-tags" name="bot-tags[]" multiple="multiple" data-minimum-input-length="1" data-tags="true" data-ajax="/wp-json/wp/v2/tags?search=" placeholder="Type to search...">
                 </select>
                 <div id="bot-tags-help" class="form-text form-help-text text-muted mt-3">
@@ -499,11 +499,11 @@
               </div>
               <div class="form-check mt-3 mb-2">
                 <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
-                <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
+                <label class="form-label" class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
               </div>
               <div id="botmaker-badge-application" class="mt-3 d-none">
                 <div class="form-group">
-                  <label for="bot-author-email">List of email addresses of all authors</label>
+                  <label class="form-label" for="bot-author-email">List of email addresses of all authors</label>
                   <textarea class="form-control" id="bot-author-email" name="bot-author-email" rows="3" placeholder="coolbotauthor@email.com"></textarea>                
                   <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
                 </div>
