@@ -47,7 +47,7 @@ $( function() {
       ev.preventDefault();
       $disassociateAuthorBtn.click();
 
-      $( '#add-author-fields' ).before( '<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://botsin.space/author"></div></div>' );
+      $( '#add-author-fields' ).before( '<div class="author-fields form-row row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://botsin.space/author"></div></div>' );
 
       $( '#bot-name' ).val( '@coolbot' );
       $( '#author-1-name' ).val( 'Stefan' );
@@ -58,7 +58,7 @@ $( function() {
 
       let bot_info_network_select_html = $( '#bot-info-1-network' ).html();
 
-      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row"><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot2"></div><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div></div>` );
+      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row row"><div class="form-group col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot2"></div><div class="form-group col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div></div>` );
 
       $( '#bot-info-2-network' ).select2( {
         tags: true,
@@ -157,7 +157,7 @@ $( function() {
 
       let new_id = $( '.author-fields' ).length + 1;
 
-      $( this ).before( `<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-${new_id}-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-${new_id}-url" name="author-urls[]" placeholder="https://mastodon.social/author"></div></div>` );
+      $( this ).before( `<div class="author-fields form-row row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-${new_id}-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-${new_id}-url" name="author-urls[]" placeholder="https://mastodon.social/author"></div></div>` );
 
       return false;
     } );
@@ -169,7 +169,7 @@ $( function() {
 
       let new_id = $( '.bot-info-fields' ).length + 1;
 
-      $( this ).before( `<div class="bot-info-fields form-row">
+      $( this ).before( `<div class="bot-info-fields form-row row">
           <div class="form-group col-md-6">
             <input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot${new_id}">
           </div>

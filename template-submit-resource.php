@@ -324,7 +324,7 @@
                 </div>
               </div>
             <?php } else { ?>
-              <div class="author-fields form-row">
+              <div class="author-fields form-row row">
                 <div class="form-group col-md-6">
                   <label for="author-1-name">Author's name</label>
                   <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">

@@ -3774,7 +3774,7 @@ MediumEditor.extensions = {};
                 // fixme: ideally, this targetCheckboxText would be a formLabel too,
                 // figure out how to deprecate? also consider `fa-` icon default implcations.
                 template.push(
-                    '<div class="medium-editor-toolbar-form-row">',
+                    '<div class="medium-editor-toolbar-form-row row">',
                     '<input type="checkbox" class="medium-editor-toolbar-anchor-target" id="medium-editor-toolbar-anchor-target-field-' + this.getEditorId() + '">',
                     '<label for="medium-editor-toolbar-anchor-target-field-' + this.getEditorId() + '">',
                     this.targetCheckboxText,
@@ -3787,7 +3787,7 @@ MediumEditor.extensions = {};
                 // fixme: expose this `Button` text as a formLabel property, too
                 // and provide similar access to a `fa-` icon default.
                 template.push(
-                    '<div class="medium-editor-toolbar-form-row">',
+                    '<div class="medium-editor-toolbar-form-row row">',
                     '<input type="checkbox" class="medium-editor-toolbar-anchor-button">',
                     '<label>',
                     this.customClassOptionText,

@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="col-sm-12 mt-4 pl-1 pr-1">
-          <div class="form-row">
+          <div class="form-row row">
             <label for="bot-info-1-network">Network</label>
             <select class="form-control js-select2" name="networks" placeholder="Twitter, Tumblr, Slack, …" data-minimum-input-length="0" data-clear="true" data-multiple="true" data-tags="false">
             <?php
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="col-sm-12 mt-4 pl-1 pr-1">
-          <div class="form-row">        
+          <div class="form-row row">        
             <label><input id="search-filter-opensource" name="opensource" type="checkbox" value="true" <?php
               if ( isset( $_GET['opensource'] ) ){
                 checked( $_GET['opensource'], 'true' ); 

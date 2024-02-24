@@ -374,7 +374,7 @@
                 </div>
               </div>
             <?php } else { ?>
-              <div class="author-fields form-row">
+              <div class="author-fields form-row row">
                 <div class="form-group col-md-6">
                   <label for="author-1-name">Author's name</label>
                   <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
@@ -392,7 +392,7 @@
                 <label for="bot-name">What's your bot's name? <sup title="This field is required.">*</sup></label>
                 <input required type="text" class="form-control" id="bot-name" name="bot-name" placeholder="@coolbot" value="<?php echo $bot_name_val; ?>">
               </div>
-              <div class="bot-info-fields form-row">
+              <div class="bot-info-fields form-row row">
                 <div class="form-group col-md-12 mb-1">
                   <label>Where can we see your bot?<sup title="This field is required.">*</sup></label>
                 </div>

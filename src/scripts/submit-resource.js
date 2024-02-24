@@ -45,7 +45,7 @@ $( function() {
       ev.preventDefault();
       $disassociateAuthorBtn.click();
 
-      $( '#add-author-fields' ).before( '<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>' );
+      $( '#add-author-fields' ).before( '<div class="author-fields form-row row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-2-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-2-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>' );
 
       $( '#resource-name' ).val( 'One cool resource' );
       $( '#author-1-name' ).val( 'Stefan' );
@@ -102,7 +102,7 @@ $( function() {
 
       var new_id = $( '.author-fields' ).length + 1;
 
-      $( this ).before( `<div class="author-fields form-row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-${new_id}-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-${new_id}-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>` );
+      $( this ).before( `<div class="author-fields form-row row"><div class="form-group col-md-6"><input type="text" class="form-control" id="author-${new_id}-name" name="author-names[]" placeholder="Author"></div><div class="form-group col-md-6"><input type="url" class="form-control" id="author-${new_id}-url" name="author-urls[]" placeholder="https://twitter.com/author"></div></div>` );
 
       return false;
     } );
@@ -114,7 +114,7 @@ $( function() {
 
       var new_id = $( '.resource-info-fields' ).length + 1;
 
-      $( this ).before( `<div class="resource-info-fields form-row"><div class="form-group col-md-6"><select class="form-control js-select2" id="resource-info-${new_id}-network" name="resource-networks[]" placeholder="Twitter, Tumblr, Slack,...">${resource_info_network_select_html.replace( '-1-', new_id )}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="resource-${new_id}-url" name="resource-url" placeholder="https://twitter.com/onecoolresource${new_id}"></div></div>` );
+      $( this ).before( `<div class="resource-info-fields form-row row"><div class="form-group col-md-6"><select class="form-control js-select2" id="resource-info-${new_id}-network" name="resource-networks[]" placeholder="Twitter, Tumblr, Slack,...">${resource_info_network_select_html.replace( '-1-', new_id )}</select></div><div class="form-group col-md-6"><input type="url" class="form-control" id="resource-${new_id}-url" name="resource-url" placeholder="https://twitter.com/onecoolresource${new_id}"></div></div>` );
 
       $( `#resource-info-${new_id}-network` ).select2( {
         tags: true,
