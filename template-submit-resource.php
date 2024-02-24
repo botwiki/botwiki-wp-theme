@@ -325,21 +325,21 @@
               </div>
             <?php } else { ?>
               <div class="author-fields form-row row">
-                <div class="form-group col-md-6">
-                  <label for="author-1-name">Author's name</label>
+                <div class="form-group mt-1 mb-1 col-md-6">
+                  <label class="form-label" for="author-1-name">Author's name</label>
                   <input type="text" class="form-control" id="author-1-name" name="author-names[]" placeholder="Author">
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="author-1-url">Author's URL</label>
+                <div class="form-group mt-1 mb-1 col-md-6">
+                  <label class="form-label" for="author-1-url">Author's URL</label>
                   <input type="url" class="form-control" id="author-1-url" name="author-urls[]" placeholder="https://fediverse.social/@author">
                 </div>
               </div>
             <?php } ?>
-              <div class="form-group">
+              <div class="form-group mt-1 mb-1">
                 <button id="add-author-fields" class="btn">Add more authors</button>
               </div>
-              <div class="form-group">
-                <label for="resource-type">What kind of a resource would you like to submit?</label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-type">What kind of a resource would you like to submit?</label>
                 <select class="form-control js-select2" id="resource-type" name="resource-type" placeholder="Library, framework, tutorial,..." data-minimum-input-length="0">
                 <?php
                   $resource_types = get_terms( 'resource_type', array(
@@ -352,21 +352,21 @@
                 ?> 
                 </select>
               </div>            
-              <div class="form-group">
-                <label for="resource-name">What's the title of your <span class="resource-type-name">tutorial</span>? <sup title="This field is required.">*</sup></label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-name">What's the title of your <span class="resource-type-name">tutorial</span>? <sup title="This field is required.">*</sup></label>
                 <input required type="text" class="form-control" id="resource-name" name="resource-name" value="<?php echo $resource_name_val; ?>" placeholder="My tutorial...">
               </div>
-              <div class="form-group">
-                <label for="resource-tagline">A short description of your <span class="resource-type-name">tutorial</span> <sup title="This field is required.">*</sup></label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-tagline">A short description of your <span class="resource-type-name">tutorial</span> <sup title="This field is required.">*</sup></label>
                 <input required type="text" class="form-control" id="resource-tagline" name="resource-tagline" value="<?php echo $resource_description_val; ?>" placeholder="A useful tutorial.">
                 <small id="resource-tagline-help" class="form-text text-muted">Briefly explain what this <span class="resource-type-name">tutorial</span> is for.</small>
               </div>
-              <div class="form-group">
-                <label for="resource-url">Where can we see your <span class="resource-type-name">tutorial</span>?<sup title="This field is required.">*</sup></label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-url">Where can we see your <span class="resource-type-name">tutorial</span>?<sup title="This field is required.">*</sup></label>
                 <input required type="url" class="form-control" id="resource-url" name="resource-url" value="<?php echo $resource_url_val; ?>" placeholder="https://github.com/developer/resource">
               </div>
-              <div class="form-group">
-                <label for="resource-networks">Is this <span class="resource-type-name">tutorial</span> for a specific network?</label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-networks">Is this <span class="resource-type-name">tutorial</span> for a specific network?</label>
                 <select multiple class="form-control js-select2" id="resource-networks" name="resource-networks" placeholder="Twitter, Tumblr, Slack,...">
                 <?php
                   $networks = get_terms( 'network', array(
@@ -380,8 +380,8 @@
                 </select>
                 <small id="resource-network-help" class="form-text text-muted">You can leave this blank.</small>
               </div>
-              <div class="form-group">
-                <label for="resource-language">Does this <span class="resource-type-name">tutorial</span> use a specific programing language?</label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-language">Does this <span class="resource-type-name">tutorial</span> use a specific programing language?</label>
 
                 <select class="form-control js-select2" id="resource-language" name="resource-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="1">
                 <?php
@@ -397,8 +397,8 @@
 
                 <small id="resource-language-help" class="form-text text-muted">Yes, node.js is technically a JavaScript framework, bear with us. Leave blank if not applicable.</small>
               </div>            
-              <div class="form-group">
-                <label for="resource-tags">Tag your <span class="resource-type-name">tutorial</span> <sup title="This field is required.">*</sup></label>
+              <div class="form-group mt-1 mb-1">
+                <label class="form-label" for="resource-tags">Tag your <span class="resource-type-name">tutorial</span> <sup title="This field is required.">*</sup></label>
 
                 <select data-ajax="/wp-json/wp/v2/tags?search=" data-minimum-input-length="1" required class="form-control js-select2" id="resource-tags" name="resource-tags[]" multiple="multiple" placeholder="Type to search..."></select>
                 <div id="resource-tags-help" class="form-text form-help-text text-muted mt-3">
@@ -409,11 +409,11 @@
 
               <div class="form-check mb-2">
                 <input type="checkbox" class="form-check-input" id="apply-for-botmaker-badge" name="apply-for-botmaker-badge">
-                <label class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
+                <label class="form-label" class="form-check-label" for="apply-for-botmaker-badge">Apply for <a target="_blank" href="/botmaker-badges/">Botmaker Badge</a></label>
               </div>
               <div id="botmaker-badge-application" class="mt-3 d-none">
-                <div class="form-group">
-                  <label for="resource-author-email">List of email addresses of all authors</label>
+                <div class="form-group mt-1 mb-1">
+                  <label class="form-label" for="resource-author-email">List of email addresses of all authors</label>
                   <textarea class="form-control" id="resource-author-email" name="resource-author-email" rows="3" placeholder="coolbotresourceauthor@email.com"></textarea>
                   <small id="resource-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
                 </div>
