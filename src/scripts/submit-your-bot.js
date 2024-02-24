@@ -58,7 +58,7 @@ $( function() {
 
       let bot_info_network_select_html = $( '#bot-info-1-network' ).html();
 
-      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row row"><div class="form-group mt-1 mb-1 col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot2"></div><div class="form-group mt-1 mb-1 col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div></div>` );
+      $( '#add-bot-info-fields' ).before( `<div class="bot-info-fields form-row row"><div class="form-group mt-1 mb-1 col-md-6"><input type="url" class="form-control" id="bot-info-2-url" name="bot-urls[]" placeholder="https://botsin.space/@onecoolbot2"></div><div class="form-group mt-1 mb-1 col-md-6"><select class="form-control js-select2" id="bot-info-2-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', '-2-' )}</select></div></div>` );
 
       $( '#bot-info-2-network' ).select2( {
         tags: true,
@@ -171,7 +171,7 @@ $( function() {
 
       $( this ).before( `<div class="bot-info-fields form-row row">
           <div class="form-group mt-1 mb-1 col-md-6">
-            <input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://botsin.space/onecoolbot${new_id}">
+            <input type="url" class="form-control" id="bot-${new_id}-url" name="bot-urls[]" placeholder="https://botsin.space/@onecoolbot${new_id}">
           </div>
           <div class="form-group mt-1 mb-1 col-md-6">
             <select class="form-control js-select2" id="bot-info-${new_id}-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,...">${bot_info_network_select_html.replace( '-1-', new_id )}
