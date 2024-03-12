@@ -10602,7 +10602,6 @@ img {
   max-width: 100%;
   height: auto; }
   .card img {
-    height: 360px;
     -o-object-fit: cover;
        object-fit: cover; }
   img.aligncenter {
