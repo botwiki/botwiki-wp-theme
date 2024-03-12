@@ -66,7 +66,7 @@ img{
   .card &{
     height: 360px;
     @media(min-width: $site-width-small){
-      height: 200px;
+      // height: 200px;
     }
     object-fit: cover;
   }
