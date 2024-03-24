@@ -14,8 +14,7 @@
   $resource_description_val = !empty( $_REQUEST['resource-description'] ) ? $_REQUEST['resource-description'] : '';
   $resource_url_val = !empty( $_REQUEST['resource-url'] ) ? $_REQUEST['resource-url'] : '';
 
-  if ( !empty( $_POST ) ){
-
+  if ( !empty( $_POST ) && empty( $_POST['sec'] ) ){
     // error_log( print_r( $_POST, true ) );
 
     if (
@@ -418,6 +417,9 @@
                   <small id="resource-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
                 </div>
               </div>
+              <label for="sec" aria-hidden="true" class="visually-hidden">
+                <input type="radio" name="sec" id="sec" style="display:none" value="1">
+              </label>
               <button id="resource-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
             </form>
           </div>

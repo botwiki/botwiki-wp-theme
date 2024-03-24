@@ -15,7 +15,7 @@
   $dominant_color_css = str_replace( '[', 'background-color:rgb( ', $dominant_color );
   $dominant_color_css = str_replace( ']', ' )', $dominant_color_css );
 
-  if ( !empty( $_POST ) ){
+  if ( !empty( $_POST ) && empty( $_POST['sec'] ) ){
     // error_log( print_r( $_POST, true ) );
 
     if ( 
@@ -508,6 +508,9 @@
                   <small id="bot-author-email-help" class="form-text text-muted">We will send your badge to these email addresses. No spam, ever!</small>
                 </div>
               </div>
+              <label for="sec" aria-hidden="true" class="visually-hidden">
+                <input type="radio" name="sec" id="sec" style="display:none" value="1">
+              </label>
               <button id="bot-form-submit" type="submit" class="btn mt-4">Okay, looks good</button>
             </form>
           </div>
