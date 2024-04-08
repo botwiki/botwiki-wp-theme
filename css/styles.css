@@ -10641,11 +10641,12 @@ img {
   margin-right: auto; }
 
 .card-img-top {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  height: 200px; }
 
 .link-cards img {
-  width: 100%;
   height: 200px;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover; }
 
