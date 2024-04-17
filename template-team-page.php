@@ -169,7 +169,7 @@
                   $fediverse_handle =  esc_attr( get_the_author_meta( 'fediverse-handle', $author_id ) );
                   $twitter_handle = str_replace('@', '', esc_attr( get_the_author_meta( 'twitter-handle', $author_id ) ) );
                 ?>
-              <div class="col-xs-6 col-s-2 m-2 text-center">
+              <div class="col-xs-6 col-sm-2 col-md-2 text-center">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
                   <img width="96" height="96" loading="lazy" class="lazy-load rounded" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
                 </a>
