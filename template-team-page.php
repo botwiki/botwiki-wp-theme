@@ -171,7 +171,7 @@
                 ?>
               <div class="col-xs-6 col-sm-2 col-md-2 text-center">
                 <a href="<?php echo get_author_posts_url($author_id, $username ); ?>">
-                  <img width="96" height="96" loading="lazy" class="lazy-load rounded mb-2 mt-2 w-100" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
+                  <img width="96" height="96" loading="lazy" class="lazy-load rounded mb-2 mt-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="<?php echo $full_name; ?>" title="<?php echo $full_name; ?>, click to view profile">
                 </a>
               </div>
               <?php }
