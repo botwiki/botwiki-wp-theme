@@ -526,13 +526,12 @@
               $post_date = get_the_time( 'F j, Y', $blog_post->ID );
               $post_date_full = $post_date . ' ' . get_the_time( 'g:i a', $blog_post->ID );
 
+              $post_date_ago = $post_date;
+
               if ( class_exists( 'Moment\Moment' ) ){
                 $m = new \Moment\Moment( $post_date );
                 $post_date_ago = $m->fromNow()->getRelative();
-              } else {
-                $post_date_ago = $post_date;
               }
-
 
               ?>
               <div class="col-sm-12 col-md-4 col-lg-4 list-item">
