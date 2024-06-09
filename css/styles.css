@@ -11456,6 +11456,7 @@ div.bottom-page-links {
     color: #fff !important; }
 
 .pagination .page-item.active .page-link {
+  color: #fff;
   background: #3c3c3c;
   border-color: #3c3c3c; }
 
