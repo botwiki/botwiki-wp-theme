@@ -198,10 +198,16 @@ class WP_JSON_API_Fixes_And_Enhancements {
     }
 
     $bot_url = strtolower( trim( $request['bot_url'] ) );
-
     $info = parse_url($bot_url);
 
+    // log_this(array(
+    //   "info" => $info,
+    // ));
+
     $host = $info['host'];
+    // Temporary fix for Botwiki browser extension.
+    $host = str_replace("mastodon.socialmastodon.social", "mastodon.social", $host);
+
     $host_names = explode(".", $host);
     $domain = $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
     $path = $info['path'];
