@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-2 mb-4 sidebar">
                   <h3 class="sidebar-header">Networks</h3>
-                  <ul class="list-unstyled pl-0">
+                  <ul class="list-unstyled ps-0 ps-md-3">
 
                   <?php
 
@@ -223,7 +223,7 @@
                       }
                       ?>
                       <h3 class="mt-2 mb-2 sidebar-header">Made with</h3>
-                      <ul class="list-unstyled pl-0">
+                      <ul class="list-unstyled ps-0 ps-md-3">
                       <?php
                       echo join( ' ', $language_links );
                       ?>
