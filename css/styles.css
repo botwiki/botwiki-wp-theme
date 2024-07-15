@@ -11677,6 +11677,9 @@ div#menu-wrapper {
     margin-top: 5px;
     margin-bottom: 5px; }
 
+[data-bs-theme="dark"] .form-control {
+  color: #3c3c3c !important; }
+
 ul.btn-list {
   list-style: none;
   padding: 0;
