@@ -9,6 +9,12 @@
   padding-top: 0.2rem !important;
 }
 
+.select2-dropdown{
+  [data-bs-theme="dark"] & {
+    background-color: $background-dark-mode;
+  }  
+}
+
 .select2-selection__arrow{
   top: 0.4rem !important;  
 }
