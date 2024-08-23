@@ -204,7 +204,6 @@
     <meta name="twitter:site" content="@botwikidotorg" />
     <meta name="twitter:domain" content="https://botwiki.org/" />
     <link type="text/plain" rel="author" href="https://botwiki.org/humans.txt" />
-    <link href="//www.google-analytics.com" rel="dns-prefetch">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-icon-72x72.png">
@@ -224,12 +223,6 @@
     <meta name="theme-color" content="#38313a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
-    <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Serif+Pro|Source+Code+Pro&display=swap' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans|Source+Serif+Pro|Source+Code+Pro&display=swap' rel='stylesheet' type='text/css'>
-    <link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Bree+Serif&text=botwiki&display=swap' rel='stylesheet' type='text/css'>
-    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
