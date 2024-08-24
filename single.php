@@ -262,7 +262,9 @@
 
                   if (class_exists('\FTF_Fediverse_Embeds\Embed_Posts')){
                     $ftf_embed_posts = new \FTF_Fediverse_Embeds\Embed_Posts();
-                    $iframe = $ftf_embed_posts->process_embeds($iframe, '');
+                    $iframe = $ftf_embed_posts->process_embeds($iframe, array(
+                      "blockName" => "core/html"
+                    ));
                   }
                   echo $iframe;
                 }
