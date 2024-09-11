@@ -11221,6 +11221,7 @@ blockquote:not(.fediverse-post) {
     blockquote:not(.fediverse-post) a:hover {
       color: #566981; }
   blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
+    color: #566981;
     padding: 0 50px; }
     @media (max-width: 900px) {
       blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
