@@ -220,7 +220,26 @@
         update_post_meta( $new_post_id, $key, $value );
       }
 
-      if ( count( array_intersect( $_POST['bot-networks'], array( 'mastodon', 'gnu-social' ) ) ) > 0 ){
+      if ( count( array_intersect( $_POST['bot-networks'], array(
+        "friendica",
+        "lemmy",
+        "mastodon",
+        "peertube",
+        "pleroma",
+        "funkwhale",
+        "hubzilla",
+        "misskey",
+        "pixelfed",
+        "diaspora",
+        "gnu-social",
+        "sharkey",
+        "gotosocial",
+        "hubzilla ",
+        "writefreely",
+        "owncast",
+        "mobilizon",
+        "bookwyrm",
+      ) ) ) > 0 ){
         array_push( $_POST['bot-networks'], 'fediverse' );      
       }
 
