@@ -11163,6 +11163,7 @@ ul, ol {
 
 blockquote:not(.fediverse-post) {
   /* Courtesy of css-tricks.com. */
+  color: #566981 !important;
   background: #edf6ff;
   font-style: italic;
   margin: 4rem auto !important;
@@ -11663,6 +11664,9 @@ div#menu-wrapper {
 
 .select2-container .select2-selection__rendered > *:first-child.select2-search--inline .select2-search__field {
   width: 100% !important; }
+
+.select2-search__field {
+  color: #3c3c3c; }
 
 .medium-editor-element {
   min-height: 90px !important;
