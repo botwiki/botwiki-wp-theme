@@ -11107,7 +11107,7 @@ a.badge-secondary {
     background-color: #536272 !important; }
 
 [data-bs-theme="dark"] .badge-secondary {
-  border: 1px solid #fff !important; }
+  border: none !important; }
 
 .alert-secondary {
   background-color: #edf6ff !important; }
