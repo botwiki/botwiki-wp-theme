@@ -11107,6 +11107,7 @@ a.badge-secondary {
     background-color: #536272 !important; }
 
 [data-bs-theme="dark"] .badge-secondary {
+  color: #020202 !important;
   border: none !important; }
 
 .alert-secondary {
@@ -11243,6 +11244,9 @@ iframe.twitter-tweet,
 body[data-bs-theme="dark"] .twitter-tweet .text-dark {
   color: var(--bs-secondary-color) !important;
   font-weight: bold; }
+
+body[data-bs-theme="dark"] .twitter-tweet .card-footer {
+  background: var(--bs-body-bg) !important; }
 
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }
