@@ -11016,7 +11016,7 @@ video {
 .fediverse-post-rendered .card {
   border-radius: 8px !important;
   border: 1px solid rgba(0, 0, 0, 0.125) !important; }
-  body[data-bs-theme="dark"] .fediverse-post-rendered .card .card {
+  body[data-bs-theme="dark"] .fediverse-post-rendered .card {
     border-color: var(--bs-border-color-translucent) !important; }
   .fediverse-post-rendered .card .card-footer:last-child,
   .fediverse-post-rendered .card .card-footer {

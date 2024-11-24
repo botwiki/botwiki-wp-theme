@@ -604,7 +604,7 @@ video {
     border-radius: 8px !important;
     border: 1px solid rgba(0,0,0,.125) !important;
 
-    body[data-bs-theme="dark"] & .card{
+    body[data-bs-theme="dark"] &{
       border-color: var(--bs-border-color-translucent) !important
     }
 
