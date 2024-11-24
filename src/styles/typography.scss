@@ -308,7 +308,7 @@ body[data-bs-theme="dark"] .twitter-tweet .text-dark{
   font-weight: bold;
 }
 
-body[data-bs-theme="dark"] .twitter-tweet .card-footer{
+body[data-bs-theme="dark"] .twitter-tweet.twitter-tweet-rendered .card-footer{
   background: var(--bs-body-bg) !important;
 }
 
