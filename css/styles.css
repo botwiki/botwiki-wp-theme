@@ -11331,6 +11331,9 @@ p.post-tags {
     padding: 5px;
     white-space: nowrap;
     border-radius: 6px; }
+    body[data-bs-theme="dark"] p.post-tags a {
+      background-color: #606e7f;
+      color: #eaf2fb; }
     p.post-tags a:before {
       content: '#'; }
     p.post-tags a:hover {

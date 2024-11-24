@@ -433,6 +433,11 @@ p.post-tags{
     white-space: nowrap;
     border-radius: 6px;
 
+    body[data-bs-theme="dark"] &{
+      background-color: #606e7f;
+      color: #eaf2fb;
+    }
+
     &:before{
       content: '#';
     }
