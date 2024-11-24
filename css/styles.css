@@ -11030,7 +11030,9 @@ body, .hover-box p {
   color: #3c3c3c; }
 
 body[data-bs-theme="dark"],
-body[data-bs-theme="dark"] .hover-box p {
+body[data-bs-theme="dark"] .hover-box p,
+body[data-bs-theme="dark"] {
+  color: var(--bs-secondary-color) !important;
   color: #fff !important; }
 
 body.page-template-template-showcase {
@@ -11246,7 +11248,8 @@ body[data-bs-theme="dark"] .twitter-tweet .text-dark {
   font-weight: bold; }
 
 body[data-bs-theme="dark"] .twitter-tweet .card-footer {
-  background: var(--bs-body-bg) !important; }
+  background: var(--bs-body-bg) !important;
+  color: var(--bs-secondary-color) !important; }
 
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }

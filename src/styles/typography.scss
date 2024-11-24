@@ -9,7 +9,9 @@ body, .hover-box p {
 }
 
 body[data-bs-theme="dark"],
-body[data-bs-theme="dark"] .hover-box p {
+body[data-bs-theme="dark"] .hover-box p,
+body[data-bs-theme="dark"] {
+  color: var(--bs-secondary-color) !important;
   color: #fff !important;
 }
 
@@ -310,6 +312,7 @@ body[data-bs-theme="dark"] .twitter-tweet .text-dark{
 
 body[data-bs-theme="dark"] .twitter-tweet .card-footer{
   background: var(--bs-body-bg) !important;
+  color: var(--bs-secondary-color) !important;
 }
 
 body.page-template-template-submit-your-bot{
