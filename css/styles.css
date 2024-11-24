@@ -11240,6 +11240,10 @@ iframe.twitter-tweet,
   margin-top: 3rem;
   margin-bottom: 3rem; }
 
+body[data-bs-theme="dark"] .twitter-tweet .text-dark {
+  color: var(--bs-secondary-color) !important;
+  font-weight: bold; }
+
 body.page-template-template-submit-your-bot blockquote {
   padding: 1em; }
   body.page-template-template-submit-your-bot blockquote:before {
