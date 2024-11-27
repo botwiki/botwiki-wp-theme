@@ -280,7 +280,7 @@ class New_On_Botwiki {
             );
             
             $ch_status = curl_init();
-            curl_setopt($ch_status, CURLOPT_URL, "https://botsin.space/api/v1/statuses");
+            curl_setopt($ch_status, CURLOPT_URL, "https://stefanbohacek.online/api/v1/statuses");
             curl_setopt($ch_status, CURLOPT_POST, 1);
             curl_setopt($ch_status, CURLOPT_POSTFIELDS, $status_data);
             curl_setopt($ch_status, CURLOPT_RETURNTRANSFER, true);
