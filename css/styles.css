@@ -10941,13 +10941,14 @@ video {
 
 /* Notes */
 .note {
-  background-color: #edf6ff;
   font-weight: bold;
   border: 2px solid #9aadc5;
   padding: 1em;
   margin-bottom: 2em; }
   .note p {
     margin: 0; }
+  body[data-bs-theme="light"] .note {
+    background-color: #edf6ff; }
 
 /* Search */
 #menu-wrapper #search-filters.container {

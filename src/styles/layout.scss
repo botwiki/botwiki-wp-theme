@@ -497,13 +497,16 @@ video {
 /* Notes */
 
 .note{
-  background-color: $background-alternate;
   font-weight: bold;
   border: 2px solid $color-ternary;
   padding: 1em;
   margin-bottom: 2em;
   p{
     margin: 0;
+  }
+
+  body[data-bs-theme="light"] & {
+    background-color: $background-alternate;
   }
 }
 
