@@ -70,7 +70,7 @@
               $network_links = array();
               if ( $networks ){
                 foreach ( $networks as $network ) {
-                  $network_links[] = '<li class="list-inline-item"><span class="badge badge-secondary p-2 mb-2">' . $network->name . '</span></li>';
+                  $network_links[] = '<li class="list-inline-item"><span class="badge badge-secondary p-2 mb-2 text-bg-secondary">' . $network->name . '</span></li>';
                 }
               }
             ?>
