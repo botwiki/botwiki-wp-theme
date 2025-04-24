@@ -366,7 +366,7 @@
               </div>
               <div class="form-group mt-1 mb-1">
                 <label class="form-label" for="resource-networks">Is this <span class="resource-type-name">tutorial</span> for a specific network?</label>
-                <select multiple class="form-control js-select2" id="resource-networks" name="resource-networks" placeholder="Twitter, Tumblr, Slack,...">
+                <select multiple class="form-control js-select2" id="resource-networks" name="resource-networks" placeholder="Fediverse, Tumblr, Slack,...">
                 <?php
                   $networks = get_terms( 'network', array(
                       'hide_empty' => false,

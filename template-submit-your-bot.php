@@ -421,7 +421,7 @@
                 </div>
                 <div class="form-group mt-1 mb-1 col-md-6">
                   <label class="form-label" for="bot-info-1-network">Network</label>
-                  <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Twitter, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
+                  <select required class="form-control js-select2" id="bot-info-1-network" name="bot-networks[]" placeholder="Fediverse, Tumblr, Slack,..." data-minimum-input-length="0" data-tags="true">
                   <?php
                     $networks = get_terms( 'network', array( 
                         'hide_empty' => false,
