@@ -65,7 +65,7 @@
                         aria-label="Amount (to the nearest dollar)">
                       <button class="fsb-button"
                         type="submit"><img
-                          src="https://fediverse-share-button.stefanbohacek.dev/fediverse-share-button/icons/mastodon.svg"
+                          src="https://fediverse-share-button.stefanbohacek.com/fediverse-share-button/icons/mastodon.svg"
                           class="fsb-icon"></span>Share</button>
                     </div>
                     <p class="fsb-support-note fsb-d-none">This server does not support sharing. Please visit <a
@@ -74,8 +74,8 @@
                         href=""></a>.</p>
                   </form>
                   <link rel="stylesheet"
-                    href="https://fediverse-share-button.stefanbohacek.dev/fediverse-share-button/styles.min.css">
-                  <script src="https://fediverse-share-button.stefanbohacek.dev/fediverse-share-button/script.min.js"
+                    href="https://fediverse-share-button.stefanbohacek.com/fediverse-share-button/styles.min.css">
+                  <script src="https://fediverse-share-button.stefanbohacek.com/fediverse-share-button/script.min.js"
                     defer
                     class="fsb-script"></script>
 
