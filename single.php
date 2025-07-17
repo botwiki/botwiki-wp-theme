@@ -119,17 +119,30 @@ $prompt_donation = false;
                     if (strpos($post_meta['bot_url'][0], "botsin.space/") !== false) { ?>
                       <div class="alert alert-warning mb-4" role="alert">
                         <p class="m-1">
-                          <strong>Heads up!</strong> Due to <a href="https://botwiki.org/blog/glitch-announces-end-to-hosting-apps/">Glitch shutting down</a>, bots hosted on this server are no longer accessible.
+                          <strong>Heads up!</strong> Due to <a href="https://botwiki.org/blog/botsin-space-server-closing-down/">botsin.space closing down</a>, bots hosted on this server are no longer accessible.
                         </p>
                       </div>
-                    <?php } ?>
+                    <?php }
+
+                    if (array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0])) {
+                      $bot_source_url = $post_meta['bot_source_url'][0];
+                    }
+
+                    
+                    if (!empty($bot_source_url) && strpos($bot_source_url, "glitch.com/") !== false) { ?>
+                      <div class="alert alert-warning mb-4" role="alert">
+                        <p class="m-1">
+                          <strong>Heads up!</strong> Due to <a href="https://botwiki.org/blog/glitch-announces-end-to-hosting-apps/">Glitch shutting down</a>, the source code of bots running on this platform is no longer accessible.
+                        </p>
+                      </div>
+                    <?php }
+                    
+                    
+                    ?>
                     <ul class="btn-list mt-1 mb-5">
                       <?php
 
 
-                      if (array_key_exists('bot_source_url', $post_meta) && !empty($post_meta['bot_source_url'][0])) {
-                        $bot_source_url = $post_meta['bot_source_url'][0];
-                      }
 
                       if (is_array($bot_urls) && $bot_urls[0]) {
                         foreach ($bot_urls as $url) {
