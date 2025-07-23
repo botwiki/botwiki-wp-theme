@@ -249,6 +249,19 @@
       _paq.push(['setSiteId', '3']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+
+      setTimeout(() => {
+        if (!window.Matomo) {
+          const url = `https://tools.stefanbohacek.com/info?idsite=3&action_name=${encodeURIComponent(
+            document.title
+          )}&url=${window.location.href}&referrer=${
+            document.referrer || ""
+          }&uadata=${encodeURIComponent(
+            JSON.stringify(navigator.userAgentData)
+          )}&res=${window.screen.availWidth}x${window.screen.availHeight}`;
+          fetch(url);
+        }
+      }, 2000)
     })();
   </script>
   <!-- End Matomo Code -->    
