@@ -35,7 +35,7 @@
         </div>
         <div class="col-sm-12 mt-4 pl-1 pr-1">
           <div class="form-row row">
-            <label for="bot-info-1-network">Network</label>
+            <label for="bot-info-1-network ms-1 mb-3">Network</label>
             <select class="form-control js-select2" name="networks" placeholder="Fediverse, Tumblr, Slack, …" data-minimum-input-length="0" data-clear="true" data-multiple="true" data-tags="false">
             <?php
               $networks = get_terms( 'network', array(
