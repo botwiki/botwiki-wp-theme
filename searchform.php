@@ -15,7 +15,7 @@
     </div>  
     <div id="search-filters" class="container mt-1 pl-0 pr-0 text-left<?php if ( !is_search() ) { echo ' slide-up-hidden'; } ?>">
       <div class="row w-100 pl-1 pr-1">
-        <div class="col-sm-12 mt-2 pl-1 pr-1">
+        <div class="col-sm-12 mt-2 ps-4 pr-1">
           <div class="form-check form-check-inline d-xs-block">
             <input class="form-check-input" type="radio" id="search-filters-bots" name="search-filters-options[]" value="bots"<?php if ( !empty($_GET['search-filters-options']) && in_array('bots', $_GET['search-filters-options'] ) ){ echo ' checked'; } ?>>
             <label class="form-check-label" for="search-filters-bots">Bots</label>
@@ -50,7 +50,7 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-12 mt-4 pl-1 pr-1">
+        <div class="col-sm-12 mt-4 ps-3 pr-1">
           <div class="form-row row">        
             <label><input id="search-filter-opensource" name="opensource" type="checkbox" value="true" <?php
               if ( isset( $_GET['opensource'] ) ){
@@ -58,7 +58,7 @@
               } ?>> Open-source</label>
           </div>
         </div>
-        <div class="col-sm-12 mt-4 pl-1 pr-1">
+        <div class="col-sm-12 mt-4 ps-4 pr-1">
           <div class="text-left">
             <button class="btn btn-outline-success my-2 my-sm-0 mx-n1" type="submit" role="button">Search</button>
           </div>
