@@ -16,8 +16,6 @@ ul.btn-list{
   font-family: $button-font-family;
   font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0;
-
   padding: 10px;
 
   @media (min-width: $site-width-small){
