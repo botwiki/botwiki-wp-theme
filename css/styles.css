@@ -11028,7 +11028,8 @@ body {
   font-size: 1.1rem;
   line-height: 1.75rem; }
 
-body, .hover-box p {
+body,
+.hover-box p {
   font-family: "Open Sans", sans-serif !important;
   color: #3c3c3c; }
 
@@ -11045,7 +11046,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Abril Fatface", serif;
   line-height: 1;
   font-weight: normal; }
-  h1 [data-bs-theme="dark"], .h1 [data-bs-theme="dark"], h2 [data-bs-theme="dark"], .h2 [data-bs-theme="dark"], h3 [data-bs-theme="dark"], .h3 [data-bs-theme="dark"], h4 [data-bs-theme="dark"], .h4 [data-bs-theme="dark"], h5 [data-bs-theme="dark"], .h5 [data-bs-theme="dark"], h6 [data-bs-theme="dark"], .h6 [data-bs-theme="dark"] {
+  h1 [data-bs-theme="dark"], .h1 [data-bs-theme="dark"],
+  h2 [data-bs-theme="dark"],
+  .h2 [data-bs-theme="dark"],
+  h3 [data-bs-theme="dark"],
+  .h3 [data-bs-theme="dark"],
+  h4 [data-bs-theme="dark"],
+  .h4 [data-bs-theme="dark"],
+  h5 [data-bs-theme="dark"],
+  .h5 [data-bs-theme="dark"],
+  h6 [data-bs-theme="dark"],
+  .h6 [data-bs-theme="dark"] {
     color: #fff !important; }
 
 h1, .h1 {
@@ -11111,6 +11122,11 @@ a.badge-secondary {
   a.badge-secondary:hover {
     background-color: #536272 !important; }
 
+span.badge-secondary {
+  background-color: #7f8e9f !important; }
+  span.badge-secondary:hover {
+    background-color: #536272 !important; }
+
 [data-bs-theme="dark"] .badge-secondary {
   color: #020202 !important;
   border: none !important; }
@@ -11163,7 +11179,8 @@ a {
   .text-muted a {
     color: inherit; }
 
-ul, ol {
+ul,
+ol {
   margin-left: 3px;
   padding: 0 1em; }
 
@@ -11175,7 +11192,7 @@ blockquote:not(.fediverse-post) {
   margin: 4rem auto !important;
   border-radius: 8px;
   padding: 4rem 1rem 2rem 1rem;
-  quotes: "“" "”" "‘" "’";
+  quotes: "\201C" "\201D" "\2018" "\2019";
   border-left: 3px solid #edf6ff;
   border: 3px solid #edf6ff; }
   .col-md-6 blockquote:not(.fediverse-post) {
@@ -11207,17 +11224,20 @@ blockquote:not(.fediverse-post) {
     @media (max-width: 900px) {
       blockquote:not(.fediverse-post):before {
         margin-left: -1.5rem; } }
-  blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
+  blockquote:not(.fediverse-post) cite,
+  blockquote:not(.fediverse-post) p {
     display: block;
     line-height: 1.5em;
     padding: 0 40px; }
     @media (min-width: 900px) {
-      blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
+      blockquote:not(.fediverse-post) cite,
+      blockquote:not(.fediverse-post) p {
         -webkit-transform: translate(-10px, 0);
             -ms-transform: translate(-10px, 0);
                 transform: translate(-10px, 0); } }
     @media (max-width: 900px) {
-      blockquote:not(.fediverse-post) cite, blockquote:not(.fediverse-post) p {
+      blockquote:not(.fediverse-post) cite,
+      blockquote:not(.fediverse-post) p {
         padding: 0; } }
   blockquote:not(.fediverse-post) cite {
     font-size: 0.9rem;
@@ -11227,11 +11247,13 @@ blockquote:not(.fediverse-post) {
     text-decoration: underline; }
     blockquote:not(.fediverse-post) a:hover {
       color: #566981; }
-  blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
+  blockquote:not(.fediverse-post) ul,
+  blockquote:not(.fediverse-post) ol {
     color: #566981;
     padding: 0 50px; }
     @media (max-width: 900px) {
-      blockquote:not(.fediverse-post) ul, blockquote:not(.fediverse-post) ol {
+      blockquote:not(.fediverse-post) ul,
+      blockquote:not(.fediverse-post) ol {
         padding: 0 20px; } }
   blockquote:not(.fediverse-post) p {
     color: #566981;
