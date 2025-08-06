@@ -41,7 +41,7 @@
           if ( class_exists( 'Moment\Moment' ) ){
             $m = new \Moment\Moment($post_date);
             $post_date_ago = $m->fromNow()->getRelative();
-            echo " <span class='post-thumbnail-date'><img width=\"22\" height=\"22\" loading=\"lazy\" class=\"lazy-load u-photo rounded-circle mr-2\"  src=\"$profile_img_url\" data-src=\"$profile_img_url\"> $post_author | $post_date_ago</span>";
+            echo " <span class='post-thumbnail-date'><img width=\"22\" height=\"22\" loading=\"lazy\" class=\"lazy-load u-photo rounded-circle me-2\"  src=\"$profile_img_url\" data-src=\"$profile_img_url\"> $post_author | $post_date_ago</span>";
           }
           ?>
         </p>

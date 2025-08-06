@@ -571,7 +571,7 @@ $prompt_donation = false;
                     <p class="card-text"><?php echo $blog_post->post_excerpt; ?></p>
                   </div>
                   <div class="card-footer">
-                    <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('user_nicename', $author_id)); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle mr-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
+                    <p class="text-muted mt-n2"><a href="<?php echo get_author_posts_url($author_id, get_the_author_meta('user_nicename', $author_id)); ?>"><img width="22" height="22" loading="lazy" class="lazy-load u-photo rounded-circle me-2" src="<?php echo $profile_img_url; ?>" data-src="<?php echo $profile_img_url; ?>" alt="$<?php echo $author_nickname; ?>"><?php echo $author_nickname; ?></a> | <span title="<?php echo $post_date; ?>"><?php echo $post_date_ago; ?></span></p>
                   </div>
                 </div>
               </div>
