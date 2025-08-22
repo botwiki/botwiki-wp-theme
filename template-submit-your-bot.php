@@ -288,7 +288,7 @@
                 </div>
               <?php } else { ?>
                 <p class="mt-5"><strong>Thank you for your submission!</strong> Please be patient while we review it 😊</p> 
-                <p>You can follow <a href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a> to see when the site gets updated.</p>
+                <p>You can follow <a href="https://stefanbohacek.online/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a> to see when the site gets updated.</p>
               <?php } ?>
               <ul class="btn-list mt-4">
                 <li>
@@ -345,7 +345,7 @@
                 <a class="btn" href="/botwiki-submission-guidelines/" target="_blank">Submission Guidelines</a>
               </li>
               <li>
-                <a class="btn" href="https://botsin.space/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a>
+                <a class="btn" href="https://stefanbohacek.online/@newonbotwiki" target="_blank">@newonbotwiki@botsin.space</a>
               </li>
               <li>
                 <a class="btn" href="/botwiki-weekly-digest/" target="_blank">Weekly Digest</a>

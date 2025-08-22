@@ -48,7 +48,7 @@
               <a class="btn" href="https://mastodon.social/@botwiki">@botwiki</a>
             </li>
             <li>
-              <a class="btn" href="https://botsin.space/@newonbotwiki">@newonbotwiki</a>
+              <a class="btn" href="https://stefanbohacek.online/@newonbotwiki">@newonbotwiki</a>
             </li>
           </ul>
         </div>
