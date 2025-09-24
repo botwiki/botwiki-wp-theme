@@ -475,7 +475,7 @@
                   } ?></small>
               </div>
               <div class="form-group mt-1 mb-1">
-                <label class="form-label" for="bot-source-language">What languages and libraries did you use to make your bot?</label>
+                <label class="form-label" for="bot-source-language">What languages, libraries, and other tools did you use to make your bot?</label>
                 <select class="form-control js-select2" id="bot-source-language" name="bot-source-language[]" multiple="multiple" placeholder="node.js, Python, Java..." data-minimum-input-length="0" data-tags="true">
                 <?php
                   $languages = get_terms( 'programing_language', array( 
