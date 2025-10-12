@@ -1,27 +1,30 @@
 <?php
 
-class BotsPostType {
-  function post_type_setup() {
+class BotsPostType
+{
+  function post_type_setup()
+  {
     $this->create_post_type();
 
-    add_action( 'add_meta_boxes', array( $this, 'add_bot_info' ) );
-    add_action( 'add_meta_boxes', array( $this, 'add_bot_author_info' ) );
-    add_action( 'add_meta_boxes', array( $this, 'add_bot_tweets' ) );
-    add_action( 'save_post',  array( $this, 'save_meta' ), 10, 2 );
-    add_filter( 'enter_title_here', array( $this, 'change_post_title_placeholder' ) );
-    add_action( 'pre_get_posts', array( $this, 'filter_query' ) );
-    add_action( 'admin_bar_menu', array( $this, 'add_pending_bots_link' ), 100 );
-    add_shortcode( 'bot_count', array( $this, 'get_bot_count' ) );
-    add_shortcode( 'bot_languages', array( $this, 'get_bot_language_cards' ) );
+    add_action('add_meta_boxes', array($this, 'add_bot_info'));
+    add_action('add_meta_boxes', array($this, 'add_bot_author_info'));
+    add_action('add_meta_boxes', array($this, 'add_bot_tweets'));
+    add_action('save_post',  array($this, 'save_meta'), 10, 2);
+    add_filter('enter_title_here', array($this, 'change_post_title_placeholder'));
+    add_action('pre_get_posts', array($this, 'filter_query'));
+    add_action('admin_bar_menu', array($this, 'add_pending_bots_link'), 100);
+    add_shortcode('bot_count', array($this, 'get_bot_count'));
+    add_shortcode('bot_languages', array($this, 'get_bot_language_cards'));
 
-    add_filter( 'lazyblock/bot-output/frontend_callback', array( $this, 'lazyblock_bot_output' ), 10, 2 );
-    add_filter( 'lazyblock/bot-output/frontend_allow_wrapper', '__return_false' );
+    add_filter('lazyblock/bot-output/frontend_callback', array($this, 'lazyblock_bot_output'), 10, 2);
+    add_filter('lazyblock/bot-output/frontend_allow_wrapper', '__return_false');
 
     // add_action( 'enqueue_block_editor_assets', array( $this, 'register_gutenberg_blocks' ) );
 
   }
 
-  function lazyblock_bot_output( $output, $attributes ){
+  function lazyblock_bot_output($output, $attributes)
+  {
     // log_this( array(
     //   // 'output' => $output,
     //   // 'attributes' => $attributes,
@@ -32,46 +35,46 @@ class BotsPostType {
     $html = '';
 
     $bot_output = $attributes['bot-output'];
-    $bot_output_count = count( $bot_output );
+    $bot_output_count = count($bot_output);
 
 
-    if ( !empty( $bot_output ) ){
-      if ( !empty( $attributes['bot-output-layout-style'] ) ){
+    if (!empty($bot_output)) {
+      if (!empty($attributes['bot-output-layout-style'])) {
         $layout_style = $attributes['bot-output-layout-style'];
       } else {
         $layout_style = 'layout-1';
       }
 
-      if ( in_array( $layout_style, [ 'layout-1', 'layout-2' ] ) ){
+      if (in_array($layout_style, ['layout-1', 'layout-2'])) {
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
 
-        if ( $bot_output_count > 4 ){
-          if ( $layout_style === 'layout-1' ){
+        if ($bot_output_count > 4) {
+          if ($layout_style === 'layout-1') {
             $first_col = 7;
-          } elseif ( $layout_style === 'layout-2' ){
+          } elseif ($layout_style === 'layout-2') {
             $first_col = 5;
           }
         } else {
-            $first_col = 6;
+          $first_col = 6;
         }
 
-        foreach ( $bot_output as $index => $bot_output_item ) {
-          if ( $index === 0 ){
+        foreach ($bot_output as $index => $bot_output_item) {
+          if ($index === 0) {
             $col_class = 'col-sm-12 col-md-' . $first_col . ' align-self-end p-1 text-center';
-          } elseif( $index === 1 ){
-            $col_class = 'col-sm-12 col-md-' . ( 12 - $first_col ) . ' align-self-end p-1';
-          } elseif ( $bot_output_count === 3 ) {
+          } elseif ($index === 1) {
+            $col_class = 'col-sm-12 col-md-' . (12 - $first_col) . ' align-self-end p-1';
+          } elseif ($bot_output_count === 3) {
             $col_class = 'col-sm-12 p-1 text-center';
-          } elseif ( $bot_output_count === 4 ) {
+          } elseif ($bot_output_count === 4) {
             $col_class = 'col-sm-12 col-md-6 p-1';
-          } else{
+          } else {
             $col_class = 'col-sm-12 col-md-4 p-1';
           }
 
           $html .= '<div class="' . $col_class . ' mb-5 mb-md-0">';
 
-          if ( !empty( $bot_output_item['bot-output-image'] ) ){
+          if (!empty($bot_output_item['bot-output-image'])) {
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
             $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
             $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
@@ -80,13 +83,13 @@ class BotsPostType {
           $html .= '</div>';
         }
         $html .= '</div></div>';
-      } elseif ( $layout_style === 'layout-4' ){
+      } elseif ($layout_style === 'layout-4') {
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
-        foreach ( $bot_output as $index => $bot_output_item ) {
+        foreach ($bot_output as $index => $bot_output_item) {
           $html .= '<div class="col-sm-12 col-md-4 p-1 text-center mb-5 mb-md-0">';
 
-          if ( !empty( $bot_output_item['bot-output-image'] ) ){
+          if (!empty($bot_output_item['bot-output-image'])) {
             $html .= '<a href="' . $bot_output_item['source-url'] . '">';
             $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
             $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
@@ -95,26 +98,24 @@ class BotsPostType {
           $html .= '</div>';
         }
         $html .= '</div></div>';
-
-
-      } elseif ( $layout_style === 'layout-3' ){
-        $bot_output_count_half = floor( $bot_output_count / 2 );
+      } elseif ($layout_style === 'layout-3') {
+        $bot_output_count_half = floor($bot_output_count / 2);
 
         $bot_output_halved = array(
-          array_slice( $bot_output, 0, $bot_output_count_half ),
-          array_slice( $bot_output, $bot_output_count_half )
+          array_slice($bot_output, 0, $bot_output_count_half),
+          array_slice($bot_output, $bot_output_count_half)
         );
 
         $html .= '<div class="container mt-5 mb-5"><div class="row no-gutters">';
 
-        foreach ( $bot_output_halved as $group_index => $bot_output_group ) {
-          $html .= '<div class="col-sm-12 col-md-' . ( $group_index === 0 ? '7' : '5' ) . '"><div class="row no-gutters">';
-          foreach ( $bot_output_group as $index => $bot_output_item ) {
+        foreach ($bot_output_halved as $group_index => $bot_output_group) {
+          $html .= '<div class="col-sm-12 col-md-' . ($group_index === 0 ? '7' : '5') . '"><div class="row no-gutters">';
+          foreach ($bot_output_group as $index => $bot_output_item) {
 
             $col_class = 'col-sm-12 p-1 mb-5 mb-md-0';
             $html .= '<div class="' . $col_class . '">';
 
-            if ( !empty( $bot_output_item['bot-output-image'] ) ){
+            if (!empty($bot_output_item['bot-output-image'])) {
               $html .= '<a href="' . $bot_output_item['source-url'] . '">';
               $html .= '<img class="bot-output bot-output-img lazy-load" data-src="' . $bot_output_item['bot-output-image']['url'] . '">';
               $html .= '<noscript><img class="bot-output bot-output-img lazy-load" src="' . $bot_output_item['bot-output-image']['url'] . '"></noscript>';
@@ -139,43 +140,45 @@ class BotsPostType {
   //   wp_enqueue_script( 'test-block' );
   // }
 
-  function get_bot_count( $atts ) {
-    return number_format( wp_count_posts( 'bot' )->publish );
+  function get_bot_count($atts)
+  {
+    return number_format(wp_count_posts('bot')->publish);
   }
 
-  function get_bot_language_cards( $atts ) {
+  function get_bot_language_cards($atts)
+  {
     $html = '';
-    $languages = get_terms( array( 
-        'taxonomy' => 'programing_language',
-        'orderby' => 'count',
-        'order' => 'DESC',
-    ) );
+    $languages = get_terms(array(
+      'taxonomy' => 'programing_language',
+      'orderby' => 'count',
+      'order' => 'DESC',
+    ));
 
     $opensource_languages = array();
 
-    foreach ( $languages as $language ){
+    foreach ($languages as $language) {
       $slug = $language->slug;
       $name = $language->name;
 
       $args = array(
-          'posts_per_page' => -1,
-          'post_type' => array(
-              'bot'
-          ),
-          'programing_language' => $language->slug,
-          'meta_query' => array(
-              array(
-                  'key' => 'bot_source_url',
-                  'value' => array(''),
-                  'compare' => 'NOT IN'
-              )
+        'posts_per_page' => -1,
+        'post_type' => array(
+          'bot'
+        ),
+        'programing_language' => $language->slug,
+        'meta_query' => array(
+          array(
+            'key' => 'bot_source_url',
+            'value' => array(''),
+            'compare' => 'NOT IN'
           )
+        )
       );
 
-      $query = new WP_Query( $args );
-      $count = number_format( $query->found_posts );
+      $query = new WP_Query($args);
+      $count = number_format($query->found_posts);
 
-      if ( $count > 0 ){
+      if ($count > 0) {
         $opensource_languages[] = array(
           'name' => $name,
           'slug' => $slug,
@@ -184,11 +187,11 @@ class BotsPostType {
       }
     }
 
-    usort( $opensource_languages, function( $a, $b ) {
+    usort($opensource_languages, function ($a, $b) {
       return $a['count'] < $b['count'];
-    } );
+    });
 
-    foreach ( $opensource_languages as $language ){
+    foreach ($opensource_languages as $language) {
       $slug = $language['slug'];
       $name = $language['name'];
       $count = $language['count'];
@@ -200,42 +203,44 @@ class BotsPostType {
             </div>
           </div>
         </div>
-HTML;      
-    }    
+HTML;
+    }
 
     return "<div class='row list'>$html</div>";
   }
 
-  function add_pending_bots_link($wp_admin_bar) {
-    if ( current_user_can('administrator') ){
+  function add_pending_bots_link($wp_admin_bar)
+  {
+    if (current_user_can('administrator')) {
       $query = array(
         'post_type' => 'bot',
         'post_status' => array('pending'),
         'posts_per_page'    => -1
       );
 
-      $pending_count = count( query_posts($query) );
+      $pending_count = count(query_posts($query));
 
-      if ( $pending_count > 0 ){
+      if ($pending_count > 0) {
         $args = array(
           'id' => 'review-pending-bots',
-          'title' => 'New Bots (' . $pending_count . ')', 
-          'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot', 
+          'title' => 'New Bots (' . $pending_count . ')',
+          'href' => '/wp-admin/edit.php?post_status=pending&post_type=bot',
           'meta' => array(
-            'class' => 'review-pending-bots', 
+            'class' => 'review-pending-bots',
             'title' => 'Review pending bots'
           )
         );
         $wp_admin_bar->add_node($args);
       }
-      wp_reset_query();    
+      wp_reset_query();
     }
   }
 
-  function filter_query($query){
+  function filter_query($query)
+  {
     $tax_query = array();
 
-    if ( isset( $_GET['networks'] ) && !empty( $_GET['networks'] ) ){
+    if (isset($_GET['networks']) && !empty($_GET['networks'])) {
       foreach (explode(',', $_GET['networks']) as $network) {
         array_push($tax_query, array(
           'taxonomy' => 'network',
@@ -246,7 +251,7 @@ HTML;
     }
 
 
-    if ( isset( $_GET['languages'] ) && !empty( $_GET['languages'] ) ){
+    if (isset($_GET['languages']) && !empty($_GET['languages'])) {
       foreach (explode(',', $_GET['languages']) as $language) {
         array_push($tax_query, array(
           'taxonomy' => 'programing_language',
@@ -257,7 +262,7 @@ HTML;
     }
 
 
-    if ( isset( $_GET['tags'] ) && !empty( $_GET['tags'] ) ){
+    if (isset($_GET['tags']) && !empty($_GET['tags'])) {
       foreach (explode(',', $_GET['tags']) as $tag) {
         array_push($tax_query, array(
           'taxonomy' => 'post_tag',
@@ -271,58 +276,61 @@ HTML;
     return $query;
   }
 
-  function create_post_type() {
-    add_action( 'init', array( $this, 'register_bot_post_type' ), 40 );
-    add_action( 'init',  array( $this, 'register_bot_post_meta' ), 40 );
-    add_action( 'init', array( $this, 'register_bot_network_taxonomy' ), 40 );
-    add_action( 'init', array( $this, 'register_programing_language_taxonomy' ), 40 );
+  function create_post_type()
+  {
+    add_action('init', array($this, 'register_bot_post_type'), 40);
+    add_action('init',  array($this, 'register_bot_post_meta'), 40);
+    add_action('init', array($this, 'register_bot_network_taxonomy'), 40);
+    add_action('init', array($this, 'register_programing_language_taxonomy'), 40);
   }
 
-  function change_post_title_placeholder( $title ){
+  function change_post_title_placeholder($title)
+  {
     $screen = get_current_screen();
-  
-    if  ( $screen->post_type == 'bot' ) {
-      $title = "Bot's handle or name...";
-    }    
-   return $title;
-  }
-  
 
-  function register_bot_post_type() {
+    if ($screen->post_type == 'bot') {
+      $title = "Bot's handle or name...";
+    }
+    return $title;
+  }
+
+
+  function register_bot_post_type()
+  {
     $args = array(
-      'label' => __( 'Post Type', 'botwiki' ),
-      'description' => __( 'Post Type Description', 'botwiki' ),
+      'label' => __('Post Type', 'botwiki'),
+      'description' => __('Post Type Description', 'botwiki'),
       'labels' => array(
-        'name' => __( 'Bots', 'post type general name', 'botwiki' ),
-        'singular_name' => __( 'Bot', 'post type singular name', 'botwiki' ),
-        'menu_name' => __( 'Bots', 'admin menu', 'botwiki' ),
-        'name_admin_bar' => __( 'Bot', 'add new on admin bar', 'botwiki' ),
-        'archives' => __( 'Bot Archives', 'botwiki' ),
-        'attributes' => __( 'Bot Attributes', 'botwiki' ),
-        'add_new' => __( 'Add New', 'book', 'botwiki' ),
-        'add_new_item' => __( 'Add New Bot', 'botwiki' ),
-        'new_item' => __( 'New Bot', 'botwiki' ),
-        'edit_item' => __( 'Edit Bot', 'botwiki' ),
-        'update_item' => __( 'Update Bot', 'botwiki' ),
-        'view_item' => __( 'View Bot', 'botwiki' ),
-        'view_items' => __( 'View Bots', 'botwiki' ),
-        'all_items' => __( 'All Bots', 'botwiki' ),
-        'search_items' => __( 'Search Bots', 'botwiki' ),
-        'parent_item_colon' => __( 'Parent Bots:', 'botwiki' ),
-        'not_found' => __( 'No Bots found.', 'botwiki' ),
-        'not_found_in_trash' => __( 'No Bots found in Trash.', 'botwiki' ),
-        'featured_image' => __( 'Featured Image', 'botwiki' ),
-        'set_featured_image' => __( 'Set featured image', 'botwiki' ),
-        'remove_featured_image' => __( 'Remove featured image', 'botwiki' ),
-        'use_featured_image' => __( 'Use as featured image', 'botwiki' ),
-        'insert_into_item' => __( 'Insert into Bot', 'botwiki' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this Bot', 'botwiki' ),
-        'items_list' => __( 'Items list', 'botwiki' ),
-        'items_list_navigation' => __( 'Items list navigation', 'botwiki' ),
-        'filter_items_list' => __( 'Filter items list', 'botwiki' )
+        'name' => __('Bots', 'post type general name', 'botwiki'),
+        'singular_name' => __('Bot', 'post type singular name', 'botwiki'),
+        'menu_name' => __('Bots', 'admin menu', 'botwiki'),
+        'name_admin_bar' => __('Bot', 'add new on admin bar', 'botwiki'),
+        'archives' => __('Bot Archives', 'botwiki'),
+        'attributes' => __('Bot Attributes', 'botwiki'),
+        'add_new' => __('Add New', 'book', 'botwiki'),
+        'add_new_item' => __('Add New Bot', 'botwiki'),
+        'new_item' => __('New Bot', 'botwiki'),
+        'edit_item' => __('Edit Bot', 'botwiki'),
+        'update_item' => __('Update Bot', 'botwiki'),
+        'view_item' => __('View Bot', 'botwiki'),
+        'view_items' => __('View Bots', 'botwiki'),
+        'all_items' => __('All Bots', 'botwiki'),
+        'search_items' => __('Search Bots', 'botwiki'),
+        'parent_item_colon' => __('Parent Bots:', 'botwiki'),
+        'not_found' => __('No Bots found.', 'botwiki'),
+        'not_found_in_trash' => __('No Bots found in Trash.', 'botwiki'),
+        'featured_image' => __('Featured Image', 'botwiki'),
+        'set_featured_image' => __('Set featured image', 'botwiki'),
+        'remove_featured_image' => __('Remove featured image', 'botwiki'),
+        'use_featured_image' => __('Use as featured image', 'botwiki'),
+        'insert_into_item' => __('Insert into Bot', 'botwiki'),
+        'uploaded_to_this_item' => __('Uploaded to this Bot', 'botwiki'),
+        'items_list' => __('Items list', 'botwiki'),
+        'items_list_navigation' => __('Items list navigation', 'botwiki'),
+        'filter_items_list' => __('Filter items list', 'botwiki')
       ),
-      'taxonomies' => array('post_tag', 'programing_language', 'network' ),
-      'supports' => array( 'title', 'excerpt', 'editor', 'thumbnail', 'author', 'revisions', 'custom-fields' ),
+      'taxonomies' => array('post_tag', 'programing_language', 'network'),
+      'supports' => array('title', 'excerpt', 'editor', 'thumbnail', 'author', 'revisions', 'custom-fields'),
       'hierarchical' => true,
       'public' => true,
       'show_ui' => true,
@@ -341,10 +349,11 @@ HTML;
       'rest_base' => 'bot',
       'rest_controller_class' => 'WP_REST_Posts_Controller'
     );
-    register_post_type( 'bot', $args );
+    register_post_type('bot', $args);
   }
 
-  function register_bot_post_meta(){
+  function register_bot_post_meta()
+  {
     $meta_keys = array(
       'bot_url',
       'bot_source_url',
@@ -361,36 +370,37 @@ HTML;
       'bot_tweets_html'
     );
 
-    foreach ( $meta_keys as $key ) {
-      register_meta( 'post', $key, array(
+    foreach ($meta_keys as $key) {
+      register_meta('post', $key, array(
         'show_in_rest' => true,
         'type' => 'string',
         'single' => true
-      ) );
+      ));
     }
-}  
+  }
 
-  function register_bot_network_taxonomy() {
+  function register_bot_network_taxonomy()
+  {
     $labels = array(
-      'name'                       => _x( 'Networks', 'Taxonomy General Name', 'botwiki' ),
-      'singular_name'              => _x( 'Network', 'Taxonomy Singular Name', 'botwiki' ),
-      'menu_name'                  => __( 'Network', 'botwiki' ),
-      'all_items'                  => __( 'All Networks', 'botwiki' ),
-      'parent_item'                => __( 'Parent Network', 'botwiki' ),
-      'parent_item_colon'          => __( 'Parent Network:', 'botwiki' ),
-      'new_item_name'              => __( 'New Network Name', 'botwiki' ),
-      'add_new_item'               => __( 'Add New Network', 'botwiki' ),
-      'edit_item'                  => __( 'Edit Network', 'botwiki' ),
-      'update_item'                => __( 'Update Network', 'botwiki' ),
-      'view_item'                  => __( 'View Network', 'botwiki' ),
-      'separate_items_with_commas' => __( 'Separate items with commas', 'botwiki' ),
-      'add_or_remove_items'        => __( 'Add or remove items', 'botwiki' ),
-      'choose_from_most_used'      => __( 'Choose from the most used', 'botwiki' ),
-      'popular_items'              => __( 'Popular Networks', 'botwiki' ),
-      'search_items'               => __( 'Search Networks', 'botwiki' ),
-      'not_found'                  => __( 'Not Found', 'botwiki' ),
-      'items_list'                 => __( 'Network list', 'botwiki' ),
-      'items_list_navigation'      => __( 'Network list navigation', 'botwiki' )
+      'name'                       => _x('Networks', 'Taxonomy General Name', 'botwiki'),
+      'singular_name'              => _x('Network', 'Taxonomy Singular Name', 'botwiki'),
+      'menu_name'                  => __('Network', 'botwiki'),
+      'all_items'                  => __('All Networks', 'botwiki'),
+      'parent_item'                => __('Parent Network', 'botwiki'),
+      'parent_item_colon'          => __('Parent Network:', 'botwiki'),
+      'new_item_name'              => __('New Network Name', 'botwiki'),
+      'add_new_item'               => __('Add New Network', 'botwiki'),
+      'edit_item'                  => __('Edit Network', 'botwiki'),
+      'update_item'                => __('Update Network', 'botwiki'),
+      'view_item'                  => __('View Network', 'botwiki'),
+      'separate_items_with_commas' => __('Separate items with commas', 'botwiki'),
+      'add_or_remove_items'        => __('Add or remove items', 'botwiki'),
+      'choose_from_most_used'      => __('Choose from the most used', 'botwiki'),
+      'popular_items'              => __('Popular Networks', 'botwiki'),
+      'search_items'               => __('Search Networks', 'botwiki'),
+      'not_found'                  => __('Not Found', 'botwiki'),
+      'items_list'                 => __('Network list', 'botwiki'),
+      'items_list_navigation'      => __('Network list navigation', 'botwiki')
     );
 
     $args = array(
@@ -402,32 +412,33 @@ HTML;
       'show_admin_column'          => true,
       'show_in_nav_menus'          => true,
       'show_tagcloud'              => true,
-      'rewrite' =>  array('slug' => 'networks', 'with_front' => false)      
+      'rewrite' =>  array('slug' => 'networks', 'with_front' => false)
     );
-    register_taxonomy( 'network', array( 'bot' ), $args );
+    register_taxonomy('network', array('bot'), $args);
   }
 
-  function register_programing_language_taxonomy() {
+  function register_programing_language_taxonomy()
+  {
     $labels = array(
-      'name'                       => _x( 'Programing Languages', 'Taxonomy General Name', 'botwiki' ),
-      'singular_name'              => _x( 'Programing Language', 'Taxonomy Singular Name', 'botwiki' ),
-      'menu_name'                  => __( 'Programing Language', 'botwiki' ),
-      'all_items'                  => __( 'All Languages', 'botwiki' ),
-      'parent_item'                => __( 'Parent Programing Language', 'botwiki' ),
-      'parent_item_colon'          => __( 'Parent Programing Language:', 'botwiki' ),
-      'new_item_name'              => __( 'New Programing Language Name', 'botwiki' ),
-      'add_new_item'               => __( 'Add New Programing Language', 'botwiki' ),
-      'edit_item'                  => __( 'Edit Programing Language', 'botwiki' ),
-      'update_item'                => __( 'Update Programing Language', 'botwiki' ),
-      'view_item'                  => __( 'View Programing Language', 'botwiki' ),
-      'separate_items_with_commas' => __( 'Separate items with commas', 'botwiki' ),
-      'add_or_remove_items'        => __( 'Add or remove items', 'botwiki' ),
-      'choose_from_most_used'      => __( 'Choose from the most used', 'botwiki' ),
-      'popular_items'              => __( 'Popular Programing Languages', 'botwiki' ),
-      'search_items'               => __( 'Search Programing Languages', 'botwiki' ),
-      'not_found'                  => __( 'Not Found', 'botwiki' ),
-      'items_list'                 => __( 'Programing Language list', 'botwiki' ),
-      'items_list_navigation'      => __( 'Programing Language list navigation', 'botwiki' )
+      'name'                       => _x('Programing Languages', 'Taxonomy General Name', 'botwiki'),
+      'singular_name'              => _x('Programing Language', 'Taxonomy Singular Name', 'botwiki'),
+      'menu_name'                  => __('Programing Language', 'botwiki'),
+      'all_items'                  => __('All Languages', 'botwiki'),
+      'parent_item'                => __('Parent Programing Language', 'botwiki'),
+      'parent_item_colon'          => __('Parent Programing Language:', 'botwiki'),
+      'new_item_name'              => __('New Programing Language Name', 'botwiki'),
+      'add_new_item'               => __('Add New Programing Language', 'botwiki'),
+      'edit_item'                  => __('Edit Programing Language', 'botwiki'),
+      'update_item'                => __('Update Programing Language', 'botwiki'),
+      'view_item'                  => __('View Programing Language', 'botwiki'),
+      'separate_items_with_commas' => __('Separate items with commas', 'botwiki'),
+      'add_or_remove_items'        => __('Add or remove items', 'botwiki'),
+      'choose_from_most_used'      => __('Choose from the most used', 'botwiki'),
+      'popular_items'              => __('Popular Programing Languages', 'botwiki'),
+      'search_items'               => __('Search Programing Languages', 'botwiki'),
+      'not_found'                  => __('Not Found', 'botwiki'),
+      'items_list'                 => __('Programing Language list', 'botwiki'),
+      'items_list_navigation'      => __('Programing Language list navigation', 'botwiki')
     );
 
     $args = array(
@@ -441,25 +452,26 @@ HTML;
       'rewrite' =>  array('slug' => 'languages', 'with_front' => false),
       'show_tagcloud'              => true
     );
-    register_taxonomy( 'programing_language', array( 'bot' ), $args );
+    register_taxonomy('programing_language', array('bot'), $args);
   }
 
-  function bot_info_fields(){
+  function bot_info_fields()
+  {
     $id = get_the_id();
-    $bot_meta = get_post_meta( $id );
+    $bot_meta = get_post_meta($id);
 
     // echo "<pre><code>";
     // var_dump($bot_meta);
     // echo "</code></pre>";
 
-    wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
+    wp_nonce_field(basename(__FILE__), 'bw_nonce'); ?>
     <table class="w-100">
       <tr>
         <td class="w-100">
           <label for="bot_author_url">Bot's URL(s) (One per line)</label>
         </td>
       </tr>
-      <tr>      
+      <tr>
         <td class="w-100">
           <textarea class="w-100" name="bot_url" rows="5"><?php echo $bot_meta['bot_url'][0]; ?></textarea>
         </td>
@@ -475,29 +487,29 @@ HTML;
             <button id="output-archive-btn" class="button-secondary">Select output archive</button>
           </p>
           <?php
-            $has_archive = ( isset( $bot_meta['output_archive_url'] ) &&
-                             strlen( trim( $bot_meta['output_archive_url'][0] ) ) !== 0 );
+          $has_archive = (isset($bot_meta['output_archive_url']) &&
+            strlen(trim($bot_meta['output_archive_url'][0])) !== 0);
           ?>
-          <p id="output-archive-file-wrapper" class="<?php echo ( $has_archive ? '' : 'hidden' ); ?>">
+          <p id="output-archive-file-wrapper" class="<?php echo ($has_archive ? '' : 'hidden'); ?>">
             <input hidden
-                   name="output-archive-url"
-                   id="output-archive-url" 
-                   value="<?php echo $bot_meta['output_archive_url'][0] ?>">
+              name="output-archive-url"
+              id="output-archive-url"
+              value="<?php echo $bot_meta['output_archive_url'][0] ?>">
             <input readonly
-                   name="output-archive-filename"
-                   id="output-archive-filename"
-                   class="regular-text code" 
-                   value="<?php echo $bot_meta['output_archive_filename'][0] ?>">
+              name="output-archive-filename"
+              id="output-archive-filename"
+              class="regular-text code"
+              value="<?php echo $bot_meta['output_archive_filename'][0] ?>">
             <a class="button-secondary"
-               id="output-archive-link"
-               href="<?php echo $bot_meta['output_archive_url'][0] ?>"
-               target="_blank">View archive</a>
+              id="output-archive-link"
+              href="<?php echo $bot_meta['output_archive_url'][0] ?>"
+              target="_blank">View archive</a>
             <button class="button-primary" id="output-archive-remove">Remove</button>
           </p>
-          <p id="output-archive-date-wrapper" class="<?php echo ( $has_archive ? '' : 'hidden' ); ?>">
-            <label for="output-archive-date"> Archive date</label><br/>
-            <input type="date" name="output-archive-date" id="output-archive-date" class="regular-text" 
-                   value="<?php echo $bot_meta['output_archive_date'][0] ?>">
+          <p id="output-archive-date-wrapper" class="<?php echo ($has_archive ? '' : 'hidden'); ?>">
+            <label for="output-archive-date"> Archive date</label><br />
+            <input type="date" name="output-archive-date" id="output-archive-date" class="regular-text"
+              value="<?php echo $bot_meta['output_archive_date'][0] ?>">
           </p>
         </td>
       </tr>
@@ -515,10 +527,10 @@ HTML;
         <td class="w-100">
           <h4>Additional details</h4>
         </td>
-      </tr>      
+      </tr>
       <?php
-        $bot_is_featured = ( array_key_exists('bot_is_featured', $bot_meta ) && $bot_meta['bot_is_featured'][0] === "on" );
-        $bot_is_nsfw = ( array_key_exists('bot_is_nsfw', $bot_meta ) && $bot_meta['bot_is_nsfw'][0] === "on" );
+      $bot_is_featured = (array_key_exists('bot_is_featured', $bot_meta) && $bot_meta['bot_is_featured'][0] === "on");
+      $bot_is_nsfw = (array_key_exists('bot_is_nsfw', $bot_meta) && $bot_meta['bot_is_nsfw'][0] === "on");
       ?>
       <tr>
         <td class="w-100">
@@ -537,12 +549,13 @@ HTML;
     </table>
   <?php }
 
-   function bot_tweet_fields(){
+  function bot_tweet_fields()
+  {
     $id = get_the_id();
-    $bot_meta = get_post_meta( $id );
-    $bot_tweets_hide = ( array_key_exists('bot_tweets_hide', $bot_meta ) && $bot_meta['bot_tweets_hide'][0] === "on" );
+    $bot_meta = get_post_meta($id);
+    $bot_tweets_hide = (array_key_exists('bot_tweets_hide', $bot_meta) && $bot_meta['bot_tweets_hide'][0] === "on");
 
-    wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
+    wp_nonce_field(basename(__FILE__), 'bw_nonce'); ?>
     <table class="w-100">
       <tr>
         <td class="w-100 w-m-100">
@@ -562,13 +575,14 @@ HTML;
         </td>
       </tr>
     </table>
-  <?php }   
+  <?php }
 
-  function bot_author_info_field(){
+  function bot_author_info_field()
+  {
     $id = get_the_id();
-    $bot_meta = get_post_meta( $id );
+    $bot_meta = get_post_meta($id);
 
-    wp_nonce_field( basename( __FILE__ ), 'bw_nonce' ); ?>
+    wp_nonce_field(basename(__FILE__), 'bw_nonce'); ?>
     <table class="w-100">
       <tr>
         <td class="w-33 w-m-100">
@@ -585,10 +599,10 @@ HTML;
     </table>
 
     <?php
-    if ( isset( $bot_meta['bot_author_email'] ) && strlen( $bot_meta['bot_author_email'][0] ) > 0 ){
-      $botmaker_badge_awarded = ( array_key_exists('botmaker_badge_awarded', $bot_meta ) && $bot_meta['botmaker_badge_awarded'][0] == "on" );
-      $bot_author_emails = implode( ', ', preg_split('/\s+/', $bot_meta['bot_author_email'][0] ) );
-      ?>
+    if (isset($bot_meta['bot_author_email']) && strlen($bot_meta['bot_author_email'][0]) > 0) {
+      $botmaker_badge_awarded = (array_key_exists('botmaker_badge_awarded', $bot_meta) && $bot_meta['botmaker_badge_awarded'][0] == "on");
+      $bot_author_emails = implode(', ', preg_split('/\s+/', $bot_meta['bot_author_email'][0]));
+    ?>
       <div class="notice <?php echo ($botmaker_badge_awarded ? "notice-info" : "notice-warning"); ?> inline">
         <p>
           <a href="https://badgr.com/issuers/5e1fd98146e0fb003395f0b4/badges/5e1fe33c46e0fb0035a12afc/award" target="_blank">Award botmaker badge</a> to <code><?php echo $bot_author_emails; ?></code>.
@@ -599,49 +613,56 @@ HTML;
           </label>
         </p>
       </div>
-    <?php }
-  }   
+<?php }
+  }
 
-  function add_bot_tweets(){
+  function add_bot_tweets()
+  {
     add_meta_box(
       'bot-tweets-meta',
-      esc_html__( 'Example output' ),
-      array($this, 'bot_tweet_fields' ),
+      'Example output',
+      array($this, 'bot_tweet_fields'),
       'bot',
       'normal',
-      'core'      
+      'core',
+      array('__back_compat_meta_box' => false)
     );
   }
 
-  function add_bot_info(){
+  function add_bot_info()
+  {
     add_meta_box(
       'bot-info-meta',
-      esc_html__( 'About the bot' ),
-      array($this, 'bot_info_fields' ),
+      'About the bot',
+      array($this, 'bot_info_fields'),
       'bot',
       'normal',
-      'core'      
+      'core',
+      array('__back_compat_meta_box' => false)
     );
   }
 
-  function add_bot_author_info(){
+  function add_bot_author_info()
+  {
     add_meta_box(
       'bot-author-meta',
-      esc_html__( 'About the author(s)' ),
-      array($this, 'bot_author_info_field' ),
+      'About the author(s)',
+      array($this, 'bot_author_info_field'),
       'bot',
       'normal',
-      'core'      
+      'core',
+      array('__back_compat_meta_box' => false)
     );
   }
 
-  function save_meta( $post_id ) {
-    if ( wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce') ){
+  function save_meta($post_id)
+  {
+    if (wp_verify_nonce($_POST['_inline_edit'], 'inlineeditnonce')) {
       return;
     }
 
-    $post_type = get_post_type( $post_id );
-    if ( $post_type === 'bot' ){
+    $post_type = get_post_type($post_id);
+    if ($post_type === 'bot') {
       update_post_meta($post_id, 'bot_author_info', $_POST['bot_author_info']);
       update_post_meta($post_id, 'bot_url', $_POST['bot_url']);
       update_post_meta($post_id, 'bot_source_url', $_POST['bot_source_url']);
@@ -659,31 +680,27 @@ HTML;
 
 
 
-      if ($_POST['bot_tweets']){
+      if ($_POST['bot_tweets']) {
         $bot_tweets = explode("\n", str_replace("\r", "", $_POST['bot_tweets']));
         $twitter_oembed = 'https://publish.twitter.com/oembed?url=';
 
         $bot_tweets_html = '';
 
-        if ($bot_tweets){
-          foreach ($bot_tweets as $index=>$tweet_url) {
-            if ( strpos( $tweet_url, 'twitter.com/' ) !== false ){
-              $data = file_get_contents($twitter_oembed . urlencode( $tweet_url ));
-              $bot_tweets_html .= json_decode($data)->html;              
-            }
-            elseif ( strpos( $tweet_url, 'youtube.com/' ) !== false ){
-              $data = file_get_contents( 'https://www.youtube.com/oembed?url=' . urlencode( $tweet_url ) . '&format=json' );
+        if ($bot_tweets) {
+          foreach ($bot_tweets as $index => $tweet_url) {
+            if (strpos($tweet_url, 'twitter.com/') !== false) {
+              $data = file_get_contents($twitter_oembed . urlencode($tweet_url));
               $bot_tweets_html .= json_decode($data)->html;
-            }
-            elseif ( strpos( $tweet_url, 'twitch.tv/' ) !== false ){
-              $data = file_get_contents( 'https://api.twitch.tv/v5/oembed?url=' . urlencode( $tweet_url ) );
+            } elseif (strpos($tweet_url, 'youtube.com/') !== false) {
+              $data = file_get_contents('https://www.youtube.com/oembed?url=' . urlencode($tweet_url) . '&format=json');
               $bot_tweets_html .= json_decode($data)->html;
-            }
-            elseif ( strpos( $tweet_url, 'tumblr.com/post/' ) !== false ){
-              $data = file_get_contents( 'https://www.tumblr.com/oembed/1.0?url=' . urlencode( $tweet_url ) );
+            } elseif (strpos($tweet_url, 'twitch.tv/') !== false) {
+              $data = file_get_contents('https://api.twitch.tv/v5/oembed?url=' . urlencode($tweet_url));
               $bot_tweets_html .= json_decode($data)->html;
-            }
-            elseif ( strpos( $tweet_url, 'facebook.com/' ) !== false ){
+            } elseif (strpos($tweet_url, 'tumblr.com/post/') !== false) {
+              $data = file_get_contents('https://www.tumblr.com/oembed/1.0?url=' . urlencode($tweet_url));
+              $bot_tweets_html .= json_decode($data)->html;
+            } elseif (strpos($tweet_url, 'facebook.com/') !== false) {
               $bot_tweets_html .= '<blockquote><div id="fb-root"></div><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id))  return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs);}(document, \'script\', \'facebook-jssdk\'));</script><div class="fb-post" data-href="' . $tweet_url . '"></div></blockquote>';
               // $browser = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.16 (KHTML, like Gecko) \Chrome/24.0.1304.0 Safari/537.16';
               // curl_setopt($ch, CURLOPT_USERAGENT, $browser);
@@ -700,10 +717,9 @@ HTML;
               // $json_post = @file_get_contents('https://www.facebook.com/plugins/video/oembed.json/?url=' . urlencode( $tweet_url ), false, $context);
               // $data = json_decode($json_post);
               // $bot_tweets_html .= $data->html;
-            }
-            else {
+            } else {
               global $helpers;
-              if ( $helpers->is_mastodon_instance($tweet_url) ){
+              if ($helpers->is_mastodon_instance($tweet_url)) {
 
                 // $domain = $helpers->get_domain_from_url( $tweet_url );
                 // $bot_post_id = end(explode('/', $tweet_url));
@@ -726,8 +742,8 @@ HTML;
             }
           }
 
-          update_post_meta($post_id, 'bot_tweets_html', $bot_tweets_html);        
-        }        
+          update_post_meta($post_id, 'bot_tweets_html', $bot_tweets_html);
+        }
       }
     }
   }
