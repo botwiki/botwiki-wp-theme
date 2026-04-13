@@ -929,3 +929,23 @@ function bw_import_bots(\WP_REST_Request $request){
     
     return $response;
 }
+
+
+function bot_trap_page() {
+    if ( !isset( $_GET["bot_trap"] ) ) return;
+
+    status_header( 200 );
+    header( "Content-Type: text/html" );
+    set_time_limit( 0 );
+    
+
+    while ( true ) {
+        echo str_repeat( "🤖", 1024 );
+        ob_flush();
+        flush();
+        sleep( 1 );
+    }
+    exit;
+}
+
+add_action( 'init', 'bot_trap_page' );

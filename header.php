@@ -267,7 +267,6 @@
 <body <?php body_class(); ?>>
   <script>
     const toggleDarkMode = (enabled) => {
-      console.log('toggleDarkMode', enabled);
       if (enabled) {
         document.body.setAttribute('data-bs-theme', 'dark');
       } else {
