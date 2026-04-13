@@ -949,3 +949,15 @@ function bot_trap_page() {
 }
 
 add_action( 'init', 'bot_trap_page' );
+
+
+function redirect_suspicious_ua() {
+    $user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+    
+    if ( strpos( $user_agent, '.0.0.0 Safari' ) !== false ) {
+        wp_redirect( '/?bot_trap=1' );
+        exit;
+    }
+}
+
+add_action( 'init', 'redirect_suspicious_ua' );
