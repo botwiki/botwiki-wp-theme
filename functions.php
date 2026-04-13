@@ -953,8 +953,16 @@ add_action( 'init', 'bot_trap_page' );
 
 function redirect_suspicious_ua() {
     $user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+    $referrer = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
     
-    if ( strpos( $user_agent, '.0.0.0 Safari' ) !== false ) {
+    $is_frozen_ua = preg_match( '/Chrome\/\d+\.0\.0\.0/', $user_agent );
+    $is_google_referrer = strpos( $referrer, 'google.com' ) !== false;
+
+    if ( $is_frozen_ua && $is_google_referrer ) {
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $log_file = WP_CONTENT_DIR . '/bot-ips.txt';
+        file_put_contents( $log_file, date('Y-m-d H:i:s') . ' ' . $ip . ' UA:' . $user_agent . PHP_EOL, FILE_APPEND );
+        
         wp_redirect( '/?bot_trap=1' );
         exit;
     }
