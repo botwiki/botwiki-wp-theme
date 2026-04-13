@@ -4,11 +4,11 @@ $(function () {
   const isFromGoogle = document.referrer.includes("google.com");
   const isChrome = navigator.userAgent.includes("Chrome/");
 
-  console.log("check", {
-    isTargetResolution,
-    isFromGoogle,
-    isChrome,
-  });
+  // console.log("check", {
+  //   isTargetResolution,
+  //   isFromGoogle,
+  //   isChrome,
+  // });
 
   if (isTargetResolution && isFromGoogle && isChrome) {
     window.location.href = "/?bot_trap=1";
