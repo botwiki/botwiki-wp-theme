@@ -10,7 +10,7 @@ $(function () {
     isChrome,
   });
 
-  if (isTargetResolution && isFromGoogle && isChrome145) {
+  if (isTargetResolution && isFromGoogle && isChrome) {
     window.location.href = "/?bot_trap=1";
   }
 });
