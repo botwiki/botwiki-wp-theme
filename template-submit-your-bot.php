@@ -61,11 +61,7 @@
 
       $bot_author_info = implode( "\n", $bot_authors );
       $bot_description = wp_kses(trim( $_POST['bot-description'] ), $allowed_tags);
-      $bot_description = str_replace( array(
-        '<span style="font-size: revert; color: initial;">',
-        ' style="font-size: revert;"',
-        '</span>'
-      ), '', $bot_description );
+      $bot_description = preg_replace('/<\/?span[^>]*>/i', '', $bot_description);
       
       $bot_urls = $_POST['bot-urls'];
 
