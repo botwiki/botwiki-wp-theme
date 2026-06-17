@@ -958,14 +958,14 @@ function redirect_suspicious_ua() {
     $is_frozen_ua = preg_match( '/Chrome\/\d+\.0\.0\.0/', $user_agent );
     $is_google_referrer = strpos( $referrer, 'google.com' ) !== false;
 
-    if ( $is_frozen_ua && $is_google_referrer ) {
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $log_file = WP_CONTENT_DIR . '/bot-ips.txt';
-        file_put_contents( $log_file, date('Y-m-d H:i:s') . ' ' . $ip . ' UA:' . $user_agent . PHP_EOL, FILE_APPEND );
+    // if ( $is_frozen_ua && $is_google_referrer ) {
+    //     $ip = $_SERVER['REMOTE_ADDR'];
+    //     $log_file = WP_CONTENT_DIR . '/bot-ips.txt';
+    //     file_put_contents( $log_file, date('Y-m-d H:i:s') . ' ' . $ip . ' UA:' . $user_agent . PHP_EOL, FILE_APPEND );
         
-        wp_redirect( '/?bot_trap=1' );
-        exit;
-    }
+    //     wp_redirect( '/?bot_trap=1' );
+    //     exit;
+    // }
 }
 
 add_action( 'init', 'redirect_suspicious_ua' );
